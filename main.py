@@ -667,40 +667,44 @@ if __name__ == "__main__":
     publish_to_metaculus = True
     print_startup_banner(run_mode, will_publish=publish_to_metaculus)
 
-    # Configure the bot. The `llms=` block below is commented out to use
-    # whichever default models forecasting-tools picks based on your env vars;
-    # uncomment and edit to pin specific models.
-    is_smoke_test = run_mode == "test_questions"
-    smoke_test_llms = (
+    # Zero-cost baseline while granted LLM credits are pending.
+    # Both smoke tests and live FutureEval/MiniBench runs use OpenRouter's
+    # free router, no external research, one forecast sample, and one parser
+    # validation sample. This keeps the experiment inside the $0 new-cost rule.
+    use_zero_cost_baseline = run_mode in ("tournament", "test_questions")
+    zero_cost_llms = (
         {
             "default": GeneralLlm(
                 model="openrouter/openrouter/free",
                 temperature=0.3,
+                allowed_tries=1,
             ),
             "summarizer": GeneralLlm(
                 model="openrouter/openrouter/free",
                 temperature=0.0,
+                allowed_tries=1,
             ),
             "researcher": "no_research",
             "parser": GeneralLlm(
                 model="openrouter/openrouter/free",
                 temperature=0.0,
+                allowed_tries=1,
             ),
         }
-        if is_smoke_test
+        if use_zero_cost_baseline
         else None
     )
 
     template_bot = SummerTemplateBot2026(
         research_reports_per_question=1,
-        predictions_per_research_report=1 if is_smoke_test else 5,
+        predictions_per_research_report=1 if use_zero_cost_baseline else 5,
         use_research_summary_to_forecast=False,
         publish_reports_to_metaculus=publish_to_metaculus,
         folder_to_save_reports_to=None,
         skip_previously_forecasted_questions=True,
         extra_metadata_in_explanation=True,
-        enable_summarize_research=not is_smoke_test,
-        llms=smoke_test_llms,
+        enable_summarize_research=not use_zero_cost_baseline,
+        llms=zero_cost_llms,
         # llms={
         #     "default": GeneralLlm(
         #         model="openrouter/openai/gpt-4o",
@@ -713,12 +717,24 @@ if __name__ == "__main__":
         #     "parser": "openai/gpt-4o-mini",
         # },
     )
+    if use_zero_cost_baseline:
+        template_bot._structure_output_validation_samples = 1
+
+    async def forecast_sequentially(questions):
+        reports = []
+        template_bot.skip_previously_forecasted_questions = False
+        for question in questions:
+            report = await template_bot.forecast_question(
+                question, return_exceptions=True
+            )
+            reports.append(report)
+        return reports
 
     # Per-mode tournament URL shown in the summary banner footer. These
     # piggyback on the forecasting_tools SDK constants and need updating
     # whenever those rotate seasons.
     TOURNAMENT_URLS = {
-        "tournament": "https://www.metaculus.com/tournament/summer-futureeval-2026/",
+        "tournament": "https://www.metaculus.com/tournament/fall-futureeval-2026/",
         "metaculus_cup": "https://www.metaculus.com/tournament/metaculus-cup-summer-2025/",
         "test_questions": "https://www.metaculus.com/tournament/bot-testing-area/",
     }
@@ -728,17 +744,45 @@ if __name__ == "__main__":
     # summary printers below.
     client = MetaculusClient()
     if run_mode == "tournament":
-        seasonal_tournament_reports = asyncio.run(
-            template_bot.forecast_on_tournament(
-                client.CURRENT_AI_COMPETITION_ID, return_exceptions=True
-            )
+        # OpenRouter's free plan has a limited daily request budget.
+        # Process a small sequential batch so the bot can enter MiniBench now
+        # without requiring paid API usage. MiniBench is prioritized; once its
+        # open questions are covered, the same budget rolls into FutureEval.
+        max_free_questions_per_run = 12
+
+        minibench_questions = client.get_all_open_questions_from_tournament(
+            client.CURRENT_MINIBENCH_ID
         )
-        minibench_reports = asyncio.run(
-            template_bot.forecast_on_tournament(
-                client.CURRENT_MINIBENCH_ID, return_exceptions=True
-            )
+        unforecasted_minibench = [
+            question
+            for question in minibench_questions
+            if not question.already_forecasted
+        ]
+
+        seasonal_questions = client.get_all_open_questions_from_tournament(
+            client.CURRENT_AI_COMPETITION_ID
         )
-        forecast_reports = seasonal_tournament_reports + minibench_reports
+        unforecasted_seasonal = [
+            question
+            for question in seasonal_questions
+            if not question.already_forecasted
+        ]
+
+        selected_questions = unforecasted_minibench[:max_free_questions_per_run]
+        remaining_slots = max_free_questions_per_run - len(selected_questions)
+        if remaining_slots > 0:
+            selected_questions += unforecasted_seasonal[:remaining_slots]
+
+        logger.info(
+            "Zero-cost live batch: %s MiniBench open/unforecasted, "
+            "%s FutureEval open/unforecasted, forecasting %s question(s).",
+            len(unforecasted_minibench),
+            len(unforecasted_seasonal),
+            len(selected_questions),
+        )
+        forecast_reports = asyncio.run(
+            forecast_sequentially(selected_questions)
+        )
     elif run_mode == "metaculus_cup":
         # The Metaculus Cup may be uninitialized near the start of a season
         # (Jan/May/Sep). AXC_2025_TOURNAMENT_ID = 32564 and

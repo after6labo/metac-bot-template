@@ -670,15 +670,37 @@ if __name__ == "__main__":
     # Configure the bot. The `llms=` block below is commented out to use
     # whichever default models forecasting-tools picks based on your env vars;
     # uncomment and edit to pin specific models.
+    is_smoke_test = run_mode == "test_questions"
+    smoke_test_llms = (
+        {
+            "default": GeneralLlm(
+                model="openrouter/openrouter/free",
+                temperature=0.3,
+            ),
+            "summarizer": GeneralLlm(
+                model="openrouter/openrouter/free",
+                temperature=0.0,
+            ),
+            "researcher": "no_research",
+            "parser": GeneralLlm(
+                model="openrouter/openrouter/free",
+                temperature=0.0,
+            ),
+        }
+        if is_smoke_test
+        else None
+    )
+
     template_bot = SummerTemplateBot2026(
         research_reports_per_question=1,
-        predictions_per_research_report=5,
+        predictions_per_research_report=1 if is_smoke_test else 5,
         use_research_summary_to_forecast=False,
         publish_reports_to_metaculus=publish_to_metaculus,
         folder_to_save_reports_to=None,
         skip_previously_forecasted_questions=True,
         extra_metadata_in_explanation=True,
-        llms={"researcher": "no_research"} if run_mode == "test_questions" else None,
+        enable_summarize_research=not is_smoke_test,
+        llms=smoke_test_llms,
         # llms={
         #     "default": GeneralLlm(
         #         model="openrouter/openai/gpt-4o",
@@ -732,9 +754,12 @@ if __name__ == "__main__":
         # the recommended target for smoke-testing your bot.
         # https://www.metaculus.com/tournament/bot-testing-area/
         template_bot.skip_previously_forecasted_questions = False
+        test_questions = client.get_all_open_questions_from_tournament(
+            "bot-testing-area"
+        )
         forecast_reports = asyncio.run(
-            template_bot.forecast_on_tournament(
-                "bot-testing-area", return_exceptions=True
+            template_bot.forecast_questions(
+                test_questions[:1], return_exceptions=True
             )
         )
 

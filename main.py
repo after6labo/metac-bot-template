@@ -678,6 +678,7 @@ if __name__ == "__main__":
         folder_to_save_reports_to=None,
         skip_previously_forecasted_questions=True,
         extra_metadata_in_explanation=True,
+        llms={"researcher": "no_research"} if run_mode == "test_questions" else None,
         # llms={
         #     "default": GeneralLlm(
         #         model="openrouter/openai/gpt-4o",

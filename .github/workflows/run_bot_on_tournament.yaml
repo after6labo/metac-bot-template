@@ -2,8 +2,13 @@ name: Forecast on new AI tournament questions
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/run_bot_on_tournament.yaml"
   schedule:
-    - cron: "7,27,47 * * * *" # every 20 min, offset off the hour. Make sure to skip already-forecasted questions!
+    - cron: "17 0 * * *" # daily at 09:17 JST while running on free API quota
 
 # Add concurrency group to prevent parallel runs
 concurrency:

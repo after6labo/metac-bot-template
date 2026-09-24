@@ -1,0 +1,40 @@
+{
+  "started_at_utc": "2026-09-24T12:24:10.906851+00:00",
+  "mode": "tournament",
+  "targets": [
+    "minibench",
+    "fall-futureeval-2026"
+  ],
+  "model_route": "openrouter/openrouter/free",
+  "actual_routed_models": null,
+  "external_research": false,
+  "credit_approval": "unverified",
+  "credit_balance": null,
+  "api_call_count": null,
+  "api_token_usage": null,
+  "official_score": null,
+  "official_rank": null,
+  "prize_usd": null,
+  "cost_measurement": "Free-only route; estimated costs cover returned reports, not provider billing",
+  "new_spending_usd": 0,
+  "submitted": 1,
+  "failed_or_unconfirmed": 0,
+  "estimated_llm_cost_usd": 0.0,
+  "outcomes": [
+    {
+      "question_id": 45707,
+      "status": "submitted",
+      "nonfatal_errors": 0
+    }
+  ],
+  "skips": [],
+  "status": "completed",
+  "open_questions_returned": [
+    0,
+    1
+  ],
+  "selected": 1,
+  "finished_at_utc": "2026-09-24T12:25:06.640515+00:00",
+  "git_sha": "b72179dc1228d599efe0b68a83f2f8e5e279723a",
+  "workflow_run_id": "35998719942"
+}

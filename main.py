@@ -1,10 +1,19 @@
 import argparse
 import asyncio
 import logging
+import json
+import os
+from pathlib import Path
 from datetime import datetime, timezone
 from typing import Literal
 
 import dotenv
+from runtime_policy import (
+    FORECASTING_PRINCIPLES,
+    require_zero_cost_mode,
+    validate_zero_cost_environment,
+)
+from bot_runtime import run_forecasts
 
 # Runtime helpers (env validation, banners, dependency-warning suppression).
 from bot_helpers import (
@@ -18,6 +27,7 @@ silence_noisy_dependencies()
 
 from forecasting_tools import (
     AskNewsSearcher,
+    ApiFilter,
     BinaryQuestion,
     ForecastBot,
     GeneralLlm,
@@ -188,7 +198,9 @@ class SummerTemplateBot2026(ForecastBot):
     ) -> ReasonedPrediction[float]:
         prompt = clean_indents(
             f"""
-            You are a professional forecaster interviewing for a job.
+            You are a professional forecaster.
+
+            {FORECASTING_PRINCIPLES}
 
             Your interview question is:
             {question.question_text}
@@ -235,6 +247,7 @@ class SummerTemplateBot2026(ForecastBot):
             BinaryPrediction,
             model=self.get_llm("parser", "llm"),
             num_validation_samples=self._structure_output_validation_samples,
+            allowed_tries=1,
         )
         decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
 
@@ -250,7 +263,9 @@ class SummerTemplateBot2026(ForecastBot):
     ) -> ReasonedPrediction[PredictedOptionList]:
         prompt = clean_indents(
             f"""
-            You are a professional forecaster interviewing for a job.
+            You are a professional forecaster.
+
+            {FORECASTING_PRINCIPLES}
 
             Your interview question is:
             {question.question_text}
@@ -309,6 +324,7 @@ class SummerTemplateBot2026(ForecastBot):
             output_type=PredictedOptionList,
             model=self.get_llm("parser", "llm"),
             num_validation_samples=self._structure_output_validation_samples,
+            allowed_tries=1,
             additional_instructions=parsing_instructions,
         )
 
@@ -329,7 +345,9 @@ class SummerTemplateBot2026(ForecastBot):
         )
         prompt = clean_indents(
             f"""
-            You are a professional forecaster interviewing for a job.
+            You are a professional forecaster.
+
+            {FORECASTING_PRINCIPLES}
 
             Your interview question is:
             {question.question_text}
@@ -406,6 +424,7 @@ class SummerTemplateBot2026(ForecastBot):
             model=self.get_llm("parser", "llm"),
             additional_instructions=parsing_instructions,
             num_validation_samples=self._structure_output_validation_samples,
+            allowed_tries=1,
         )
         prediction = NumericDistribution.from_question(percentile_list, question)
         logger.info(
@@ -423,7 +442,9 @@ class SummerTemplateBot2026(ForecastBot):
         )
         prompt = clean_indents(
             f"""
-            You are a professional forecaster interviewing for a job.
+            You are a professional forecaster.
+
+            {FORECASTING_PRINCIPLES}
 
             Your interview question is:
             {question.question_text}
@@ -496,6 +517,7 @@ class SummerTemplateBot2026(ForecastBot):
             model=self.get_llm("parser", "llm"),
             additional_instructions=parsing_instructions,
             num_validation_samples=self._structure_output_validation_samples,
+            allowed_tries=1,
         )
 
         percentile_list = [
@@ -663,7 +685,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     run_mode: Literal["tournament", "metaculus_cup", "test_questions"] = args.mode
 
-    check_environment(strict=True)
+    require_zero_cost_mode(run_mode)
+    validate_zero_cost_environment()
     publish_to_metaculus = True
     print_startup_banner(run_mode, will_publish=publish_to_metaculus)
 
@@ -671,7 +694,7 @@ if __name__ == "__main__":
     # Both smoke tests and live FutureEval/MiniBench runs use OpenRouter's
     # free router, no external research, one forecast sample, and one parser
     # validation sample. This keeps the experiment inside the $0 new-cost rule.
-    use_zero_cost_baseline = run_mode in ("tournament", "test_questions")
+    use_zero_cost_baseline = True
     zero_cost_llms = (
         {
             "default": GeneralLlm(
@@ -720,92 +743,39 @@ if __name__ == "__main__":
     if use_zero_cost_baseline:
         template_bot._structure_output_validation_samples = 1
 
-    async def forecast_sequentially(questions):
-        reports = []
-        template_bot.skip_previously_forecasted_questions = False
-        for question in questions:
-            report = await template_bot.forecast_question(
-                question, return_exceptions=True
-            )
-            reports.append(report)
-        return reports
-
-    # Per-mode tournament URL shown in the summary banner footer. These
-    # piggyback on the forecasting_tools SDK constants and need updating
-    # whenever those rotate seasons.
+    # Explicit season target: the locked SDK's CURRENT_AI_COMPETITION_ID
+    # still points to the closed Summer 2026 tournament (33022).
     TOURNAMENT_URLS = {
         "tournament": "https://www.metaculus.com/tournament/fall-futureeval-2026/",
-        "metaculus_cup": "https://www.metaculus.com/tournament/metaculus-cup-summer-2025/",
         "test_questions": "https://www.metaculus.com/tournament/bot-testing-area/",
     }
-
-    # Dispatch on mode. Each branch produces a list of ForecastReport (or
-    # exceptions, since return_exceptions=True) which then flows into the
-    # summary printers below.
     client = MetaculusClient()
-    if run_mode == "tournament":
-        # OpenRouter's free plan has a limited daily request budget.
-        # Process a small sequential batch so the bot can enter MiniBench now
-        # without requiring paid API usage. MiniBench is prioritized; once its
-        # open questions are covered, the same budget rolls into FutureEval.
-        max_free_questions_per_run = 12
 
-        minibench_questions = client.get_all_open_questions_from_tournament(
-            client.CURRENT_MINIBENCH_ID
+    async def fetch_open_questions(tournament_id):
+        # Unlike get_all_open_questions_from_tournament in SDK 0.2.92,
+        # a target count makes the client paginate beyond the first 100 posts.
+        questions = await client.get_questions_matching_filter(
+            ApiFilter(
+                allowed_tournaments=[tournament_id],
+                allowed_statuses=["open"],
+                group_question_mode="unpack_subquestions",
+            ),
+            num_questions=1000,
+            error_if_question_target_missed=False,
         )
-        unforecasted_minibench = [
-            question
-            for question in minibench_questions
-            if not question.already_forecasted
-        ]
+        if len(questions) >= 1000:
+            raise RuntimeError("Question retrieval cap reached; review pagination")
+        return questions
 
-        seasonal_questions = client.get_all_open_questions_from_tournament(
-            client.CURRENT_AI_COMPETITION_ID
-        )
-        unforecasted_seasonal = [
-            question
-            for question in seasonal_questions
-            if not question.already_forecasted
-        ]
-
-        selected_questions = unforecasted_minibench[:max_free_questions_per_run]
-        remaining_slots = max_free_questions_per_run - len(selected_questions)
-        if remaining_slots > 0:
-            selected_questions += unforecasted_seasonal[:remaining_slots]
-
-        logger.info(
-            "Zero-cost live batch: %s MiniBench open/unforecasted, "
-            "%s FutureEval open/unforecasted, forecasting %s question(s).",
-            len(unforecasted_minibench),
-            len(unforecasted_seasonal),
-            len(selected_questions),
-        )
-        forecast_reports = asyncio.run(
-            forecast_sequentially(selected_questions)
-        )
-    elif run_mode == "metaculus_cup":
-        # The Metaculus Cup may be uninitialized near the start of a season
-        # (Jan/May/Sep). AXC_2025_TOURNAMENT_ID = 32564 and
-        # AI_2027_TOURNAMENT_ID = "ai-2027" are also valid targets here.
-        template_bot.skip_previously_forecasted_questions = False
-        forecast_reports = asyncio.run(
-            template_bot.forecast_on_tournament(
-                client.CURRENT_METACULUS_CUP_ID, return_exceptions=True
-            )
-        )
-    elif run_mode == "test_questions":
-        # The bot-testing-area tournament contains all question types and is
-        # the recommended target for smoke-testing your bot.
-        # https://www.metaculus.com/tournament/bot-testing-area/
-        template_bot.skip_previously_forecasted_questions = False
-        test_questions = client.get_all_open_questions_from_tournament(
-            "bot-testing-area"
-        )
-        forecast_reports = asyncio.run(
-            template_bot.forecast_questions(
-                test_questions[:1], return_exceptions=True
-            )
-        )
+    forecast_reports, run_result = asyncio.run(
+        run_forecasts(fetch_open_questions, template_bot, run_mode)
+    )
+    run_result["git_sha"] = os.getenv("GITHUB_SHA")
+    run_result["workflow_run_id"] = os.getenv("GITHUB_RUN_ID")
+    result_path = Path("run-results/latest.json")
+    result_path.parent.mkdir(parents=True, exist_ok=True)
+    result_path.write_text(json.dumps(run_result, indent=2) + "\n")
+    print(json.dumps(run_result, indent=2))
 
     template_bot.log_report_summary(forecast_reports)
     print_run_summary_banner(
@@ -813,3 +783,7 @@ if __name__ == "__main__":
         will_publish=publish_to_metaculus,
         tournament_url=TOURNAMENT_URLS.get(run_mode),
     )
+
+
+    if run_result["status"] in ("failed", "partial_failure", "fetch_failed"):
+        raise SystemExit(1)

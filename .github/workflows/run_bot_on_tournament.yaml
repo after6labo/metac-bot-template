@@ -2,23 +2,37 @@ name: Forecast on new AI tournament questions
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - main.py
+      - bot_runtime.py
+      - runtime_policy.py
+      - tests/**
+      - .github/workflows/run_bot_on_tournament.yaml
   schedule:
     - cron: "17 0 * * *" # daily at 09:17 JST while running on free API quota
 
+permissions:
+  contents: write
+
 # Add concurrency group to prevent parallel runs
 concurrency:
-  group: ${{ github.workflow }}
+  group: metaculus-zero-cost
   cancel-in-progress: false
 
 
 # Daily job to run the simple forecast bot
 jobs:
   forecast_job:
-    runs-on: ubuntu-latest # determines the machine that will run the job - keep as is
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps: # sets up the steps that will be run in order
       # setup repository with all necessary dependencies - keep as is
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Remove result from previous checkout
+        run: rm -f run-results/latest.json
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -37,6 +51,8 @@ jobs:
       #     key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
         run: poetry install --no-interaction --no-root
+      - name: Run offline regression tests
+        run: poetry run python -m unittest discover -s tests -v
       - name: Run bot
         run: |
           poetry run python main.py
@@ -44,10 +60,30 @@ jobs:
         # Store under Settings --> Secrets and variables --> Actions
         env:
           METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }} # replace this with the name of the variable under which you stored your own Metaculus token
-          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
-          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ASKNEWS_CLIENT_ID: ${{ secrets.ASKNEWS_CLIENT_ID }}
-          ASKNEWS_SECRET: ${{ secrets.ASKNEWS_SECRET }}
+
+      - name: Preserve run result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forecast-result-${{ github.run_id }}-${{ github.run_attempt }}
+          path: run-results/latest.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Record measured result in repository
+        if: always()
+        run: |
+          if [ ! -f run-results/latest.json ]; then
+            exit 0
+          fi
+          mkdir -p run-results/history
+          cp run-results/latest.json "run-results/history/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add run-results/latest.json run-results/history
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Record autonomous forecast run ${GITHUB_RUN_ID}"
+          git pull --rebase origin main
+          git push origin HEAD:main

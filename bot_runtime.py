@@ -7,7 +7,7 @@ MINIBENCH = 'minibench'
 FUTUREEVAL = 'fall-futureeval-2026'
 
 
-async def run_forecasts(fetch_questions, bot, mode):
+async def run_forecasts(fetch_questions, bot, mode, budget=None):
     require_zero_cost_mode(mode)
     result = {
         'started_at_utc': datetime.now(timezone.utc).isoformat(),
@@ -48,6 +48,12 @@ async def run_forecasts(fetch_questions, bot, mode):
     # Filtering above already excludes prior forecasts; no human selects a forecast.
     bot.skip_previously_forecasted_questions = False
     for question in selected:
+        # Ordinary forecasts require generation plus parsing; never start a
+        # fresh question when we cannot reserve those two attempts.
+        if budget is not None and budget.remaining < 2:
+            result['skips'].append({'question_id': question.id_of_question,
+                                    'source': 'selected', 'reason': 'daily_request_budget'})
+            continue
         try:
             report = await bot.forecast_question(question, return_exceptions=True)
         except Exception as exc:
@@ -64,6 +70,6 @@ async def run_forecasts(fetch_questions, bot, mode):
             outcome.update(status='submitted', nonfatal_errors=len(report.errors))
             result['estimated_llm_cost_usd'] += report.price_estimate or 0.0
         result['outcomes'].append(outcome)
-    result['status'] = ('partial_failure' if result['submitted'] else 'failed') if result['failed_or_unconfirmed'] else ('completed' if selected else 'no_new_questions')
+    result['status'] = ('partial_failure' if result['submitted'] else 'failed') if result['failed_or_unconfirmed'] else ('completed' if reports else ('quota_exhausted' if selected else 'no_new_questions'))
     result['finished_at_utc'] = datetime.now(timezone.utc).isoformat()
     return reports, result

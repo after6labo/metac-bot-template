@@ -29,12 +29,14 @@ The goal is measured official tournament performance and prize receipts, not a d
    Do not add a large agent framework or spend quota on no-new-question runs.
 
 ## Current implementation
-- Production: .github/workflows/run_bot_on_tournament.yaml; daily 00:17 UTC,
+- Production: .github/workflows/run_bot_on_tournament.yaml; every 20 minutes (UTC minutes 7, 27, 47),
   manual runs, and relevant main code changes. Shared concurrency with smoke test.
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; <=12 questions/run; one reasoning
-  sample and one parser attempt. Underlying routed model may change.
+  sample and one parser attempt. Shared UTC-day quota is 40 reserved outbound calls,
+  stored in run-results/budget.json; failed calls consume it too. A provider 402/429
+  blocks further calls that day. Underlying routed model may change.
 - Election-related forecasts are conservatively filtered per project policy;
   this is a user scope constraint, not a claim about all AI product restrictions.
 - Basic stance: base rates -> verified evidence -> incentives and observed social

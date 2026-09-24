@@ -37,6 +37,14 @@ class Bot:
 
 
 class RuntimeTests(unittest.TestCase):
+    def test_exhausted_budget_never_calls_forecaster(self):
+        bot = Bot()
+        reports, result = asyncio.run(run_forecasts(Client([question(12)]), bot,
+            'tournament', budget=SimpleNamespace(remaining=0)))
+        self.assertEqual(bot.calls, [])
+        self.assertEqual(result['status'], 'quota_exhausted')
+        self.assertEqual(result['skips'][0]['reason'], 'daily_request_budget')
+
     def test_empty_targets_do_not_call_forecaster_and_use_fall(self):
         client, bot = Client(), Bot()
         reports, result = asyncio.run(run_forecasts(client, bot, 'tournament'))

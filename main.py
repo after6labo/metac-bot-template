@@ -3,6 +3,7 @@ import asyncio
 import logging
 import json
 import os
+import time
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Literal
@@ -14,6 +15,7 @@ from runtime_policy import (
     validate_zero_cost_environment,
 )
 from bot_runtime import run_forecasts
+from request_budget import DailyRequestBudget
 
 # Runtime helpers (env validation, banners, dependency-warning suppression).
 from bot_helpers import (
@@ -53,6 +55,34 @@ from forecasting_tools import (
 
 dotenv.load_dotenv()
 logger = logging.getLogger(__name__)
+
+
+class BudgetedFreeLlm(GeneralLlm):
+    """One fixed free route, with a shared persistent request counter."""
+    budget = None
+    last_request_at = 0.0
+    request_lock = asyncio.Lock()
+
+    def __init__(self, **kwargs):
+        super().__init__(model="openrouter/openrouter/free", allowed_tries=1,
+                         num_retries=0, timeout=45, **kwargs)
+
+    async def _mockable_direct_call_to_model(self, prompt):
+        # SDK 0.2.92 funnels generation and parsing through this method.
+        async with self.request_lock:
+            self.budget.reserve()  # debit before network; failed calls also count
+            delay = 3.2 - (time.monotonic() - BudgetedFreeLlm.last_request_at)
+            if delay > 0:
+                await asyncio.sleep(delay)
+            BudgetedFreeLlm.last_request_at = time.monotonic()
+            try:
+                response = await super()._mockable_direct_call_to_model(prompt)
+            except Exception as exc:
+                if getattr(exc, "status_code", None) in (402, 429):
+                    self.budget.block()
+                raise
+            self.budget.record_response(response.total_tokens_used)
+            return response
 
 
 class SummerTemplateBot2026(ForecastBot):
@@ -695,28 +725,15 @@ if __name__ == "__main__":
     # free router, no external research, one forecast sample, and one parser
     # validation sample. This keeps the experiment inside the $0 new-cost rule.
     use_zero_cost_baseline = True
-    zero_cost_llms = (
-        {
-            "default": GeneralLlm(
-                model="openrouter/openrouter/free",
-                temperature=0.3,
-                allowed_tries=1,
-            ),
-            "summarizer": GeneralLlm(
-                model="openrouter/openrouter/free",
-                temperature=0.0,
-                allowed_tries=1,
-            ),
-            "researcher": "no_research",
-            "parser": GeneralLlm(
-                model="openrouter/openrouter/free",
-                temperature=0.0,
-                allowed_tries=1,
-            ),
-        }
-        if use_zero_cost_baseline
-        else None
-    )
+    BudgetedFreeLlm.budget = DailyRequestBudget()
+    initial_requests = BudgetedFreeLlm.budget.data["requests_reserved"]
+    initial_tokens = BudgetedFreeLlm.budget.data["observed_tokens"]
+    zero_cost_llms = {
+        "default": BudgetedFreeLlm(temperature=0.3),
+        "summarizer": BudgetedFreeLlm(temperature=0.0),
+        "researcher": "no_research",
+        "parser": BudgetedFreeLlm(temperature=0.0),
+    }
 
     template_bot = SummerTemplateBot2026(
         research_reports_per_question=1,
@@ -768,8 +785,12 @@ if __name__ == "__main__":
         return questions
 
     forecast_reports, run_result = asyncio.run(
-        run_forecasts(fetch_open_questions, template_bot, run_mode)
+        run_forecasts(fetch_open_questions, template_bot, run_mode, budget=BudgetedFreeLlm.budget)
     )
+    run_result["api_call_count"] = BudgetedFreeLlm.budget.data["requests_reserved"] - initial_requests
+    run_result["api_call_measurement"] = "Reserved outbound attempts; includes failed calls"
+    run_result["api_token_usage"] = BudgetedFreeLlm.budget.data["observed_tokens"] - initial_tokens
+    run_result["daily_request_budget"] = BudgetedFreeLlm.budget.data
     run_result["git_sha"] = os.getenv("GITHUB_SHA")
     run_result["workflow_run_id"] = os.getenv("GITHUB_RUN_ID")
     result_path = Path("run-results/latest.json")

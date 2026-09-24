@@ -99,3 +99,13 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - https://openrouter.ai/docs/api/reference/limits
 
 - Review found missing elected/legislative-seat outcome wording; added a failing regression case, fixed the filter, and re-ran all 16 tests successfully. Reviewer completed SDK API checks but its final pass ended at the available usage limit.
+
+### Verified run and submission-window correction
+- Commit b72179d triggered Actions run 35998719942 automatically. Dependency installation, all 16 tests, live execution, artifact saving and repository logging succeeded.
+- API returned MiniBench 0 and Fall 1 open question. One forecast plus explanation was successfully submitted for question ID 45707 with zero report errors and estimated cost $0.00000.
+- This precedes the official Sep28 season opening, so treat it as a Fall-area submission/practice pending confirmation of score eligibility; do not count it as a scored competitive result. Score and rank are still unknown.
+- Official resources (edited Sep23) say batches open at random hours for only 1.5 hours. The inherited daily schedule would miss many. Change polling to every 20 minutes with a shared persistent 40-request UTC-day limit, 3.2-second minimum spacing, no SDK retries, and a stop for the day on provider 402/429. This is a submission-coverage correction, not a claim about forecast accuracy.
+- Request reservations are written before each call and committed in the workflow's always-run finalizer, including failures. Token counts cover successful responses observed after instrumentation. Unknown routed model and credit balance stay null.
+- Checkout main after acquiring shared concurrency so queued runs see the newest quota. A hard runner kill or repository-write failure can prevent quota persistence; provider free-tier enforcement remains in force and such workflow failures require investigation before retrying.
+- A conservative four-request carry-forward reserve covers the earlier uninstrumented one-question run on Sep24; it is a safety reserve, not a measured call count. The instrumented per-run count starts separately.
+- Daily ChatGPT operations/score check has also been scheduled, with notifications only for meaningful changes or required owner action.

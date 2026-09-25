@@ -154,3 +154,8 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - New spending introduced: $0. Forecast accuracy/score/prize changes: none claimed. No new account, credential, paid option or external trigger was created. Owner work so far: no new operation; future one-time setup required.
 
 - Independent code review found non-main manual runs were initially omitted from the active-run check despite shared concurrency. Added a failing regression, fixed the cross-branch active-run check, and all 12 scheduler tests now pass.
+
+### Verified GitHub integration result
+- Commit 5e090ad5739436bc13a99bccce656674bb9c22ca triggered push run [36087172982](https://github.com/after6labo/metac-bot-template/actions/runs/36087172982), 2026-09-25 02:39:38–02:40:55 UTC. All steps succeeded, including 21 Python tests (SDK test included), 12 scheduler tests, bot execution and persisted result/quota.
+- Runtime result: MiniBench 0 / Fall 1 open; existing question skipped as already_forecasted; selected 0, submitted 0, failed/unconfirmed 0, LLM calls/tokens 0, new-spend field $0. No live forecast was inspected or edited.
+- This proves the changed workflow and existing bot still execute on push. It does NOT verify GAS execution, workflow_dispatch with the owner's new token, or improved periodic coverage. Owner token/Google consent/trigger installation remain required; do not report the scheduling incident resolved.

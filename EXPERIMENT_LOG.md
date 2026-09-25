@@ -167,3 +167,43 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - First manual GAS tick at 04:24:36 UTC returned dispatched. Independently verified matching workflow_dispatch run [36094321091](https://github.com/after6labo/metac-bot-template/actions/runs/36094321091), created 04:24:38 UTC and successful by 04:25:49 UTC. Persisted run-results/history/36094321091-1.json confirms bot polling at 04:25:32–04:25:45 UTC.
 - Result: MiniBench 0 / Fall 1 open; one already_forecasted skip; new submissions 0, failed/unconfirmed 0, LLM calls/tokens 0, new spending field $0. Score, rank, granted credit balance remain unknown.
 - Manual end-to-end dispatch is verified; recurring timer execution and improved cadence are still UNVERIFIED. An additional check has been scheduled for roughly four hours after this audit to measure at least three subsequent dispatches, all polling gaps and current freshness. Do not count this single manual success as resolving the cadence incident.
+
+
+## 2026-09-25 — external scheduler four-hour post-activation verification
+
+### Scope and evidence
+- Observation window: 2026-09-25 04:24:38–08:29:18 UTC (13:24:38–17:29:18 JST), **4h04m40s**. First actual fetch-phase start through cutoff covers 4h03m45.815s.
+- Re-fetched the complete repository Actions collection: **22 total / 22 returned** with per_page=100; no additional page needed. All 10 production runs in this window completed successfully; no pending, cancelled or failed run was hidden by an event filter.
+- Excluding manual initial run 36094321091, **8 later workflow_dispatch runs** and **1 native schedule run** are verified, each matched to run-results/history/<run-id>-1.json. The initial manual success alone is not counted as timer evidence.
+- These repeated dispatches, together with the owner's reported trigger installation, support recurring external wake-up operation. GAS trigger/execution administration was not directly accessed, so GitHub's workflow_dispatch label alone cannot cryptographically distinguish a timer from any other dispatcher; no additional manual launches are reported.
+- Timing uses persisted started_at_utc, initialized in bot_runtime.run_forecasts immediately before question retrieval, not GitHub run creation time. This is the measured fetch-phase start, not individually instrumented HTTP-request or per-tournament start timestamps. Latest job logs independently show MiniBench return at 08:17:16.097 UTC and Fall return at 08:17:24.401 UTC.
+
+| Run | Trigger | Created JST | Fetch-phase start JST | Gap from previous start |
+| --- | --- | --- | --- | --- |
+| [36094321091](https://github.com/after6labo/metac-bot-template/actions/runs/36094321091) | manual initial (excluded from follow-up count) | 13:24:38.000 | 13:25:32.185 | baseline |
+| [36095785512](https://github.com/after6labo/metac-bot-template/actions/runs/36095785512) | workflow_dispatch | 13:46:18.000 | 13:47:03.036 | 21m30.851s |
+| [36095948747](https://github.com/after6labo/metac-bot-template/actions/runs/36095948747) | schedule | 13:48:43.000 | 13:49:32.010 | 2m28.974s |
+| [36097858129](https://github.com/after6labo/metac-bot-template/actions/runs/36097858129) | workflow_dispatch | 14:16:18.000 | 14:17:07.671 | 27m35.661s |
+| [36099958182](https://github.com/after6labo/metac-bot-template/actions/runs/36099958182) | workflow_dispatch | 14:46:18.000 | 14:47:21.995 | 30m14.324s |
+| [36102119368](https://github.com/after6labo/metac-bot-template/actions/runs/36102119368) | workflow_dispatch | 15:16:18.000 | 15:17:14.523 | 29m52.528s |
+| [36104387106](https://github.com/after6labo/metac-bot-template/actions/runs/36104387106) | workflow_dispatch | 15:46:18.000 | 15:47:11.571 | 29m57.048s |
+| [36106797575](https://github.com/after6labo/metac-bot-template/actions/runs/36106797575) | workflow_dispatch | 16:16:17.000 | 16:17:03.539 | 29m51.968s |
+| [36109350151](https://github.com/after6labo/metac-bot-template/actions/runs/36109350151) | workflow_dispatch | 16:46:18.000 | 16:47:10.993 | 30m7.454s |
+| [36112016893](https://github.com/after6labo/metac-bot-template/actions/runs/36112016893) | workflow_dispatch | 17:16:19.000 | 17:17:11.584 | 30m0.591s |
+
+### Measured outcome
+- Maximum fetch-phase start gap: **30m14.324s** (14:17:07.671–14:47:21.995 JST). Median closed gap: 29m52.528s. Intervals are generally about 30 minutes, not a verified exact 20-minute cadence.
+- Latest fetch-phase start: **17:17:11.584 JST**. Cutoff 17:29:18 JST gives a current open-tail gap of **12m06.416s**. Including this tail and the 54.186s initial boundary leaves the maximum at 30m14.324s.
+- **No gap >60 minutes or >=90 minutes** in this measured window. Initial acceptance (at least 3 follow-up dispatches and 4 hours) is met. The earlier 183–193-minute cadence problem is improved within this window; future coverage and absence of missed questions are not guaranteed.
+- Window totals (manual initial included; excluding it does not change totals): complete submissions **0**; failed/unconfirmed submissions **0**; Actions failures **0**; reserved outbound LLM calls **0**; observed LLM tokens **0**; estimated LLM cost **$0**; recorded new spending **$0**. No provider billing receipt was queried.
+- Every run returned MiniBench 0 / Fall 1 open and skipped the already-forecasted question: **10 skip events / 1 unique question** (9 follow-up skip events). This does not prove there were no eligible questions between polls.
+- Score, rank, calibration, credit approval/balance, and independently verified payout total remain **unknown**. No forecasting content or individual probability was reviewed or changed.
+- Latest Actions job 107997441905 independently reports **21 Python tests passed and 12 scheduler tests passed**, plus successful result/quota persistence.
+- No runtime/code change is justified by the observed cadence: retain the bounded 10-minute check / 20-minute age threshold, native cron, free-only route and shared quota/concurrency. Code inspection shows the next tick may fall before 20 minutes from GitHub creation, pushing dispatch to the following tick; this is a plausible explanation for roughly 30-minute spacing, **not a directly verified GAS tick trace**.
+- Updated AGENTS.md and operations/EXTERNAL_SCHEDULER.md from recurring-unverified to this bounded measured status. Documentation-only change; no extra prediction launch, paid service, fallback, credential access or owner operation. Owner time in this audit: no additional operation required.
+
+### Official information rechecked
+- [Fall tournament](https://www.metaculus.com/tournament/fall-futureeval-2026/): Sep28 2026–Jan06 2027, $50,000; [MiniBench](https://www.metaculus.com/tournament/minibench/): Sep21–Oct09 2026, $1,000, 60 displayed total questions (not an open count).
+- [Official resources](https://www.metaculus.com/notebooks/38928/futureeval-resources-page/) (edited Sep23): browser-rendered body re-read after search omitted the body. Random batches, 1.5-hour windows, one forecast per question, private explanation, no open/upcoming-question preview-and-tuning or answer-based rerun remain stated.
+- Autonomous operation is allowed; one prize-eligible primary bot per participant/team, seasonal surveys, bot description/possible inspection, and eventual human identity/payment steps remain relevant. Payment-country eligibility was not independently adjudicated in this cadence audit.
+- Donated credits require separate approval/key; personal free routing is not evidence of a grant. Keep free-only operation; no paid models/search or automatic paid fallback were enabled.

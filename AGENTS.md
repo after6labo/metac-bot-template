@@ -52,8 +52,12 @@ The goal is measured official tournament performance and prize receipts, not a d
   Apps Script wake-up is prepared in operations/github_scheduler.gs and documented
   in operations/EXTERNAL_SCHEDULER.md. Owner installed the 10-minute GAS trigger
   on 2026-09-25 04:23:50 UTC; first manual GAS dispatch 36094321091 succeeded.
-  Timer-driven follow-up cadence is not yet verified. Do not claim the cadence
-  fixed until at least 3 later dispatches and 4 hours of polling are measured.
+  Post-activation audit through 2026-09-25 08:29:18 UTC verified 8 later dispatches
+  plus 1 native schedule run over 4h04m40s, all successful. Fetch-phase starts
+  were generally ~30 minutes apart; max 30m14.324s including the current tail
+  (12m06.416s). Initial cadence acceptance is met, not a guarantee of 20 minutes
+  or future coverage. GAS timer logs were not directly inspected. See the log.
+  Investigate gaps >60 minutes; >=90 minutes remains a coverage failure.
 
 ## Measurements and next work
 Preserve start date, route/model history, calls/tokens/balance when observable,

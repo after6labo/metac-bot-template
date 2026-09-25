@@ -47,6 +47,12 @@ The goal is measured official tournament performance and prize receipts, not a d
   before retrying; already_forecasted alone does not prove comment success.
 - Cup mode is disabled; its default configuration is outside the free experiment.
 - Tests: python -m unittest discover -s tests -v
+- Scheduler regression tests: node --test tests/test_external_scheduler.cjs
+- The configured 20-minute cron has observed 183–193 minute gaps. External
+  Apps Script wake-up is prepared in operations/github_scheduler.gs and documented
+  in operations/EXTERNAL_SCHEDULER.md, but NOT activated until the owner creates
+  the repository-scoped Actions token and authorizes/installs the GAS trigger.
+  Do not claim the cadence fixed until actual post-activation runs are measured.
 
 ## Measurements and next work
 Preserve start date, route/model history, calls/tokens/balance when observable,

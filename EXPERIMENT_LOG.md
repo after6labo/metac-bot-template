@@ -134,3 +134,23 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - Free donated credits use a separately issued OpenRouter key. Approval is not implied by the personal free-router key or a successful run. No model/search change before grant and overrun safety are verified. Seasonal surveys and any eventual identity/payment steps remain owner actions, not silently completed.
 - Browser could read the rules body but the Fall tournament subsequently showed a Cloudflare security-verification page. No challenge was attempted or bypassed. Search could confirm public dates, but live leaderboard verification was unavailable; no claim of score/rank zero or of no resolved questions is made.
 - Sources: https://www.metaculus.com/notebooks/38928/futureeval-resources-page/ ; https://www.metaculus.com/tournament/fall-futureeval-2026/ ; https://www.metaculus.com/tournament/minibench/ .
+
+
+## 2026-09-25 — schedule investigation and external wake-up preparation
+
+### Evidence and diagnosis
+- Rechecked all 11 Actions runs. Only three are schedule-triggered; their creation gaps are 193m30s and 183m17s. No hidden queued or cancelled production runs account for the gaps.
+- Latest run 36074778580: created 23:51:15 UTC, job created 23:51:16, started 23:51:18, completed 23:52:25. The job duration is 67 seconds; runner allocation takes 2 seconds. Thus the observed gaps originate before run creation, not in forecasting, dependency setup, runner queueing or the concurrency lock.
+- Main's cron is correctly configured as 7,27,47 * * * * and already avoids the start of the hour. GitHub's documented scheduled-event delay/drop is consistent with this. GitHub's internal repository-specific cause remains unconfirmed. Missed questions are unknown.
+- Rechecked current official Fall dates ($50k, Sep28-Jan06) and MiniBench listing ($1k). Resource-page body was not returned by search; the earlier same-day official rule audit above remains the latest complete rule read. No forecasting model, tournament or question-specific decision changed.
+
+### Bounded remediation
+- Prepare a standalone Google Apps Script watchdog: check every 10 minutes, dispatch existing main production workflow if its last creation is at least 20 minutes old, do not dispatch while production/test is active. Shared script lock and a pre-POST 20-minute cooldown prevent immediate duplicate/ambiguous retries.
+- No Metaculus/OpenRouter secret is copied. Owner must create a repository-scoped Actions-write GitHub token and store it directly in Script Properties, then authorize/install the Google trigger. These owner-only steps are NOT performed by this change. External wake-up remains INACTIVE.
+- Preserve native cron, existing 40-call UTC-day limit, free-only routing, duplicate forecast exclusion and shared Actions concurrency. Add offline scheduler tests to production CI and stop the production job if the repository becomes private.
+- Do not keep an Actions runner alive with hours of idle sleep, endlessly self-chain runs, create paid services or claim a cron-minute change repairs GitHub scheduling. Existing short-lived benchmark runs remain the execution unit.
+- Setup and rollback: operations/EXTERNAL_SCHEDULER.md. Verify at least 3 external launches and 4 hours of actual polling after owner activation; any 90-minute gap remains a coverage failure. Dispatch success alone is not forecast success.
+- Local baseline: 20 Python tests passed, 1 SDK test skipped because SDK is only installed in Actions. Scheduler tests include the observed 183-minute gap, cooldown, concurrent runs, read-only setup, missing token, 401/429/transport errors, failed dispatch and malformed metadata. Current API 200 dispatch response and legacy 204 are both handled.
+- New spending introduced: $0. Forecast accuracy/score/prize changes: none claimed. No new account, credential, paid option or external trigger was created. Owner work so far: no new operation; future one-time setup required.
+
+- Independent code review found non-main manual runs were initially omitted from the active-run check despite shared concurrency. Added a failing regression, fixed the cross-branch active-run check, and all 12 scheduler tests now pass.

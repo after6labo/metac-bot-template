@@ -9,6 +9,7 @@ on:
       - bot_runtime.py
       - runtime_policy.py
       - request_budget.py
+      - operations/github_scheduler.gs
       - tests/**
       - .github/workflows/run_bot_on_tournament.yaml
   schedule:
@@ -26,6 +27,7 @@ concurrency:
 # Daily job to run the simple forecast bot
 jobs:
   forecast_job:
+    if: github.event.repository.private == false
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps: # sets up the steps that will be run in order
@@ -56,6 +58,8 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Run offline regression tests
         run: poetry run python -m unittest discover -s tests -v
+      - name: Test external scheduler without network or secrets
+        run: node --test tests/test_external_scheduler.cjs
       - name: Run bot
         run: |
           poetry run python main.py

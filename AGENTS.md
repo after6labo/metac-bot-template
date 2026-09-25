@@ -50,9 +50,10 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Scheduler regression tests: node --test tests/test_external_scheduler.cjs
 - The configured 20-minute cron has observed 183–193 minute gaps. External
   Apps Script wake-up is prepared in operations/github_scheduler.gs and documented
-  in operations/EXTERNAL_SCHEDULER.md, but NOT activated until the owner creates
-  the repository-scoped Actions token and authorizes/installs the GAS trigger.
-  Do not claim the cadence fixed until actual post-activation runs are measured.
+  in operations/EXTERNAL_SCHEDULER.md. Owner installed the 10-minute GAS trigger
+  on 2026-09-25 04:23:50 UTC; first manual GAS dispatch 36094321091 succeeded.
+  Timer-driven follow-up cadence is not yet verified. Do not claim the cadence
+  fixed until at least 3 later dispatches and 4 hours of polling are measured.
 
 ## Measurements and next work
 Preserve start date, route/model history, calls/tokens/balance when observable,

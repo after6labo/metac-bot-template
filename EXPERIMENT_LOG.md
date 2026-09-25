@@ -159,3 +159,11 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - Commit 5e090ad5739436bc13a99bccce656674bb9c22ca triggered push run [36087172982](https://github.com/after6labo/metac-bot-template/actions/runs/36087172982), 2026-09-25 02:39:38–02:40:55 UTC. All steps succeeded, including 21 Python tests (SDK test included), 12 scheduler tests, bot execution and persisted result/quota.
 - Runtime result: MiniBench 0 / Fall 1 open; existing question skipped as already_forecasted; selected 0, submitted 0, failed/unconfirmed 0, LLM calls/tokens 0, new-spend field $0. No live forecast was inspected or edited.
 - This proves the changed workflow and existing bot still execute on push. It does NOT verify GAS execution, workflow_dispatch with the owner's new token, or improved periodic coverage. Owner token/Google consent/trigger installation remain required; do not report the scheduling incident resolved.
+
+
+## 2026-09-25 — external scheduler owner activation
+- Owner reported completing repository-scoped token creation, storing it in GAS Script Properties, pasting the prepared code and granting initial Google authorization. No credential value was shared or read by the operator. Owner active work time was not measured.
+- Read-only check: 04:22:43 UTC would_dispatch. Installation: 04:23:50 UTC reported one 10-minute trigger. These are owner-provided GAS execution logs, not a direct inspection of the Google trigger list.
+- First manual GAS tick at 04:24:36 UTC returned dispatched. Independently verified matching workflow_dispatch run [36094321091](https://github.com/after6labo/metac-bot-template/actions/runs/36094321091), created 04:24:38 UTC and successful by 04:25:49 UTC. Persisted run-results/history/36094321091-1.json confirms bot polling at 04:25:32–04:25:45 UTC.
+- Result: MiniBench 0 / Fall 1 open; one already_forecasted skip; new submissions 0, failed/unconfirmed 0, LLM calls/tokens 0, new spending field $0. Score, rank, granted credit balance remain unknown.
+- Manual end-to-end dispatch is verified; recurring timer execution and improved cadence are still UNVERIFIED. An additional check has been scheduled for roughly four hours after this audit to measure at least three subsequent dispatches, all polling gaps and current freshness. Do not count this single manual success as resolving the cadence incident.

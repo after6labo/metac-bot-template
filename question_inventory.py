@@ -2,12 +2,19 @@
 from datetime import datetime, timezone
 
 
+class InventoryError(ValueError):
+    """A fixed, non-payload diagnostic code safe for public run results."""
+    def __init__(self, code):
+        self.inventory_error_code = code
+        super().__init__(code)
+
+
 def _utc(value):
     if value is None:
         return None
     date = datetime.fromisoformat(value.replace('Z', '+00:00'))
     if date.tzinfo is None:
-        raise ValueError('Missing timezone in question window')
+        raise InventoryError('window_timezone_missing')
     return date.astimezone(timezone.utc).isoformat()
 
 
@@ -31,7 +38,7 @@ def _question_rows(post, target):
     elif isinstance(post.get('group_of_questions'), dict):
         nodes = post['group_of_questions']['questions']
         if not isinstance(nodes, list) or not nodes:
-            raise ValueError('Missing group members')
+            raise InventoryError('group_members_missing')
     elif isinstance(post.get('conditional'), dict):
         conditional = post['conditional']
         # SDK 0.2.92 represents a conditional as one forecastable object.
@@ -39,13 +46,13 @@ def _question_rows(post, target):
     elif isinstance(post.get('notebook'), dict):
         return []
     else:
-        raise ValueError('Unrecognized post structure')
+        raise InventoryError('post_structure_unknown')
     rows = []
     for node in nodes:
         question_id = node['id']
         status = node.get('status', post.get('status'))
         if not isinstance(question_id, int) or status not in ('open', 'closed', 'resolved', 'upcoming'):
-            raise ValueError('Unrecognized question metadata')
+            raise InventoryError('question_metadata_unknown')
         def value(*keys):
             for key in keys:
                 if node.get(key) is not None:
@@ -83,10 +90,10 @@ def collect_inventory(target, token, *, get=None):
         data = response.json()
         posts = data.get('results')
         if not isinstance(posts, list):
-            raise ValueError('Missing result list')
+            raise InventoryError('result_list_missing')
         for post in posts:
             if not isinstance(post.get('id'), int) or post['id'] in seen_posts:
-                raise ValueError('Invalid or repeated page')
+                raise InventoryError('page_repeated_or_id_invalid')
             seen_posts.add(post['id'])
             rows.extend(_question_rows(post, target))
         offset += len(posts)
@@ -94,8 +101,8 @@ def collect_inventory(target, token, *, get=None):
         if not more:
             count = data.get('count')
             if isinstance(count, int) and count != len(seen_posts):
-                raise ValueError('Inventory count mismatch')
+                raise InventoryError('inventory_count_mismatch')
             return {'complete': True, 'post_count': len(seen_posts), 'questions': rows}
         if not posts:
-            raise ValueError('Pagination did not advance')
-    raise ValueError('Inventory pagination limit reached')
+            raise InventoryError('pagination_did_not_advance')
+    raise InventoryError('pagination_limit_reached')

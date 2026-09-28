@@ -95,6 +95,9 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None, *, fetch_invent
             inventory_open.extend(raw_open)
         except Exception as exc:
             audit.update(status='failed', error_type=type(exc).__name__)
+            code = getattr(exc, 'inventory_error_code', None)
+            if code is not None:
+                audit['error_code'] = code
         result['retrieval_audit'].append(audit)
     result['question_windows'] = [
         question_window(question, source)

@@ -52,6 +52,23 @@
   49 pass and four SDK boundary tests await the next Actions run. This correction
   is not evidence that the underlying API can never omit a question.
 
+
+- Final production verification: commit 2ac315721f0b9a5257252ed4f0d57a3c7e5a0f6d
+  triggered [run 36488205075](https://github.com/after6labo/metac-bot-template/actions/runs/36488205075).
+  All 53 Python tests including the four installed-SDK boundary cases and all 12
+  scheduler tests passed. Bot execution, artifact upload and repository result
+  persistence succeeded. Finished Sep29 06:46:44 JST. Independent inventories
+  matched SDK availability: MiniBench 60 posts/60 questions, 0 open; Fall 3 posts
+  (including one notebook)/2 questions, 0 open. No fetch/audit errors or pending
+  IDs remained for this observation; submissions and LLM responses/failures/tokens
+  were all 0. Historical missed windows remain unresolved losses, not healed.
+  The enabled hourly monitor was updated and re-read to confirm its exact prompt
+  and unchanged cadence. Independent review's forecast-evidence finding was
+  corrected. First actual competitive submission and overnight coverage remain
+  unproven; this is verified inventory/incident handling, not a participation
+  guarantee. Owner work: requested correction, no additional operation; time not
+  measured. No new monetary spend.
+
 ## 2026-09-23
 
 ### Objective

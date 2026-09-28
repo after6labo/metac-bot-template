@@ -41,6 +41,17 @@
   is coverage verification, not evidence of scored participation. New spend $0;
   official score/rank/prize remain unverified.
 
+- Initial deployed audit run 36487699315 and diagnostic-code run 36487946661
+  correctly surfaced the audit failure instead of green-zero, but exposed an
+  integration error introduced by this change: the official API advertises
+  a next page even at an empty terminal page. Both targets hit
+  pagination_did_not_advance. No forecasts were blocked (SDK found no questions),
+  no LLM was invoked, and failure results were persisted. Added a regression and
+  aligned termination with the installed SDK's empty-page rule, retaining
+  explicit-count and duplicate-page checks. Local Python suite now 53 tests,
+  49 pass and four SDK boundary tests await the next Actions run. This correction
+  is not evidence that the underlying API can never omit a question.
+
 ## 2026-09-23
 
 ### Objective

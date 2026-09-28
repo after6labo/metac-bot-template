@@ -55,9 +55,15 @@ class InventoryTests(unittest.TestCase):
     def test_incomplete_or_repeated_pages_are_not_empty_success(self):
         for pages in ([{'count': 2, 'results': [post(1, 11)], 'next': None}],
                       [{'results': [post(1, 11)], 'next': 'more'}, {'results': [post(1, 11)], 'next': None}],
-                      [{'results': [], 'next': 'more'}], [{'detail': 'not a result list'}]):
+                      [{'count': 1, 'results': [], 'next': 'more'}], [{'detail': 'not a result list'}]):
             with self.subTest(pages=pages), self.assertRaises(ValueError):
                 self.collect(pages)
+
+    def test_real_api_empty_terminator_may_still_advertise_next_page(self):
+        result = self.collect([{'results': [post(1, 11)], 'next': 'page2'},
+                               {'results': [], 'next': 'page3'}])
+        self.assertTrue(result['complete'])
+        self.assertEqual([r['question_id'] for r in result['questions']], [11])
 
     def test_group_members_and_conditional_use_sdk_identity_without_content_filters(self):
         group = {'id': 1, 'status': 'open', 'group_of_questions': {'questions': [post(1, 11)['question'], post(1, 12)['question']]}}

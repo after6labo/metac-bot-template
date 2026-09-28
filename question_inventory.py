@@ -98,11 +98,12 @@ def collect_inventory(target, token, *, get=None):
             rows.extend(_question_rows(post, target))
         offset += len(posts)
         more = bool(data['next']) if 'next' in data else len(posts) == 100
-        if not more:
+        # Metaculus can advertise a next URL even on an empty terminal page.
+        # Like SDK 0.2.92, an empty response ends enumeration; an explicit total
+        # must still agree. Never silently accept duplicates or a hard cap.
+        if not more or not posts:
             count = data.get('count')
             if isinstance(count, int) and count != len(seen_posts):
                 raise InventoryError('inventory_count_mismatch')
             return {'complete': True, 'post_count': len(seen_posts), 'questions': rows}
-        if not posts:
-            raise InventoryError('pagination_did_not_advance')
     raise InventoryError('pagination_limit_reached')

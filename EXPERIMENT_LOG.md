@@ -246,3 +246,29 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - [Official FutureEval resources](https://www.metaculus.com/notebooks/38928/futureeval-resources-page/) is now marked edited Sep26 2026. Its current body still states random batches, 1.5-hour windows, one forecast per bot-only question, private reasoning comments, spot peer scoring, autonomous bots, no question-specific human preview/tuning, one prize-eligible primary bot per participant/team, and description/inspection plus seasonal survey requirements.
 - The resources page's active-tournament list links Fall 2026, but a Getting Started paragraph still names the old Summer project ID. Treat that sentence as stale: the official active link, tournament page and live API evidence all support explicit Fall slug fall-futureeval-2026. The current Bot target is already correct, so no code change is justified.
 - Participation/free-credit form submission remains recorded from the owner report, while credit approval/key issuance remains unverified. Keep free-only operation and no paid fallback.
+
+
+## 2026-09-28 — daily operations check (through 01:41:04 UTC)
+
+### Verified activity
+- Read AGENTS.md, this log, latest.json, budget.json, production workflow, Actions metadata, all 51 new persisted histories, the preceding history for the boundary gap, and latest job logs.
+- Actions returned 100 of 164 total runs. The page fully covers the interval since Sep27 02:02:15 UTC; older pages are unnecessary for this interval.
+- **51 production runs: 45 workflow_dispatch, 6 schedule; all successful**, all with matching history JSON. Fetch starts span Sep27 02:17:13.614495 to Sep28 01:27:13.959432 UTC.
+- Maximum fetch-start gap, including the preceding run, **30m38.453s** (36348024371 to 36349855997). Tail at cutoff: **13m50.041s**. No observed gap exceeded 60 minutes or reached the 90-minute internal coverage threshold.
+- Latest [run 36365971431](https://github.com/after6labo/metac-bot-template/actions/runs/36365971431), job 108752328915, completed all steps including persistence. Its logs report 21 Python tests and 12 scheduler tests, with successful test steps and 0 scheduler failures.
+- Interval totals from persisted results: submitted **0**, failed/unconfirmed **0**, selected **0**, LLM outbound reservations **0**, observed LLM tokens **0**, estimated LLM cost **$0**, recorded new spending **$0**. Every fetch returned MiniBench 0 / Fall 1 open; **51 already_forecasted skip events / 1 unique question (45707)**. Polling observations do not establish that no eligible questions existed between polls.
+- Historical confirmed submissions remain 1 Bot Testing Area and 1 pre-season Fall-area forecast plus explanation; scored eligibility of the latter remains unverified. Do not classify the historical practice submission as a new competitive submission.
+- Official bot score/rank/calibration, routed model, current provider balance, cumulative provider usage and independently verified payout total remain **unknown/null**. Public tournament/search responses did not expose a verifiable leaderboard entry for this bot; runtime does not retrieve scores. No provider billing or payout receipt was accessed. Prior recorded receipts were $0, not a newly verified lifetime total.
+- budget.json still contains the Sep24 carry-forward safety reserve of 4, not measured current-day usage or a balance. Latest runtime reports Sep28 reservations 0 and blocked=false.
+- No new forecast run, code change, model change, live-answer tuning, external message, paid service or owner action was needed. Existing monitoring and free-only operation continue.
+
+### Credit decision supplied by owner
+- The owner supplied an LLM-credit rejection notice for this season, explicitly saying participation and prize opportunities remain available. Adopt **denied_owner_reported** as the operational application status, replacing pending/approval-unverified assumptions in earlier entries.
+- The sender address/header was not supplied or independently authenticated. No email text, address or credentials are published here. No reply, new application, key or paid fallback was initiated.
+- AGENTS.md now records this decision. Existing runtime credit_approval="unverified" is an unqueried instrumentation field, not evidence contradicting the owner report; historical and generated run JSON is not rewritten. Continue the personal free-router baseline and stop a run if free service is unavailable.
+
+### Official sources checked Sep28
+- [Fall](https://www.metaculus.com/tournament/fall-futureeval-2026/): 33121 / fall-futureeval-2026, Sep28 2026–Jan06 2027, $50,000 pool, 7 displayed items. [MiniBench](https://www.metaculus.com/tournament/minibench/): minibench, Sep21–Oct09 2026, $1,000, 60 displayed items. Totals are not open counts.
+- [Resources](https://www.metaculus.com/notebooks/38928/futureeval-resources-page/), marked edited Sep26: one forecast with private reasoning; no question-specific human influence, preview-based changes or discretionary reruns; autonomous operation allowed; prize conditions include description/code inspection and seasonal survey. Participation form already owner-reported submitted; seasonal survey still unverified. Donated credits are optional. Commercial restrictions exempt solo personal projects in the stated definition.
+- Current resources body describes random releases and 1.5-hour windows, while an older Jun05 comment mentions temporary 3-hour windows. Retain conservative existing coverage thresholds; do not infer every current question's actual window from that older comment.
+- Fall's own page confirms the explicit target despite a stale Summer slug in the resources onboarding paragraph. No configuration change needed.

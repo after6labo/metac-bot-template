@@ -1,0 +1,113 @@
+name: Diagnose tournament availability
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/diagnose_availability.yaml
+permissions:
+  contents: read
+jobs:
+  availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read question window metadata only
+        env:
+          METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from collections import Counter
+          from datetime import datetime, timezone
+          from pathlib import Path
+          
+          FIELDS = ("id", "status", "type", "open_time", "close_time", "scheduled_close_time", "actual_close_time", "published_at", "cp_reveal_time")
+          TARGETS = ("minibench", "fall-futureeval-2026")
+          BASE = "https://www.metaculus.com/api/posts/"
+          
+          def metadata(node):
+              row = {key: node.get(key) for key in FIELDS if key in node}
+              forecasts = node.get("my_forecasts")
+              if isinstance(forecasts, dict):
+                  history = forecasts.get("history")
+                  row["bot_forecast_history_count"] = len(history) if isinstance(history, list) else None
+              return row
+          
+          def summarize(post):
+              row = metadata(post)
+              row["is_notebook"] = bool(post.get("notebook"))
+              row["questions"] = []
+              if isinstance(post.get("question"), dict):
+                  row["questions"].append(metadata(post["question"]))
+              group = post.get("group_of_questions")
+              if isinstance(group, dict):
+                  for question in group.get("questions", []):
+                      row["questions"].append(metadata(question))
+              conditional = post.get("conditional")
+              if isinstance(conditional, dict):
+                  for key in ("condition", "condition_child", "question_yes", "question_no"):
+                      if isinstance(conditional.get(key), dict):
+                          item = metadata(conditional[key])
+                          item["role"] = key
+                          row["questions"].append(item)
+              return row
+          
+          def collect(target, statuses):
+              rows = []
+              count = None
+              for offset in range(0, 1000, 100):
+                  params = {"tournaments": target, "limit": 100, "offset": offset, "order_by": "-published_at", "statuses": statuses}
+                  request = urllib.request.Request(BASE + "?" + urllib.parse.urlencode(params, doseq=True),
+                      headers={"Authorization": "Token " + os.environ["METACULUS_TOKEN"], "Accept-Language": "en"})
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      data = json.load(response)
+                  count = data.get("count")
+                  posts = data["results"]
+                  rows.extend(summarize(post) for post in posts)
+                  if len(posts) < 100:
+                      return {"api_count": count, "complete": True, "posts": rows}
+                  time.sleep(1)
+              return {"api_count": count, "complete": False, "posts": rows}
+          
+          def main():
+              result = {"checked_at_utc": datetime.now(timezone.utc).isoformat(), "read_only": True, "targets": {}}
+              failed = False
+              for target in TARGETS:
+                  try:
+                      data = collect(target, ["open", "closed", "resolved", "upcoming"])
+                      time.sleep(1)
+                      opened = collect(target, ["open"])
+                      data["raw_open_post_ids"] = [row["id"] for row in opened["posts"]]
+                      data["raw_open_complete"] = opened["complete"]
+                      data["question_status_counts"] = dict(Counter(question.get("status", "unknown") for post in data["posts"] for question in post["questions"]))
+                      result["targets"][target] = data
+                  except urllib.error.HTTPError as exc:
+                      result["targets"][target] = {"error_type": "HTTPError", "http_status": exc.code}
+                      failed = True
+                  except Exception as exc:
+                      result["targets"][target] = {"error_type": type(exc).__name__}
+                      failed = True
+              result["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
+              Path("availability.json").write_text(json.dumps(result, indent=2) + "\n")
+              print("AVAILABILITY_RESULT=" + json.dumps(result))
+              return 1 if failed else 0
+          
+          if __name__ == "__main__":
+              sys.exit(main())
+          
+          PY
+      - name: Preserve sanitized availability metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: question-availability
+          path: availability.json
+          retention-days: 30

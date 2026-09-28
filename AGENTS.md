@@ -65,7 +65,11 @@ submission/failure/skip counts, official score/rank, calibration, reasons for
 changes, before/after outcomes, owner actions/time, new spend and prize receipts.
 Do not invent unobserved values. Runtime JSON is not a billing or payout receipt.
 Observe upcoming first actual competitive submission, then resolved outcomes.
-Credit approval can improve research/model options only after checking grant
-limits and paid-overrun prevention. Free-credit approval is not yet verified.
+The owner supplied the season's LLM-credit rejection notice (recorded Sep28).
+Treat Fall 2026 as no donated credits; continue only the existing free router.
+The email's sender/header was not independently authenticated. No reply or
+resubmission is required by that notice. Runtime credit_approval=unverified is
+not the authoritative application status; this operator record supersedes it.
+Any future grant requires explicit verification and paid-overrun prevention.
 Fall participant-form and free-credit application use the same official form;
 the owner reports it submitted. Seasonal survey remains required for prizes.

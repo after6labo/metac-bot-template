@@ -338,3 +338,10 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 - Actual successful fetch starts were 11:17:17.464874 and 12:17:20.265970 UTC, a gap of **60m02.801s**. This exceeds the 60-minute investigation threshold but does not reach the 90-minute coverage-failure threshold. Whether an eligible question opened entirely inside this interval is unknown.
 - No immediate dependency or workflow change was made from one transient occurrence; regenerating the lockfile or upgrading the SDK would be a larger unsupported change. Continue monitoring. A recurrence should trigger a bounded install-retry/caching fix with workflow verification.
 - Competitive submissions remain unchanged: MiniBench 0; post-launch Fall 0. No owner action is required.
+
+
+## 2026-09-28 — first post-launch Fall retrieval, policy skip
+- Run [36433451559](https://github.com/after6labo/metac-bot-template/actions/runs/36433451559) fetched at 14:08:23 UTC (23:08:23 JST) and returned MiniBench 0 / Fall 1. This is the first recorded nonzero Fall retrieval after the official Sep28 start.
+- Question 46022 was skipped before selection with the recorded reason `election_policy`, under the existing conservative project scope. Selected/submitted/failed-or-unconfirmed were all 0; no LLM call, token use, cost or new spending occurred. This is not competitive participation.
+- The preceding fetches at 12:47:22, 13:07:21 and 13:37:06 UTC returned 0 / 0. Successive fetch-start gaps were 19m59.050s, 29m44.313s, 31m17.373s; none exceeded 60 minutes. The earlier transient install failure remains recovered.
+- The skip reason is explicit and consistent with AGENTS.md, so this is not an unexplained selection omission. No code/model/policy change, retry, live-question inspection or owner action was introduced. Continue watching for a non-excluded competitive question and accepted submission.

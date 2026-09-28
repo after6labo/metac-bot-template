@@ -283,3 +283,15 @@ Wait for MiniBench or Fall FutureEval questions to become open. The scheduled wo
 - Official resources search confirms the minibench alias and recommends checking actual forecasts after 1–3 days. That follow-through was missing from prior successful-runtime reports.
 - Cloud browser received persistent Cloudflare security verification after one reload. No challenge was solved or bypassed. Logs lack historical window metadata. Further site verification currently requires owner-supplied visible-page evidence; ask only for an initial screenshot and handle translation/interpretation as the operator.
 - Updated AGENTS.md so future operators treat this as an open participation incident, not routine healthy waiting. No runtime/model/query change, additional forecast, LLM use, credential access or paid resource was introduced. No root-cause or fix completion is claimed.
+
+
+## 2026-09-28 — one missed MiniBench opportunity confirmed
+
+### Confirmed missed window — question 45980 / post 45795
+Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifies MiniBench project 33125 and an exact open window Sep23 21:10:51–Sep24 00:10:51 UTC (Sep24 06:10:51–09:10:51 JST). No production workflow started during this window: preceding run 35841074249 started Sep23 09:07:25 UTC; next run 35998719942 started Sep24 12:23:12 UTC. This establishes at least one missed submission opportunity due to absent polling, before GAS activation on Sep25. Do not generalize this single-question cause to all 60 items or claim that query correctness is fully verified. The supplied ZIP contains aggregate forecasts, not individual bot participation proof. No individual prediction was tuned. Latest audited 24h through Sep28 06:46:56 UTC: 52 successful production runs, maximum creation-time gap 30m04s; fetch timing must be reported separately. Keep the installed scheduler; accepted competitive submission remains the next unverified milestone.
+
+- Prior production job 107115990452 completed Sep23 09:08:26 UTC, over 12 hours before the question opened; it was not a long-running worker covering the window.
+- Latest persisted fetch ran Sep28 06:47:50–06:47:58 UTC and returned MiniBench 0 / Fall 0; submissions and LLM calls both 0. Successful scheduler operation is still not accepted competitive participation.
+- Root cause for this specific opportunity: no production poll within its three-hour window. GAS was not activated until Sep25; the later cadence mitigation cannot recover the missed question. No query/model changes or retroactive forecast attempt are justified from this evidence.
+- Evidence scope: official owner-downloaded question metadata plus complete early Actions history. This confirms at least one missed opportunity, not 60 missed opportunities and not all causes of zero MiniBench submissions. Do not inspect aggregate forecast values for question-specific tuning.
+- The owner supplied several screenshots and the official export; active work time was not measured. New monetary spending and added LLM usage in this audit: zero. Further manual navigation is not needed to establish this single-question finding.

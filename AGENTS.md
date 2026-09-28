@@ -73,3 +73,11 @@ not the authoritative application status; this operator record supersedes it.
 Any future grant requires explicit verification and paid-overrun prevention.
 Fall participant-form and free-credit application use the same official form;
 the owner reports it submitted. Seasonal survey remains required for prizes.
+
+## Open participation incident — 2026-09-28
+- MiniBench has zero confirmed submissions since startup on Sep23, despite a Sep21 round start. Treat competition participation as not achieved, not healthy merely because Actions succeeds.
+- The Sep28 06:27 UTC result returned 0 MiniBench and 0 Fall open questions. This is a filtered retrieval count, not evidence that no competition questions exist or that none were missed.
+- Root cause is unresolved: historical opening/closing metadata has not been reconciled with polling times. Do not assert either a broken filter or a legitimately closed round without evidence.
+- The operator's cloud browser cannot view the official list because of a persistent site security check. Do not bypass that restriction. Existing logs lack question-window metadata; an owner-supplied screenshot/export can supply the missing evidence.
+- Next priority is to establish actual MiniBench question availability during bot operation, then fix a demonstrated retrieval/coverage fault or identify the next verified submission opportunity. Do not tune individual live forecasts.
+- Report Bot execution, accepted competitive submissions, and official score separately. No 'wait, all is well' assurance while this incident is unresolved. The owner should not have to interpret English pages or diagnose the bot.

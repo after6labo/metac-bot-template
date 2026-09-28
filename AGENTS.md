@@ -92,3 +92,34 @@ the owner reports it submitted. Seasonal survey remains required for prizes.
 
 ### Confirmed missed window — question 45980 / post 45795
 Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifies MiniBench project 33125 and an exact open window Sep23 21:10:51–Sep24 00:10:51 UTC (Sep24 06:10:51–09:10:51 JST). No production workflow started during this window: preceding run 35841074249 started Sep23 09:07:25 UTC; next run 35998719942 started Sep24 12:23:12 UTC. This establishes at least one missed submission opportunity due to absent polling, before GAS activation on Sep25. Do not generalize this single-question cause to all 60 items or claim that query correctness is fully verified. The supplied ZIP contains aggregate forecasts, not individual bot participation proof. No individual prediction was tuned. Latest audited 24h through Sep28 06:46:56 UTC: 52 successful production runs, maximum creation-time gap 30m04s; fetch timing must be reported separately. Keep the installed scheduler; accepted competitive submission remains the next unverified milestone.
+
+
+## Overnight participation monitoring — updated 2026-09-29 JST
+- The hourly operator must treat every retrieved, previously unanswered question
+  left without a completed report as actionable, even when its skip reason is
+  known (batch_limit or provider_paused). A green run or status=completed is not
+  enough: inspect needs_attention and pending_questions plus their deadlines.
+- Runtime now stores question_windows and pending_questions with question/post
+  IDs, source and UTC opening/closing timestamps, not question text, forecasts,
+  raw API payloads or credentials. These record polling observations, not all
+  windows between polls. Unknown timestamps remain null. Fetch errors also set
+  needs_attention; read-only diagnostic tooling can reconcile zero retrieval.
+- Diagnose and repair authorized technical issues during the hourly check;
+  do not just tell the owner after the deadline or wait for their next message.
+  Respect provider pauses, zero-new-cost constraints and no individual live
+  forecast tuning. No guarantee of uninterrupted service or accepted forecasts.
+- .github/workflows/test_bot.yaml can now run when its own file changes, in
+  addition to manual dispatch, under the same concurrency lock as production.
+  This supports one official test-area smoke check after configuration work.
+  It is not a scheduled extra forecast. Distinguish mode=test_questions in
+  latest.json/history from tournament mode, and never count a test-area success
+  as competitive participation. If latest is a test, locate the latest tournament
+  result in history for production freshness.
+- Sep29 05:48 JST official metadata check 36481792589 found MiniBench 60 closed
+  questions and Fall one competitive plus one practice question both closed.
+  Fall q46022/post45847 window was Sep28 23:00–Sep29 02:00 JST and was missed
+  due to the removed election exclusion. Metadata evidence is preserved under
+  run-results/availability. This supersedes the earlier inability to establish
+  current question windows, without claiming that all historical windows have
+  been reconciled. Use the existing authenticated API read-only diagnostic;
+  a blocked web page alone does not require another owner screenshot.

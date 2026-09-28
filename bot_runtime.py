@@ -7,6 +7,21 @@ MINIBENCH = 'minibench'
 FUTUREEVAL = 'fall-futureeval-2026'
 
 
+def question_window(question, source):
+    def utc_time(name):
+        value = getattr(question, name, None)
+        return value.astimezone(timezone.utc).isoformat() if isinstance(value, datetime) else None
+
+    return {
+        'question_id': question.id_of_question,
+        'post_id': getattr(question, 'id_of_post', None),
+        'source': source,
+        'open_time_utc': utc_time('open_time'),
+        'close_time_utc': utc_time('close_time'),
+        'already_forecasted': bool(question.already_forecasted),
+    }
+
+
 async def run_forecasts(fetch_questions, bot, mode, budget=None):
     require_zero_cost_mode(mode)
     result = {
@@ -30,6 +45,9 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None):
         'estimated_llm_cost_usd': 0.0,
         'outcomes': [],
         'skips': [],
+        'question_windows': [],
+        'pending_questions': [],
+        'needs_attention': False,
         'status': 'started',
     }
     reports = []
@@ -38,10 +56,16 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None):
         seasonal = (await fetch_questions(FUTUREEVAL)
                     if mode == 'tournament' else [])
     except Exception as exc:
-        result.update(status='fetch_failed', error_type=type(exc).__name__)
+        result.update(status='fetch_failed', error_type=type(exc).__name__, needs_attention=True,
+                      finished_at_utc=datetime.now(timezone.utc).isoformat())
         return reports, result
 
     result['open_questions_returned'] = [len(primary), len(seasonal)]
+    result['question_windows'] = [
+        question_window(question, source)
+        for source, questions in ((result['targets'][0], primary), (FUTUREEVAL, seasonal))
+        for question in questions
+    ]
     selected, skips = select_eligible_questions(primary, seasonal, limit=12 if mode == 'tournament' else 1)
     result['skips'] = [asdict(record) for record in skips]
     result['selected'] = len(selected)
@@ -69,6 +93,17 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None):
             outcome.update(status='submitted', nonfatal_errors=len(report.errors))
             result['estimated_llm_cost_usd'] += report.price_estimate or 0.0
         result['outcomes'].append(outcome)
+    answered = {row['question_id'] for row in result['question_windows'] if row['already_forecasted']}
+    answered.update(row['question_id'] for row in result['outcomes'] if row['status'] == 'submitted')
+    reasons = {row['question_id']: row['reason'] for row in result['skips'] if row['reason'] != 'duplicate'}
+    reasons.update({row['question_id']: row['status'] for row in result['outcomes'] if row['status'] != 'submitted'})
+    pending = {}
+    for row in result['question_windows']:
+        question_id = row['question_id']
+        if question_id not in answered and question_id not in pending:
+            pending[question_id] = {**row, 'reason': reasons.get(question_id, 'not_submitted')}
+    result['pending_questions'] = list(pending.values())
+    result['needs_attention'] = bool(pending)
     result['status'] = ('partial_failure' if result['submitted'] else 'failed') if result['failed_or_unconfirmed'] else ('completed' if reports else ('provider_paused' if selected else 'no_new_questions'))
     result['finished_at_utc'] = datetime.now(timezone.utc).isoformat()
     return reports, result

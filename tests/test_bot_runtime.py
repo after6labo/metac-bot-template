@@ -1,5 +1,6 @@
 import asyncio
 import unittest
+from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
 from bot_runtime import run_forecasts
@@ -37,6 +38,53 @@ class Bot:
 
 
 class RuntimeTests(unittest.TestCase):
+    def test_failed_open_question_keeps_deadline_and_needs_attention(self):
+        q = question(12)
+        q.id_of_post = 10
+        jst = timezone(timedelta(hours=9))
+        q.open_time = datetime(2026, 9, 28, 23, tzinfo=jst)
+        q.close_time = datetime(2026, 9, 29, 2, tzinfo=jst)
+        q.api_json = {'credential': 'never include raw question data'}
+        _, result = asyncio.run(run_forecasts(Client([q]), Bot(True), 'tournament'))
+        self.assertTrue(result.get('needs_attention', False))
+        pending = result['pending_questions']
+        self.assertEqual(len(pending), 1)
+        self.assertEqual(pending[0]['question_id'], 12)
+        self.assertEqual(pending[0]['post_id'], 10)
+        self.assertEqual(pending[0]['open_time_utc'], '2026-09-28T14:00:00+00:00')
+        self.assertEqual(pending[0]['close_time_utc'], '2026-09-28T17:00:00+00:00')
+        self.assertEqual(pending[0]['reason'], 'failed_or_unconfirmed')
+        self.assertNotIn('credential', str(result))
+
+    def test_batch_deferred_question_is_not_hidden_by_other_submissions(self):
+        _, result = asyncio.run(run_forecasts(Client([question(n) for n in range(13)]), Bot(), 'tournament'))
+        self.assertEqual(result['submitted'], 12)
+        self.assertTrue(result.get('needs_attention', False))
+        self.assertEqual([q['question_id'] for q in result['pending_questions']], [12])
+        self.assertEqual(result['pending_questions'][0]['reason'], 'batch_limit')
+
+    def test_provider_pause_after_success_still_needs_attention(self):
+        budget = SimpleNamespace(can_request=True)
+        class PausingBot(Bot):
+            async def forecast_question(self, q, return_exceptions=True):
+                report = await super().forecast_question(q, return_exceptions)
+                budget.can_request = False
+                return report
+        _, result = asyncio.run(run_forecasts(Client([question(1), question(2)]), PausingBot(), 'tournament', budget))
+        self.assertEqual(result['submitted'], 1)
+        self.assertTrue(result.get('needs_attention', False))
+        self.assertEqual([q['question_id'] for q in result['pending_questions']], [2])
+        self.assertEqual(result['pending_questions'][0]['reason'], 'provider_paused')
+
+    def test_already_answered_and_duplicate_do_not_raise_false_alert(self):
+        q = question(1)
+        q.already_forecasted = True
+        _, result = asyncio.run(run_forecasts(Client([q, q, question(2)]), Bot(), 'tournament'))
+        self.assertEqual(result['submitted'], 1)
+        self.assertIn('needs_attention', result)
+        self.assertFalse(result['needs_attention'])
+        self.assertEqual(result['pending_questions'], [])
+
     def test_provider_pause_never_calls_forecaster(self):
         bot = Bot()
         reports, result = asyncio.run(run_forecasts(Client([question(12)]), bot,
@@ -79,6 +127,7 @@ class RuntimeTests(unittest.TestCase):
         bot = Bot()
         reports, result = asyncio.run(run_forecasts(Client(error=True), bot, 'tournament'))
         self.assertEqual(result['status'], 'fetch_failed')
+        self.assertTrue(result['needs_attention'])
         self.assertEqual(bot.calls, [])
         self.assertNotIn('secret', str(result))
 

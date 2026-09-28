@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import os
-import re
 from typing import Any, Mapping, Sequence
 
 
@@ -30,18 +29,6 @@ _PLACEHOLDERS = frozenset(
         "your_metaculus_token",
         "your_openrouter_api_key",
     }
-)
-_ELECTION_TERMS = re.compile(
-    r"\b(?:elections?|elect(?:ed|oral)|ballots?|referend(?:um|a)|"
-    r"popular\s+vote|votes?|voter\s+turnout|voting\s+results|"
-    r"presidenc(?:y|ies)|presidential|parliamentary|congressional|gubernatorial|senate\s+race|"
-    r"mayoral\s+race|(?:senate|parliament|congress|house)\s+seats?|electoral\s+college)\b",
-    re.IGNORECASE,
-)
-_BOARD_ELECTION = re.compile(
-    r"\b(?:election\s+of\s+(?:the\s+)?board(?:\s+members)?|"
-    r"board(?:\s+of\s+directors)?\s+election)\b",
-    re.IGNORECASE,
 )
 
 
@@ -72,16 +59,6 @@ def require_zero_cost_mode(mode: str) -> None:
         raise ValueError("Only tournament and test_questions are allowed for zero-cost runs")
 
 
-def _is_election_related(question: Any) -> bool:
-    text = "\n".join(
-        str(getattr(question, field, "") or "")
-        for field in ("question_text", "background_info", "resolution_criteria", "fine_print")
-    )
-    # A corporate board election is not a public vote-outcome forecast.
-    text = _BOARD_ELECTION.sub("", text)
-    return bool(_ELECTION_TERMS.search(text))
-
-
 def select_eligible_questions(
     minibench_questions: Sequence[Any],
     seasonal_questions: Sequence[Any],
@@ -108,8 +85,6 @@ def select_eligible_questions(
                 seen_ids.add(question_id)
                 if question_id in forecasted_ids:
                     reason = "already_forecasted"
-                elif _is_election_related(question):
-                    reason = "election_policy"
                 elif len(selected) >= budget:
                     reason = "batch_limit"
                 else:

@@ -37,8 +37,11 @@ The goal is measured official tournament performance and prize receipts, not a d
   sample and one parser attempt. Shared UTC-day quota is 40 reserved outbound calls,
   stored in run-results/budget.json; failed calls consume it too. A provider 402/429
   blocks further calls that day. Underlying routed model may change.
-- Election-related forecasts are conservatively filtered per project policy;
-  this is a user scope constraint, not a claim about all AI product restrictions.
+- The owner explicitly removed topic-based exclusions on 2026-09-29 JST.
+  Election-related questions are eligible under the same rules as other topics.
+  Do not reintroduce topic filters without an explicit owner request. The earlier
+  statement describing election exclusion as a user scope constraint was incorrect.
+  Retain duplicate/already-forecasted guards and all zero-cost/quota controls.
 - Basic stance: base rates -> verified evidence -> incentives and observed social
   factors -> counter-scenario -> probability. Avoid ethnic/national stereotypes;
   distinguish should from will, and missing research from current evidence.

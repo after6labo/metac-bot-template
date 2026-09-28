@@ -54,14 +54,14 @@ class ZeroCostEnvironmentTests(unittest.TestCase):
 
 
 class SelectionTests(unittest.TestCase):
-    def test_elected_and_seat_winner_wording_is_excluded(self):
+    def test_elected_and_seat_winner_wording_is_eligible(self):
         selected, records = select_eligible_questions([
             question(1, 'Will Alice be elected president of the United States in 2028?'),
             question(2, 'Who wins the US Senate seat in Ohio?'),
             question(3, 'Will Bob be elected governor of California?'),
         ], [])
-        self.assertEqual(selected, [])
-        self.assertEqual([r.reason for r in records], ['election_policy'] * 3)
+        self.assertEqual([q.id_of_question for q in selected], [1, 2, 3])
+        self.assertEqual(records, [])
 
     def test_minibench_first_skips_forecasted_and_deduplicates_by_id(self):
         first = question(11, "How many satellites?")
@@ -103,17 +103,16 @@ class SelectionTests(unittest.TestCase):
         self.assertEqual([(r.question_id, r.reason) for r in records],
                          [(12, "batch_limit"), (13, "batch_limit")])
 
-    def test_implicit_electoral_vote_or_presidency_outcomes_are_excluded(self):
+    def test_implicit_electoral_vote_or_presidency_outcomes_are_eligible(self):
         selected, records = select_eligible_questions(
             [question(1, "Who will win the presidency?"),
              question(2, "What will the vote count be?"),
              question(3, "Will candidate A receive more votes than candidate B?")], []
         )
-        self.assertEqual(selected, [])
-        self.assertEqual([(r.question_id, r.reason) for r in records],
-                         [(1, "election_policy"), (2, "election_policy"), (3, "election_policy")])
+        self.assertEqual([q.id_of_question for q in selected], [1, 2, 3])
+        self.assertEqual(records, [])
 
-    def test_election_in_every_question_field_is_excluded(self):
+    def test_election_in_every_question_field_is_eligible(self):
         election_terms = (
             ("question_text", "Will the presidential election have a winner?"),
             ("background_info", "Election polling favors the incumbent."),
@@ -125,8 +124,8 @@ class SelectionTests(unittest.TestCase):
                 kwargs = {field: value}
                 text = kwargs.pop("question_text", "Will this resolve by December?")
                 selected, records = select_eligible_questions([question(1, text, **kwargs)], [])
-                self.assertEqual(selected, [])
-                self.assertEqual([(r.question_id, r.reason) for r in records], [(1, "election_policy")])
+                self.assertEqual([q.id_of_question for q in selected], [1])
+                self.assertEqual(records, [])
 
     def test_harmless_word_fragments_and_board_selection_are_eligible(self):
         selected, records = select_eligible_questions(

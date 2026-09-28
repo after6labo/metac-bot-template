@@ -510,3 +510,33 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 
 - Production verification: commit be86760bef45614edd86320af32dc4eeb93e17c7 triggered [36490121296](https://github.com/after6labo/metac-bot-template/actions/runs/36490121296). Python regression and scheduler steps passed in Actions, Bot completed, and artifact/result persistence succeeded. Independent read-only review found no introduced must-fix issue; it explicitly retained the existing 25-minute runtime limit as a limitation, not a guarantee of all submissions.
 - Verified result ran Sep29 07:05:01–07:05:13 JST, MiniBench 0/Fall 0, submitted 0, no pending questions, both independent inventory audits matched. This establishes deployed cap removal, not competitive participation; the known prior misses remain. Existing enabled hourly monitoring was updated and re-read with matching prompt and unchanged hourly cadence; evidence for no-submission decisions and responsibility to repair before deadlines are explicit. The owner is not expected to acknowledge overnight notifications to trigger authorized repairs.
+
+
+## 2026-09-29 JST — hourly checkpoint at 07:38:46
+- Reviewed current AGENTS.md/log, latest tournament result, three history results
+  spanning the preceding checkpoint and all 15 recent Actions runs. Reused the
+  same-day official-rule review, including its documented extraction limits.
+- Since the 06:54 checkpoint, production runs 36490121296 (07:05:01.942 JST)
+  and [36492382475](https://github.com/after6labo/metac-bot-template/actions/runs/36492382475)
+  (07:27:15.547 JST) completed and persisted tournament results. Both audits
+  are complete/matched in each run; MiniBench has 60 closed questions and Fall
+  two closed questions (one practice), zero open. Pending, skips, outcomes and
+  fetch errors are empty; failed/unconfirmed=0, needs_attention=false and
+  provider_paused_for_run=false. Latest artifact and persistence steps succeeded.
+- Actual JSON fetch-start intervals from 06:46:34.380 are 18m27.563s and
+  22m13.605s; current tail at checkpoint is 11m30.453s. No interval >60 minutes
+  in this reviewed range. No failed/missing new production result was found.
+  This establishes observations through the 07:27 API checks, not continuous
+  current availability or a guaranteed future polling interval.
+- Compared all 62 question metadata records across these inventories: no added
+  ID or changed window/status/forecast-presence, and no newly expired pending ID.
+  Known missed q46022/q45980 remain missed opportunities, not resolved by
+  empty pending lists. No first competitive submission is established; official
+  score/rank/prize remain unverified. Earlier practice/test posts are excluded.
+- Each new run used 0 observed LLM responses, 0 failed invocations and 0 tokens.
+  Tracking totals remain 2 responses/4,942 tokens from the separate smoke test,
+  not provider quota consumption; balance unknown, recorded new spending $0.
+  No code, answer eligibility, stopping condition, model/prompt, retry or extra
+  forecast dispatch changed; no owner action. Existing monitoring continues.
+  No new user notification: unchanged nonparticipation was already reported
+  today. This checkpoint does not certify historical missed windows as healthy.

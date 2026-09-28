@@ -470,3 +470,33 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 - Live official test-area smoke [36483118668](https://github.com/after6labo/metac-bot-template/actions/runs/36483118668): question 43332/post43327 prediction POST succeeded Sep29 06:01:44 JST, private explanation POST succeeded 06:01:48 JST. Run completed with submitted=1, failed_or_unconfirmed=0, two observed LLM responses, 4,942 observed tokens, no failed invocations, fixed free-only router, recorded new spending $0. Actual routed model/provider billing remains unobserved. No output values were inspected to tune forecasts. The test workflow only gained a push trigger for its own file and retains shared concurrency; no recurring test submissions were scheduled. Its seven pending test-area questions reflect the intentional one-question smoke limit and are not missed competition entries.
 - Production [36483118728](https://github.com/after6labo/metac-bot-template/actions/runs/36483118728) on the same code fetched at Sep29 06:02:40 JST and finished 06:02:50 JST: MiniBench 0/Fall 0, submitted 0, failed/unconfirmed 0, needs_attention=false, zero additional LLM responses. New schema is present and result persisted. No competitive submission, official score/rank or prize is established by this smoke test. Next success criterion remains autonomous accepted competitive submission within a live window.
 - Owner work required for this repair/check: none. Experiment records and provider-tracking fields preserved. Current observation supports an operable submission path and configured overnight incident handling, not guaranteed availability of future free service.
+
+
+## 2026-09-29 JST — hourly checkpoint at 06:54:37
+- Read current AGENTS.md, experiment log, latest result, 11 recent history files
+  and 12 Actions runs; latest is tournament mode, not the 06:01 test smoke.
+  Reused today's rules review and its documented access limitations.
+- Latest production remains [36488205075](https://github.com/after6labo/metac-bot-template/actions/runs/36488205075),
+  actual JSON start 06:46:34.379761 JST. Both independent inventories are complete
+  and matched; MiniBench 60 closed questions, Fall 2 closed questions including
+  practice. Open count 0, pending/skips/outcomes/fetch errors empty,
+  failed_or_unconfirmed 0, needs_attention false and provider pause false.
+  Artifact and result persistence steps succeeded. This establishes the state
+  at the 06:46 API observations, not continuously through this checkpoint.
+- Ten tournament JSON starts from 04:47:14.805494 through 06:46:34.379761 JST
+  have maximum interval 26m32.596s; tail at checkpoint 8m02.620s. No >60-minute
+  gap in this reviewed range. Test-mode execution excluded from cadence.
+  Two 06:41/06:44 audit failures are the already-reported pagination incident,
+  with recovery evidenced by the corrected 06:46 inventory, not merely by green
+  Actions status. Earlier results without audits remain historical unverified
+  inventory observations; they are not retroactively certified.
+- No new competitive submission or newly expired pending question since the
+  previous correction report. Known q46022 and q45980 missed windows remain
+  losses; disappearance from open lists does not resolve them. Competitive
+  submissions remain unconfirmed/recorded zero; official score/rank/prize unknown.
+- Latest production used 0 observed LLM responses, 0 failed invocations and
+  0 tokens; provider-tracking totals are 2 responses/4,942 tokens from the
+  separately reported test, not measured provider quota. New spending $0.
+  No code/eligibility/stopping-condition change, retry, extra inference,
+  owner operation or external message. Monitoring stays enabled; unchanged
+  user notification suppressed because the same status was just reported.

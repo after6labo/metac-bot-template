@@ -15,6 +15,7 @@ from runtime_policy import (
     validate_zero_cost_environment,
 )
 from bot_runtime import run_forecasts
+from question_inventory import collect_inventory
 from request_budget import DailyRequestBudget
 
 # Runtime helpers (env validation, banners, dependency-warning suppression).
@@ -781,8 +782,13 @@ if __name__ == "__main__":
             raise RuntimeError("Question retrieval cap reached; review pagination")
         return questions
 
+    async def fetch_inventory(tournament_id):
+        return await asyncio.to_thread(collect_inventory, tournament_id, os.environ['METACULUS_TOKEN'])
+
     forecast_reports, run_result = asyncio.run(
-        run_forecasts(fetch_open_questions, template_bot, run_mode, budget=BudgetedFreeLlm.budget)
+        run_forecasts(fetch_open_questions, template_bot, run_mode,
+                      budget=BudgetedFreeLlm.budget,
+                      fetch_inventory=fetch_inventory if run_mode == 'tournament' else None)
     )
     tracking = BudgetedFreeLlm.budget
     run_result["api_call_count"] = None  # No provider-side request-count measurement.
@@ -808,5 +814,5 @@ if __name__ == "__main__":
     )
 
 
-    if run_result["status"] in ("failed", "partial_failure", "fetch_failed", "provider_paused"):
+    if run_result['needs_attention'] or run_result["status"] in ("failed", "partial_failure", "fetch_failed", "provider_paused"):
         raise SystemExit(1)

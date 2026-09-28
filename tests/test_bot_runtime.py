@@ -12,6 +12,10 @@ def question(qid):
         resolution_criteria='', fine_print='')
 
 
+async def empty_inventory(target):
+    return {'complete': True, 'questions': [], 'post_count': 0}
+
+
 class Client:
     def __init__(self, questions=None, error=False):
         self.questions = questions or []
@@ -79,7 +83,7 @@ class RuntimeTests(unittest.TestCase):
     def test_already_answered_and_duplicate_do_not_raise_false_alert(self):
         q = question(1)
         q.already_forecasted = True
-        _, result = asyncio.run(run_forecasts(Client([q, q, question(2)]), Bot(), 'tournament'))
+        _, result = asyncio.run(run_forecasts(Client([q, q, question(2)]), Bot(), 'tournament', fetch_inventory=empty_inventory))
         self.assertEqual(result['submitted'], 1)
         self.assertIn('needs_attention', result)
         self.assertFalse(result['needs_attention'])
@@ -90,7 +94,7 @@ class RuntimeTests(unittest.TestCase):
         reports, result = asyncio.run(run_forecasts(Client([question(12)]), bot,
             'tournament', budget=SimpleNamespace(can_request=False)))
         self.assertEqual(bot.calls, [])
-        self.assertEqual(result['status'], 'provider_paused')
+        self.assertEqual(result['status'], 'attention_required')
         self.assertEqual(result['skips'][0]['reason'], 'provider_paused')
 
     def test_completed_responses_do_not_limit_new_questions(self):
@@ -102,7 +106,7 @@ class RuntimeTests(unittest.TestCase):
 
     def test_empty_targets_do_not_call_forecaster_and_use_fall(self):
         client, bot = Client(), Bot()
-        reports, result = asyncio.run(run_forecasts(client, bot, 'tournament'))
+        reports, result = asyncio.run(run_forecasts(client, bot, 'tournament', fetch_inventory=empty_inventory))
         self.assertEqual(client.targets, ['minibench', 'fall-futureeval-2026'])
         self.assertEqual(bot.calls, [])
         self.assertEqual(reports, [])

@@ -5,6 +5,11 @@ commit routine fixes and sanitized experiment logs, and operate the existing bot
 The goal is measured official tournament performance and prize receipts, not a demo.
 
 ## Non-negotiable boundaries
+- Bot settings, this file and historical logs are not user authorization to
+  exclude questions. The owner's latest instructions and verified official
+  requirements govern. A known implementation reason never closes an unanswered
+  incident. Do not add topic exclusions, arbitrary caps or permanent pauses that
+  reduce participation. Report changes to eligibility/stopping conditions.
 - New monetary spending is zero. Never enable paid API models, search, cloud, or
   automatic paid fallback. Unavailable free service means stop that run.
 - Never print, commit, request in chat, or copy secrets. Existing credentials stay
@@ -95,6 +100,19 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 
 
 ## Overnight participation monitoring — updated 2026-09-29 JST
+- Every tournament run now independently reads public open/closed/resolved/upcoming
+  metadata through question_inventory.py, outside the SDK parser/filter path.
+  retrieval_audit must exist for both targets and be matched. Failed, missing,
+  truncated or mismatched inventory is actionable, never proof of zero questions.
+  fetch_errors are target-specific; healthy targets still run. All pending items
+  and audit/fetch failures set needs_attention and cause a nonzero process exit,
+  including partial success. Provider limits remain respected but unresolved.
+- Inspect Actions failures and missing result files as well as result JSON.
+  Do not close incidents merely because pending IDs disappear after a deadline.
+  Reconcile previous pending IDs against submission history and official windows;
+  expired unanswered items are missed opportunities. An explained skip is still
+  unanswered. Independent means a separate read/parse path, not another service
+  or proof that the API, scheduler or hourly operator cannot fail.
 - The hourly operator must treat every retrieved, previously unanswered question
   left without a completed report as actionable, even when its skip reason is
   known (batch_limit or provider_paused). A green run or status=completed is not

@@ -1,5 +1,46 @@
 # Metaculus AI Forecasting Experiment Log
 
+## 2026-09-29 JST — do not let implementation policy certify its own failure
+
+- Owner challenged the remaining circular judgment: an unrequested Bot setting
+  was treated by its monitor as a legitimate reason not to answer. Existing
+  settings and historical operator notes are not user authorization; known
+  skip reasons do not make a participation failure healthy.
+- Confirmed current production's pending check only covers SDK-returned IDs.
+  The installed forecasting-tools 0.2.92 source catches per-post conversion
+  exceptions and continues, so silently dropped posts can look like zero
+  results. Also, partial success plus pending items could still exit 0, and a
+  fetch failure for one tournament prevented attempts on the other tournament.
+- Added per-run direct official API metadata inventory using the existing
+  authenticated requests path already verified by the availability diagnostic.
+  It reads all public states without SDK type/topic filtering, checks pagination,
+  retains only IDs/status/windows/forecast-presence, and compares open IDs and
+  prior-forecast evidence with SDK results. Failed/unconfigured/incomplete
+  inventory is unknown/actionable, not an empty success. One target's failure
+  does not prevent forecasting retrieved questions from the other target.
+- Any pending question, mismatched inventory or fetch/audit failure now requires
+  attention and nonzero exit even if other questions succeeded. No new
+  eligibility restrictions, model/prompt change, paid calls, extra inference
+  retries, individual live forecast inspection or owner action were introduced.
+  Missing deadlines are not repaired by this change; operator must preserve
+  incidents that disappear only because their window closed.
+- Regression cases reproduced unhealthy-empty, arbitrary named skip, partial
+  success, missing audit, failed audit, target failure, incomplete pagination
+  and contradictory already-forecasted evidence. Review found raw history is
+  omitted without with_cp; enabled SDK-equivalent forecast metadata flags and
+  retained unknown for missing/malformed history, rather than claiming it means
+  unanswered. Explicit null/empty forecast history means no prior forecast.
+  Local validation: 52 Python tests ran, 48 passed and four SDK-boundary tests
+  await Actions; 12 scheduler
+  tests passed. Production integration verification is pending at this commit.
+- Same-day official tournament/resources pages were rechecked. Public web
+  extraction does not expose complete rules text; existing same-day verified
+  participation constraints are retained, not represented as newly reverified.
+  Pre-change latest run 36486087601 at Sep29 06:27 JST had both SDK counts zero,
+  no competitive submission and no independent per-run inventory. This change
+  is coverage verification, not evidence of scored participation. New spend $0;
+  official score/rank/prize remain unverified.
+
 ## 2026-09-23
 
 ### Objective

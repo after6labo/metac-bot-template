@@ -34,14 +34,19 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; <=12 questions/run; one reasoning
-  sample and one parser attempt. Shared UTC-day quota is 40 reserved outbound calls,
-  stored in run-results/budget.json; failed calls consume it too. A provider 402/429
-  blocks further calls that day. Underlying routed model may change.
+  sample and one parser attempt. No local daily request cap: the owner removed
+  the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
+  run-results/budget.json now stores observed responses/failures/tokens and any
+  provider Retry-After cooldown, not reservations or measured quota consumption.
+  A provider 402/429 stops that run; a future scheduled run may resume after the
+  explicit cooldown, without assuming every 429 exhausts the entire UTC day.
+  No immediate retry or paid fallback. Underlying routed model may change.
 - The owner explicitly removed topic-based exclusions on 2026-09-29 JST.
   Election-related questions are eligible under the same rules as other topics.
   Do not reintroduce topic filters without an explicit owner request. The earlier
   statement describing election exclusion as a user scope constraint was incorrect.
-  Retain duplicate/already-forecasted guards and all zero-cost/quota controls.
+  Retain duplicate/already-forecasted guards and free-only routing. Do not restore
+  local request ceilings or topic exclusions without an explicit owner request.
 - Basic stance: base rates -> verified evidence -> incentives and observed social
   factors -> counter-scenario -> probability. Avoid ethnic/national stereotypes;
   distinguish should from will, and missing research from current evidence.

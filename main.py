@@ -58,7 +58,7 @@ logger = logging.getLogger(__name__)
 
 
 class BudgetedFreeLlm(GeneralLlm):
-    """One fixed free route, with a shared persistent request counter."""
+    """One fixed free route; provider limits, with observed-outcome tracking."""
     budget = None
     last_request_at = 0.0
     request_lock = asyncio.Lock()
@@ -70,7 +70,7 @@ class BudgetedFreeLlm(GeneralLlm):
     async def _mockable_direct_call_to_model(self, prompt):
         # SDK 0.2.92 funnels generation and parsing through this method.
         async with self.request_lock:
-            self.budget.reserve()  # debit before network; failed calls also count
+            self.budget.check_available()
             delay = 3.2 - (time.monotonic() - BudgetedFreeLlm.last_request_at)
             if delay > 0:
                 await asyncio.sleep(delay)
@@ -78,8 +78,7 @@ class BudgetedFreeLlm(GeneralLlm):
             try:
                 response = await super()._mockable_direct_call_to_model(prompt)
             except Exception as exc:
-                if getattr(exc, "status_code", None) in (402, 429):
-                    self.budget.block()
+                self.budget.record_failure(exc)
                 raise
             self.budget.record_response(response.total_tokens_used)
             return response
@@ -726,8 +725,6 @@ if __name__ == "__main__":
     # validation sample. This keeps the experiment inside the $0 new-cost rule.
     use_zero_cost_baseline = True
     BudgetedFreeLlm.budget = DailyRequestBudget()
-    initial_requests = BudgetedFreeLlm.budget.data["requests_reserved"]
-    initial_tokens = BudgetedFreeLlm.budget.data["observed_tokens"]
     zero_cost_llms = {
         "default": BudgetedFreeLlm(temperature=0.3),
         "summarizer": BudgetedFreeLlm(temperature=0.0),
@@ -787,10 +784,15 @@ if __name__ == "__main__":
     forecast_reports, run_result = asyncio.run(
         run_forecasts(fetch_open_questions, template_bot, run_mode, budget=BudgetedFreeLlm.budget)
     )
-    run_result["api_call_count"] = BudgetedFreeLlm.budget.data["requests_reserved"] - initial_requests
-    run_result["api_call_measurement"] = "Reserved outbound attempts; includes failed calls"
-    run_result["api_token_usage"] = BudgetedFreeLlm.budget.data["observed_tokens"] - initial_tokens
-    run_result["daily_request_budget"] = BudgetedFreeLlm.budget.data
+    tracking = BudgetedFreeLlm.budget
+    run_result["api_call_count"] = None  # No provider-side request-count measurement.
+    run_result["api_successful_response_count"] = tracking.session_responses
+    run_result["llm_failed_or_unconfirmed_invocations"] = tracking.session_failures
+    run_result["api_call_measurement"] = "Observed responses and invocation failures; not provider quota consumption"
+    run_result["api_token_usage"] = tracking.session_tokens
+    run_result["free_request_tracking"] = tracking.data
+    run_result["provider_paused_for_run"] = not tracking.can_request
+    tracking.save()
     run_result["git_sha"] = os.getenv("GITHUB_SHA")
     run_result["workflow_run_id"] = os.getenv("GITHUB_RUN_ID")
     result_path = Path("run-results/latest.json")
@@ -806,5 +808,5 @@ if __name__ == "__main__":
     )
 
 
-    if run_result["status"] in ("failed", "partial_failure", "fetch_failed"):
+    if run_result["status"] in ("failed", "partial_failure", "fetch_failed", "provider_paused"):
         raise SystemExit(1)

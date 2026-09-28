@@ -79,7 +79,7 @@ jobs:
             run-results/budget.json
           if-no-files-found: warn
           retention-days: 30
-      - name: Record measured result and request quota
+      - name: Record measured result and provider pause state
         if: always()
         run: |
           if [ -f run-results/latest.json ]; then

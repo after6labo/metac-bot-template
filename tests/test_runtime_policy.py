@@ -84,24 +84,21 @@ class SelectionTests(unittest.TestCase):
         self.assertEqual([(r.question_id, r.reason) for r in records],
                          [(99, "already_forecasted"), (99, "duplicate")])
 
-    def test_never_forecasts_more_than_twelve_and_records_deferred(self):
+    def test_all_unanswered_questions_across_tournaments_are_selected(self):
         selected, records = select_eligible_questions(
             [question(i, f"Question {i}") for i in range(10)],
             [question(i, f"Question {i}") for i in range(10, 15)],
         )
-        self.assertEqual([q.id_of_question for q in selected], list(range(12)))
-        self.assertEqual(
-            [(r.question_id, r.reason) for r in records],
-            [(12, "batch_limit"), (13, "batch_limit"), (14, "batch_limit")],
-        )
+        self.assertEqual([q.id_of_question for q in selected], list(range(15)))
+        self.assertEqual(records, [])
 
-    def test_requested_limit_cannot_raise_fixed_twelve_question_cap(self):
+    def test_explicit_smoke_limit_can_select_one_question(self):
         selected, records = select_eligible_questions(
-            [question(i, f"Question {i}") for i in range(14)], [], limit=100
+            [question(i, f"Question {i}") for i in range(3)], [], limit=1
         )
-        self.assertEqual(len(selected), 12)
+        self.assertEqual([q.id_of_question for q in selected], [0])
         self.assertEqual([(r.question_id, r.reason) for r in records],
-                         [(12, "batch_limit"), (13, "batch_limit")])
+                         [(1, "batch_limit"), (2, "batch_limit")])
 
     def test_implicit_electoral_vote_or_presidency_outcomes_are_eligible(self):
         selected, records = select_eligible_questions(

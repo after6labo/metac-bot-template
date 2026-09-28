@@ -104,7 +104,7 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None, *, fetch_invent
         for source, questions in ((result['targets'][0], primary), (FUTUREEVAL, seasonal))
         for question in questions
     ]
-    selected, skips = select_eligible_questions(primary, seasonal, limit=12 if mode == 'tournament' else 1)
+    selected, skips = select_eligible_questions(primary, seasonal, limit=None if mode == 'tournament' else 1)
     result['skips'] = [asdict(record) for record in skips]
     result['selected'] = len(selected)
     # Filtering above already excludes prior forecasts; no human selects a forecast.

@@ -38,7 +38,7 @@ The goal is measured official tournament performance and prize receipts, not a d
   manual runs, and relevant main code changes. Shared concurrency with smoke test.
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
-- OpenRouter free router only; no live search; <=12 questions/run; one reasoning
+- OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
   sample and one parser attempt. No local daily request cap: the owner removed
   the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
   run-results/budget.json now stores observed responses/failures/tokens and any
@@ -115,7 +115,7 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   or proof that the API, scheduler or hourly operator cannot fail.
 - The hourly operator must treat every retrieved, previously unanswered question
   left without a completed report as actionable, even when its skip reason is
-  known (batch_limit or provider_paused). A green run or status=completed is not
+  known (including a legacy batch_limit or provider_paused). A green run or status=completed is not
   enough: inspect needs_attention and pending_questions plus their deadlines.
 - Runtime now stores question_windows and pending_questions with question/post
   IDs, source and UTC opening/closing timestamps, not question text, forecasts,
@@ -141,3 +141,30 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   current question windows, without claiming that all historical windows have
   been reconciled. Use the existing authenticated API read-only diagnostic;
   a blocked web page alone does not require another owner screenshot.
+
+## Evidence required for not submitting — 2026-09-29 JST
+- The owner did not authorize independent topic exclusions or participation caps.
+  The remaining 12-question production cap is removed. All retrieved unanswered
+  tournament questions enter forecasting; the explicit one-question test-area
+  smoke limit is not a tournament restriction. Do not reinstate the cap.
+- For every unanswered item, identify the exact owner instruction or current
+  official requirement, or record a concrete technical failure. An operator's
+  judgment, repository instruction, historical skip label or sent notification
+  is not authority to waive participation. Lack of evidence is an unresolved
+  fault to investigate and repair, not a new reason to exclude the question.
+- Already-answered/duplicate handling requires a matching question ID and
+  submission evidence; unknown or conflicting evidence stays unresolved.
+  Closed/upcoming status requires official timestamps. A closed unanswered
+  question is a missed opportunity, never successful incident resolution.
+- Provider rejection/cooldown, authentication, parsing, network and publication
+  failures are barriers to submission, not acceptable competitive outcomes.
+  Honor actual service restrictions and zero spending while repairing what is
+  authorized. Notification does not transfer responsibility to a sleeping owner.
+- Remaining technical settings are disclosed: one model/parser attempt per
+  forecast, a 45-second model timeout, sequential calls spaced by at least 3.2
+  seconds, a 25-minute Actions job timeout, and inventory reads capped at 10
+  pages of 100 posts. These are implementation choices, not official tournament
+  eligibility rules. Their failures must remain actionable; do not label them
+  healthy because they behaved as configured. Unanswered questions can be tried
+  on subsequent runs while still open, after checking submission evidence and
+  respecting provider cooldown. No individual probability tuning is allowed.

@@ -75,9 +75,16 @@ class InventoryGuardTests(unittest.TestCase):
         self.assertEqual(result['pending_questions'][0]['reason'], 'forecast_evidence_mismatch')
 
     def test_partial_success_is_not_a_green_completed_run(self):
-        _, result = asyncio.run(run_forecasts(Client([question(n) for n in range(13)]), Bot(), 'tournament', fetch_inventory=empty_inventory))
-        self.assertEqual(result['submitted'], 12)
-        self.assertEqual(result['status'], 'attention_required')
+        class PartlyFailingBot(Bot):
+            async def forecast_question(self, q, return_exceptions=True):
+                if q.id_of_question == 2:
+                    return RuntimeError('publication unconfirmed')
+                return await super().forecast_question(q, return_exceptions)
+        _, result = asyncio.run(run_forecasts(Client([question(1), question(2)]), PartlyFailingBot(), 'tournament', fetch_inventory=empty_inventory))
+        self.assertEqual(result['submitted'], 1)
+        self.assertTrue(result['needs_attention'])
+        self.assertEqual([q['question_id'] for q in result['pending_questions']], [2])
+        self.assertEqual(result['status'], 'partial_failure')
 
     def test_unknown_raw_forecast_evidence_is_not_claimed_as_confirmed_unanswered(self):
         q = question(7)

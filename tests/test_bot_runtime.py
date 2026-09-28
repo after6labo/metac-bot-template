@@ -60,12 +60,20 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(pending[0]['reason'], 'failed_or_unconfirmed')
         self.assertNotIn('credential', str(result))
 
-    def test_batch_deferred_question_is_not_hidden_by_other_submissions(self):
-        _, result = asyncio.run(run_forecasts(Client([question(n) for n in range(13)]), Bot(), 'tournament'))
-        self.assertEqual(result['submitted'], 12)
-        self.assertTrue(result.get('needs_attention', False))
-        self.assertEqual([q['question_id'] for q in result['pending_questions']], [12])
-        self.assertEqual(result['pending_questions'][0]['reason'], 'batch_limit')
+    def test_thirteenth_tournament_question_is_submitted_in_same_run(self):
+        bot = Bot()
+        _, result = asyncio.run(run_forecasts(Client([question(n) for n in range(13)]), bot, 'tournament', fetch_inventory=empty_inventory))
+        self.assertEqual(bot.calls, list(range(13)))
+        self.assertEqual(result['submitted'], 13)
+        self.assertFalse(result['needs_attention'])
+        self.assertEqual(result['pending_questions'], [])
+
+    def test_test_area_still_submits_only_one_smoke_forecast(self):
+        async def fetch(target):
+            return [question(1), question(2)]
+        _, result = asyncio.run(run_forecasts(fetch, Bot(), 'test_questions'))
+        self.assertEqual(result['submitted'], 1)
+        self.assertEqual(result['outcomes'][0]['question_id'], 1)
 
     def test_provider_pause_after_success_still_needs_attention(self):
         budget = SimpleNamespace(can_request=True)

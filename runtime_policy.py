@@ -62,12 +62,11 @@ def require_zero_cost_mode(mode: str) -> None:
 def select_eligible_questions(
     minibench_questions: Sequence[Any],
     seasonal_questions: Sequence[Any],
-    limit: int = 12,
+    limit: int | None = None,
 ) -> tuple[list[Any], list[SkipRecord]]:
-    """Prioritize MiniBench, never exceed 12, and account for every omitted item."""
-    if limit < 0:
+    """Select every unanswered question; an explicit limit is for smoke tests."""
+    if limit is not None and limit < 0:
         raise ValueError("limit must be nonnegative")
-    budget = min(limit, 12)
     selected: list[Any] = []
     records: list[SkipRecord] = []
     seen_ids: set[Any] = set()
@@ -85,7 +84,7 @@ def select_eligible_questions(
                 seen_ids.add(question_id)
                 if question_id in forecasted_ids:
                     reason = "already_forecasted"
-                elif len(selected) >= budget:
+                elif limit is not None and len(selected) >= limit:
                     reason = "batch_limit"
                 else:
                     selected.append(question)

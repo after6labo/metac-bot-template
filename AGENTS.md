@@ -77,7 +77,7 @@ Preserve start date, route/model history, calls/tokens/balance when observable,
 submission/failure/skip counts, official score/rank, calibration, reasons for
 changes, before/after outcomes, owner actions/time, new spend and prize receipts.
 Do not invent unobserved values. Runtime JSON is not a billing or payout receipt.
-Observe upcoming first actual competitive submission, then resolved outcomes.
+Fall's first competitive report returned on Sep30; next verify official acceptance/scoring, the first MiniBench submission, and resolved outcomes.
 The owner supplied the season's LLM-credit rejection notice (recorded Sep28).
 Treat Fall 2026 as no donated credits; continue only the existing free router.
 The email's sender/header was not independently authenticated. No reply or
@@ -96,8 +96,11 @@ the owner reports it submitted. Seasonal survey remains required for prizes.
 - Report Bot execution, accepted competitive submissions, and official score separately. No 'wait, all is well' assurance while this incident is unresolved. The owner should not have to interpret English pages or diagnose the bot.
 
 ### Confirmed missed window — question 45980 / post 45795
-Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifies MiniBench project 33125 and an exact open window Sep23 21:10:51–Sep24 00:10:51 UTC (Sep24 06:10:51–09:10:51 JST). No production workflow started during this window: preceding run 35841074249 started Sep23 09:07:25 UTC; next run 35998719942 started Sep24 12:23:12 UTC. This establishes at least one missed submission opportunity due to absent polling, before GAS activation on Sep25. Do not generalize this single-question cause to all 60 items or claim that query correctness is fully verified. The supplied ZIP contains aggregate forecasts, not individual bot participation proof. No individual prediction was tuned. Latest audited 24h through Sep28 06:46:56 UTC: 52 successful production runs, maximum creation-time gap 30m04s; fetch timing must be reported separately. Keep the installed scheduler; accepted competitive submission remains the next unverified milestone.
+Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifies MiniBench project 33125 and an exact open window Sep23 21:10:51–Sep24 00:10:51 UTC (Sep24 06:10:51–09:10:51 JST). No production workflow started during this window: preceding run 35841074249 started Sep23 09:07:25 UTC; next run 35998719942 started Sep24 12:23:12 UTC. This establishes at least one missed submission opportunity due to absent polling, before GAS activation on Sep25. Do not generalize this single-question cause to all 60 items or claim that query correctness is fully verified. The supplied ZIP contains aggregate forecasts, not individual bot participation proof. No individual prediction was tuned. Latest audited 24h through Sep28 06:46:56 UTC: 52 successful production runs, maximum creation-time gap 30m04s; fetch timing must be reported separately. Keep the installed scheduler; the first Fall competitive report returned Sep30, while official acceptance/scoring and the first MiniBench submission remain unverified.
 
+
+### First competitive Fall publication — question 46019 / post 45844
+Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JST and explanation-comment publication at 00:59:03.287 JST, within the Sep29 23:00–Sep30 02:00 JST official window. Runtime recorded submitted=1 and nonfatal_errors=0. Treat this as a returned complete report, not proof of tournament acceptance, scoring eligibility, official score/rank or prize. Confirm the next authenticated inventory recognizes the existing forecast before closing duplicate-risk monitoring. MiniBench still has no confirmed competitive submission.
 
 ## Overnight participation monitoring — updated 2026-09-29 JST
 - Every tournament run now independently reads public open/closed/resolved/upcoming

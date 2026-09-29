@@ -66,7 +66,7 @@ class BudgetedFreeLlm(GeneralLlm):
 
     def __init__(self, **kwargs):
         super().__init__(model="openrouter/openrouter/free", allowed_tries=1,
-                         num_retries=0, timeout=45, **kwargs)
+                         num_retries=0, timeout=180, **kwargs)
 
     async def _mockable_direct_call_to_model(self, prompt):
         # SDK 0.2.92 funnels generation and parsing through this method.

@@ -1004,3 +1004,28 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
   or owner operation changed. Continue monitoring; no duplicate notice for
   today's unchanged, previously reported participation incident.
+
+
+## 2026-09-29 JST — active timeout incident at 23:37
+- Fall q46019/post45844 is open Sep29 23:00–Sep30 02:00 JST. First detected
+  at 23:00:59.699 by run36579317463; run36582669502 fetched again at
+  23:27:08.408. Both inventories complete/matched, MiniBench still 60 closed,
+  Fall three questions/four posts, with q46019 pending and no retrieval errors.
+  Actual start gaps from prior run: 13m46.142s and 26m08.710s, no coverage gap.
+- Both runs failed before obtaining any model response: job109443006539 recorded
+  litellm.Timeout after 45.809s; job109454646377 after 45.156s. These are the
+  locally configured 45-second cutoff, not evidence of provider 402/429 or
+  cooldown. No model output was inspected or tuned. Second authenticated audit
+  still reports already_forecasted=false; failed generation precedes publication.
+  Both failed runs preserved artifacts/results. This is unresolved, not healthy.
+- Minimal repair6579680b682ad76c7350c47db59494cedb8d97aa increases response timeout
+  to 180 seconds only. A local configuration check failed at45 and passed at180,
+  preserving the free router and one-attempt/no-immediate-retry invariants.
+  Answer eligibility unchanged; local request timeout relaxed; provider pause
+  behavior, free-only routing, prompts and forecast probabilities unchanged.
+  AGENTS.md updated to disclose the new setting.
+- Push-triggered [36583895938](https://github.com/after6labo/metac-bot-template/actions/runs/36583895938)
+  has passed offline regression/scheduler checks and is running production.
+  Remaining window approximately2h23m; verify this run before deciding next action.
+  Prior observed LLM failures today2, successful responses/tokens0; not provider
+  quota usage. $0 new spending recorded; provider balance/usage unknown.

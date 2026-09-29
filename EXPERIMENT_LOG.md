@@ -754,3 +754,31 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   quota unknown. No code, targets, stopping conditions, prompts, extra dispatch,
   retries or owner actions changed during this check. Monitoring remains active;
   no repeated user notice for the unchanged, already reported situation.
+
+
+## 2026-09-29 JST — checkpoint at 15:25:49
+- Read latest AGENTS.md/log/result, four tournament history records spanning
+  the previous observation, ten Actions runs and all three new jobs' steps.
+  Reused today's official-rule review and its documented access limitations.
+- New runs: 36523852853 at 13:57:23.482 JST, 36526163954 at 14:27:14.403,
+  and [36528547981](https://github.com/after6labo/metac-bot-template/actions/runs/36528547981)
+  at 14:57:29.624. All preserved artifacts and repository results. Both target
+  audits exist, are complete/matched, and have no missing IDs or forecast-evidence
+  discrepancies. All 62 question metadata records, including closed windows and
+  forecast-presence, are unchanged from 13:27: MiniBench 60 closed; Fall two
+  closed including practice. Pending/windows/skips/outcomes/fetch errors empty;
+  attention/provider pause false; zero selected, submitted, failed/unconfirmed.
+- Actual JSON fetch-start gaps: 30m10.350s, 29m50.920s, 30m15.221s (maximum).
+  Tail at checkpoint: 28m19.376s. No >60-minute gap or missing new result.
+  Observed cadence suggests another fetch around 15:27 JST, not a guarantee.
+  No previously pending ID newly expired; known q46022/q45980 losses remain.
+- Availability evidence is limited to these configured-tournament API snapshots
+  through 14:57 JST. The Cup distinction and separate Fall website-total/API-list
+  visibility question remain as previously documented; no broad all-Metaculus
+  absence claim or new evidence of resolution. Competitive submission/acceptance
+  and official score/rank/prize remain unconfirmed.
+- New runs each observed zero LLM responses/failures/tokens and $0 new spending;
+  UTC Sep29 tracking remains zero, not a provider quota measurement. Provider
+  balance/consumed quota unknown. No code, target eligibility, stopping conditions,
+  model/prompt, extra dispatch, retry or owner operation changed in this check.
+  Monitoring continues. Suppress duplicate notice for today's unchanged incident.

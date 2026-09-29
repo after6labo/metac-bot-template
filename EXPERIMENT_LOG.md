@@ -682,3 +682,22 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   model/prompt, retry, extra dispatch or owner operation changed.
   Monitoring continues. No duplicate notification for today's unchanged
   participation incident; the participation objective remains unmet.
+
+
+## 2026-09-29 JST — owner challenges incomplete recognition of published questions
+- Owner reports seeing published questions. Fresh official Fall tournament web
+  extraction shows View Questions(8), versus earlier recorded seven. Latest
+  12:57 JST authenticated inventory exposes three posts: q46022 closed,
+  practice q45707 closed, and a notebook. The web-total/API-visible discrepancy
+  is not reconciled. Do not infer that all eight displayed items are closed,
+  or that this proves five currently forecastable missing questions.
+- Existing matched audits compare two API code paths; they do not independently
+  certify agreement with the website's full visible list or account visibility.
+  The operator's prior explanation that displayed items are closed was broader
+  than the evidence. Current open availability outside the API-visible subset
+  remains unconfirmed and requires item IDs/window evidence.
+- Direct public browser inspection was blocked by a persistent Cloudflare
+  security-verification page after one reload; no bypass, login, extra model
+  call or prediction tuning attempted. Search extraction supplies total eight
+  but no item links or windows. Existing API operation is not thereby proven
+  broken; the difference remains an unresolved visibility investigation.

@@ -1091,3 +1091,17 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   already forecasted and therefore not reposted. Do not launch an immediate retry.
   MiniBench still has zero confirmed competitive submissions; known q46022 and
   q45980 missed windows remain losses.
+
+### 01:27 JST — authenticated post-submission confirmation
+- [Run 36597709015](https://github.com/after6labo/metac-bot-template/actions/runs/36597709015)
+  fetched at 01:27:22.225 JST and completed successfully. Its independent Fall
+  inventory at 01:27:37.446 JST still found q46019 open but now explicitly
+  already_forecasted=true. Runtime selected zero, made no LLM calls, submitted
+  zero duplicates, and recorded only the evidence-backed already_forecasted
+  skip. Pending/fetch errors/mismatches/unknowns are empty and needs_attention is
+  false; both target audits are complete/matched.
+- This confirms the Metaculus API now exposes forecast presence after the prior
+  publication and the bot's duplicate guard acted correctly. It strengthens
+  submission evidence but still does not establish tournament scoring acceptance,
+  official score/rank, or prize. No code, prompt, probability, eligibility,
+  stopping condition, paid route, or manual retry was added.

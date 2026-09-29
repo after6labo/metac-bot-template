@@ -603,3 +603,30 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   eligibility/stopping conditions, model/prompt or owner operation changed.
   Monitoring continues; unchanged nonparticipation was already reported today,
   so no duplicate user notification. The participation goal remains unmet.
+
+
+## 2026-09-29 JST — hourly checkpoint at 11:10:20
+- Read current AGENTS.md/log/latest, three tournament history files spanning
+  the previous observation, eight recent Actions runs, and both new jobs'
+  persistence steps. Reused today's official-rule review and its limitations.
+- Runs 36507893820 (10:27:05.940 JST) and
+  [36510235973](https://github.com/after6labo/metac-bot-template/actions/runs/36510235973)
+  (10:57:13.733 JST) completed and persisted results/artifacts. Both target
+  inventories are complete/matched: MiniBench 60 closed questions; Fall two
+  closed questions including practice. All 62 metadata records are unchanged
+  from 09:58, including windows and forecast evidence. Zero open, selected,
+  submitted or failed/unconfirmed; pending/windows/skips/outcomes/fetch errors
+  empty; needs_attention/provider_paused_for_run false.
+- Actual JSON start gaps since 09:58 are 28m30.519s and 30m07.793s; current
+  tail is 13m06.267s. No >60-minute gap or missing result. The observed cadence
+  suggests another fetch around 11:27 JST, not a guaranteed execution time.
+- No newly expired pending ID or new competitive submission. Known
+  q46022/q45980 losses remain; first competitive participation and official
+  score/rank/prize remain unconfirmed. Availability evidence is through the
+  10:57 API observations, not continuous coverage.
+- New runs each recorded zero LLM responses/failures/tokens and $0 new spending.
+  UTC Sep29 tracking is zero; provider balance/quota consumption remain unknown.
+  Since the last checkpoint only result commits occurred; no code, eligibility,
+  stopping conditions, model/prompt, retry, extra dispatch or owner action changed.
+  Monitoring remains enabled. No repeated notification for today's unchanged
+  participation incident.

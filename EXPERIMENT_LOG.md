@@ -630,3 +630,29 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   stopping conditions, model/prompt, retry, extra dispatch or owner action changed.
   Monitoring remains enabled. No repeated notification for today's unchanged
   participation incident.
+
+
+## 2026-09-29 JST — hourly checkpoint at 12:12:26
+- Reviewed latest AGENTS.md/log/result, three tournament history records from
+  the previous observation, eight Actions runs and both new jobs' persistence
+  steps. Reused the same-day official-rule review with its documented limits.
+- Runs 36512590344 (11:27:16.272 JST) and
+  [36514903020](https://github.com/after6labo/metac-bot-template/actions/runs/36514903020)
+  (11:57:17.159 JST) completed with persisted results/artifacts. Both target
+  audits are complete/matched. MiniBench 60 and Fall two questions (including
+  practice) remain closed; all 62 metadata records, windows and forecast
+  evidence are unchanged. Open/selected/submitted/failed counts are zero;
+  pending/windows/skips/outcomes/fetch errors empty; attention/provider pause false.
+- JSON fetch-start intervals from 10:57 are 30m02.539s and 30m00.888s;
+  tail at checkpoint 15m08.841s. No >60-minute gap or missing new result.
+  Observed cadence suggests another fetch around 12:27 JST, without guarantee.
+- No newly expired pending ID, new submission, or technical incident. Known
+  q46022/q45980 missed opportunities remain losses. First competitive submission
+  and official acceptance/score/rank/prize remain unconfirmed. These API
+  observations establish availability through 11:57 JST, not continuous coverage.
+- Both new runs recorded zero LLM responses/failures/tokens and $0 new spending;
+  UTC Sep29 tracking remains zero. Provider balance and consumed quota unknown.
+  Only result commits intervened. No code, eligibility, stopping conditions,
+  model/prompt, retry, extra dispatch or owner operation changed.
+  Monitoring continues; suppress duplicate notification for today's unchanged
+  nonparticipation. The experiment's participation objective remains unmet.

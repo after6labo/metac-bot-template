@@ -782,3 +782,31 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   balance/consumed quota unknown. No code, target eligibility, stopping conditions,
   model/prompt, extra dispatch, retry or owner operation changed in this check.
   Monitoring continues. Suppress duplicate notice for today's unchanged incident.
+
+
+## 2026-09-29 JST — checkpoint at 15:52:16
+- Read latest AGENTS.md/log/result, three history records spanning the prior
+  production observation, eight Actions runs and both new jobs' persistence
+  steps. Reused today's official-rule review with its recorded limitations.
+- New tournament runs 36531059369 (15:27:17.389 JST, workflow_dispatch) and
+  [36533107819](https://github.com/after6labo/metac-bot-template/actions/runs/36533107819)
+  (15:50:21.312 JST, native schedule) completed and persisted artifacts/results.
+  Latest equals its history record. Both target audits complete/matched with no
+  missing IDs, unknown forecast evidence or evidence mismatch. All 62 question
+  metadata/window/forecast-presence records unchanged from 14:57: MiniBench 60
+  closed; Fall two closed including practice. No selected/submitted/failed item;
+  pending/windows/skips/outcomes/fetch errors empty; attention/provider pause false.
+- Actual JSON fetch-start gaps 29m47.766s and 23m03.923s; tail at checkpoint
+  1m54.688s. No >60-minute gap or missing new result. Recent dispatch cadence
+  suggests another fetch around 15:57 JST, but native schedule and concurrency
+  can affect timing; no guaranteed execution or continuous coverage claim.
+- No newly expired pending ID or competitive submission. Known q46022/q45980
+  misses remain losses. Official acceptance/score/rank/prize remain unconfirmed.
+  Availability statements concern only these configured-tournament API snapshots;
+  Cup membership clarification and separate website-total discrepancy remain as
+  recorded at 13:10. Do not infer absence of public questions site-wide.
+- Both new runs observed zero LLM responses/failures/tokens and $0 new spending;
+  UTC Sep29 tracking stays zero, provider balance/consumed quota unknown.
+  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
+  or owner operation changed. Continue monitoring; no duplicate user notice
+  for today's unchanged, already reported participation incident.

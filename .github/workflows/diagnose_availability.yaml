@@ -97,6 +97,33 @@ jobs:
                   except Exception as exc:
                       result["targets"][target] = {"error_type": type(exc).__name__}
                       failed = True
+              # Compare owner-supplied public posts and unfiltered tournament metadata.
+              result["requested_posts"] = {}
+              for post_id in (45619, 45219, 45670):
+                  try:
+                      response = requests.get(BASE + str(post_id) + "/", timeout=30,
+                          headers={"Authorization": "Token " + os.environ["METACULUS_TOKEN"], "Accept-Language": "en"})
+                      response.raise_for_status()
+                      post = response.json()
+                      row = summarize(post)
+                      def project_metadata(value):
+                          if isinstance(value, list):
+                              return [project_metadata(item) for item in value]
+                          if isinstance(value, dict):
+                              if "id" in value:
+                                  return {k: value.get(k) for k in ("id", "slug", "name", "type") if k in value}
+                              return {k: project_metadata(v) for k, v in value.items()}
+                          return value if isinstance(value, (str, int, bool)) or value is None else None
+                      row["projects"] = project_metadata(post.get("projects"))
+                      result["requested_posts"][str(post_id)] = row
+                  except requests.HTTPError as exc:
+                      result["requested_posts"][str(post_id)] = {"error_type": "HTTPError", "http_status": exc.response.status_code}
+                      failed = True
+              try:
+                  result["fall_without_status_filter"] = collect("fall-futureeval-2026", None)
+              except requests.HTTPError as exc:
+                  result["fall_without_status_filter"] = {"error_type": "HTTPError", "http_status": exc.response.status_code}
+                  failed = True
               result["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
               Path("availability.json").write_text(json.dumps(result, indent=2) + "\n")
               print("AVAILABILITY_RESULT=" + json.dumps(result))

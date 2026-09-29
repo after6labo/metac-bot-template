@@ -701,3 +701,28 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   call or prediction tuning attempted. Search extraction supplies total eight
   but no item links or windows. Existing API operation is not thereby proven
   broken; the difference remains an unresolved visibility investigation.
+
+
+## 2026-09-29 13:10 JST — owner-supplied open Cup questions verified
+- Read-only authenticated diagnostic [36520439098](https://github.com/after6labo/metac-bot-template/actions/runs/36520439098)
+  ran 04:10:42–04:10:48 UTC successfully, preserving sanitized metadata artifact.
+  Extended existing diagnosis workflow to read the three supplied post IDs and
+  compare Fall listing without a status filter; no forecast/model call made.
+- Posts 45619 / 45219 / 45670 are all open, with bot forecast history count 0.
+  Their question IDs are respectively 45809 / 45412 / 45859. All belong to
+  Metaculus Cup Fall 2026 (33108, metaculus-cup-fall-2026), not the configured
+  Fall FutureEval 2026 (33121). Other memberships are leaderboard/category tags.
+  All opened Sep22 02:00 JST; scheduled closes respectively Dec15 10:00 JST,
+  Dec1 08:00 JST, Oct27 15:00 JST. This is direct evidence of public open
+  questions outside the two configured tournament queries, not closed items.
+- Correct the operator's broad statement: zero open questions in the configured
+  FutureEval/MiniBench inventory does not mean zero public open Metaculus
+  questions. These three were not recognized by routine tournament monitoring
+  and remain unanswered. Do not attribute this to election filtering.
+- Fall listing without statuses still yields the same two closed questions plus
+  notebook; the separately observed website total-eight discrepancy is not
+  resolved by the Cup memberships. No claim of complete website reconciliation.
+- Production targets/stopping conditions/prediction prompts unchanged. No new
+  paid service, model invocation or user account operation. This diagnostic
+  confirms recognition and non-submission only, not Cup eligibility/prize rights
+  or successful competition participation.

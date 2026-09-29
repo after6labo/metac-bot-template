@@ -1058,3 +1058,36 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 - This is a new active submission incident and is reported to the owner,
   without requiring owner intervention or treating notification as resolution.
   Continue checking actual submission evidence before any future retry.
+
+
+## 2026-09-30 JST — first Fall competitive prediction and explanation returned
+- [Run 36593994796](https://github.com/after6labo/metac-bot-template/actions/runs/36593994796)
+  fetched at 00:57:19.713 JST while Fall q46019/post45844 was open
+  (Sep29 23:00–Sep30 02:00 JST). Both independent inventories were
+  complete/matched, with no missing IDs, forecast-evidence conflicts, unknowns,
+  or fetch errors. MiniBench remained 60 closed; Fall had one open question.
+- Job109494074487 records separate publication success: prediction posted on
+  q46019 at 00:58:59.446 JST and explanation comment posted on post45844 at
+  00:59:03.287 JST. Runtime outcome is submitted with nonfatal_errors=0,
+  pending/skips empty, needs_attention/provider pause false. This is the first
+  returned complete report on a competitive Fall question; the Sep24 practice
+  post is not counted. It does not independently establish tournament acceptance,
+  scoring eligibility, official score/rank, or prize, which remain unconfirmed.
+- The two intervening runs after the earlier timeout incident did reach the free
+  provider but failed before publication. Runs36586343299 (23:57:19.715 JST) and
+  36590191414 (00:27:11.290 JST) each received two responses, then the parser got
+  a safety-only string instead of the required structured prediction. Each
+  preserved q46019 as pending/unforecasted. This was not 402/429 or a provider
+  cooldown. No prompt, individual forecast, eligibility, retry count, model
+  route, or stopping condition was changed; the later free-route run succeeded.
+- Actual fetch-start gaps from the 23:37 repair run through submission were
+  20m06.719s, 29m51.575s and 30m08.423s. No >60-minute coverage gap. The
+  successful run observed two responses and 5,120 tokens with $0 new spending;
+  daily instrumentation after it shows six successful responses, three failed
+  invocations and 13,226 tokens. These are runtime observations, not provider
+  quota or billing receipts; actual routed model and balance remain unknown.
+- The pre-publication audit necessarily recorded already_forecasted=false.
+  Await the next authenticated inventory to confirm that q46019 is recognized as
+  already forecasted and therefore not reposted. Do not launch an immediate retry.
+  MiniBench still has zero confirmed competitive submissions; known q46022 and
+  q45980 missed windows remain losses.

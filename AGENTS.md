@@ -161,7 +161,7 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   Honor actual service restrictions and zero spending while repairing what is
   authorized. Notification does not transfer responsibility to a sleeping owner.
 - Remaining technical settings are disclosed: one model/parser attempt per
-  forecast, a 45-second model timeout, sequential calls spaced by at least 3.2
+  forecast, a 180-second model timeout (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2
   seconds, a 25-minute Actions job timeout, and inventory reads capped at 10
   pages of 100 posts. These are implementation choices, not official tournament
   eligibility rules. Their failures must remain actionable; do not label them

@@ -540,3 +540,36 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   forecast dispatch changed; no owner action. Existing monitoring continues.
   No new user notification: unchanged nonparticipation was already reported
   today. This checkpoint does not certify historical missed windows as healthy.
+
+
+## 2026-09-29 JST — hourly checkpoint at 09:24:24
+- Read latest AGENTS.md/experiment log, latest tournament result, four history
+  results from the previous checkpoint boundary, and 15 recent Actions runs.
+  Reused the Sep29 official-rule review with its recorded extraction limits.
+- New production runs 36495265181 (07:57:19.175 JST), 36498001704
+  (08:27:18.700 JST), and [36500578829](https://github.com/after6labo/metac-bot-template/actions/runs/36500578829)
+  (08:57:14.278 JST) completed and persisted tournament results. Both independent
+  inventories in each run are complete/matched: MiniBench 60 closed questions,
+  Fall two closed questions including practice; zero open. Pending, skips,
+  outcomes and fetch errors are empty, failed_or_unconfirmed=0,
+  needs_attention=false, provider_paused_for_run=false. Latest artifact upload
+  and result-persistence steps succeeded. No missing new production result found.
+- Actual JSON start gaps from 07:27:15.547 JST are 30m03.627s, 29m59.525s,
+  and 29m55.578s; tail at checkpoint is 27m09.722s. No >60-minute gap in
+  this interval. Recent cadence suggests another fetch around 09:27 JST,
+  but this is an estimate, not a dispatch or availability guarantee.
+- All 62 metadata records (IDs, windows, status and forecast-presence) are
+  unchanged across the four observations. No new open/pending ID or newly
+  expired unanswered window appeared. Known q46022/q45980 misses remain losses.
+  This only establishes official API observations through 08:57 JST; it does
+  not prove continuous availability or repair historical missed submissions.
+- First competitive submission remains unconfirmed; practice/test posts are
+  excluded. Official acceptance, score, rank and prize remain unknown. Each
+  new run recorded zero observed LLM responses, failed invocations and tokens,
+  and new spending $0. Tracking totals remain 2 responses/4,942 tokens from
+  the separate smoke test, not provider quota consumption; balance unknown.
+- Recent intervening commits are result/checkpoint records; no new code,
+  eligibility/stopping-condition, model/prompt change, retry, forecast dispatch
+  or owner operation was needed. Existing monitoring remains enabled.
+  No repeat user notification because unchanged nonparticipation was already
+  reported today; this checkpoint does not declare the participation goal met.

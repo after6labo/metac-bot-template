@@ -726,3 +726,31 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   paid service, model invocation or user account operation. This diagnostic
   confirms recognition and non-submission only, not Cup eligibility/prize rights
   or successful competition participation.
+
+
+## 2026-09-29 JST — checkpoint at 13:46:17
+- Read latest AGENTS.md/log/result, both history records spanning the previous
+  production observation, ten Actions runs and new job persistence steps.
+  Reused today's completed official-rule review with documented access limits.
+- New production [36521625720](https://github.com/after6labo/metac-bot-template/actions/runs/36521625720)
+  began its JSON fetch phase at 13:27:13.133 JST. History and latest match;
+  artifact upload and repository persistence succeeded. Both audits complete/
+  matched, no missing IDs or forecast-evidence discrepancies. MiniBench 60 closed,
+  Fall two closed including practice; all 62 metadata/window/forecast-presence
+  records unchanged from 12:57. Pending/windows/skips/outcomes/fetch errors empty;
+  attention/provider pause false; selected/submitted/failed counts zero.
+- Actual start gap 29m58.762s; current tail 19m03.867s. No >60-minute gap or
+  missing new production result. Next fetch is estimated around 13:57 JST from
+  observed cadence, not guaranteed. No newly expired pending ID or submission.
+- Availability conclusion applies only to the configured FutureEval/MiniBench
+  API observations. Owner-supplied Cup questions and the separate Fall website
+  total-eight/API-three discrepancy retain the distinctions recorded at 13:10;
+  do not generalize the empty production query to all Metaculus questions.
+  No fresh evidence resolves the website-total discrepancy. The successful
+  13:10 metadata-only diagnosis is not a forecast or competitive participation.
+- Known q46022/q45980 losses remain. First competitive submission/acceptance and
+  official score/rank/prize remain unconfirmed. New run records zero observed
+  LLM responses/failures/tokens and $0 new spending; provider balance/consumed
+  quota unknown. No code, targets, stopping conditions, prompts, extra dispatch,
+  retries or owner actions changed during this check. Monitoring remains active;
+  no repeated user notice for the unchanged, already reported situation.

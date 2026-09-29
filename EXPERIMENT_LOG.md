@@ -865,3 +865,28 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry or
   owner operation changed. Continue monitoring; suppress duplicate notice for
   today's unchanged, previously reported participation incident.
+
+
+## 2026-09-29 JST — checkpoint at 18:49:29
+- Read current AGENTS.md/log/latest, both tournament history records spanning
+  the prior observation, eight Actions runs and the new job's persistence steps.
+  Reused today's official-rule review and documented access limitations.
+- [36551310218](https://github.com/after6labo/metac-bot-template/actions/runs/36551310218)
+  started its JSON fetch phase at 18:47:13.176 JST; artifact/repository persistence
+  succeeded and latest matches history. Both audits complete/matched, with no
+  missing IDs or unknown/conflicting forecast evidence. All 62 metadata/window/
+  forecast-presence records unchanged from 18:17: MiniBench 60 closed; Fall two
+  closed including practice. Pending/windows/skips/outcomes/fetch errors empty;
+  attention/provider pause false; zero selected/submitted/failed-unconfirmed.
+- Fetch-start gap and interval maximum 29m58.786s; current tail 2m15.824s.
+  No >60-minute gap or missing new result. Next fetch estimated near 19:17 JST
+  from observed cadence, not guaranteed. No newly expired pending ID or submission.
+- Known q46022/q45980 losses remain; competitive participation/acceptance and
+  official score/rank/prize unconfirmed. Availability conclusion is confined to
+  configured-tournament API observations through 18:47 JST. Retain Cup distinction
+  and unresolved website-total/API-list discrepancy; no site-wide absence claim.
+- New run observed zero LLM responses/failures/tokens and $0 new spending. Daily
+  tracking remains zero; provider balance/quota consumption unknown. No code,
+  eligibility/stopping conditions, model/prompt, extra dispatch/retry or owner
+  operation changed. Monitoring continues; no duplicate notice for today's
+  unchanged, already reported participation incident.

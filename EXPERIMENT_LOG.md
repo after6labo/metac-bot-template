@@ -1105,3 +1105,114 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   submission evidence but still does not establish tournament scoring acceptance,
   official score/rank, or prize. No code, prompt, probability, eligibility,
   stopping condition, paid route, or manual retry was added.
+
+### 06:17 JST — second Fall competitive submission
+- [Run 36632151100](https://github.com/after6labo/metac-bot-template/actions/runs/36632151100)
+  fetched at 06:17:24.088 JST while q46023/post45848 was open (06:00–09:00
+  JST), selected one question and returned `submitted` with zero nonfatal errors.
+  The run observed two successful free-route responses and 3,576 tokens, with
+  zero failed invocations and $0 new spending.
+- [Run 36635466085](https://github.com/after6labo/metac-bot-template/actions/runs/36635466085)
+  fetched again at 06:47:15.117 JST and independently found q46023 open with
+  `already_forecasted=true`. Both target inventories were complete/matched;
+  pending, retrieval errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made.
+
+## 2026-10-01 JST — two-question Fall window completed and confirmed
+- [Run 36727851268](https://github.com/after6labo/metac-bot-template/actions/runs/36727851268)
+  fetched at Sep30 23:17:17.221 JST while q46043/post45868 and
+  q46020/post45845 were open (23:00–Oct1 02:00 JST). It selected and submitted
+  both questions, each with zero nonfatal errors. The run observed four
+  successful free-route responses and 11,391 tokens, zero failed invocations,
+  and $0 new spending.
+- [Run 36736196909](https://github.com/after6labo/metac-bot-template/actions/runs/36736196909)
+  fetched at 00:23:06.612 JST and independently found both questions still open
+  with `already_forecasted=true`. Both inventories were complete/matched and no
+  duplicate submission was made. Pending, retrieval errors, evidence mismatches
+  and unknowns were empty.
+
+### 13:27 JST — fourth Fall window submission and confirmation
+- [Run 36815115062](https://github.com/after6labo/metac-bot-template/actions/runs/36815115062)
+  fetched at 13:27:26.566 JST while q46024/post45849 was open (13:00–16:00
+  JST), selected one question and finished at 13:28:35.695 JST with
+  `submitted`, zero nonfatal errors, no pending question and no provider pause.
+  It observed two successful free-route responses and 5,531 tokens, zero failed
+  invocations, and $0 new spending.
+- [Run 36817431157](https://github.com/after6labo/metac-bot-template/actions/runs/36817431157)
+  fetched at 13:56:57.187 JST and independently found q46024 still open with
+  `already_forecasted=true`. Both target inventories remained complete/matched;
+  missing IDs, fetch errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made.
+- [Run 36828419370](https://github.com/after6labo/metac-bot-template/actions/runs/36828419370)
+  fetched at 16:07:19.270 JST after the window closed and independently retained
+  q46024 as `closed` with `already_forecasted=true`. Both inventories remained
+  complete/matched; there was no unanswered expiry or retrieval gap.
+- Across these returned results, official tournament acceptance/score/rank/prize
+  remain unconfirmed. MiniBench still has zero confirmed competitive submissions;
+  known q46022 and q45980 missed windows remain losses. No paid route, prompt or
+  live probability tuning, topic exclusion, batch cap, or manual retry was added.
+
+### 23:17 JST — fifth Fall window submission and confirmation
+- [Run 36875025857](https://github.com/after6labo/metac-bot-template/actions/runs/36875025857)
+  fetched at 23:17:20.460 JST while q46021/post45846 was open (23:00–Oct2
+  02:00 JST), selected one question and finished at 23:18:00.160 JST with
+  `submitted`, zero nonfatal errors, no pending question and no provider pause.
+  It observed two successful free-route responses and 6,419 tokens, zero failed
+  invocations, and $0 new spending.
+- [Run 36878989980](https://github.com/after6labo/metac-bot-template/actions/runs/36878989980)
+  fetched at 23:47:30.191 JST and independently found q46021 still open with
+  `already_forecasted=true`. Both target inventories were complete/matched;
+  missing IDs, fetch errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made and the question remained pending-free.
+- [Run 36898147797](https://github.com/after6labo/metac-bot-template/actions/runs/36898147797)
+  fetched at 02:17:17.760 JST after the window closed and independently retained
+  q46021 as `closed` with `already_forecasted=true`. Both inventories remained
+  complete/matched; there was no unanswered expiry or retrieval gap.
+- This confirms publication and the subsequent authenticated forecast-presence
+  check, but not official tournament acceptance, scoring eligibility, score,
+  rank or prize. MiniBench still has zero confirmed competitive submissions;
+  known q46022 and q45980 missed windows remain losses. No paid route, prompt or
+  live probability tuning, topic exclusion, batch cap, or manual retry was added.
+
+## 2026-10-03 JST — MiniBench series rollover verified
+- [Run 37056275215](https://github.com/after6labo/metac-bot-template/actions/runs/37056275215)
+  fetched at 04:47:15.980 JST and still returned the prior MiniBench inventory of
+  60 closed posts/questions. [Run 37057289174](https://github.com/after6labo/metac-bot-template/actions/runs/37057289174)
+  fetched at 04:56:55.335 JST and [run 37059505783](https://github.com/after6labo/metac-bot-template/actions/runs/37059505783)
+  fetched at 05:17:18.809 JST; both independently returned zero MiniBench posts
+  while Fall remained complete/matched at nine posts. No repository code or
+  configuration change occurred between the nonzero and zero inventories.
+- A fresh check of the official `minibench` page showed that the slug now points
+  to a new series scheduled for Oct5–Oct23, 2026, with `View Questions (0)`.
+  Thus the 60-to-0 transition is an official series rollover, not evidence that
+  zero currently open questions were silently accepted from an API failure.
+  The current SDK and independent inventory paths agree with the public page:
+  no MiniBench question is presently available for submission.
+- The previous MiniBench round is not reclassified as successful: q45980 remains
+  a confirmed missed window and the bot still has zero confirmed competitive
+  MiniBench submissions. Fall q46022 also remains a confirmed missed window.
+  No fixed historical-count guard was added because it would falsely block the
+  legitimate slug rollover. No paid route, prompt/probability adjustment,
+  exclusion, batch cap or retry was introduced; new spending remains $0, and
+  official score/rank/prize remain unconfirmed.
+
+## 2026-10-04 JST — daily participation checkpoint
+- [Run 37159013114](https://github.com/after6labo/metac-bot-template/actions/runs/37159013114)
+  fetched at 07:37:12.723 JST and completed with both independent inventories
+  complete/matched. MiniBench returned zero posts and Fall returned nine posts;
+  neither target had an open question. Pending questions, fetch errors, evidence
+  mismatches/unknowns, skips and outcomes were empty; no provider pause or LLM
+  invocation occurred. The last 24 hours contained 53 tournament fetches with a
+  maximum start-to-start gap of 30m17.755s, below the 60-minute investigation
+  threshold. New spending remained $0; official score/rank/prize remain unknown.
+- The current official MiniBench page now displays 60 series questions and an
+  Oct5–Oct23 schedule, while the authenticated all-status API inventory still
+  returns zero post metadata before the series start. This aggregate page/API
+  visibility difference is not an open unanswered question and supplies no
+  question IDs or windows to submit against, but it must be rechecked as the
+  series opens. The previous-round q45980 miss and zero confirmed competitive
+  MiniBench submissions remain unresolved; Fall q46022 remains missed.
+- No code, prompt, probability, eligibility, stopping condition, paid route,
+  topic exclusion, batch cap or manual retry was changed. The page/API difference
+  was recorded rather than being treated as proof of either successful coverage
+  or a current submission opportunity.

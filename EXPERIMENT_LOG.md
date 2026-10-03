@@ -1205,9 +1205,10 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   invocation occurred. The last 24 hours contained 53 tournament fetches with a
   maximum start-to-start gap of 30m17.755s, below the 60-minute investigation
   threshold. New spending remained $0; official score/rank/prize remain unknown.
-- The current official MiniBench page now displays 60 series questions and an
-  Oct5–Oct23 schedule, while the authenticated all-status API inventory still
-  returns zero post metadata before the series start. This aggregate page/API
+- The current official MiniBench page now identifies project 33129, displays 60
+  series questions, and schedules the series for Oct5 09:00–Oct23 09:00 JST;
+  the authenticated all-status API inventory still returns zero post metadata
+  before the series start. This aggregate page/API
   visibility difference is not an open unanswered question and supplies no
   question IDs or windows to submit against, but it must be rechecked as the
   series opens. The previous-round q45980 miss and zero confirmed competitive

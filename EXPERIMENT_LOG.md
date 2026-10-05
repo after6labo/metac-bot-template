@@ -673,3 +673,34 @@
   tuning was introduced. New spending remained $0. The eight live questions
   remain unresolved and are not counted as missed until later official
   inventories record them closed and unanswered.
+
+
+### GitHub Actions runner delay during three MiniBench deadlines — Oct6 04:58 JST
+- [Run 37362209018](https://github.com/after6labo/metac-bot-template/actions/runs/37362209018)
+  fetched at Oct6 04:17:40 JST. Both inventories were complete/matched with no
+  fetch error, missing ID or forecast-evidence mismatch. It retained q46104–q46110
+  and Fall q46056 as open, unanswered and provider_paused; it sent zero model
+  requests while honoring the explicit OpenRouter reset at 09:00 JST.
+- The next dispatched [run 37365544944](https://github.com/after6labo/metac-bot-template/actions/runs/37365544944)
+  was created at 04:46:19 JST but remained queued through the 04:57:50 JST
+  operator check. Its only forecast_job was also queued, and no other
+  non-completed workflow run existed in this repository.
+- GitHub's official status API reported Actions degraded performance and an
+  active incident beginning 04:11:58 JST. The incident update states that
+  GitHub-hosted runner assignment is delayed and workflows may take longer to
+  start. This independently explains the queue as a GitHub-side service issue,
+  not a repository concurrency collision or bot-code crash.
+- q46104, q46105 and q46106 had scheduled closes at 04:30:07, 04:45:39 and
+  04:57:22 JST, respectively. All three deadlines passed without a new run or
+  bot publication. Their post-deadline official closed/unanswered states still
+  require the next completed authenticated inventory before counting them as
+  confirmed misses.
+- At 04:57:50 JST, q46107 had about 22m remaining, Fall q46056 about 22m,
+  q46108 about 56m, q46109 about 1h30m and q46110 about 1h36m. All still close
+  before the separate provider reset at 09:00 JST. The latest actual fetch gap
+  was about 40m10s, below the 60-minute investigation threshold but increasing
+  while the runner incident continued.
+- No duplicate dispatch, paid fallback, quota bypass, topic exclusion or
+  individual live forecast tuning was attempted. New spending remained $0.
+  Monitoring stays active; the queued run and official service incident are
+  unresolved.

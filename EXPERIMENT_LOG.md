@@ -704,3 +704,38 @@
   individual live forecast tuning was attempted. New spending remained $0.
   Monitoring stays active; the queued run and official service incident are
   unresolved.
+
+
+### Actions outage caused 95-minute coverage gap; Fall q46056 missed — Oct6 06:17 JST
+- Runs [37365544944](https://github.com/after6labo/metac-bot-template/actions/runs/37365544944)
+  and [37368696637](https://github.com/after6labo/metac-bot-template/actions/runs/37368696637)
+  were dispatched at 04:46:19 and 05:16:20 JST during GitHub's runner-assignment
+  incident. Their only jobs were cancelled about 15 minutes later, and neither
+  produced a history JSON. The workflow has `cancel-in-progress: false`; these
+  were not cancellations requested by the bot's concurrency configuration.
+- [Run 37371805496](https://github.com/after6labo/metac-bot-template/actions/runs/37371805496)
+  finally fetched at 05:52:50 JST. The previous actual fetch was 04:17:40,
+  making the gap 95m10.100s. This exceeds both the 60-minute investigation
+  threshold and the 90-minute coverage-failure threshold.
+- The completed authenticated audits were complete/matched with no fetch error,
+  missing ID or forecast-evidence mismatch. MiniBench q46104–q46107 were closed
+  with already_forecasted=false, raising confirmed misses in the current
+  free-limit incident to sixteen (q46092 through q46107).
+- Fall q46056/post45875 was also closed with already_forecasted=false after its
+  02:20–05:20 JST official window. This is a confirmed missed competitive Fall
+  question: no prediction or explanation was published.
+- q46108 was still open and unanswered at the 05:52:50 fetch but closed at
+  05:53:26 JST without a bot publication; its post-deadline official state
+  remains to be confirmed by the next completed inventory. q46109 closes
+  06:28:18, q46110 at 06:33:37, and newly detected q46111/post45929 at
+  08:44:37 JST. At the 06:17:39 JST check, they had about 10m39s, 15m58s and
+  2h27m remaining, all before the OpenRouter reset at 09:00 JST.
+- GitHub's official status elevated Actions to `major_outage` / Partial System
+  Outage while continuing to report GitHub-hosted runner assignment delays.
+  Run 37374825986, dispatched at 06:16:20 JST, remained queued at this check.
+  The runner outage is unresolved and prevents reliable authenticated audits;
+  the separate provider cooldown still prevents forecast generation.
+- No duplicate dispatch, paid fallback, quota bypass, topic exclusion, local
+  daily cap or live forecast tuning was introduced. New spending remained $0.
+  Monitoring remains active because both external incidents are transient and
+  current questions remain unanswered.

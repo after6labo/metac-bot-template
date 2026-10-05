@@ -1458,3 +1458,26 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   forecasting, official scoring acceptance, or a post-migration publication test.
 - New spending for this repair: $0. No owner action is needed for the code fix.
   A human-account linkage, if the owner wants one, remains an owner decision.
+
+
+### Additional MiniBench miss while provider cooldown remained active — Oct6 00:17 JST
+- [Run 37331464287](https://github.com/after6labo/metac-bot-template/actions/runs/37331464287)
+  fetched at Oct6 00:17:17 JST. MiniBench and Fall inventory audits were
+  complete/matched with no fetch error, missing ID or forecast-evidence
+  mismatch. Existing Metaculus authentication continued to work after the
+  owner-reported bot-account migration.
+- The audit confirmed q46100/post45918 closed at Oct5 23:57:16 JST with
+  already_forecasted=false. This is the ninth confirmed MiniBench miss in the
+  Oct5 free-daily-limit incident (q46092 through q46100).
+- q46101/post45919 remained open until Oct6 01:31:46 JST and
+  q46102/post45920 until 02:36:00 JST. Both remained unanswered and
+  provider_paused. They close before the explicit OpenRouter reset at 09:00 JST,
+  so the zero-new-cost constraint leaves no permitted generation path in their
+  windows. The next ordinary fetch was expected around 00:47 JST, not guaranteed.
+- The actual fetch-start gap from the deployed verification run at
+  23:49:32 JST was 27m45.392s, below the 60-minute investigation threshold.
+  No LLM request was sent: zero successful responses and zero failed invocations
+  in this run. The provider reset remained persisted as 1791244800.
+- New spending remained $0. No paid fallback, quota bypass, new exclusion or
+  local daily cap was introduced. Official score, rank, prize and retrospective
+  scoring effects of the account migration remain unconfirmed.

@@ -766,3 +766,39 @@
 - No speculative one-off forecast logic, provider-limit bypass, paid fallback,
   duplicate submission, topic exclusion or live answer tuning was introduced.
   q46111 and q46112 remain unresolved; new spending remained $0.
+
+### q46109/q46110 confirmed missed; q46113/q46114 open — Oct6 07:30 JST
+- [Run 37381378096](https://github.com/after6labo/metac-bot-template/actions/runs/37381378096)
+  fetched at Oct6 07:17:18 JST. Both tournament inventories were
+  complete/matched with no fetch error, missing ID, forecast-evidence mismatch
+  or unknown forecast evidence. Repository persistence succeeded even though
+  the run intentionally exited nonzero for attention_required/provider_paused.
+- The authenticated MiniBench audit confirmed q46109/post45927 and
+  q46110/post45928 closed at 06:28:18 and 06:33:37 JST with
+  already_forecasted=false. Confirmed misses in the current free-limit incident
+  are now nineteen, q46092 through q46110.
+- Four MiniBench questions were open and unanswered at the fetch: q46111 closes
+  08:44:37 JST, q46112 at 09:01:00, newly detected q46113/post45931 at
+  09:35:20, and newly detected q46114/post45932 at 09:49:12. At the 07:29:57
+  JST check, their remaining times were about 1h15m, 1h31m, 2h05m and 2h19m.
+- The persisted OpenRouter free-route cooldown remains explicit through 09:00
+  JST. Thus q46111 closes before reset and q46112 leaves only one minute after
+  reset; the ordinary post-reset dispatch is expected later and has no evidence
+  of completing model generation plus publication inside that minute. q46113
+  and q46114 leave about 35 and 49 minutes after reset and remain the first
+  currently observed questions with a plausible free-route recovery window,
+  without guaranteeing submission.
+- Actual fetch-start gaps after the outage recovery were 29m38.929s,
+  24m49.005s and 30m00.424s. No new interval exceeded 60 minutes; the earlier
+  95m10.100s coverage failure remains recorded. GitHub's status API marked the
+  Actions component operational at 06:54 JST, although the incident remained
+  open/investigating.
+- A separate reporting defect remains: the workflow log prints “No new
+  questions to forecast” whenever forecast_reports is empty, even when the
+  result JSON contains provider-paused pending questions. The persisted JSON
+  and nonzero attention state are correct; the banner must not be used as a
+  normal/no-pending signal. This changes no eligibility or stopping condition.
+- The run made zero model requests, recorded zero model failures/tokens and $0
+  new spending. No paid fallback, provider-limit bypass, duplicate submission,
+  topic exclusion, local cap or live-answer tuning was introduced.
+

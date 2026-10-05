@@ -793,12 +793,14 @@
   95m10.100s coverage failure remains recorded. GitHub's status API marked the
   Actions component operational at 06:54 JST, although the incident remained
   open/investigating.
-- A separate reporting defect remains: the workflow log prints “No new
-  questions to forecast” whenever forecast_reports is empty, even when the
-  result JSON contains provider-paused pending questions. The persisted JSON
-  and nonzero attention state are correct; the banner must not be used as a
-  normal/no-pending signal. This changes no eligibility or stopping condition.
+- A separate reporting defect was found: the workflow log printed “No new
+  questions to forecast” whenever forecast_reports was empty, even when the
+  result JSON contained provider-paused pending questions. The persisted JSON
+  and nonzero attention state were correct. The banner now receives the pending
+  list and provider-pause state, reports the unanswered count, and reserves the
+  old message for a truly empty pending list. This changes no eligibility or
+  stopping condition. The new regression plus the full local suite passed 58
+  tests with four SDK-only skips.
 - The run made zero model requests, recorded zero model failures/tokens and $0
   new spending. No paid fallback, provider-limit bypass, duplicate submission,
   topic exclusion, local cap or live-answer tuning was introduced.
-

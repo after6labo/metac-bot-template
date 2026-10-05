@@ -1312,3 +1312,13 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   fetch error, missing ID or evidence mismatch. The incident is therefore a
   forecast-generation capacity failure, not retrieval loss. New spending remains
   $0. Official score, rank and prize remain unconfirmed.
+
+- At 18:26:12 JST q46096/post45914 opened with a 21:26:12 JST close.
+  [Run 37292235645](https://github.com/after6labo/metac-bot-template/actions/runs/37292235645)
+  fetched it at 18:47:09 JST and received the same OpenRouter HTTP 429
+  `free-models-per-day` response (limit 50, remaining 0, reset Oct6 09:00
+  JST). q46096 was retained as pending, bringing the open unanswered set to
+  q46092–q46096. Its close is also before the provider reset, so it is expected
+  to expire unanswered under the current zero-new-spending and no-limit-bypass
+  constraints. Both inventories remained complete/matched with no retrieval or
+  forecast-evidence mismatch.

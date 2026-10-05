@@ -77,7 +77,7 @@ Enter Metaculus FutureEval / MiniBench as an AI forecasting bot under a strict z
 ### Current setup
 - Repository: `after6labo/metac-bot-template`
 - Base: official Metaculus bot template
-- Metaculus bot account: created
+- Metaculus forecasting account: created; bot classification was not verified at setup. Owner reported service migration to a bot account on Oct5 (see correction below).
 - API forecasting access: enabled
 - LLM route for zero-cost baseline: `openrouter/openrouter/free`
 - External research in zero-cost baseline: disabled
@@ -106,7 +106,7 @@ Enter Metaculus FutureEval / MiniBench as an AI forecasting bot under a strict z
 The live workflow is scheduled daily at 00:17 UTC (09:17 JST). It prioritizes MiniBench, then Fall FutureEval, while using a limited zero-cost batch until granted credits become available.
 
 ### User actions performed
-- Created Metaculus bot account and token
+- Created Metaculus forecasting account and token (bot classification was not independently verified at setup; corrected Oct5)
 - Forked the official template repository
 - Created OpenRouter account/API key
 - Submitted the free LLM-credit application
@@ -1385,3 +1385,24 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   inventories remained complete/matched with no fetch error, missing ID or
   forecast-evidence mismatch; new spending remained $0.
 
+
+### Account-type correction reported by owner — Oct5 JST
+- The owner supplied a service notice reporting that the forecasting account had
+  been classified as a normal account and was migrated to a bot account because
+  its forecasts were primarily submitted through the API. This is owner-reported
+  service action; the account-type field and migration time were not independently
+  verified. API forecast capability did not establish bot-account registration.
+- Correct the earlier setup entries that stated bot-account creation as verified.
+  The notice offers linkage to a new or existing human account if desired and
+  does not state that an immediate reply or a new human account is required.
+  It does not establish retrospective tournament scoring or prize eligibility.
+- The latest available run 37323356872 fetched at Oct5 23:17:16 JST, with both
+  authenticated inventories complete/matched and no fetch error. It still found
+  19 MiniBench forecasts and six competitive Fall forecasts, plus the practice
+  forecast. Its blocker was the separate OpenRouter free daily quota; this
+  snapshot cannot prove post-migration posting works because the migration time
+  is unknown and model generation stopped before publication.
+- No account, credential, forecast, participation rule or stopping condition was
+  changed in response to the notice. No external reply was sent; new spending
+  remains $0. Verify subsequent authenticated operation and publication through
+  the existing monitoring once the provider permits generation.

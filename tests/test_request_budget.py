@@ -96,6 +96,54 @@ class BudgetTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 DailyRequestBudget(path)
 
+    def test_openrouter_reset_blocks_later_runs_until_exact_provider_time(self):
+        # Removing reset parsing would allow another run to call before midnight.
+        for location in ('headers', 'sdk_message'):
+            with self.subTest(location=location), tempfile.TemporaryDirectory() as folder:
+                path = Path(folder) / 'budget.json'
+                clock = [datetime(2026, 10, 5, 14, 17, tzinfo=timezone.utc)]
+                headers = {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0',
+                           'X-RateLimit-Reset': '1791244800000'}
+                payload = {'error': {'code': 429, 'message': 'free-models-per-day',
+                           'metadata': {'headers': headers,
+                                        'limit_source': 'openrouter_free_tier_daily'}},
+                           'user_id': 'private-fixture'}
+                error = RuntimeError('litellm.RateLimitError: OpenrouterException - ' +
+                                     json.dumps(payload) if location == 'sdk_message' else 'limit')
+                error.status_code = 429
+                error.response = SimpleNamespace(headers=headers if location == 'headers' else {})
+                state = DailyRequestBudget(path, now=lambda: clock[0])
+                state.record_failure(error)
+                clock[0] = datetime(2026, 10, 5, 23, 59, 59, tzinfo=timezone.utc)
+                resumed = DailyRequestBudget(path, now=lambda: clock[0])
+                self.assertFalse(resumed.can_request)
+                self.assertEqual(resumed.data['cooldown_until_epoch'], 1791244800.0)
+                self.assertNotIn('private-fixture', path.read_text())
+                clock[0] = datetime(2026, 10, 6, tzinfo=timezone.utc)
+                self.assertTrue(resumed.can_request)
+
+    def test_reset_does_not_shorten_retry_after(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'budget.json'
+            state = DailyRequestBudget(path, now=lambda: datetime(2026, 10, 5, 23, 59, tzinfo=timezone.utc))
+            error = RuntimeError('limit')
+            error.status_code = 429
+            error.headers = {'Retry-After': '120', 'X-RateLimit-Reset': '1791244800000'}
+            state.record_failure(error)
+            self.assertEqual(state.data['cooldown_until_epoch'], 1791244860.0)
+
+    def test_invalid_or_expired_reset_does_not_create_a_longer_pause(self):
+        for reset in ('garbage', 'NaN', 'Infinity', '-1', '1791158400000'):
+            with self.subTest(reset=reset), tempfile.TemporaryDirectory() as folder:
+                path = Path(folder) / 'budget.json'
+                state = DailyRequestBudget(path, now=lambda: datetime(2026, 10, 5, 14, tzinfo=timezone.utc))
+                error = RuntimeError('limit')
+                error.status_code = 429
+                error.headers = {'X-RateLimit-Reset': reset}
+                state.record_failure(error)
+                self.assertFalse(state.can_request)
+                self.assertTrue(DailyRequestBudget(path, now=state.now).can_request)
+
 
 if __name__ == '__main__':
     unittest.main()

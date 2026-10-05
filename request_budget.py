@@ -10,6 +10,24 @@ class ProviderPaused(RuntimeError):
     pass
 
 
+def _rate_limit_headers(error):
+    response = getattr(error, 'response', None)
+    yield getattr(response, 'headers', None) or getattr(error, 'headers', None) or {}
+    # LiteLLM preserves OpenRouter error.metadata.headers in its message even
+    # when its response headers omit them. Parse only JSON; never persist it.
+    message = str(error)
+    start = message.find('{')
+    if start < 0:
+        return
+    try:
+        payload, _ = json.JSONDecoder().raw_decode(message[start:])
+        headers = payload.get('error', {}).get('metadata', {}).get('headers', {})
+    except (ValueError, TypeError, AttributeError):
+        return
+    if isinstance(headers, dict):
+        yield headers
+
+
 class DailyRequestBudget:
     """Keep the existing state path; counters are diagnostics, never quota usage."""
 
@@ -77,21 +95,29 @@ class DailyRequestBudget:
         # An invocation error is NOT proof a request was sent or quota consumed.
         if getattr(error, 'status_code', None) in (402, 429):
             self.blocked_for_run = True
-            headers = getattr(getattr(error, 'response', None), 'headers', None)
-            headers = headers or getattr(error, 'headers', None) or {}
-            headers = {str(k).lower(): str(v) for k, v in headers.items()}
             now = self.now().timestamp()
             candidates = [self.data['cooldown_until_epoch']]
-            retry = headers.get('retry-after')
-            if retry:
-                try:
-                    candidate = now + float(retry)
-                except ValueError:
+            for source in _rate_limit_headers(error):
+                headers = {str(k).lower(): str(v) for k, v in source.items()}
+                retry = headers.get('retry-after')
+                if retry:
                     try:
-                        candidate = parsedate_to_datetime(retry).timestamp()
-                    except (ValueError, TypeError, OverflowError):
+                        candidate = now + float(retry)
+                    except ValueError:
+                        try:
+                            candidate = parsedate_to_datetime(retry).timestamp()
+                        except (ValueError, TypeError, OverflowError):
+                            candidate = now
+                    if math.isfinite(candidate) and candidate > now:
+                        candidates.append(candidate)
+                reset = headers.get('x-ratelimit-reset')
+                if reset:
+                    try:
+                        # OpenRouter supplies the absolute Unix time in milliseconds.
+                        candidate = float(reset) / 1000
+                    except ValueError:
                         candidate = now
-                if math.isfinite(candidate) and candidate > now:
-                    candidates.append(candidate)
+                    if math.isfinite(candidate) and candidate > now:
+                        candidates.append(candidate)
             self.data['cooldown_until_epoch'] = max(candidates)
         self.save()

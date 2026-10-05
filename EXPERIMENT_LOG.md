@@ -1406,3 +1406,40 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   changed in response to the notice. No external reply was sent; new spending
   remains $0. Verify subsequent authenticated operation and publication through
   the existing monitoring once the provider permits generation.
+
+### Persist the provider's explicit reset — Oct5 JST
+- Investigated repeated 429s despite a provider-directed reset. In run
+  37323356872, OpenRouter returned `error.metadata.headers.X-RateLimit-Reset`
+  = 1791244800000 (Oct6 00:00 UTC / 09:00 JST), limit 50, remaining 0.
+  The code read only HTTP Retry-After, leaving cooldown_until_epoch=0.
+  Earlier entries saying limits were respected did not account for this
+  cross-run defect; repeating requests before that known reset was unnecessary.
+- Saved the already observed reset to budget.json (commit 72a998d), preserving
+  diagnostic counters. This prevents further pre-reset requests without another
+  provider call. Added parsing for OpenRouter's reset header in HTTP headers
+  and the JSON metadata preserved in LiteLLM's error message. Only the numeric
+  pause is persisted; the error payload is not stored by the tracking code.
+- Regression reproduced both missing-header paths before the fix. Afterward,
+  local Python suite: 53 passed, four SDK-boundary tests skipped because the SDK
+  is installed in Actions; Node scheduler suite: 12 passed. Tests verify that
+  later runs remain blocked until the exact reset, Retry-After is not shortened,
+  and invalid/expired reset values do not create a day-long pause.
+- Stopping condition correction: honor the actual provider's future reset across
+  runs, then resume automatically at that time. No local daily request ceiling,
+  new topic exclusion, paid route, or permanent pause was added. Both official
+  inventories and unanswered/deadline reporting continue during the cooldown.
+  This does not recover the exhausted allowance or resolve missed submissions.
+  Existing Actions will verify the deployed code and retained API visibility.
+
+- The next regular run [37327408790](https://github.com/after6labo/metac-bot-template/actions/runs/37327408790)
+  fetched at Oct5 23:47:18 JST, 30m02.072s after the preceding fetch. The saved
+  reset was honored: zero model responses and zero failed model invocations,
+  while both inventories remained complete/matched with no fetch error.
+  Its attention_required status correctly retains unresolved pending forecasts.
+- That inventory confirms q46099 closed unanswered at 23:39:05 JST: the eighth
+  missed question in this daily-quota incident. It found new q46102/post45920,
+  open Oct5 23:36–Oct6 02:36 JST. Pending q46100 (23:57:16), q46101 (Oct6
+  01:31:46), and q46102 (02:36) all close before the Oct6 09:00 provider reset.
+  At the 23:47 fetch they had about 10m, 1h44m, and 2h49m remaining. The usual
+  next fetch is around Oct6 00:17 JST, not guaranteed. No further generation
+  can be attempted before the supplied reset under the zero-spending constraint.

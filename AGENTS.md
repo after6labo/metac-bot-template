@@ -42,7 +42,7 @@ The goal is measured official tournament performance and prize receipts, not a d
   sample and one parser attempt. No local daily request cap: the owner removed
   the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
   run-results/budget.json now stores observed responses/failures/tokens and any
-  provider Retry-After cooldown, not reservations or measured quota consumption.
+  provider Retry-After or OpenRouter X-RateLimit-Reset cooldown, not reservations or measured quota consumption.
   A provider 402/429 stops that run; a future scheduled run may resume after the
   explicit cooldown, without assuming every 429 exhausts the entire UTC day.
   No immediate retry or paid fallback. Underlying routed model may change.

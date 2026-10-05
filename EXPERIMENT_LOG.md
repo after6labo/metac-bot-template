@@ -804,3 +804,27 @@
 - The run made zero model requests, recorded zero model failures/tokens and $0
   new spending. No paid fallback, provider-limit bypass, duplicate submission,
   topic exclusion, local cap or live-answer tuning was introduced.
+
+### Pending-question banner fix verified; q46115/q46116 opened — Oct6 07:39 JST
+- [Run 37383529591](https://github.com/after6labo/metac-bot-template/actions/runs/37383529591)
+  fetched at Oct6 07:38:31 JST from the deployed reporting fix. Its offline
+  suite passed 58 tests (four SDK-only skips), and the live log now says
+  “6 question(s) remain unanswered (provider paused)” rather than “No new
+  questions.” The run exits nonzero as intended because unresolved pending
+  questions require attention.
+- Both independent tournament audits were complete/matched with no fetch error,
+  missing ID, forecast-evidence mismatch or unknown evidence. Six MiniBench
+  questions were open and unanswered: q46111–q46114 plus newly detected
+  q46115/post45933 (07:24:05–10:24:05 JST) and q46116/post45934
+  (07:33:30–10:33:30 JST).
+- q46115 and q46116 leave about 1h24m and 1h33m after the explicit 09:00 JST
+  provider reset. Along with q46113 and q46114, they are plausible recovery
+  candidates for the existing free route; actual model and publication success
+  remains unconfirmed. q46111 still closes before reset and q46112 only one
+  minute after it.
+- Fetch starts at 07:35:08, 07:37:14 and 07:38:31 followed the 07:17:18 run;
+  no new interval exceeded 60 minutes. The verification runs made zero model
+  requests while the cooldown remained active, with $0 new spending and no
+  duplicate submission, paid fallback, quota bypass, topic exclusion, local cap
+  or live-answer tuning.
+

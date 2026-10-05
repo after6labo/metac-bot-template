@@ -1481,3 +1481,31 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
 - New spending remained $0. No paid fallback, quota bypass, new exclusion or
   local daily cap was introduced. Official score, rank, prize and retrospective
   scoring effects of the account migration remain unconfirmed.
+
+
+### q46101 missed; five questions still open before provider reset — Oct6 02:17 JST
+- [Run 37347174160](https://github.com/after6labo/metac-bot-template/actions/runs/37347174160)
+  fetched at Oct6 02:17:14 JST. Both tournament inventories were
+  complete/matched with no fetch error, missing ID, forecast-evidence mismatch,
+  or unknown forecast evidence.
+- The audit confirmed q46101/post45919 closed at 01:31:46 JST with
+  already_forecasted=false. This is the tenth confirmed MiniBench miss in the
+  Oct5 free-daily-limit incident (q46092 through q46101).
+- Five MiniBench questions were open and unanswered at the latest fetch:
+  q46102 closes 02:36:00 JST, q46103 at 03:39:13, q46104 at 04:30:07,
+  q46105 at 04:45:39, and q46106 at 04:57:22. At the Oct6 02:23:49 JST
+  operator check they had about 12m, 1h15m, 2h06m, 2h21m and 2h33m
+  remaining. All close before the explicit OpenRouter reset at 09:00 JST.
+- Since the previous 00:17 fetch, actual fetch-start gaps were 29m57.040s,
+  9m18.499s, 20m45.019s, 29m57.125s and 29m59.350s. None exceeded the
+  60-minute investigation threshold. The additional 00:56 run was the native
+  schedule between external dispatches.
+- The persisted provider cooldown continued to work: each run observed zero
+  successful model responses and zero failed model invocations while retaining
+  authenticated question inventory and unanswered-item reporting. No paid
+  fallback, quota bypass, independent topic exclusion, or local daily cap was
+  introduced. New spending remained $0.
+- The zero-new-cost constraint and provider-supplied reset leave no permitted
+  generation path for these five current windows. They remain unresolved;
+  q46102 was still open at the latest fetch and is not counted as a confirmed
+  miss until a later official inventory records it closed and unanswered.

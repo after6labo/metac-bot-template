@@ -1335,3 +1335,21 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   retained q46095–q46098 as pending. All four closes precede the provider's
   Oct6 09:00 JST reset. No paid route or limit bypass was attempted; both
   independent inventories remained complete/matched.
+
+- [Run 37308376374](https://github.com/after6labo/metac-bot-template/actions/runs/37308376374)
+  fetched at 21:17:21 JST. The authenticated MiniBench inventory now records
+  q46095 as `closed` with `already_forecasted=false`, confirming a fourth
+  missed window in the free-limit incident (20:04:44 JST close).
+- It also found two new unanswered questions: q46099/post45917
+  (20:39:05–23:39:05 JST) and q46100/post45918
+  (20:57:16–23:57:16 JST). Together with q46096–q46098, five questions were
+  still open and unanswered at the fetch. q46096's 21:26:12 JST deadline has
+  since passed; its post-deadline authenticated status remains to be confirmed
+  by the next inventory. q46097–q46100 close between 22:05:05 and 23:57:16 JST.
+- The job again received OpenRouter HTTP 429 `free-models-per-day` while
+  attempting q46100, with limit 50, remaining 0 and reset Oct6 09:00 JST, then
+  paused the remaining four questions. All current closes precede that reset.
+  No paid route or limit bypass was attempted. Both tournament inventories were
+  complete/matched with no fetch error, missing ID or forecast-evidence mismatch;
+  the blocker remains external free forecast-generation capacity, not retrieval.
+

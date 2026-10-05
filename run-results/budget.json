@@ -4,5 +4,5 @@
   "successful_responses": 47,
   "failed_invocations": 17,
   "observed_tokens": 178050,
-  "cooldown_until_epoch": 0.0
+  "cooldown_until_epoch": 1791244800
 }

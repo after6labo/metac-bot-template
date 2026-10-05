@@ -1251,3 +1251,31 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   spending. Official score, rank and prize remain unconfirmed. Historical missed
   questions MiniBench q45980 and Fall q46022 remain losses; this recovery does
   not reclassify them.
+
+
+### 12:58–14:27 JST — four more MiniBench questions completed
+- [Run 37261403431](https://github.com/after6labo/metac-bot-template/actions/runs/37261403431)
+  published q46083 at 12:58:49 JST and its explanation at 12:58:54 JST.
+- [Run 37263515486](https://github.com/after6labo/metac-bot-template/actions/runs/37263515486)
+  published q46085 and its explanation at 13:28:40–13:28:45 JST. q46084
+  produced forecast reasoning but its free-route structure-conversion request
+  timed out at the configured 180 seconds. The result correctly retained q46084
+  as pending, set `needs_attention=true`, and failed the workflow. This was not
+  a topic exclusion, provider 402/429, cooldown, local request ceiling or paid
+  fallback.
+- [Run 37265619626](https://github.com/after6labo/metac-bot-template/actions/runs/37265619626)
+  fetched at 13:57 JST, published the newly available q46086 at 13:57:52 and its
+  explanation at 13:57:57 JST, then recovered q46084 by publishing its prediction
+  at 14:00:03 and explanation at 14:00:07 JST. It completed with two submissions,
+  zero failed/unconfirmed items, no pending question and $0 new spending.
+- [Run 37267790265](https://github.com/after6labo/metac-bot-template/actions/runs/37267790265)
+  fetched at 14:27:16 JST and independently confirmed all fourteen MiniBench
+  questions q46073–q46086 as `already_forecasted=true`. Eight were still open
+  and six were closed; none expired unanswered. Both tournament inventories were
+  complete/matched, with no pending items, fetch errors, missing IDs, evidence
+  mismatches/unknowns, provider pause or duplicate submission.
+- Actual fetch-start gaps across these runs were about 30m10.769s, 29m51.715s
+  and 29m56.120s; none exceeded the 60-minute investigation threshold. The
+  timeout recovered on the next ordinary run, so no model, prompt, eligibility,
+  stopping-condition or retry-policy change was made. Official score, rank and
+  prize remain unconfirmed; historical misses q45980 and q46022 remain losses.

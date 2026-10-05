@@ -1443,3 +1443,18 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   At the 23:47 fetch they had about 10m, 1h44m, and 2h49m remaining. The usual
   next fetch is around Oct6 00:17 JST, not guaranteed. No further generation
   can be attempted before the supplied reset under the zero-spending constraint.
+
+- Deployed commit 9e04193c9eb18e58c6a0ee162f8575a6443a46c7 was verified by
+  [push run 37327731167](https://github.com/after6labo/metac-bot-template/actions/runs/37327731167):
+  all 57 Python tests (including SDK boundary tests) and all 12 Node tests passed.
+  Actual tournament fetch began Oct5 23:49:32 JST. Both audits were complete and
+  matched, with no fetch error; 19 MiniBench forecasts and seven Fall forecasts
+  (six competitive plus practice) remained visible.
+- The deployed run observed zero model responses, zero failed model invocations,
+  and the same persisted Oct6 09:00 JST reset. Pending q46100/46101/46102 remained
+  unanswered; no new publication occurred. The job deliberately exited nonzero
+  for needs_attention, and artifact/result/state persistence succeeded. This is
+  verification of cooldown handling and authenticated reads, not restored
+  forecasting, official scoring acceptance, or a post-migration publication test.
+- New spending for this repair: $0. No owner action is needed for the code fix.
+  A human-account linkage, if the owner wants one, remains an owner decision.

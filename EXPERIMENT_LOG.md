@@ -1509,3 +1509,38 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   generation path for these five current windows. They remain unresolved;
   q46102 was still open at the latest fetch and is not counted as a confirmed
   miss until a later official inventory records it closed and unanswered.
+
+
+### Fall q46056 and six MiniBench questions blocked before reset — Oct6 03:17 JST
+- [Run 37354693666](https://github.com/after6labo/metac-bot-template/actions/runs/37354693666)
+  fetched at Oct6 03:17:19 JST. Both tournament inventories were
+  complete/matched with no fetch error, missing ID, forecast-evidence mismatch,
+  or unknown forecast evidence.
+- The official MiniBench inventory confirmed q46102/post45920 closed at
+  02:36:00 JST with already_forecasted=false. This is the eleventh confirmed
+  MiniBench miss in the Oct5 free-daily-limit incident (q46092 through q46102).
+- A new Fall tournament question, q46056/post45875, was detected with a
+  02:20:00–05:20:00 JST window and already_forecasted=false. This is an actual
+  Fall target returned by both the SDK route and the independent inventory, not
+  a test-area result. It remains pending with provider_paused; no forecast or
+  explanation was published.
+- Six MiniBench questions were also open and unanswered: q46103 closes
+  03:39:13 JST, q46104 at 04:30:07, q46105 at 04:45:39, q46106 at 04:57:22,
+  q46107 at 05:19:42 and q46108 at 05:53:26. Together with Fall q46056, seven
+  live questions were pending.
+- At the Oct6 03:22:49 JST operator check, remaining times were about 16m for
+  q46103, 1h07m for q46104, 1h22m for q46105, 1h34m for q46106, 1h56m for
+  q46107, 1h57m for Fall q46056 and 2h30m for q46108. Every window closes before
+  the explicit OpenRouter reset at 09:00 JST. The next ordinary fetch was
+  expected around 03:47 JST, after q46103's deadline, but is not guaranteed.
+- Actual fetch-start gaps from 02:17 to 02:47 and then 03:17 were 30m01.712s
+  and 30m02.565s, below the 60-minute investigation threshold. Both runs
+  observed zero successful model responses and zero failed model invocations,
+  confirming the persisted provider cooldown was honored without losing
+  authenticated inventory visibility.
+- The existing free route has no permitted generation path before these
+  deadlines under the zero-new-cost requirement. No paid fallback, quota
+  bypass, new exclusion, local daily cap or individual live forecast tuning was
+  introduced. New spending remained $0. Fall q46056 is unresolved and must be
+  counted as missed only after a later official inventory records it closed and
+  unanswered.

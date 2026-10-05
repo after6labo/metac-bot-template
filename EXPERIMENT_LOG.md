@@ -1279,3 +1279,36 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   timeout recovered on the next ordinary run, so no model, prompt, eligibility,
   stopping-condition or retry-policy change was made. Official score, rank and
   prize remain unconfirmed; historical misses q45980 and q46022 remain losses.
+
+
+### 14:57–17:17 JST — five more submissions, then the free daily limit blocked four open questions
+- [Run 37269991464](https://github.com/after6labo/metac-bot-template/actions/runs/37269991464)
+  fetched at 14:57:15 JST and published q46088 at 14:57:54 JST with its
+  explanation immediately afterward. q46087 remained pending because the
+  free-routed structure-conversion response contained only `User Safety: safe`
+  instead of the required JSON. This was a parser-response failure, not a
+  Metaculus rejection, topic exclusion or provider 402/429.
+- [Run 37272414585](https://github.com/after6labo/metac-bot-template/actions/runs/37272414585)
+  fetched at 15:27:12 JST and recovered q46087 by publishing its prediction at
+  15:33:26 JST, before its 17:40:32 JST close. The same run published q46090 at
+  15:31:07 and q46089 at 15:32:50 JST. q46091 failed in that run, then
+  [run 37274946966](https://github.com/after6labo/metac-bot-template/actions/runs/37274946966)
+  published it at 15:58:23 JST. Later authenticated inventories independently
+  marked q46087–q46091 `already_forecasted=true`.
+- q46092 opened at 16:16:10 JST. [Run 37276816306](https://github.com/after6labo/metac-bot-template/actions/runs/37276816306)
+  produced two free-route responses but the structure-conversion response again
+  contained only `User Safety: safe`, so no forecast was posted. Subsequent
+  runs found q46093, q46094 and q46095 open as well.
+- [Run 37282601879](https://github.com/after6labo/metac-bot-template/actions/runs/37282601879)
+  fetched at 17:17:09 JST and received OpenRouter HTTP 429
+  `free-models-per-day`, with limit 50, remaining 0 and provider reset
+  2026-10-06 09:00 JST. It retained q46092–q46095 as pending; their closes are
+  19:16:10, 19:38:05, 19:44:15 and 20:04:44 JST, all before the reset.
+  No paid route or limit bypass was attempted. Under the zero-new-spending and
+  provider-limit constraints, these four open questions cannot currently be
+  completed and are expected to expire unanswered unless the provider state
+  changes before their deadlines.
+- Both independent tournament inventories remained complete/matched with no
+  fetch error, missing ID or evidence mismatch. The incident is therefore a
+  forecast-generation capacity failure, not retrieval loss. New spending remains
+  $0. Official score, rank and prize remain unconfirmed.

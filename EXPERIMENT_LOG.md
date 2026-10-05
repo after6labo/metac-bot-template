@@ -1322,3 +1322,16 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   to expire unanswered under the current zero-new-spending and no-limit-bypass
   constraints. Both inventories remained complete/matched with no retrieval or
   forecast-evidence mismatch.
+
+- [Run 37298694651](https://github.com/after6labo/metac-bot-template/actions/runs/37298694651)
+  fetched at 19:47:20 JST. The authenticated MiniBench inventory now records
+  q46092, q46093 and q46094 as `closed` with
+  `already_forecasted=false`, confirming three missed windows at 19:16:10,
+  19:38:05 and 19:44:15 JST. They are losses, not resolved pending items.
+- The same run found q46095 still open until 20:04:44 JST and newly found
+  q46097/post45915 (19:05:05–22:05:05 JST) and q46098/post45916
+  (19:32:53–22:32:53 JST), in addition to q46096 (until 21:26:12 JST).
+  It received the same OpenRouter HTTP 429 free-daily-limit response and
+  retained q46095–q46098 as pending. All four closes precede the provider's
+  Oct6 09:00 JST reset. No paid route or limit bypass was attempted; both
+  independent inventories remained complete/matched.

@@ -1369,3 +1369,19 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   complete/matched with no fetch error, missing ID or forecast-evidence mismatch.
   New spending remained $0; official score, rank and prize remain unconfirmed.
 
+- [Run 37319391213](https://github.com/after6labo/metac-bot-template/actions/runs/37319391213)
+  fetched at 22:47:18 JST and confirmed q46098 closed at 22:32:53 JST with
+  `already_forecasted=false`, the seventh confirmed missed window in the
+  current free-limit incident.
+- The same run first detected q46101/post45919, open 22:31:46–Oct6 01:31:46
+  JST. [Run 37323356872](https://github.com/after6labo/metac-bot-template/actions/runs/37323356872)
+  fetched at 23:17:16 JST and retained q46099, q46100 and q46101 as open,
+  unanswered and pending. Their closes are 23:39:05, 23:57:16 and 01:31:46 JST,
+  all before the provider reset.
+- The latest job again received OpenRouter HTTP 429 `free-models-per-day` while
+  attempting q46101, with limit 50, remaining 0 and reset Oct6 09:00 JST, then
+  paused q46100 and q46099. No paid route or limit bypass was attempted. The
+  22:47-to-23:17 actual fetch-start gap was 29m57.559s. Both tournament
+  inventories remained complete/matched with no fetch error, missing ID or
+  forecast-evidence mismatch; new spending remained $0.
+

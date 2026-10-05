@@ -1217,3 +1217,37 @@ Owner-provided official question_data.csv (exported Sep28 06:58:36 UTC) identifi
   topic exclusion, batch cap or manual retry was changed. The page/API difference
   was recorded rather than being treated as proof of either successful coverage
   or a current submission opportunity.
+
+
+## 2026-10-05 JST — first MiniBench competitive submissions and failure recovery
+- The new MiniBench series exposed ten forecastable questions between 09:07 and
+  12:07 JST. The bot submitted q46073–q46078 during their three-hour windows:
+  q46073 at 09:27, q46075/q46076 at 09:50, q46074 after one failed run at
+  10:17, and q46077/q46078 at 10:47. [Run 37254740411](https://github.com/after6labo/metac-bot-template/actions/runs/37254740411)
+  fetched at 11:17 JST and independently confirmed all six as
+  `already_forecasted=true`, with both tournament inventories complete/matched.
+  These are the first confirmed competitive MiniBench publications; they do not
+  by themselves establish official score, rank or prize.
+- [Run 37256710117 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37256710117/attempts/1)
+  fetched at 11:47 JST and found three new MiniBench questions. q46080 was
+  published, while q46081 failed when the free-routed parser returned only a
+  safety-label string instead of JSON, and q46079 failed after an empty/None
+  model answer. The result correctly retained both as pending, set
+  `needs_attention=true`, and failed the workflow. This was not a topic
+  exclusion, 402/429, paid-route switch or provider cooldown.
+- The failed jobs were rerun without changing a live prediction, prompt,
+  eligibility rule, model route, local request cap or stopping condition.
+  [Attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/37256710117/attempts/2)
+  fetched at 12:15 JST and published q46082 at 12:18:38, q46081 at 12:21:12
+  and q46079 at 12:21:27 JST, including their explanation comments. It completed
+  with three submissions, zero failed/unconfirmed items and no pending question.
+- [Run 37259441239](https://github.com/after6labo/metac-bot-template/actions/runs/37259441239)
+  fetched at 12:27:04 JST and independently confirmed all ten current MiniBench
+  questions q46073–q46082 as `already_forecasted=true`. Both MiniBench and Fall
+  inventories were complete/matched; pending, fetch errors, evidence mismatches,
+  provider pause and duplicate submissions were all absent. The most recent
+  start-to-start gap was 11m36.668s, below the 60-minute investigation threshold.
+- The recovery used the existing OpenRouter free route and recorded $0 new
+  spending. Official score, rank and prize remain unconfirmed. Historical missed
+  questions MiniBench q45980 and Fall q46022 remain losses; this recovery does
+  not reclassify them.

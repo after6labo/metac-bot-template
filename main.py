@@ -811,6 +811,8 @@ if __name__ == "__main__":
         forecast_reports,
         will_publish=publish_to_metaculus,
         tournament_url=TOURNAMENT_URLS.get(run_mode),
+        pending_questions=run_result.get("pending_questions", []),
+        provider_paused=run_result["provider_paused_for_run"],
     )
 
 

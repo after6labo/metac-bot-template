@@ -739,3 +739,30 @@
   daily cap or live forecast tuning was introduced. New spending remained $0.
   Monitoring remains active because both external incidents are transient and
   current questions remain unanswered.
+
+
+### Runner resumed briefly; q46108 confirmed missed and q46112 has a one-minute post-reset window — Oct6 06:34 JST
+- [Run 37374825986](https://github.com/after6labo/metac-bot-template/actions/runs/37374825986)
+  eventually fetched at 06:22:29 JST and completed its authenticated audits.
+  The prior 05:52:50 fetch was 29m38.929s earlier, so this individual interval
+  recovered below 60 minutes; the earlier 95-minute coverage failure remains.
+- The audit confirmed MiniBench q46108/post45926 closed at 05:53:26 JST with
+  already_forecasted=false. Confirmed misses in the current free-limit incident
+  are now seventeen, q46092 through q46108.
+- q46109 and q46110 were open and unanswered at the 06:22 fetch, then their
+  06:28:18 and 06:33:37 JST deadlines passed without a bot publication. Their
+  post-deadline official closed/unanswered states require the next completed
+  inventory before adding them to the confirmed count.
+- q46111 remains open until 08:44:37 JST. Newly detected q46112/post45930 is
+  open 06:01:00–09:01:00 JST, leaving only one minute after the provider's
+  explicit 09:00 JST reset. The earliest native post-reset cron minute is 09:07,
+  and the observed external-dispatch cadence would also be later. Existing job
+  setup plus model and publication latency has no evidence of completing safely
+  within that one-minute remainder.
+- Both inventories were complete/matched with no fetch error, missing ID or
+  forecast-evidence mismatch. The run again made zero model requests while the
+  provider cooldown remained active. GitHub continued to report an Actions major
+  outage, so runner timing also remained unreliable.
+- No speculative one-off forecast logic, provider-limit bypass, paid fallback,
+  duplicate submission, topic exclusion or live answer tuning was introduced.
+  q46111 and q46112 remain unresolved; new spending remained $0.

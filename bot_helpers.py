@@ -96,6 +96,8 @@ def print_run_summary_banner(
     forecast_reports: Sequence[Any],
     will_publish: bool,
     tournament_url: str | None = None,
+    pending_questions: Sequence[Any] | None = None,
+    provider_paused: bool = False,
 ) -> None:
     """
     End-of-run summary printed via print() (not logger) so it survives log
@@ -112,6 +114,16 @@ def print_run_summary_banner(
 
     print()
     print(banner)
+
+    if not forecast_reports and pending_questions:
+        reason = "provider paused" if provider_paused else "not attempted"
+        print(
+            f"⚠️   {len(pending_questions)} question(s) remain unanswered "
+            f"({reason})."
+        )
+        print(banner)
+        print()
+        return
 
     if not forecast_reports:
         print("ℹ️   No new questions to forecast on this run.")

@@ -828,3 +828,31 @@
   duplicate submission, paid fallback, quota bypass, topic exclusion, local cap
   or live-answer tuning.
 
+### q46117 opened; q46111 deadline passed during provider cooldown — Oct6 08:45 JST
+- [Run 37389436029](https://github.com/after6labo/metac-bot-template/actions/runs/37389436029)
+  fetched at Oct6 08:36:59 JST. Both independent tournament audits were
+  complete/matched with no fetch error, missing ID, forecast-evidence mismatch
+  or unknown forecast evidence. The run intentionally remained
+  attention_required/provider_paused and made no submission.
+- Seven MiniBench questions were open and unanswered at the fetch. Newly
+  detected q46117/post45935 is open 08:11:09–11:11:09 JST. q46113–q46117 leave
+  about 35 minutes through 2h11m after the provider's explicit 09:00 JST
+  cooldown reset and remain plausible free-route recovery candidates; actual
+  model and publication success is not yet confirmed.
+- q46111 was still open and unanswered at the last authenticated pre-deadline
+  audit, then its 08:44:37 JST deadline passed while the provider pause remained
+  active. Its official post-deadline closed/unanswered state requires the next
+  completed inventory before adding it to the confirmed-miss count. q46112
+  closes at 09:01:00 JST, leaving only one minute after reset; the observed
+  dispatch cadence near :06/:36 has no evidence of completing generation and
+  publication in that interval.
+- Actual fetch-start gaps after the 07:38:31 verification were 28m47.438s and
+  29m40.185s; no new interval exceeded 60 minutes. The latest Actions run
+  completed and persisted matching latest/history evidence; its failure
+  conclusion reflects the deliberate unresolved-pending attention exit rather
+  than missing artifacts.
+- This run recorded zero model responses, zero failed/unconfirmed model
+  invocations, zero submitted forecasts, zero observed tokens and $0 new
+  spending. No paid fallback, quota bypass, duplicate submission, topic
+  exclusion, local cap or live-answer tuning was introduced.
+

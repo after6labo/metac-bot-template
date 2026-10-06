@@ -856,3 +856,41 @@
   spending. No paid fallback, quota bypass, duplicate submission, topic
   exclusion, local cap or live-answer tuning was introduced.
 
+### First confirmed MiniBench competition submissions after free-route recovery — Oct6 09:58 JST
+- [Run 37392201709](https://github.com/after6labo/metac-bot-template/actions/runs/37392201709)
+  fetched at Oct6 09:07:16 JST after the OpenRouter free route's 09:00 reset.
+  It submitted forecasts and explanatory comments for five open MiniBench
+  competition questions: q46118/post45936 prediction 09:09:39 and comment
+  09:09:43; q46116/post45934 prediction 09:10:13 and comment 09:10:17;
+  q46115/post45933 prediction 09:11:35 and comment 09:11:39;
+  q46114/post45932 prediction 09:11:59 and comment 09:12:03; and
+  q46113/post45931 prediction 09:12:52 and comment 09:12:56 JST. All were
+  before their official close times.
+- The same run's q46117 model invocation returned an invalid None response and
+  was recorded failed_or_unconfirmed; no prediction had been posted for that
+  question. The run therefore preserved q46117 as pending and exited
+  partial_failure rather than treating the five successes as a fully healthy run.
+- [Run 37394879846](https://github.com/after6labo/metac-bot-template/actions/runs/37394879846)
+  fetched at Oct6 09:37:13 JST. Its independent MiniBench audit found q46118,
+  q46116, q46115, q46114 and the now-closed q46113 already_forecasted=true,
+  confirming the earlier prediction evidence. It then submitted q46117's
+  prediction at 09:37:47 and comment at 09:37:52 JST, before its 11:11:09 close.
+  The run completed with no pending or failed/unconfirmed question. A following
+  independent inventory has not yet reconfirmed q46117's forecast-presence flag.
+- Both runs' MiniBench and Fall inventories were complete/matched with no
+  missing IDs, forecast-evidence mismatches or unknown evidence. The 09:07 audit
+  also confirmed q46111 and q46112 closed with already_forecasted=false, bringing
+  the current MiniBench free-limit incident's confirmed misses to 21,
+  q46092 through q46112. Fall q46056 remains a separate confirmed competition
+  miss from the same incident.
+- Actual fetch-start gaps were 30m17.487s and 29m56.215s; no new interval
+  exceeded 60 minutes. The two recovery runs observed 12 successful LLM
+  responses, one failed invocation and 36,999 tokens in total. These are
+  observed response counters, not provider quota consumption. New spending
+  remained $0; no paid fallback, quota bypass, duplicate submission, topic
+  exclusion, local cap or live-answer tuning was introduced.
+- These are the first verified MiniBench competition publications by this bot.
+  Metaculus scoring eligibility, official score, rank and prize remain
+  unconfirmed; the Fall tournament still has no successful competition
+  publication.
+

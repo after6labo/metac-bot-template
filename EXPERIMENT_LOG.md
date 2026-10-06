@@ -957,3 +957,28 @@
 - No code, prompt, probability, answer eligibility, stopping condition, paid
   route, topic exclusion, batch cap or manual retry was changed.
 
+### q46119 confirmed; q46120 submitted and confirmed — Oct6 15:24 JST
+- [Run 37418528780](https://github.com/after6labo/metac-bot-template/actions/runs/37418528780)
+  fetched at Oct6 14:27:00 JST. Its authenticated MiniBench inventory
+  independently found q46119/post45937 open with already_forecasted=true,
+  closing the confirmation gap from the 13:58 publication.
+- The same run detected q46120/post45938 open from 14:22:38 to 17:22:38 JST.
+  Job112122466283 records the prediction posted at 14:29:29 JST and the
+  explanatory comment posted at 14:29:33 JST. Runtime recorded submitted=1,
+  nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false and provider_paused_for_run=false.
+- [Run 37421050052](https://github.com/after6labo/metac-bot-template/actions/runs/37421050052)
+  fetched at Oct6 14:57:17 JST and independently found both q46119 and q46120
+  open with already_forecasted=true. It selected no question, made no model
+  call and submitted no duplicate. Both target audits were complete/matched;
+  fetch errors, missing IDs, forecast-evidence mismatches and unknown evidence
+  were empty.
+- Fetch-start gaps after the q46119 publication run were 29m56.036s and
+  30m17.130s; no new interval exceeded 60 minutes. The q46120 publication run
+  observed two successful free-route responses, zero failed invocations and
+  5,928 tokens; the confirmation run observed zero new responses/tokens.
+  New spending remained $0.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  duplicate retry, topic exclusion or batch cap was changed.
+

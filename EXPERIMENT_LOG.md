@@ -1079,3 +1079,27 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### MiniBench q46123 submitted before deadline; independent confirmation pending — Oct6 23:49 JST
+- [Run 37478956005](https://github.com/after6labo/metac-bot-template/actions/runs/37478956005)
+  fetched at Oct6 23:27:15 JST and detected MiniBench q46123/post45941 open
+  from 23:10:05 JST on Oct6 to 02:10:05 JST on Oct7. The authenticated
+  pre-publication inventory was complete/matched and recorded
+  already_forecasted=false, with no fetch error, missing ID,
+  forecast-evidence mismatch or unknown evidence.
+- Job112321745334 records separate publication success: the prediction was
+  posted on q46123 at Oct6 23:28:46 JST and the explanatory comment was posted
+  on post45941 at 23:28:51 JST. Runtime recorded submitted=1,
+  nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false and provider_paused_for_run=false.
+- Because the independent inventory runs before publication, a later
+  authenticated audit must still confirm already_forecasted=true. No immediate
+  duplicate retry was launched.
+- Fetch-start gaps leading to this submission were 30m03.644s and 30m02.934s;
+  no new interval exceeded 60 minutes. The run observed two successful
+  free-route responses, zero failed/unconfirmed invocations and 13,265 tokens,
+  with $0 new spending.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  topic exclusion, local cap or live-answer tuning was changed.

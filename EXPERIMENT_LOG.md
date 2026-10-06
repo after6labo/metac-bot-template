@@ -1223,3 +1223,41 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### q46127 submitted/confirmed; q46184 recovered after structured-output failure — Oct7 07:32 JST
+- [Run 37533884746](https://github.com/after6labo/metac-bot-template/actions/runs/37533884746)
+  fetched at 06:27:22 JST and detected MiniBench q46127/post45945 open from
+  06:17:32 to 09:17:32 JST. Its pre-publication inventory was complete/matched
+  with already_forecasted=false. The prediction was posted at 06:28:00 JST and
+  the explanatory comment at 06:28:04 JST. Runtime recorded submitted=1,
+  pending_questions=[], failed_or_unconfirmed=0 and needs_attention=false.
+  The free route returned two responses and 3,272 tokens with $0 new spending.
+- [Run 37537323493](https://github.com/after6labo/metac-bot-template/actions/runs/37537323493)
+  fetched at 06:57:16 JST and independently found q46127 open with
+  already_forecasted=true. The same complete/matched audit found q46126 closed
+  after its 06:32:55 JST deadline with already_forecasted=true, supplying its
+  required post-close evidence.
+- [Run 37540573835 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37540573835)
+  fetched at 07:26:57 JST and detected Fall q46184/post46000 open from 07:00 to
+  10:00 JST. Both inventories were complete/matched with no missing ID, fetch
+  error, evidence mismatch or unknown evidence. Research completed, but the
+  free model's one-shot conversion to PredictedOptionList returned no JSON.
+  Nothing was posted; q46184 remained pending, failed_or_unconfirmed=1 and
+  needs_attention=true. This was not a 402/429 response or provider pause.
+- After confirming that attempt 1 had posted neither prediction nor comment, the
+  failed job was rerun once without changing the live question, prompt or
+  probability. [Attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/37540573835)
+  fetched at 07:30:34 JST, posted the prediction at 07:31:10 JST and the
+  explanatory comment at 07:31:14 JST. Runtime recorded submitted=1,
+  nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false and provider_paused_for_run=false. It observed two
+  free-route responses and 2,991 tokens with $0 new spending.
+- Attempt 2's authenticated inventory preceded publication and therefore
+  recorded q46184 already_forecasted=false; a later independent audit must
+  still confirm it. No further immediate retry was launched.
+- Fetch-start gaps were 20m39.257s, 29m54.653s, 29m41.037s and the intentional
+  retry gap of 3m36.563s; no interval exceeded 60 minutes.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, eligibility/stopping condition, paid route, topic exclusion, local
+  cap or live-answer tuning was changed.

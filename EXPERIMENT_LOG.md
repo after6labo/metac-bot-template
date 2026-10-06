@@ -894,3 +894,20 @@
   unconfirmed; the Fall tournament still has no successful competition
   publication.
 
+### q46117 independently confirmed; no pending questions — Oct6 11:30 JST
+- [Run 37397457211](https://github.com/after6labo/metac-bot-template/actions/runs/37397457211)
+  fetched at Oct6 10:07:21 JST and independently observed q46117/post45935
+  already_forecasted=true after the 09:37:47 prediction and 09:37:52 comment.
+  This closes the follow-up evidence gap left by the submission run.
+- The 10:37:24 and 11:07:18 JST inventories repeated the same evidence for
+  q46117 and q46118. Both tournament audits were complete/matched with no
+  missing IDs, forecast-evidence mismatch or unknown evidence; pending,
+  outcomes and failed/unconfirmed were empty. q46117 subsequently reached its
+  11:11:09 deadline with its forecast already confirmed, while q46118 remains
+  forecasted and open until 12:02:36 JST.
+- Fetch-start gaps since the 09:37 run were 30m08.527s, 30m03.241s and
+  29m53.994s; no new interval exceeded 60 minutes. These three runs made no
+  model call, used zero new tokens, submitted no duplicate and added $0 cost.
+- Official score, rank, prize and Fall-tournament competition publication remain
+  unconfirmed/absent; no code or eligibility rule was changed in this check.
+

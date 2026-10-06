@@ -1134,3 +1134,33 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### q46125 recovered after structured-output failure; independent confirmation pending — Oct7 02:13 JST
+- [Run 37497011618](https://github.com/after6labo/metac-bot-template/actions/runs/37497011618)
+  fetched at 01:37:18 JST and detected MiniBench q46125/post45943 open from
+  01:20:54 to 04:20:54 JST. Both target inventories were complete/matched with
+  no fetch error, missing ID, evidence mismatch or unknown evidence. The free
+  route returned two responses and 7,714 tokens, but report structuring received
+  a safety-only string instead of the required numeric JSON. It posted neither
+  prediction nor comment and correctly retained q46125 as pending with
+  needs_attention=true and failed_or_unconfirmed=1. This was not a provider
+  402/429 response or provider pause.
+- [Run 37500943292](https://github.com/after6labo/metac-bot-template/actions/runs/37500943292)
+  fetched again at 02:07:21 JST while q46125 had more than two hours remaining.
+  Job112397473019 records the prediction posted at 02:08:09 JST and the
+  explanatory comment posted on post45943 at 02:08:13 JST. Runtime recorded
+  submitted=1, nonfatal_errors=0, pending_questions=[],
+  failed_or_unconfirmed=0, needs_attention=false and
+  provider_paused_for_run=false. This successful attempt observed two responses
+  and 5,951 tokens with $0 new spending.
+- The successful run's independent inventory necessarily preceded publication
+  and recorded already_forecasted=false, so a later authenticated audit must
+  still confirm q46125. No immediate duplicate retry was launched. At the same
+  02:07 audit, q46123 and q46124 remained open with
+  already_forecasted=true; q46123's 02:10:05 deadline passed after that audit,
+  so its post-close evidence check remains pending rather than inferred.
+- New fetch-start gaps were 24m38.610s and 30m03.163s; no interval exceeded
+  60 minutes. No code, prompt, probability, eligibility/stopping condition,
+  paid route, topic exclusion, local cap or live-answer tuning was changed.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.

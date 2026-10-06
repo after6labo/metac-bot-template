@@ -1261,3 +1261,27 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, eligibility/stopping condition, paid route, topic exclusion, local
   cap or live-answer tuning was changed.
+
+
+### q46184 independently confirmed; q46127 remains answered — Oct7 08:37 JST
+- [Run 37543677273](https://github.com/after6labo/metac-bot-template/actions/runs/37543677273)
+  fetched at 07:57:14 JST and independently found Fall q46184 open with
+  already_forecasted=true after its 07:31 prediction and explanation publication.
+  This closes the post-publication confirmation gap. The same run found MiniBench
+  q46127 open and already_forecasted=true, and q46126 closed with forecast evidence.
+- [Run 37546559270](https://github.com/after6labo/metac-bot-template/actions/runs/37546559270)
+  fetched at 08:27:07 JST and repeated both open, answered states. q46127 closes
+  at 09:17:32 JST and q46184 at 10:00:00 JST. Both target audits were
+  complete/matched, with no fetch error, missing ID, evidence mismatch or unknown
+  evidence.
+- Both runs recorded pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false, provider_paused_for_run=false, no outcomes and no new
+  submission. The skips were only question-specific already_forecasted evidence;
+  no arbitrary filter or cap was involved.
+- Fetch-start gaps from q46184's successful retry were 26m39.647s, 29m53.035s
+  and 29m53.035s between the two confirmation runs; no interval exceeded 60
+  minutes. The confirmation runs made zero model calls, used zero additional
+  tokens and added $0 spending.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  topic exclusion, local cap or live-answer tuning was changed.

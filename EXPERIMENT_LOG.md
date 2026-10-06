@@ -1035,3 +1035,27 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+### q46122 independently confirmed; q46121 closed with evidence — Oct6 19:16 JST
+- [Run 37442945355](https://github.com/after6labo/metac-bot-template/actions/runs/37442945355)
+  fetched at Oct6 18:27:18 JST and independently observed q46122/post45940
+  open with already_forecasted=true after its 17:59:10 prediction and
+  17:59:13 explanatory comment. This closes the confirmation gap from the
+  submission run. q46121 also remained open with forecast evidence present.
+- A native scheduled [run 37442975278](https://github.com/after6labo/metac-bot-template/actions/runs/37442975278)
+  was created 15 seconds after the external dispatch and fetched at 18:28:21
+  JST after the shared concurrency queue. It repeated the same
+  already_forecasted=true evidence for q46121 and q46122. Both runs selected no
+  unanswered question, made no model call and submitted no duplicate.
+- [Run 37446387390](https://github.com/after6labo/metac-bot-template/actions/runs/37446387390)
+  fetched at Oct6 18:56:58 JST and observed q46121 closed after its 18:43:15
+  deadline with already_forecasted=true. q46122 remained open and forecasted
+  through its 20:49:04 deadline. Both target audits were complete/matched;
+  pending, outcomes, fetch errors and failed/unconfirmed were empty.
+- Fetch-start gaps after the q46122 submission were 29m55.307s, 1m03.017s
+  and 28m37.007s. The close dispatch/schedule pair was serialized and did not
+  create a coverage gap or duplicate publication. These confirmation runs
+  observed zero model responses, zero new tokens and $0 new spending.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  topic exclusion or batch cap was changed.

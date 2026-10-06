@@ -982,3 +982,33 @@
   No code, prompt, probability, eligibility/stopping condition, paid route,
   duplicate retry, topic exclusion or batch cap was changed.
 
+### q46121 recovered after one structured-output failure; submitted and confirmed — Oct6 17:12 JST
+- [Run 37426609546](https://github.com/after6labo/metac-bot-template/actions/runs/37426609546)
+  fetched at Oct6 15:57:25 JST and detected MiniBench q46121/post45939
+  open from 15:43:15 to 18:43:15 JST. Both target inventories were
+  complete/matched with no fetch error or retrieval mismatch. The free route
+  returned two successful API responses, but the prediction structuring step
+  returned no JSON. Runtime therefore recorded failed_or_unconfirmed=1,
+  kept q46121 pending and posted neither a prediction nor a comment.
+- [Run 37429657143](https://github.com/after6labo/metac-bot-template/actions/runs/37429657143)
+  fetched at Oct6 16:27:15 JST while q46121 remained open and unanswered.
+  Job112157282189 records the prediction posted at 16:28:59 JST and the
+  explanatory comment posted at 16:29:03 JST. Runtime recorded submitted=1,
+  nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false and provider_paused_for_run=false.
+- [Run 37432806617](https://github.com/after6labo/metac-bot-template/actions/runs/37432806617)
+  fetched at Oct6 16:57:00 JST. Its independent MiniBench audit found
+  q46121 open with already_forecasted=true, closing the confirmation gap.
+  q46120 also remained open and forecasted. Both target audits were
+  complete/matched; there was no pending question, fetch error, duplicate
+  submission, forecast-evidence mismatch or unknown evidence.
+- Actual fetch-start gaps for these checkpoints were 30m18.887s,
+  29m49.282s and 29m45.076s; no new interval exceeded 60 minutes. Across the
+  failed and recovered q46121 attempts, runtime observed four successful API
+  responses, zero llm_failed_or_unconfirmed_invocations and 13,189 tokens.
+  The first run still failed at report construction, so these counters are not
+  evidence of a completed report or provider quota consumption. New spending
+  remained $0.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  duplicate retry, topic exclusion or batch cap was changed.

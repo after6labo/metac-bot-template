@@ -1164,3 +1164,37 @@
   60 minutes. No code, prompt, probability, eligibility/stopping condition,
   paid route, topic exclusion, local cap or live-answer tuning was changed.
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
+
+
+### q46125 confirmed; q46123/q46124 closed with evidence; q46126 submitted — Oct7 04:00 JST
+- [Run 37504839086](https://github.com/after6labo/metac-bot-template/actions/runs/37504839086)
+  fetched at 02:37:21 JST and independently found MiniBench q46125 open with
+  already_forecasted=true. It also found q46123 closed with
+  already_forecasted=true and q46124 still open with
+  already_forecasted=true. This closes q46125's independent confirmation gap
+  and supplies the required post-close evidence for q46123.
+- [Run 37508717005](https://github.com/after6labo/metac-bot-template/actions/runs/37508717005)
+  fetched at 03:07:02 JST and repeated those authenticated findings. Both
+  target audits were complete/matched, with no fetch error, missing ID,
+  evidence mismatch or unknown evidence.
+- [Run 37512599477](https://github.com/after6labo/metac-bot-template/actions/runs/37512599477)
+  fetched at 03:37:23 JST and detected MiniBench q46126/post45944 open from
+  03:32:55 to 06:32:55 JST. Its pre-publication inventory was
+  complete/matched with already_forecasted=false. The same audit found q46124
+  closed with already_forecasted=true, supplying its post-close evidence;
+  q46123 remained closed and confirmed, while q46125 remained open and
+  already answered.
+- Job112437323763 separately records the prediction posted on q46126 at
+  03:40:48 JST and the explanatory comment posted on post45944 at 03:40:53
+  JST. Runtime recorded submitted=1, nonfatal_errors=0,
+  pending_questions=[], failed_or_unconfirmed=0, needs_attention=false and
+  provider_paused_for_run=false. The free route returned two successful
+  responses and 17,922 tokens with $0 new spending.
+- Because q46126's independent inventory preceded publication, a later
+  authenticated audit must still confirm already_forecasted=true. No immediate
+  duplicate retry was launched.
+- Fetch-start gaps across these checkpoints were 30m00.072s, 29m41.182s and
+  30m20.552s; no interval exceeded 60 minutes. No code, prompt, probability,
+  eligibility/stopping condition, paid route, topic exclusion, local cap or
+  live-answer tuning was changed.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.

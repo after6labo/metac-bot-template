@@ -1059,3 +1059,23 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion or batch cap was changed.
+
+
+### q46122 closed with forecast evidence intact — Oct6 21:23 JST
+- [Run 37459749593](https://github.com/after6labo/metac-bot-template/actions/runs/37459749593)
+  fetched at Oct6 20:57:21 JST, after q46122/post45940's 20:49:04 JST
+  deadline. Its independent MiniBench audit recorded q46122 closed with
+  already_forecasted=true. This confirms the published prediction remained
+  evidenced after the deadline and q46122 is not a missed opportunity.
+- The 19:27, 19:57 and 20:27 JST checkpoints also observed q46122 open with
+  already_forecasted=true. The 20:57 checkpoint found no open question.
+  Both target audits were complete/matched throughout; pending questions,
+  outcomes, fetch errors, missing IDs, forecast-evidence mismatches and unknown
+  evidence were empty. Provider pause and needs_attention were false.
+- Actual fetch-start gaps across these checkpoints were 30m01.868s,
+  29m59.799s and 29m59.884s; no new interval exceeded 60 minutes. They made
+  no model call, submitted no duplicate, observed zero new tokens and recorded
+  $0 new spending.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  topic exclusion, local cap or live-answer tuning was changed.

@@ -1020,8 +1020,8 @@
   inventory was complete/matched and recorded already_forecasted=false, with
   no fetch error, missing ID, forecast-evidence mismatch or unknown evidence.
 - Job112189414969 records separate publication success: the prediction was
-  posted on q46122 at 18:59:10 JST and the explanatory comment was posted on
-  post45940 at 18:59:13 JST. Runtime recorded submitted=1,
+  posted on q46122 at 17:59:10 JST and the explanatory comment was posted on
+  post45940 at 17:59:13 JST. Runtime recorded submitted=1,
   nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
   needs_attention=false and provider_paused_for_run=false.
 - Because the independent inventory runs before publication, a later

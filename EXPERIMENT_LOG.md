@@ -1278,9 +1278,8 @@
   needs_attention=false, provider_paused_for_run=false, no outcomes and no new
   submission. The skips were only question-specific already_forecasted evidence;
   no arbitrary filter or cap was involved.
-- Fetch-start gaps from q46184's successful retry were 26m39.647s, 29m53.035s
-  and 29m53.035s between the two confirmation runs; no interval exceeded 60
-  minutes. The confirmation runs made zero model calls, used zero additional
+- Fetch-start gaps from q46184's successful retry were 26m39.647s and
+  29m53.035s; no interval exceeded 60 minutes. The confirmation runs made zero model calls, used zero additional
   tokens and added $0 spending.
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,

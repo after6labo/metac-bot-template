@@ -927,3 +927,33 @@
 - Competition scoring eligibility, official score, rank and prize are still
   unconfirmed. Fall still has no successful competition publication.
 
+### q46119 submitted before deadline; Fall publication status corrected — Oct6 14:17 JST
+- [Run 37416073439](https://github.com/after6labo/metac-bot-template/actions/runs/37416073439)
+  fetched at Oct6 13:57:04 JST and detected MiniBench q46119/post45937
+  open from 13:42:02 to 16:42:02 JST. The authenticated pre-publication
+  inventory was complete/matched and recorded the question open and
+  already_forecasted=false, with no missing ID, forecast-evidence mismatch,
+  unknown evidence or fetch error.
+- Job112114856290 records separate publication success: the prediction was
+  posted on q46119 at 13:58:13 JST and the explanatory comment was posted on
+  post45937 at 13:58:18 JST. Runtime recorded submitted=1,
+  nonfatal_errors=0, pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false and provider_paused_for_run=false. Because the
+  independent inventory runs before publication, a later authenticated audit
+  must still confirm already_forecasted=true; no immediate retry was launched.
+- Fetch-start gaps after the 12:27 checkpoint were 29m50.639s, 30m07.693s
+  and 29m48.736s. No new interval exceeded 60 minutes. The submission run
+  observed two successful free-route responses, zero failed invocations and
+  4,851 tokens, with $0 new spending. These counters are not provider quota
+  or billing receipts.
+- Correction: the Oct6 11:30 and 12:28 checkpoint statements that Fall had no
+  successful competition publication were erroneous. The current authenticated
+  Fall audit retains q46019, q46023, q46043, q46020, q46024 and q46021 with
+  already_forecasted=true, and earlier log entries record their publication and
+  follow-up confirmation runs. Fall q46022 and q46056 remain confirmed misses;
+  q45707 is practice and is not counted as competition participation. This
+  correction does not establish tournament scoring eligibility, official score,
+  rank or prize, which remain unconfirmed.
+- No code, prompt, probability, answer eligibility, stopping condition, paid
+  route, topic exclusion, batch cap or manual retry was changed.
+

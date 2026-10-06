@@ -911,3 +911,19 @@
 - Official score, rank, prize and Fall-tournament competition publication remain
   unconfirmed/absent; no code or eligibility rule was changed in this check.
 
+### q46117/q46118 closed with forecast evidence intact — Oct6 12:28 JST
+- [Run 37408971795](https://github.com/after6labo/metac-bot-template/actions/runs/37408971795)
+  fetched at Oct6 12:27:17 JST. Its authenticated independent MiniBench
+  inventory observed q46117/post45935 and q46118/post45936 closed with
+  already_forecasted=true. Their previously reported forecasts therefore
+  remained present after the official close times and are not missed windows.
+- Both tournament audits were complete/matched with no missing ID,
+  forecast-evidence mismatch or unknown evidence. No question was open,
+  pending, submitted anew or failed/unconfirmed; provider pause and attention
+  were false.
+- Fetch-start gaps after 11:07 were 25m27.213s, 24m19.929s and 30m11.057s;
+  no interval exceeded 60 minutes. These checks used zero model responses,
+  zero new tokens and $0 new spending, with no duplicate submission.
+- Competition scoring eligibility, official score, rank and prize are still
+  unconfirmed. Fall still has no successful competition publication.
+

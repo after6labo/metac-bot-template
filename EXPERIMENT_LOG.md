@@ -1103,3 +1103,34 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### q46123 independently confirmed; q46124 submitted and independently confirmed — Oct7 01:15 JST
+- [Run 37483150134](https://github.com/after6labo/metac-bot-template/actions/runs/37483150134)
+  fetched at Oct6 23:57:10 JST. Its independent MiniBench inventory found
+  q46123/post45941 open with already_forecasted=true after the prior prediction
+  and explanation publication, closing that confirmation gap. Both target
+  audits were complete/matched and no duplicate was submitted.
+- [Run 37487498542](https://github.com/after6labo/metac-bot-template/actions/runs/37487498542)
+  fetched at Oct7 00:27:20 JST and detected MiniBench q46124/post45942 open
+  from 00:18:27 to 03:18:27 JST. The pre-publication inventory was
+  complete/matched with already_forecasted=false and no missing ID, fetch error,
+  forecast-evidence mismatch or unknown evidence.
+- Job112351265849 separately records the prediction posted on q46124 at
+  00:27:55 JST and the explanatory comment posted on post45942 at 00:27:59 JST.
+  Runtime recorded submitted=1, nonfatal_errors=0, pending_questions=[],
+  failed_or_unconfirmed=0, needs_attention=false and
+  provider_paused_for_run=false. The free route returned two successful
+  responses and 3,274 tokens with $0 new spending.
+- [Run 37491675386](https://github.com/after6labo/metac-bot-template/actions/runs/37491675386)
+  fetched at 00:57:15 JST and independently found both q46123 and q46124 open
+  with already_forecasted=true. Run37493744565 fetched again at 01:12:39 JST
+  and repeated that evidence. Both audits remained complete/matched; pending,
+  fetch errors, evidence mismatches/unknowns and failed/unconfirmed were empty.
+- Fetch-start gaps across these four checkpoints were 29m55.218s, 30m09.418s,
+  29m55.036s and 15m24.172s; no interval exceeded 60 minutes. q46124 remained
+  open at the last audit with more than two hours before its deadline, already
+  answered, so no retry was launched.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, prompt, probability, eligibility/stopping condition, paid route,
+  topic exclusion, local cap or live-answer tuning was changed.

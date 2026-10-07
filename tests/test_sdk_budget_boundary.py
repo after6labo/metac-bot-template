@@ -97,3 +97,22 @@ class SdkBudgetTests(unittest.TestCase):
                     self.assertEqual(llm.budget.session_responses, 0)
                     self.assertEqual(llm.budget.session_failures, 0)
         self.check(scenario)
+
+    def test_multiple_choice_parser_retries_one_malformed_free_response(self):
+        from main import PredictedOptionList, SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            model = SimpleNamespace(invoke=AsyncMock(return_value='Option A: 100%'))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(options=['Option A'], page_url='fixture')
+            parsed = PredictedOptionList(
+                predicted_options=[{'option_name': 'Option A', 'probability': 1.0}]
+            )
+            with patch('main.structure_output', new_callable=AsyncMock,
+                       return_value=parsed) as parser:
+                await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
+                self.assertEqual(parser.await_args.kwargs['allowed_tries'], 2)
+
+        asyncio.run(scenario())

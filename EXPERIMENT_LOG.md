@@ -1330,3 +1330,28 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### q46128 initial structured-output failure recovered by one rerun — Oct7 15:12 JST
+- MiniBench question 46128 / post 45946 opened at 14:59:15 JST and closes at
+  17:59:15 JST. [Run 37579712130 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37579712130)
+  fetched it at 15:07:05 JST, but the free route failed while converting the
+  binary forecast to structured JSON (`No JSON found in the text`). No prediction
+  or comment was posted; the independent inventory still showed
+  `already_forecasted=false`, and the result retained q46128 as pending.
+- After confirming the absence of a prior post, the failed job was rerun once.
+  Attempt 2 fetched at 15:10:42 JST, posted the prediction at 15:11:30 JST and
+  the explanation at 15:11:34 JST, and completed with `submitted=1`, no pending
+  question, no failed/unconfirmed invocation, and no provider pause.
+- Both target audits were complete/matched with no fetch error, missing ID,
+  evidence mismatch, or unknown evidence. The post-run independent
+  `already_forecasted=true` confirmation remains pending; no further rerun will
+  be made without checking that evidence.
+- Across the initial attempt and one recovery attempt, the result records four
+  observed successful model responses and 6,801 tokens, with $0 new spending.
+  These response counts are observations, not provider free-quota consumption.
+- Fetch-start gaps before the incident were 30m02.007s and 29m47.241s; no
+  interval exceeded 60 minutes. No code, prompt, probability, eligibility or
+  stopping condition, paid route, topic exclusion, local cap, or live-answer
+  tuning was changed. Official scoring eligibility, score, rank, and prize
+  remain unconfirmed.

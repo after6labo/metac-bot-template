@@ -1471,3 +1471,30 @@
   scoring eligibility, score, rank and prize remain unconfirmed. No code,
   prompt, probability, model route, eligibility/stopping condition, paid
   route, topic exclusion, local cap or live-answer tuning was changed.
+
+
+### Fall q46133 published and independently confirmed — Oct8 04:25 JST
+- Fall question 46133 / post 45951 opened at 03:00:00 JST and closes at
+  06:00:00 JST. [Run 37665539727](https://github.com/after6labo/metac-bot-template/actions/runs/37665539727)
+  fetched it at 03:17:08 JST, posted the prediction at 03:17:58 JST and the
+  explanation at 03:18:02 JST, and completed with `submitted=1`, no pending
+  question, failed/unconfirmed item, attention state, provider pause or
+  nonfatal error.
+- Runs [37669384251](https://github.com/after6labo/metac-bot-template/actions/runs/37669384251)
+  and [37673213569](https://github.com/after6labo/metac-bot-template/actions/runs/37673213569)
+  independently fetched at 03:47:18 and 04:16:58 JST while q46133 remained
+  open and found `already_forecasted=true`. No duplicate submission was made.
+- MiniBench q46130 also remained open and `already_forecasted=true` throughout.
+  Both target audits were complete/matched in every run, with no fetch error,
+  missing ID, forecast-evidence mismatch, unknown evidence or unanswered open
+  question.
+- The q46133 submission observed two model responses and 3,801 tokens with $0
+  new spending. The two confirmation runs observed zero model responses and
+  added no tokens or spending. Response counts are observations, not provider
+  free-quota consumption.
+- Fetch-start gaps were 29m48.059s, 30m09.732s and 29m40.798s; no interval
+  exceeded 60 minutes. q46133 still requires post-close evidence after
+  06:00:00 JST, and q46130 after 04:46:43 JST. No code, prompt, probability,
+  model route, eligibility/stopping condition, paid route, topic exclusion,
+  local cap or live-answer tuning was changed. Official scoring eligibility,
+  score, rank and prize remain unconfirmed.

@@ -1519,3 +1519,50 @@
   scoring eligibility, score, rank and prize remain unconfirmed. No code,
   prompt, probability, model route, eligibility/stopping condition, paid
   route, topic exclusion, local cap or live-answer tuning was changed.
+
+### q46131 parser failures recovered; q46133 confirmed after close — Oct8 07:10 JST
+- MiniBench question 46131 / post 45949 opened at 05:38:31 JST and closes at
+  08:38:31 JST. Runs
+  [37684562053](https://github.com/after6labo/metac-bot-template/actions/runs/37684562053),
+  [37688201683](https://github.com/after6labo/metac-bot-template/actions/runs/37688201683)
+  and [37691730363 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37691730363/attempts/1)
+  fetched it at 05:47:18, 06:17:15 and 06:47:20 JST but left it unanswered.
+  The first forecast generation timed out after 180 seconds. The next two
+  generations returned, but the free parser rejected respectively an option
+  probability total of 0.98 and a non-JSON `User Safety: safe` response.
+  There was no 402/429, provider pause, retrieval failure, Metaculus
+  publication attempt or evidence of an existing forecast.
+- The root cause was intermittent free-provider generation/formatting combined
+  with the repository's independent `allowed_tries=1` parser setting. A TDD
+  regression test was committed first in
+  [dd04166](https://github.com/after6labo/metac-bot-template/commit/dd04166c964593c68c795a90f9b2193f13c24160);
+  [run 37693058295](https://github.com/after6labo/metac-bot-template/actions/runs/37693058295)
+  failed only because it observed one parser try. The minimal production change
+  in [171d73f](https://github.com/after6labo/metac-bot-template/commit/171d73f5ca9c4815f0e8cd3a28a3548143dd7736)
+  raises multiple-choice structure conversion from one try to two. Forecast
+  generation remains one sample; model route, prompt, probabilities, question
+  eligibility, stopping conditions, paid routes, topic exclusions and local
+  caps were not otherwise changed.
+- [Run 37693175394](https://github.com/after6labo/metac-bot-template/actions/runs/37693175394)
+  passed the full offline Python and scheduler suites, fetched q46131 at
+  06:59:58 JST, posted its prediction at 07:01:34 JST and explanation at
+  07:01:39 JST, and completed with `submitted=1`, no pending item,
+  failed/unconfirmed item, attention state, provider pause or nonfatal error.
+  [Run 37691730363 attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/37691730363/attempts/2)
+  then fetched at 07:03:12 JST and independently found q46131 still open with
+  `already_forecasted=true`; no duplicate submission or model call occurred.
+- Fall q46133 / post 45951 closed at 06:00:00 JST. Run 37688201683 first
+  observed it closed with `already_forecasted=true` at 06:17:15 JST, and the
+  latest independent run preserved the same post-close evidence. It did not
+  merely disappear from the open set.
+- Both target audits were complete/matched in all relevant production runs,
+  with no fetch error, missing ID, forecast-evidence mismatch or unknown
+  evidence. Fetch-start gaps from 05:17:16 through the final confirmation were
+  30m01.551s, 29m57.291s, 30m04.720s, 12m38.392s and 3m13.434s; none exceeded
+  60 minutes.
+- The three failed q46131 runs, successful publication and independent
+  confirmation observed six successful model responses, one failed invocation
+  record and 25,675 tokens in total, with $0 new spending. Response/failure
+  counts are observations, not provider free-quota consumption. Official
+  scoring eligibility, score, rank and prize remain unconfirmed.
+

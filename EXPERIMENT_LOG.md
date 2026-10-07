@@ -1424,3 +1424,30 @@
   minutes. No code, prompt, probability, model route, eligibility/stopping
   condition, paid route, topic exclusion, local cap, or live-answer tuning was
   changed.
+
+
+### q46130 initial structured-output failure recovered on the next run — Oct8 02:26 JST
+- MiniBench question 46130 / post 45948 opened at 01:46:43 JST and closes at
+  04:46:43 JST. [Run 37654656515](https://github.com/after6labo/metac-bot-template/actions/runs/37654656515)
+  fetched it at 01:47:12 JST, but the free route returned non-JSON text while
+  converting the binary prediction to structured output. No prediction or
+  explanation was posted; the independent inventory still showed
+  `already_forecasted=false`, and q46130 remained pending.
+- The next scheduled [run 37657772744](https://github.com/after6labo/metac-bot-template/actions/runs/37657772744)
+  fetched at 02:17:10 JST, posted the prediction at 02:17:56 JST and the
+  explanation at 02:18:00 JST, and completed with `submitted=1`, no pending
+  question, failed/unconfirmed item, attention state, provider pause or
+  nonfatal error. No duplicate submission was attempted.
+- Both target audits were complete/matched in both runs, with no fetch error,
+  missing ID, forecast-evidence mismatch or unknown evidence. Fall had no open
+  question. q46130 remains open until 04:46:43 JST; a later independent
+  inventory must confirm `already_forecasted=true` and later preserve
+  post-close evidence.
+- The failed and successful runs observed four model responses and 12,691
+  tokens in total, with $0 new spending. These are observed responses, not
+  provider free-quota consumption. No 402/429 or provider pause occurred.
+- Fetch-start gaps were 29m43.824s and 29m57.942s; no interval exceeded 60
+  minutes. No code, prompt, probability, model route, eligibility/stopping
+  condition, paid route, topic exclusion, local cap or live-answer tuning was
+  changed. Official scoring eligibility, score, rank and prize remain
+  unconfirmed.

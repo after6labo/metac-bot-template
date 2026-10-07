@@ -1374,3 +1374,31 @@
   is still pending. Official scoring eligibility, score, rank, and prize remain
   unconfirmed. No code, prompt, probability, eligibility/stopping condition,
   paid route, topic exclusion, local cap, or live-answer tuning was changed.
+
+
+### q46129 submitted and q46128 confirmed after close — Oct7 19:01 JST
+- MiniBench q46129 / post 45947 opened at 17:32:03 JST and closes at
+  20:32:03 JST. [Run 37597131997](https://github.com/after6labo/metac-bot-template/actions/runs/37597131997)
+  fetched at 17:56:55 JST, posted the prediction at 17:58:03 JST and the
+  explanation at 17:58:07 JST, and completed with `submitted=1`, no pending
+  question, failed/unconfirmed invocation, attention state, or provider pause.
+- Runs [37600606402](https://github.com/after6labo/metac-bot-template/actions/runs/37600606402)
+  and [37604012340](https://github.com/after6labo/metac-bot-template/actions/runs/37604012340)
+  independently fetched at 18:27:15 and 18:57:22 JST while q46129 remained
+  open and found `already_forecasted=true`. No duplicate submission was made.
+- q46128 closed at 17:59:15 JST. Both post-close audits above found q46128
+  `closed` with `already_forecasted=true`, preserving evidence for the
+  prediction and explanation submitted by run 37579712130 attempt 2.
+- Both target audits were complete/matched throughout, with no fetch error,
+  missing ID, forecast-evidence mismatch, unknown evidence, or unanswered open
+  question. Fall had no open question; MiniBench's only open question was the
+  answered q46129.
+- The q46129 submission observed two successful model responses and 4,724
+  tokens with $0 new spending. The two confirmation runs made no model calls
+  and added no tokens or spending. Response counts are observations, not
+  provider free-quota consumption.
+- Fetch-start gaps were 29m42.003s, 30m20.426s, and 30m06.346s; no interval
+  exceeded 60 minutes. No code, prompt, probability, model route,
+  eligibility/stopping condition, paid route, topic exclusion, local cap, or
+  live-answer tuning was changed. Official scoring eligibility, score, rank,
+  and prize remain unconfirmed.

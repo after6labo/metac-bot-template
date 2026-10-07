@@ -1451,3 +1451,23 @@
   condition, paid route, topic exclusion, local cap or live-answer tuning was
   changed. Official scoring eligibility, score, rank and prize remain
   unconfirmed.
+
+
+### q46130 independently confirmed while open — Oct8 03:00 JST
+- [Run 37661648364](https://github.com/after6labo/metac-bot-template/actions/runs/37661648364)
+  fetched at 02:47:20 JST and independently found MiniBench q46130 / post
+  45948 open with `already_forecasted=true`, confirming the prediction and
+  explanation published by run 37657772744. The only skip was the
+  question-specific duplicate guard; no duplicate submission was attempted.
+- Both target audits were complete/matched, with no fetch error, missing ID,
+  forecast-evidence mismatch, unknown evidence, pending question,
+  failed/unconfirmed invocation, attention state or provider pause. Fall had
+  no open question. MiniBench's only open question was the answered q46130.
+- The confirmation run observed zero model responses, zero tokens and $0 new
+  spending. The fetch-start gap was 30m10.003s; no interval exceeded 60
+  minutes.
+- q46130 closes at 04:46:43 JST. A later authenticated inventory must preserve
+  post-close evidence rather than infer success from disappearance. Official
+  scoring eligibility, score, rank and prize remain unconfirmed. No code,
+  prompt, probability, model route, eligibility/stopping condition, paid
+  route, topic exclusion, local cap or live-answer tuning was changed.

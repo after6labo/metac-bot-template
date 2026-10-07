@@ -1498,3 +1498,24 @@
   model route, eligibility/stopping condition, paid route, topic exclusion,
   local cap or live-answer tuning was changed. Official scoring eligibility,
   score, rank and prize remain unconfirmed.
+
+
+### q46130 confirmed after close; q46133 remains answered — Oct8 04:55 JST
+- MiniBench q46130 / post 45948 closed at 04:46:43 JST.
+  [Run 37676999879](https://github.com/after6labo/metac-bot-template/actions/runs/37676999879)
+  fetched at 04:47:13 JST and independently found q46130 `closed` with
+  `already_forecasted=true`. This preserves post-close evidence for the
+  prediction and explanation published by run 37657772744; the question did
+  not merely disappear from the open set.
+- Fall q46133 remained open through 06:00:00 JST with
+  `already_forecasted=true`. Both target audits were complete/matched, with
+  no fetch error, missing ID, forecast-evidence mismatch, unknown evidence,
+  open unanswered question, pending question, failed/unconfirmed invocation,
+  attention state or provider pause.
+- The confirmation run observed zero model responses, zero tokens and $0 new
+  spending. The fetch-start gap was 30m15.004s; no interval exceeded 60
+  minutes.
+- q46133 still requires post-close evidence after 06:00:00 JST. Official
+  scoring eligibility, score, rank and prize remain unconfirmed. No code,
+  prompt, probability, model route, eligibility/stopping condition, paid
+  route, topic exclusion, local cap or live-answer tuning was changed.

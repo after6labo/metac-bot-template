@@ -1284,3 +1284,27 @@
 - Official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, prompt, probability, eligibility/stopping condition, paid route,
   topic exclusion, local cap or live-answer tuning was changed.
+
+
+### q46127 closed with evidence; q46184 remains answered — Oct7 09:57 JST
+- [Run 37549271672](https://github.com/after6labo/metac-bot-template/actions/runs/37549271672)
+  fetched at 08:57:23 JST and found MiniBench q46127 and Fall q46184 both
+  open with already_forecasted=true. Both target audits were complete/matched,
+  with no fetch error, missing ID, evidence mismatch or unknown evidence.
+- [Run 37551962427](https://github.com/after6labo/metac-bot-template/actions/runs/37551962427)
+  fetched at 09:27:13 JST after q46127's 09:17:32 JST deadline and found it
+  closed with already_forecasted=true. This supplies q46127's required
+  post-close evidence. q46184 remained open and already_forecasted=true.
+- [Run 37553108123](https://github.com/after6labo/metac-bot-template/actions/runs/37553108123)
+  fetched at 09:40:33 JST and repeated q46127's closed answered state and
+  q46184's open answered state. q46184 closes at 10:00:00 JST; its post-close
+  evidence must come from a later authenticated inventory rather than inference.
+- All three runs recorded pending_questions=[], failed_or_unconfirmed=0,
+  needs_attention=false, provider_paused_for_run=false, no outcome and no new
+  submission. They made zero model calls, used zero additional tokens and added
+  $0 spending.
+- Fetch-start gaps since the previous checkpoint were 30m15.968s, 29m50.707s
+  and 13m20.160s; no interval exceeded 60 minutes. No code, prompt,
+  probability, eligibility/stopping condition, paid route, topic exclusion,
+  local cap or live-answer tuning was changed.
+- Official scoring eligibility, score, rank and prize remain unconfirmed.

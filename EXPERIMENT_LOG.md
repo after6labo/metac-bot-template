@@ -1355,3 +1355,22 @@
   stopping condition, paid route, topic exclusion, local cap, or live-answer
   tuning was changed. Official scoring eligibility, score, rank, and prize
   remain unconfirmed.
+
+
+### q46128 independently confirmed after recovery — Oct7 15:50 JST
+- [Run 37582095665](https://github.com/after6labo/metac-bot-template/actions/runs/37582095665)
+  fetched at 15:33:46 JST while MiniBench q46128 / post 45946 remained open
+  and independently found `already_forecasted=true`. This confirms the
+  prediction and explanation posted by run 37579712130 attempt 2 at 15:11 JST.
+- Both target audits were complete/matched, with no fetch error, missing ID,
+  evidence mismatch, unknown evidence, pending question, failed/unconfirmed
+  invocation, attention state, or provider pause. The only skip was the
+  evidence-backed `already_forecasted` state for q46128.
+- The independent confirmation made zero model calls, used zero additional
+  tokens, and added $0 spending. The fetch-start gap from the recovery attempt
+  was 23m03.884s; the regular-run gap from the failed initial attempt was
+  26m40.559s, with no interval above 60 minutes.
+- q46128 remains open until 17:59:15 JST and is answered. Post-close evidence
+  is still pending. Official scoring eligibility, score, rank, and prize remain
+  unconfirmed. No code, prompt, probability, eligibility/stopping condition,
+  paid route, topic exclusion, local cap, or live-answer tuning was changed.

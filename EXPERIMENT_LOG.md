@@ -1642,3 +1642,22 @@
   code repair and duplicate-risk check complete. Official scoring eligibility,
   score, rank and prize remain unconfirmed.
 
+### 22:00 JST — repair deployed and q46134 independently confirmed
+
+- Commit [f19a068](https://github.com/after6labo/metac-bot-template/commit/f19a068d49d1e1b308a5f609cbf92052defcc719)
+  deployed the numeric structure-conversion retry and its regression test.
+  Local verification passed 60 Python tests and 12 scheduler tests; the
+  push-triggered [run 37780806759](https://github.com/after6labo/metac-bot-template/actions/runs/37780806759)
+  also passed dependency installation, the full offline suites, bot execution,
+  artifact preservation and result persistence.
+- Its authenticated fetch started at 22:00:07 JST while q46134 was still open
+  and independently observed `already_forecasted=true`. The duplicate guard
+  selected nothing, made zero model calls, posted no duplicate, and recorded
+  only the evidence-backed `already_forecasted` skip. Both target audits were
+  complete/matched; pending/errors/missing/mismatched/unknown evidence were
+  empty and attention/provider pause false.
+- The confirmation run used zero model responses and tokens and incurred $0 new
+  spending. This confirms the earlier prediction is visible to the Metaculus
+  API and the repair is deployed, but does not establish tournament scoring
+  eligibility, official score/rank or prize. Post-close evidence remains due
+  after q46134 closes at 00:00 JST.

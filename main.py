@@ -454,7 +454,7 @@ class SummerTemplateBot2026(ForecastBot):
             model=self.get_llm("parser", "llm"),
             additional_instructions=parsing_instructions,
             num_validation_samples=self._structure_output_validation_samples,
-            allowed_tries=1,
+            allowed_tries=2,
         )
         prediction = NumericDistribution.from_question(percentile_list, question)
         logger.info(

@@ -39,7 +39,9 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
-  sample and one parser attempt. No local daily request cap: the owner removed
+  sample. Multiple-choice and numeric structure conversion may make one additional
+  parser attempt after a malformed free response; binary/date conversion remains one
+  attempt. No local daily request cap: the owner removed
   the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
   run-results/budget.json now stores observed responses/failures/tokens and any
   provider Retry-After or OpenRouter X-RateLimit-Reset cooldown, not reservations or measured quota consumption.
@@ -163,8 +165,9 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   failures are barriers to submission, not acceptable competitive outcomes.
   Honor actual service restrictions and zero spending while repairing what is
   authorized. Notification does not transfer responsibility to a sleeping owner.
-- Remaining technical settings are disclosed: one model/parser attempt per
-  forecast, a 180-second model timeout (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2
+- Remaining technical settings are disclosed: one reasoning sample per forecast;
+  up to two structure-conversion attempts for multiple-choice and numeric forecasts,
+  one for binary/date forecasts; a 180-second model timeout (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2
   seconds, a 25-minute Actions job timeout, and inventory reads capped at 10
   pages of 100 posts. These are implementation choices, not official tournament
   eligibility rules. Their failures must remain actionable; do not label them

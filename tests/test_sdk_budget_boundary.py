@@ -116,3 +116,28 @@ class SdkBudgetTests(unittest.TestCase):
                 self.assertEqual(parser.await_args.kwargs['allowed_tries'], 2)
 
         asyncio.run(scenario())
+
+    def test_numeric_parser_retries_one_malformed_free_response(self):
+        from main import NumericDistribution, SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            model = SimpleNamespace(invoke=AsyncMock(return_value='Percentile 50: 10'))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(
+                question_text='fixture',
+                unit_of_measure='units',
+                lower_bound=0,
+                upper_bound=100,
+                page_url='fixture',
+            )
+            prediction = SimpleNamespace(declared_percentiles=[])
+            with patch('main.structure_output', new_callable=AsyncMock,
+                       return_value=[]) as parser:
+                with patch.object(NumericDistribution, 'from_question',
+                                  return_value=prediction):
+                    await bot._numeric_prompt_to_forecast(question, 'fixture')
+                self.assertEqual(parser.await_args.kwargs['allowed_tries'], 2)
+
+        asyncio.run(scenario())

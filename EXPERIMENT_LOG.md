@@ -1610,3 +1610,35 @@
 - Recovery used no model response or tokens and incurred $0 new spending.
   Official scoring eligibility, score, rank and prize remain unconfirmed.
 
+## 2026-10-08 21:50 JST — Fall q46134 submitted after numeric parser failure
+
+- Fall question 46134 / post 45952 opened at 21:00 JST and closes at 00:00
+  JST. [Run 37775697818](https://github.com/after6labo/metac-bot-template/actions/runs/37775697818)
+  fetched it at 21:17:15 JST but left it pending. Two free-route responses
+  (7,188 observed tokens) were returned; the numeric structure converter then
+  exhausted its single try on a non-JSON `User Safety: safe` response. No
+  Metaculus prediction or comment was attempted, and this was not a 402/429,
+  provider pause, retrieval failure or evidence of an existing forecast.
+- The next scheduled [run 37779269221](https://github.com/after6labo/metac-bot-template/actions/runs/37779269221)
+  fetched at 21:47:16 JST. It posted the prediction on q46134 at 21:48:25 JST
+  and the explanation on post45952 at 21:48:29 JST, within the official
+  window, and completed with `submitted=1`, no pending item,
+  failed/unconfirmed item, attention state, provider pause or nonfatal error.
+- Both runs' MiniBench and Fall retrieval audits were complete/matched, with
+  no fetch error, missing ID, forecast-evidence mismatch or unknown evidence.
+  Fetch-start gaps were 29m40.614s and 30m00.518s; neither exceeded 60 minutes.
+  The successful run observed two responses and 4,439 tokens. Across the two
+  runs the daily observation totals became four successful responses and
+  11,627 tokens, with zero failed invocation records and $0 new spending;
+  these are runtime observations, not provider quota or billing receipts.
+- Root cause is the numeric structure-conversion setting combined with an
+  intermittent malformed free-router response. A failing regression test
+  reproduced `allowed_tries=1`. The minimal change raises only numeric
+  structure conversion to two tries, matching the existing multiple-choice
+  handling. Reasoning remains one sample; prompt, prediction values, model
+  route, eligibility/stopping conditions, paid fallback and topic handling are
+  unchanged. Production verification and an authenticated later inventory
+  confirming `already_forecasted=true` are still required before calling this
+  code repair and duplicate-risk check complete. Official scoring eligibility,
+  score, rank and prize remain unconfirmed.
+

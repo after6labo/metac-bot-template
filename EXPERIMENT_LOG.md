@@ -1661,3 +1661,46 @@
   API and the repair is deployed, but does not establish tournament scoring
   eligibility, official score/rank or prize. Post-close evidence remains due
   after q46134 closes at 00:00 JST.
+
+## 2026-10-08 JST — Fall q46185 initial failure, recovery, and numeric validation repair
+- [Run 37791103275](https://github.com/after6labo/metac-bot-template/actions/runs/37791103275)
+  fetched at 23:17:24 JST and independently found Fall q46185/post46001 open
+  from 23:00 JST through Oct 9 02:00 JST, unanswered. Both tournament audits were
+  complete/matched with no fetch errors, but numeric distribution construction
+  rejected the parsed percentiles because their values were not strictly
+  increasing. The run ended failed with one pending question; no prediction or
+  explanation was published. It observed two free-route responses and 11,707
+  tokens, with $0 new spending and no provider pause.
+- Root cause: numeric structure parsing could retry malformed JSON once, but
+  `NumericDistribution.from_question` validation occurred after that retry
+  boundary. Thus syntactically valid percentiles that failed distribution
+  validation were not given the same second conversion attempt.
+- The next scheduled [run 37795199283](https://github.com/after6labo/metac-bot-template/actions/runs/37795199283)
+  fetched at 23:47:15 JST on the prior code and happened to receive a valid
+  increasing distribution. It posted the q46185 prediction at 23:49:38 JST and
+  explanation at 23:49:43 JST; runtime recorded submitted=1, nonfatal_errors=0,
+  pending/failures/fetch errors empty, and both audits complete/matched. This run
+  observed two free-route responses and 8,366 tokens, with $0 new spending.
+- Added a regression test first; it failed on the original behavior and passed
+  after the change. Commits
+  [72b9795](https://github.com/after6labo/metac-bot-template/commit/72b9795fe4c9a7fe590f23bcce671c33342ad798)
+  and [35710fd](https://github.com/after6labo/metac-bot-template/commit/35710fd7d5b357cfaa48116cb2d3e639b6e7b66c)
+  move numeric parsing and full distribution validation into one maximum-two-
+  attempt conversion loop. Total parser attempts remain two; reasoning generation,
+  prompt, forecast values, target eligibility, publication behavior, free-only
+  route, and provider cooldown handling are unchanged. Local regression: 61
+  Python tests and 12 scheduler tests passed.
+- Push runs
+  [37795959890](https://github.com/after6labo/metac-bot-template/actions/runs/37795959890)
+  and [37795968129](https://github.com/after6labo/metac-bot-template/actions/runs/37795968129)
+  completed successfully. Their 23:52:38 and 23:53:59 JST fetches independently
+  found q46185 still open with already_forecasted=true, made no duplicate post
+  and used zero model responses/tokens. Latest has pending/failures/fetch errors
+  empty, attention/provider pause false, and both audits complete/matched.
+- Actual fetch-start interval maximum from the prior checkpoint through the
+  repaired run was 29m51.153s, below the 60-minute investigation threshold.
+  q46134 remained open/forecasted through its 00:00 JST deadline; q46185 remains
+  open/forecasted through 02:00 JST. Post-close evidence remains for later runs.
+  Incident total through publication: four observed responses and 20,073 tokens,
+  not provider quota consumption; new spending $0. Official acceptance, score,
+  rank, prize and scoring eligibility remain unconfirmed.

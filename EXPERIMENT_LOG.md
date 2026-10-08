@@ -1566,3 +1566,27 @@
   counts are observations, not provider free-quota consumption. Official
   scoring eligibility, score, rank and prize remain unconfirmed.
 
+
+
+## 2026-10-08 09:42 JST — q46131 post-close evidence
+
+- MiniBench q46131 / post 45949 closed at 08:38:31 JST. The first
+  post-close fetch in
+  [run 37705049463](https://github.com/after6labo/metac-bot-template/actions/runs/37705049463)
+  started at 08:57:16 JST and independently observed the question as
+  `closed` with `already_forecasted=true`.
+- [Run 37706151723](https://github.com/after6labo/metac-bot-template/actions/runs/37706151723)
+  at 09:09:15 JST and
+  [run 37708645279](https://github.com/after6labo/metac-bot-template/actions/runs/37708645279)
+  at 09:37:16 JST preserved the same post-close forecast evidence. The latest
+  result is tournament mode with no open question in either target, no pending
+  question, failed/unconfirmed item, attention state, provider pause, outcome,
+  or skip.
+- Both independent retrieval audits were complete/matched, with no fetch error,
+  missing ID, forecast-evidence mismatch or unknown evidence. Fetch-start gaps
+  from 07:57:14 through 09:37:16 JST were 30m08.142s, 29m53.306s,
+  11m58.656s and 28m01.543s; none exceeded 60 minutes.
+- These confirmation runs used no model response or tokens and incurred $0 new
+  spending. No code, eligibility rule, model route, prompt, probability or
+  stopping condition changed. Official scoring eligibility, score, rank and
+  prize remain unconfirmed.

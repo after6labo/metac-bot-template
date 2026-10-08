@@ -1704,3 +1704,36 @@
   Incident total through publication: four observed responses and 20,073 tokens,
   not provider quota consumption; new spending $0. Official acceptance, score,
   rank, prize and scoring eligibility remain unconfirmed.
+
+## 2026-10-09 JST — Fall q46135 transient timeout, recovery, and q46134 post-close evidence
+- [Run 37799359636](https://github.com/after6labo/metac-bot-template/actions/runs/37799359636)
+  fetched at 00:17:15 JST and independently found Fall q46135/post45953 open
+  from 00:00 through 03:00 JST and unanswered. Both audits were complete/matched
+  with no fetch errors, but the free-route reasoning invocation reached its
+  180-second connection timeout before any provider response. No prediction or
+  explanation was published; runtime kept q46135 pending with attention=true,
+  recorded zero successful responses/tokens, one failed invocation, $0 new
+  spending, and no provider 402/429 or pause.
+- The next scheduled [run 37803485468](https://github.com/after6labo/metac-bot-template/actions/runs/37803485468)
+  fetched at 00:47:18 JST after verifying q46135 remained unanswered. It posted
+  the prediction at 00:47:48 JST and explanation at 00:47:52 JST; runtime
+  recorded submitted=1, nonfatal_errors=0, pending/failures/fetch errors empty,
+  and both audits complete/matched. It observed two free-route responses and
+  3,702 tokens with $0 new spending.
+- [Run 37807478177](https://github.com/after6labo/metac-bot-template/actions/runs/37807478177)
+  fetched at 01:17:18 JST and independently found q46135 still open with
+  already_forecasted=true. It made no model call or duplicate post; both audits
+  remained complete/matched with no pending, missing, mismatched or unknown
+  forecast evidence and no provider pause.
+- The same post-midnight audits record q46134 closed at its 00:00 JST deadline
+  with already_forecasted=true, completing its post-close evidence. q46185
+  remains open and forecasted through 02:00 JST; q46135 remains open and
+  forecasted through 03:00 JST.
+- Actual fetch-start interval maximum from the previous confirmation through
+  01:17 was 30m02.565s, below the 60-minute investigation threshold. The timeout
+  was a transient external failure and recovered through the next scheduled run;
+  no paid fallback, manual duplicate retry, code/prompt/probability, eligibility
+  or stopping-condition change was made. Incident total through publication:
+  two observed responses, one failed invocation, 3,702 observed tokens and $0
+  new spending; these are not provider quota measurements. Official acceptance,
+  score, rank, prize and scoring eligibility remain unconfirmed.

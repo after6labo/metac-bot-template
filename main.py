@@ -448,15 +448,27 @@ class SummerTemplateBot2026(ForecastBot):
             - Turn any values that are in scientific notation into regular numbers.
             """
         )
-        percentile_list: list[Percentile] = await structure_output(
-            reasoning,
-            list[Percentile],
-            model=self.get_llm("parser", "llm"),
-            additional_instructions=parsing_instructions,
-            num_validation_samples=self._structure_output_validation_samples,
-            allowed_tries=2,
-        )
-        prediction = NumericDistribution.from_question(percentile_list, question)
+        for attempt in range(2):
+            try:
+                percentile_list: list[Percentile] = await structure_output(
+                    reasoning,
+                    list[Percentile],
+                    model=self.get_llm("parser", "llm"),
+                    additional_instructions=parsing_instructions,
+                    num_validation_samples=self._structure_output_validation_samples,
+                    allowed_tries=1,
+                )
+                prediction = NumericDistribution.from_question(
+                    percentile_list, question
+                )
+                break
+            except Exception as exc:
+                if attempt == 1:
+                    raise
+                logger.warning(
+                    "Numeric structure conversion failed; retrying once (%s)",
+                    type(exc).__name__,
+                )
         logger.info(
             f"Forecasted URL {question.page_url} with prediction: {prediction.declared_percentiles}."
         )

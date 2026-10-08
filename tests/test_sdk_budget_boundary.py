@@ -134,10 +134,48 @@ class SdkBudgetTests(unittest.TestCase):
             )
             prediction = SimpleNamespace(declared_percentiles=[])
             with patch('main.structure_output', new_callable=AsyncMock,
-                       return_value=[]) as parser:
+                       side_effect=[ValueError('malformed response'), []]) as parser:
                 with patch.object(NumericDistribution, 'from_question',
                                   return_value=prediction):
                     await bot._numeric_prompt_to_forecast(question, 'fixture')
-                self.assertEqual(parser.await_args.kwargs['allowed_tries'], 2)
+                self.assertEqual(parser.await_count, 2)
+                self.assertTrue(all(
+                    call.kwargs['allowed_tries'] == 1
+                    for call in parser.await_args_list
+                ))
+
+        asyncio.run(scenario())
+
+    def test_numeric_parser_retries_percentiles_rejected_by_distribution_validation(self):
+        from main import NumericDistribution, SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            model = SimpleNamespace(invoke=AsyncMock(return_value='Percentile 50: 10'))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(
+                question_text='fixture',
+                unit_of_measure='units',
+                lower_bound=0,
+                upper_bound=100,
+                page_url='fixture',
+            )
+            invalid_percentiles = [SimpleNamespace(value=20), SimpleNamespace(value=10)]
+            valid_percentiles = [SimpleNamespace(value=10), SimpleNamespace(value=20)]
+            prediction = SimpleNamespace(declared_percentiles=valid_percentiles)
+            with patch(
+                'main.structure_output',
+                new_callable=AsyncMock,
+                side_effect=[invalid_percentiles, valid_percentiles],
+            ) as parser:
+                with patch.object(
+                    NumericDistribution,
+                    'from_question',
+                    side_effect=[ValueError('Percentiles must be in strictly increasing order'), prediction],
+                ):
+                    result = await bot._numeric_prompt_to_forecast(question, 'fixture')
+                self.assertIs(result.prediction_value, prediction)
+                self.assertEqual(parser.await_count, 2)
 
         asyncio.run(scenario())

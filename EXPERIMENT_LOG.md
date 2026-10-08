@@ -1590,3 +1590,23 @@
   spending. No code, eligibility rule, model route, prompt, probability or
   stopping condition changed. Official scoring eligibility, score, rank and
   prize remain unconfirmed.
+
+## 2026-10-08 17:31 JST — dependency download failure recovered
+
+- [Run 37748735872 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37748735872/attempts/1)
+  failed before tests or bot execution while Poetry downloaded `grpcio`.
+  The provider connection ended with `IncompleteRead` / `ChunkedEncodingError`;
+  no tournament fetch, model call, prediction, comment or fresh result JSON occurred.
+- The failed job alone was rerun once without changing code, eligibility,
+  stopping conditions, model route, prompt or probabilities.
+  [Attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/37748735872/attempts/2)
+  completed dependency installation, offline tests, scheduler tests and bot execution.
+  Its actual fetch started at 17:30:44 JST and found zero open questions in both
+  targets, with no pending item, failed/unconfirmed item, attention state,
+  provider pause, outcome or skip.
+- Both independent retrieval audits were complete/matched, with no fetch error,
+  missing ID, forecast-evidence mismatch or unknown evidence. The gap from the
+  preceding actual fetch at 16:47:01 JST was 43m43.076s, below 60 minutes.
+- Recovery used no model response or tokens and incurred $0 new spending.
+  Official scoring eligibility, score, rank and prize remain unconfirmed.
+

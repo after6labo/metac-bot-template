@@ -1,3 +1,11 @@
+## 2026-10-09 JST — q46185 post-close forecast evidence
+
+- Fall production question q46185/post46001 closed at 02:00 JST. Independent tournament fetches in [run 37815262689](https://github.com/after6labo/metac-bot-template/actions/runs/37815262689) at 02:17:17.945 JST and [run 37819210033](https://github.com/after6labo/metac-bot-template/actions/runs/37819210033) at 02:47:38.178 JST found it `closed` with `already_forecasted=true`. This supplies post-close evidence for the prediction previously submitted at 23:49:38 JST.
+- q46135/post45953 remained open through 03:00 JST and `already_forecasted=true` in both audits. There were no pending questions, failed or unconfirmed submissions, fetch errors, retrieval mismatches, missing IDs, provider pauses, or duplicate submissions. Both MiniBench and Fall audits were complete and `matched`.
+- Actual fetch-start gaps since the prior checkpoint were 30m08.876s and 30m20.233s; maximum 30m20.233s, below the 60-minute investigation threshold. Both workflow jobs and all steps completed successfully.
+- These confirmation runs used zero model responses, failed invocations, tokens, and new spending. Official acceptance, score, rank, and prize remain unconfirmed.
+- No code, model, prompt, prediction value, answer scope, stopping condition, or retry behavior changed. Monitoring continues for q46135 post-close evidence after 03:00 JST.
+
   began its JSON fetch phase at 19:17:14.087 JST. Offline regression and scheduler
   checks, bot run, artifact preservation and repository persistence succeeded;
   latest matches history. Both target audits exist and are complete/matched,

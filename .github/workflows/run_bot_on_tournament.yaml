@@ -14,7 +14,7 @@ on:
       - tests/**
       - .github/workflows/run_bot_on_tournament.yaml
   schedule:
-    - cron: "7,27,47 * * * *" # 90-minute forecast windows; no LLM call when empty
+    - cron: "7,27,47 * * * *" # Native fallback; external wake-up targets <=60-minute coverage
 
 permissions:
   contents: write

@@ -1,3 +1,11 @@
+## 2026-10-09 JST — production coverage failure over 90 minutes (unresolved)
+
+- At 13:10:35 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST. The observed tail gap reached 1h53m09.005s, exceeding the 90-minute coverage-failure threshold. No later result or independent inventory exists, so question availability after 11:17 remains unknown rather than zero.
+- The authorized one-time job rerun accepted at 12:19:50 JST remained `queued` through this check and had created zero jobs. No later external `workflow_dispatch`, native schedule run, or push-triggered run appeared. This is not a successful or confirmed fetch.
+- The production workflow still uses concurrency group `metaculus-zero-cost` with `cancel-in-progress: false`. The operator did not change that group because a delayed old run could then execute concurrently with a new group and create duplicate-submission risk. No additional rerun was requested.
+- Owner action is now required in GitHub: open the linked queued run and cancel it so it cannot retain or later compete for the production concurrency slot. Then, in the existing Apps Script scheduler project, inspect **Executions** and **Triggers** for the missing 11:47, 12:17, 12:47 and 13:17 JST dispatches and verify that Script Property `GITHUB_ACTIONS_TOKEN` still exists, without copying or sharing its value.
+- The last completed result before the gap remained structurally healthy (both retrieval audits complete and `matched`, zero open/pending questions, no fetch errors, evidence mismatches, failed/unconfirmed submissions, provider pause, model usage, tokens, or spending), but it does not cover the subsequent outage interval. Official score, rank and prize remain unconfirmed. Monitoring continues; this recurring automation is not disabled.
+
 ## 2026-10-09 JST — production fetch gap over 60 minutes (ongoing)
 
 - The last confirmed tournament fetch began in [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725) at 11:17:25.995 JST. At 12:30 JST the tail gap was 72m34.005s, exceeding the 60-minute investigation threshold. No later production result existed, so current question availability after 11:17 is unknown rather than zero.

@@ -1,3 +1,12 @@
+## 2026-10-09 JST — production fetch gap over 60 minutes (ongoing)
+
+- The last confirmed tournament fetch began in [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725) at 11:17:25.995 JST. At 12:30 JST the tail gap was 72m34.005s, exceeding the 60-minute investigation threshold. No later production result existed, so current question availability after 11:17 is unknown rather than zero.
+- The 11:17 result itself was healthy: MiniBench and Fall audits were complete and `matched`, both had zero open questions, and there were no pending questions, fetch errors, evidence mismatches, failed/unconfirmed submissions, provider pause, model calls, tokens or new spending.
+- No external `workflow_dispatch` appeared around 11:47 or 12:17 JST, and no native scheduled run appeared by 12:30. Official GitHub Status reported Actions operational with no October 9 incident; this repository-specific dispatch/queue fault remains unresolved.
+- One authorized recovery attempt re-ran the last successful job. GitHub accepted the request at 12:19:50 JST, but the run stayed `queued` without creating a new attempt or job through 12:30. No second retry was issued.
+- Commit [8b117fe](https://github.com/after6labo/metac-bot-template/commit/8b117fe67203c4067321174bc59c0946073557f8) changed only the cron-line explanation comment to trigger a fresh push event; no push-triggered workflow appeared by 12:30. Runtime behavior, model, prompt, prediction values, answer scope, stopping conditions and free-only policy did not change.
+- This is an unresolved coverage incident, not a healthy zero-question run. Continue checking for recovery and actual retrieval evidence. If it persists, the account owner must inspect the installed Apps Script trigger/execution history and its Script Property token in the existing scheduler project; do not request or expose the token in chat.
+
 ## 2026-10-09 JST — q46135 post-close forecast evidence
 
 - Fall production question q46135/post45953 closed at 03:00 JST. The independent tournament fetch in [run 37822984772](https://github.com/after6labo/metac-bot-template/actions/runs/37822984772) began at 03:17:18.968 JST and found it `closed` with `already_forecasted=true`. This supplies post-close evidence for the prediction and explanation submitted at 00:47:48 and 00:47:52 JST.

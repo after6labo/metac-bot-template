@@ -1,3 +1,11 @@
+## 2026-10-11 JST — daily unresolved production coverage incident
+
+- At 00:32:39 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST on Oct 9. The uncovered tail reached 37h15m13.005s. There is no later tournament result or independent inventory, so question availability during the outage remains unknown rather than zero.
+- The same run remains `queued` with `run_attempt=1`, its last update remains 12:19:50 JST on Oct 9, and the jobs endpoint still exposes no generated job. The latest history file remains `37873774725-1.json`; no later workflow run exists.
+- The last actual fetch remains structurally healthy only for its own 11:17 snapshot: MiniBench and Fall audits complete/`matched`, zero open or pending questions, no retrieval mismatch, failed/unconfirmed item, provider pause, model use, tokens, or spending. It is not evidence for the subsequent outage interval.
+- The operator re-read current AGENTS.md, the persisted result/history, Actions run list, queued-run metadata and jobs. No additional rerun, workflow/concurrency change, paid route, model/prompt/probability change, eligibility restriction, or duplicate-risking dispatch was made.
+- Owner action remains required: cancel the queued GitHub Actions run, inspect the existing Apps Script project's **Executions** and **Triggers** for missing scheduler dispatches, and verify only that Script Property `GITHUB_ACTIONS_TOKEN` exists without exposing its value. Official score, rank and prize remain unconfirmed. Monitoring continues; the recurring automation remains enabled.
+
 ## 2026-10-10 JST — daily unresolved production coverage incident
 
 - At 01:05:46 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST on Oct 9. The uncovered tail reached 13h48m20.005s. There is no later tournament result or independent inventory, so question availability during the outage remains unknown rather than zero.

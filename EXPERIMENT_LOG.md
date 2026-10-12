@@ -1,3 +1,24 @@
+## 2026-10-12 20:57 JST — Actions re-enabled; live Fall report submitted before deadline
+
+- The owner explicitly approved adding Google sign-in to the existing GitHub account and completed the secure device-verification flow. The signed-in repository page offered the official maintainer control to re-enable fork workflows. Clicked that control and observed "Actions Enabled." No new account, key, billing option or paid service was added.
+- Started exactly one production workflow from main: [run 38245388956](https://github.com/after6labo/metac-bot-template/actions/runs/38245388956), created 20:51:48 JST, completed successfully 20:55:44 JST. Offline Python tests: 61 passed; scheduler tests: 12 passed, 0 failed. Latest JSON and history/38245388956-1.json match and were persisted successfully.
+- Actual tournament retrieval began 20:52:44.873 JST, ending an 81h35m18.878s interval since Oct 9 11:17:25.995 JST. Both independent retrieval audits are complete/matched with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. MiniBench has 59 closed questions and no open item. Fall has 1 open and 24 closed question records (26 posts; post counts are not open-question counts).
+- Fall q46141/post45959 was open Oct 12 18:00–21:00 JST. Job logs separately confirm prediction publication at 20:55:33.793 JST and explanation-comment publication at 20:55:38.391 JST, 4m21.609s before close. Runtime submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], provider_paused_for_run=false. This is successful publication, not yet official scoring/eligibility/prize confirmation. The pre-submission inventory naturally had already_forecasted=false; the next normal inventory must confirm the saved forecast, without a duplicate retry.
+- Reconciled the uncovered interval against current official closed metadata: 10 newly observed Fall questions opened and closed during the outage with already_forecasted=false and no intervening run/submission evidence. These remain missed opportunities, not resolved by empty current pending:
+  - q46140/post45958: 2026-10-11T21:00:00+00:00 through 2026-10-12T00:00:00+00:00 (UTC).
+  - q46139/post45957: 2026-10-11T06:00:00+00:00 through 2026-10-11T09:00:00+00:00 (UTC).
+  - q46138/post45956: 2026-10-11T03:00:00+00:00 through 2026-10-11T06:00:00+00:00 (UTC).
+  - q46066/post45884: 2026-10-10T16:51:00+00:00 through 2026-10-10T19:51:00+00:00 (UTC).
+  - q46187/post46003: 2026-10-10T14:00:00+00:00 through 2026-10-10T17:00:00+00:00 (UTC).
+  - q46188/post46004: 2026-10-10T14:00:00+00:00 through 2026-10-10T17:00:00+00:00 (UTC).
+  - q46137/post45955: 2026-10-10T06:00:00+00:00 through 2026-10-10T09:00:00+00:00 (UTC).
+  - q46136/post45954: 2026-10-09T12:00:00+00:00 through 2026-10-09T15:00:00+00:00 (UTC).
+  - q46186/post46002: 2026-10-09T11:36:00+00:00 through 2026-10-09T14:36:00+00:00 (UTC).
+  - q46065/post45883: 2026-10-09T09:00:00+00:00 through 2026-10-09T12:00:00+00:00 (UTC).
+- Restored the existing hourly Metaculus monitoring task; update confirmed is_enabled=true, retaining its existing prompt and schedule. Existing GAS trigger remains installed; its 20:56:16.241 JST scheduled check completed with dispatch_cooldown. No extra dispatch was issued. Next GAS dispatch is estimated around 21:16 JST under the existing guards, or a native schedule may run earlier; this is not a guarantee. Automatic post-restoration dispatch cadence still requires observation.
+- Free-router run observed 2 successful responses, 0 failed/unconfirmed model invocations and 14,961 tokens; runtime new_spending_usd=0. These are observed counters, not provider quota/billing measurements. Official score/rank/prize remain unknown.
+- No forecast probability, prompt, model route, question eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. The temporary Apps Script recovery file is confirmed read-only with no trigger. The prior owner-action blocker is resolved; missed windows and scoring verification remain outstanding.
+
 ## 2026-10-12 20:47 JST — cancellation verified; monitoring paused at owner-authentication blocker
 
 - Re-read current AGENTS.md, EXPERIMENT_LOG.md, latest tournament result, complete repository tree and latest Actions runs. Run [37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725) is now completed/cancelled, updated at 19:54:15 JST, with zero latest-attempt jobs. No later run exists; history remains 736 files and latest result blob remains 6b4c8efcdd69aa3ef4d8b8b42675d765f1c0cb57.

@@ -1866,3 +1866,28 @@
   two observed responses, one failed invocation, 3,702 observed tokens and $0
   new spending; these are not provider quota measurements. Official acceptance,
   score, rank, prize and scoring eligibility remain unconfirmed.
+## 2026-10-13 JST — Fall q46142 publication and transient MiniBench audit recovery
+- [Run 38309575565](https://github.com/after6labo/metac-bot-template/actions/runs/38309575565)
+  fetched at 06:17:07 JST and independently found Fall q46142/post45960 open
+  from 06:00 through 09:00 JST and unanswered. It published the prediction at
+  06:17:56.227 JST and the explanation at 06:18:00.882 JST. Runtime recorded
+  submitted=1, nonfatal_errors=0, pending/failures empty, two successful free-route
+  responses, 8,805 observed tokens, $0 new spending and no provider pause.
+- The same run ended attention_required and Actions failure because the independent
+  MiniBench retrieval audit returned a sanitized HTTPError. The Fall audit remained
+  complete/matched with no missing, mismatched or unknown forecast evidence. This was
+  treated as a monitoring incident, not as proof that MiniBench had zero open items.
+- The read-only [diagnostic run 38310572154](https://github.com/after6labo/metac-bot-template/actions/runs/38310572154)
+  checked at 06:25:52 JST and succeeded: MiniBench enumeration was complete with all
+  60 questions closed and no raw open posts, while Fall q46142 remained open. Because
+  the HTTP failure did not reproduce, no code, target eligibility, prompt, probability,
+  retry policy or stopping condition was changed.
+- A single controlled production verification, [run 38310717381](https://github.com/after6labo/metac-bot-template/actions/runs/38310717381),
+  fetched at 06:27:53 JST. It observed q46142 already_forecasted=true, selected zero,
+  made zero model responses, used zero tokens, and posted no duplicate. Both tournament
+  audits were complete/matched with fetch errors, pending, missing, mismatched and
+  unknown evidence empty; attention/provider pause were false. The fetch-start gap from
+  the publication run was 10m46.392s, below the 60-minute threshold. Post-close evidence
+  remains due after 09:00 JST. Official acceptance/scoring eligibility, score, rank and
+  prize remain unconfirmed.
+

@@ -1977,3 +1977,25 @@
 - All three post-close results had empty pending questions, windows, outcomes and skips; attention/provider pause were false, and submitted/failed-unconfirmed were zero. MiniBench and Fall had no open unanswered question in these snapshots. No duplicate submission or retry occurred.
 - Actual fetch-start gaps from the 17:37 checkpoint were 30m03.226s, 29m54.919s and 19m59.024s; the recent maximum remained 30m13.842s, below the 60-minute investigation threshold. These confirmation runs used zero model responses/tokens and $0 new spending.
 - No code, target eligibility, prompt, forecast value, model route, retry/stopping condition, scheduler or owner action changed. The previously recorded missed questions remain missed. Monitoring continues.
+
+
+## 2026-10-14 JST — Fall q46145 publication
+- [Run 38422057229](https://github.com/after6labo/metac-bot-template/actions/runs/38422057229)
+  began its actual tournament fetch at 00:27:03.532 JST and independently found
+  Fall q46145/post45963 open from 00:00 through 03:00 JST and unanswered. The
+  Actions publication log records the prediction at 00:28:02.959 JST and the
+  explanation at 00:28:07.713 JST, leaving about 2h31m52s before close.
+- Runtime recorded submitted=1, nonfatal_errors=0, pending/failures/fetch errors
+  empty, attention/provider pause false, two successful free-route responses,
+  9,476 observed tokens and $0 new spending. Both independent tournament audits
+  were complete/matched with no missing IDs, forecast-evidence mismatches or
+  unknown evidence; MiniBench had no open item.
+- The publication audit occurred before the post and therefore still recorded
+  q46145 as open/already_forecasted=false. A later authenticated inventory must
+  confirm already_forecasted=true and, after 03:00 JST, preserve post-close
+  evidence. No manual retry or duplicate post was attempted.
+- Actual fetch-start gaps from the prior checkpoint were 31m07.818s and
+  28m54.938s; the maximum remained below the 60-minute investigation threshold.
+  No code, target eligibility, prompt, probability, retry/stopping condition,
+  scheduler or owner action changed. Official acceptance/scoring eligibility,
+  score, rank and prize remain unconfirmed.

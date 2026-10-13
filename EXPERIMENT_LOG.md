@@ -1891,3 +1891,28 @@
   remains due after 09:00 JST. Official acceptance/scoring eligibility, score, rank and
   prize remain unconfirmed.
 
+## 2026-10-13 JST — Fall q46143 publication and q46142 post-close evidence
+- [Run 38326409286](https://github.com/after6labo/metac-bot-template/actions/runs/38326409286)
+  fetched at 09:17:19 JST and independently found Fall q46143/post45961 open
+  from 09:00 through 12:00 JST and unanswered. It published the prediction at
+  09:19:13.216 JST and the explanation at 09:19:18.224 JST, leaving about
+  2h40m42s before close. Runtime recorded submitted=1, nonfatal_errors=0,
+  pending/failures/fetch errors empty, two successful free-route responses,
+  4,835 observed tokens, $0 new spending and no provider pause.
+- The same independent Fall audit recorded q46142 closed at its 09:00 JST
+  deadline with already_forecasted=true, completing the requested post-close
+  evidence for its prediction and explanation. Both tournament audits were
+  complete/matched with no missing, mismatched or unknown forecast evidence.
+- Follow-up [run 38328885699](https://github.com/after6labo/metac-bot-template/actions/runs/38328885699)
+  fetched at 09:47:14 JST and [run 38331327238](https://github.com/after6labo/metac-bot-template/actions/runs/38331327238)
+  fetched at 10:17:00 JST. Both observed q46143 still open with
+  already_forecasted=true, selected zero, made zero model responses, used zero
+  tokens and posted no duplicate. Their audits remained complete/matched with
+  fetch errors, pending, missing, mismatched and unknown evidence empty;
+  attention/provider pause were false.
+- Actual fetch-start interval maximum from the prior 08:47 confirmation through
+  10:17 was 30m00.846s, below the 60-minute investigation threshold. No code,
+  target eligibility, prompt, probability, retry policy or stopping condition
+  was changed. Official acceptance/scoring eligibility, score, rank and prize
+  remain unconfirmed.
+

@@ -1,3 +1,11 @@
+## 2026-10-14 05:05 JST — Fall q46146 publication independently recognized while open
+
+- The three production fetches after q46146/post45964 publication began at 03:57:16.259, 04:27:10.028 and 04:57:13.682 JST. Their independent Fall inventories all record the question open with already_forecasted=true, confirming that the official API recognizes the published forecast while the 03:00–06:00 JST window remains open.
+- [Latest run 38458817115](https://github.com/after6labo/metac-bot-template/actions/runs/38458817115) and the two preceding runs have complete/matched inventories for both configured tournaments, with empty fetch errors, missing IDs, forecast-evidence mismatches and unknowns. pending_questions=[], needs_attention=false, failed_or_unconfirmed=0 and provider_paused_for_run=false throughout.
+- Each follow-up recorded only the evidence-backed already_forecasted skip for q46146, made zero model calls, used zero additional tokens, incurred $0 new spending and made no duplicate submission. q46145 remains closed/already_forecasted=true.
+- Successive fetch-start gaps were 30m01.406s, 29m53.770s and 30m03.653s. The recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- No code, prompt, forecast value, model route, eligibility or stop condition changed. Post-close retention for q46146 remains to be checked after 06:00 JST; official scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-14 03:50 JST — Fall q46146 submitted; q46145 post-close evidence confirmed
 
 - New Fall q46146/post45964 opened at 03:00 JST and closes at 06:00 JST. [Run 38446736635](https://github.com/after6labo/metac-bot-template/actions/runs/38446736635) began its authenticated tournament fetch at 03:27:14.852 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.

@@ -1,3 +1,12 @@
+## 2026-10-14 06:30 JST — Fall q46147 submitted; q46146 post-close evidence confirmed
+
+- New Fall q46147/post45965 opened at 06:00 JST and closes at 09:00 JST. [Run 38470598542](https://github.com/after6labo/metac-bot-template/actions/runs/38470598542) began its authenticated tournament fetch at 06:27:15.250 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 06:27:58.290 JST and explanation-comment publication at 06:28:02.460 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The independent inventories were complete/matched for both configured tournaments with empty missing IDs and forecast-evidence mismatches/unknowns. The Fall inventory also records q46146/post45964 closed after 06:00 JST with already_forecasted=true, completing q46146 post-close publication evidence. q46147's audit preceded its publication and therefore records open/already_forecasted=false; follow-up recognition remains to be checked in a subsequent run.
+- The preceding production fetch began at 05:57:14.624 JST, so the latest fetch-start gap was 30m00.625s. The recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- This run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 6,520 tokens; new spending was $0. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. Publication is confirmed; official scoring eligibility, score, rank and prize remain unconfirmed. Monitoring continues.
+
 ## 2026-10-14 05:05 JST — Fall q46146 publication independently recognized while open
 
 - The three production fetches after q46146/post45964 publication began at 03:57:16.259, 04:27:10.028 and 04:57:13.682 JST. Their independent Fall inventories all record the question open with already_forecasted=true, confirming that the official API recognizes the published forecast while the 03:00–06:00 JST window remains open.

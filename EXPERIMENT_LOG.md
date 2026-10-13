@@ -1,3 +1,10 @@
+## 2026-10-14 08:12 JST — Fall q46147 post-submission evidence confirmed
+
+- Follow-up tournament runs [38474255203](https://github.com/after6labo/metac-bot-template/actions/runs/38474255203), [38477795168](https://github.com/after6labo/metac-bot-template/actions/runs/38477795168), and [38481064440](https://github.com/after6labo/metac-bot-template/actions/runs/38481064440) fetched at 06:57:08.701, 07:27:17.021, and 07:57:16.989 JST. Each independently recorded q46147/post45965 as open with already_forecasted=true, confirming recognition after the 06:27 publication.
+- Both tournament inventories were complete/matched on all three runs, with empty missing IDs, forecast-evidence mismatches/unknowns, fetch errors, pending questions, failures, and attention flags. No duplicate submission was attempted.
+- Fetch-start gaps from the publication run were 29m53.451s, 30m08.320s, and 29m59.968s; the recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- These checks used no model responses, tokens, or new spending. The bot configuration and answer coverage were left unchanged; the next evidence milestone is q46147 post-close retention after 09:00 JST. Official score, rank, and prize remain unavailable.
+
 ## 2026-10-14 06:30 JST — Fall q46147 submitted; q46146 post-close evidence confirmed
 
 - New Fall q46147/post45965 opened at 06:00 JST and closes at 09:00 JST. [Run 38470598542](https://github.com/after6labo/metac-bot-template/actions/runs/38470598542) began its authenticated tournament fetch at 06:27:15.250 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.

@@ -1916,3 +1916,28 @@
   was changed. Official acceptance/scoring eligibility, score, rank and prize
   remain unconfirmed.
 
+
+## 2026-10-13 12:10 JST — Fall q46143 post-close confirmation
+- [Run 38340108284](https://github.com/after6labo/metac-bot-template/actions/runs/38340108284)
+  began its actual tournament fetch at 12:07:14.910 JST. The independent Fall
+  audit at 12:07:24.959 JST observed q46143/post45961 closed at its official
+  12:00 JST deadline and still already_forecasted=true. This confirms prediction
+  visibility after close; the explanation publication evidence remains the
+  09:19:18.224 JST publication log recorded above, not the inventory flag.
+- Both tournament audits were complete/matched, with missing IDs, forecast-evidence
+  mismatches/unknowns and fetch errors empty. MiniBench's 60 public posts and
+  Fall's 29 public posts had zero open questions. Against the 11:07 baseline,
+  the only question-inventory change was q46143 changing from open to closed;
+  no new expired-unanswered item was found. Earlier recorded misses remain misses.
+- Intermediate [run 38337674252](https://github.com/after6labo/metac-bot-template/actions/runs/38337674252)
+  fetched at 11:37:16.429 JST. Actual fetch gaps after the 11:07:25.356 checkpoint
+  were 29m51.073s and 29m58.481s (maximum); the current tail at 12:10:09 was under
+  three minutes. Both newer Actions runs succeeded and persisted tournament
+  results with no pending item, failed/unconfirmed item, attention or provider
+  pause, no new submission, and no model response or token use.
+- New spending was $0. The UTC-day counters remain two observed successful
+  responses, zero failed invocations and 4,835 observed tokens, not provider
+  quota consumption. Reused today's 11:21 official tournament-page review;
+  official scoring eligibility, score, rank and prize remain unconfirmed.
+  No code, target eligibility, prompt, probability, retry/stopping conditions
+  or owner action changed.

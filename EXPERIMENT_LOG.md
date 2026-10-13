@@ -1941,3 +1941,32 @@
   official scoring eligibility, score, rank and prize remain unconfirmed.
   No code, target eligibility, prompt, probability, retry/stopping conditions
   or owner action changed.
+
+## 2026-10-13 JST — Fall q46144 publication and duplicate-risk confirmation
+- [Run 38354878132](https://github.com/after6labo/metac-bot-template/actions/runs/38354878132)
+  began its actual tournament fetch at 15:07:20.528 JST and independently found
+  Fall q46144/post45962 open from 15:00 through 18:00 JST and unanswered. It
+  published the prediction at 15:09:36.409 JST and the explanation at
+  15:09:41.016 JST, leaving about 2h50m19s before close. Runtime recorded
+  submitted=1, nonfatal_errors=0, pending/failures/fetch errors empty, two
+  successful free-route responses, 7,920 observed tokens, $0 new spending and
+  no provider pause.
+- Both tournament audits were complete/matched with no missing IDs,
+  forecast-evidence mismatches or unknown evidence. MiniBench had no open item.
+  The Fall inventory grew from 29 to 30 public posts only when q46144 opened;
+  no other new or expired-unanswered item appeared.
+- Follow-up [run 38357645220](https://github.com/after6labo/metac-bot-template/actions/runs/38357645220)
+  fetched at 15:37:17.221 JST while q46144 remained open and observed
+  already_forecasted=true. It selected zero, made zero model responses, used
+  zero tokens and posted no duplicate. Both audits remained complete/matched
+  with pending, fetch errors, missing/mismatched/unknown evidence empty and
+  attention/provider pause false.
+- Actual fetch-start gaps from the 13:37 checkpoint through the confirmation
+  were 30m04.155s, 29m54.643s, 30m08.683s and 29m56.693s; the maximum remained
+  below the 60-minute investigation threshold. UTC-day runtime observations are
+  now four successful responses, zero failed invocations and 12,755 tokens,
+  not provider quota consumption; new spending remains $0.
+- No code, target eligibility, prompt, probability, retry/stopping conditions
+  or owner action changed. Post-close evidence remains due after 18:00 JST.
+  Official acceptance/scoring eligibility, score, rank and prize remain
+  unconfirmed.

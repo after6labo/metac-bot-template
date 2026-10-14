@@ -1,3 +1,12 @@
+## 2026-10-14 21:26 JST — Fall q46290 submitted; q46151 post-close evidence confirmed
+
+- New Fall q46290/post46052 opened at 21:00 JST and closes at 00:00 JST on October 15. [Run 38561341227](https://github.com/after6labo/metac-bot-template/actions/runs/38561341227) began its authenticated tournament fetch at 21:07:17.730 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 21:08:40.611 JST and explanation-comment publication at 21:08:44.540 JST, leaving about 2h51m15s before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The same complete/matched independent Fall audit records q46151/post45969 closed after its 21:00 JST deadline with already_forecasted=true, completing q46151 post-close publication evidence. MiniBench remains 60 posts with no open item; neither tournament audit has missing IDs, forecast-evidence mismatches or unknown evidence.
+- The 20:37:12.916 JST checkpoint still recorded q46151 open/already_forecasted=true with no duplicate. Fetch-start gaps after the 20:07 checkpoint were 29m54.147s and 30m04.814s; the recent maximum is 30m16.710s, below the 60-minute investigation threshold.
+- The q46290 submission used 2 observed free-route responses and 8,076 runtime API tokens, with 0 failed or unconfirmed LLM invocations and $0 new spending. These are observation counters, not provider quota measurements.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. A later authenticated inventory must confirm q46290 post-publication recognition, and post-close retention remains to be checked after 00:00 JST. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-14 19:19 JST — Fall q46151 submitted and independently recognized; q46150 post-close confirmed
 
 - New Fall q46151/post45969 opened at 18:00 JST and closes at 21:00 JST. [Run 38539904736](https://github.com/after6labo/metac-bot-template/actions/runs/38539904736) began its authenticated tournament fetch at 18:07:18.452 JST, independently found it open and unanswered, and completed successfully.

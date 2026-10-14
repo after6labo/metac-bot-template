@@ -1,3 +1,10 @@
+## 2026-10-14 17:05 JST — Fall q46150 publication independently recognized while open
+
+- Follow-up tournament [run 38526207354](https://github.com/after6labo/metac-bot-template/actions/runs/38526207354) fetched at 16:07:22.326 JST and [run 38529409944](https://github.com/after6labo/metac-bot-template/actions/runs/38529409944) fetched at 16:37:09.214 JST. Both independent Fall inventories record q46150/post45968 open with already_forecasted=true, confirming recognition after the 15:38 publication.
+- Each run selected nothing beyond the evidence-backed already_forecasted skip, made zero model responses, used zero tokens, posted no duplicate, and incurred $0 new spending. Both tournament audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- Actual fetch-start gaps after publication were 30m08.360s and 29m46.889s. The recent maximum remains 30m12.663s, below the 60-minute investigation threshold. q46150 closes at 18:00 JST; post-close retention remains to be confirmed afterward.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-14 15:44 JST — Fall q46150 transient structure failure recovered and submitted
 
 - New Fall q46150/post45968 opened at 15:00 JST and closes at 18:00 JST. [Run 38520272753](https://github.com/after6labo/metac-bot-template/actions/runs/38520272753) began its authenticated tournament fetch at 15:07:13.350 JST, independently found it open and unanswered, but published nothing. The free route returned a normal reasoning response followed by a non-JSON safety-label response during BinaryPrediction structure conversion; forecasting-tools raised ExceptionGroup. Runtime preserved q46150 as failed_or_unconfirmed and pending with needs_attention=true. Both tournament audits were complete/matched with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence, and provider_paused_for_run=false.

@@ -1,3 +1,11 @@
+## 2026-10-14 10:13 JST — Fall q46148 submitted; q46147 post-close evidence confirmed
+
+- New Fall q46148/post45966 opened at 09:00 JST and closes at 12:00 JST. [Run 38488215366](https://github.com/after6labo/metac-bot-template/actions/runs/38488215366) began its authenticated tournament fetch at 09:07:01.698 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 09:09:13.765 JST and explanation-comment publication at 09:09:18.226 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- Follow-up runs [38491124337](https://github.com/after6labo/metac-bot-template/actions/runs/38491124337) and [38493876290](https://github.com/after6labo/metac-bot-template/actions/runs/38493876290) independently recorded q46148 open with already_forecasted=true at 09:37:16.436 and 10:06:57.765 JST. The same inventories record q46147/post45965 closed after 09:00 JST with already_forecasted=true, confirming post-close retention.
+- Both tournament inventories were complete/matched in all checked runs, with empty missing IDs, forecast-evidence mismatches/unknowns, fetch errors, pending questions, failures, and attention flags. No duplicate submission was attempted.
+- The q46148 submission used 2 observed free-route responses and 5,898 tokens, with no failed or unconfirmed LLM invocation and no new spending. The next evidence milestone is q46148 post-close retention after 12:00 JST. Official score, rank, and prize remain unavailable.
+
 ## 2026-10-14 08:12 JST — Fall q46147 post-submission evidence confirmed
 
 - Follow-up tournament runs [38474255203](https://github.com/after6labo/metac-bot-template/actions/runs/38474255203), [38477795168](https://github.com/after6labo/metac-bot-template/actions/runs/38477795168), and [38481064440](https://github.com/after6labo/metac-bot-template/actions/runs/38481064440) fetched at 06:57:08.701, 07:27:17.021, and 07:57:16.989 JST. Each independently recorded q46147/post45965 as open with already_forecasted=true, confirming recognition after the 06:27 publication.

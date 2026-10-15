@@ -1,3 +1,12 @@
+## 2026-10-15 16:31 JST — Fall q46293 post-close forecast evidence confirmed
+
+- Fall q46293/post46055 closed at 15:00 JST after prediction and explanation publication in run 38678843180. The first post-close [run 38692398122](https://github.com/after6labo/metac-bot-template/actions/runs/38692398122) began its authenticated tournament fetch at 15:27:15.789 JST and independently recorded q46293 closed with already_forecasted=true.
+- [Runs 38695468082](https://github.com/after6labo/metac-bot-template/actions/runs/38695468082) and [38698745979](https://github.com/after6labo/metac-bot-template/actions/runs/38698745979) reconfirmed the same closed/already_forecasted=true state at 15:57:13.982 and 16:27:16.506 JST. No duplicate publication was attempted.
+- All three post-close runs found no newly open Fall or MiniBench question. Both target audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- Fetch-start gaps from the last pre-close checkpoint through 16:27 were 30m07.723s, 29m58.193s and 30m02.525s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- These post-close checks used zero model responses, failed/unconfirmed invocations, tokens and new spending. No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed.
+- q46293 post-close retention is confirmed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-15 13:01 JST — Fall q46293 recovered after free-route timeout; q46292 post-close confirmed
 
 - Fall q46293/post46055 opened at 12:00 JST and closes at 15:00 JST on October 15. [Run 38676263267](https://github.com/after6labo/metac-bot-template/actions/runs/38676263267) began its authenticated tournament fetch at 12:27:03.491 JST, independently found it open and unanswered, but published nothing. The research stage completed, then the free OpenRouter route timed out while generating the binary forecast after 180.552 seconds. Runtime preserved q46293 as failed_or_unconfirmed and pending with needs_attention=true; the failure run recorded no successful response/token usage and $0 new spending.

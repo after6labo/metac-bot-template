@@ -1,3 +1,11 @@
+## 2026-10-16 19:30 JST — Fall q46295 independently recognized as forecasted while open
+
+- [Run 38882736460](https://github.com/after6labo/metac-bot-template/actions/runs/38882736460) began its authenticated tournament fetch at 18:47:16.342 JST, and [run 38886123521](https://github.com/after6labo/metac-bot-template/actions/runs/38886123521) began at 19:17:18.924 JST. Both independent Fall audits record q46295/post46057 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 21:00 JST.
+- Both Fall audits are complete/matched over 45 posts, and both MiniBench audits are complete/matched over 60 posts. There are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, and `provider_paused_for_run=false`. The sole skip is q46295/`already_forecasted`, supported by the matching independent inventory, so no duplicate submission was attempted.
+- Neither confirmation run invoked a model or used runtime API tokens, and each incurred $0 new spending. Fetch-start gaps were 30m04.138s and 30m02.583s; the recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. In-window publication and independent open-state recognition are confirmed; post-close retention after 21:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 18:21 JST — Fall q46294 retained after close and q46295 submitted in the next window
 
 - [Run 38879309432](https://github.com/after6labo/metac-bot-template/actions/runs/38879309432) began its authenticated tournament fetch at 18:17:12.204 JST. Its independent Fall audit records q46294/post46056 as `closed` with `already_forecasted=true`, confirming post-close forecast retention after the 18:00 JST close.

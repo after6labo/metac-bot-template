@@ -56,10 +56,12 @@ class InventoryGuardTests(unittest.TestCase):
         self.assertEqual(result['status'], 'attention_required')
         self.assertEqual(result['pending_questions'][0]['reason'], 'invented_policy')
 
-    def test_both_empty_and_successfully_audited_can_be_no_new_questions(self):
+    def test_known_nonempty_tournament_inventory_cannot_silently_become_zero(self):
         _, result = asyncio.run(run_forecasts(Client(), Bot(), 'tournament', fetch_inventory=empty_inventory))
-        self.assertFalse(result['needs_attention'])
-        self.assertEqual(result['status'], 'no_new_questions')
+        self.assertTrue(result['needs_attention'])
+        self.assertEqual(result['status'], 'attention_required')
+        self.assertEqual(result['retrieval_audit'][0]['status'], 'failed')
+        self.assertEqual(result['retrieval_audit'][0]['error_code'], 'inventory_unexpected_empty')
 
     def test_audit_absent_is_not_healthy(self):
         _, result = asyncio.run(run_forecasts(Client(), Bot(), 'tournament'))

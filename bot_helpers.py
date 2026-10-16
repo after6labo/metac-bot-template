@@ -12,7 +12,7 @@ import logging
 import os
 import sys
 import warnings
-from typing import Any, Sequence
+from typing import Any, Mapping, Sequence
 
 
 # Placeholder values shipped in .env.template. If a real env var still equals
@@ -24,6 +24,22 @@ _PLACEHOLDER_ENV_VALUES = {
     "your-token-here",
     "your-api-key-here",
 }
+
+
+def should_fail_run(result: Mapping[str, Any]) -> bool:
+    """Return true only when the run needs an immediate failure notification.
+
+    Audit-only attention remains in the persisted result for monitoring, while
+    unanswered questions, SDK fetch failures, publication failures, and a
+    provider pause still fail the Action.
+    """
+    return bool(
+        result.get("pending_questions")
+        or result.get("fetch_errors")
+        or result.get("failed_or_unconfirmed")
+        or result.get("status")
+        in ("failed", "partial_failure", "fetch_failed", "provider_paused")
+    )
 
 
 def _is_real_env(name: str) -> bool:

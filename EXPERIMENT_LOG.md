@@ -1,3 +1,11 @@
+## 2026-10-17 02:19 JST — Fall q46282 retained after close
+
+- [Run 38938395482](https://github.com/after6labo/metac-bot-template/actions/runs/38938395482) began its authenticated tournament fetch at 02:17:14.456 JST, after q46282/post46043 closed at 02:00 JST. Its independent Fall audit records q46282 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close.
+- The Fall audit is complete/matched over 46 posts, and the MiniBench audit is complete/matched over 60 posts. No question is open; there are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- The run records `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `provider_paused_for_run=false`, and no skips. No duplicate submission was attempted.
+- The run did not invoke a model or use runtime API tokens and incurred $0 new spending. Fetch-start gaps since the previous report were 30m00.103s, 29m56.796s and 30m02.507s; the recent maximum remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication, open-state recognition and post-close retention are confirmed; official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-17 00:50 JST — Fall q46282 independently recognized as forecasted while open
 
 - [Run 38918469933](https://github.com/after6labo/metac-bot-template/actions/runs/38918469933) began its authenticated tournament fetch at 23:47:00.903 JST, [run 38922560879](https://github.com/after6labo/metac-bot-template/actions/runs/38922560879) at 00:17:04.880 JST, and [run 38926624743](https://github.com/after6labo/metac-bot-template/actions/runs/38926624743) at 00:47:15.049 JST. All three independent Fall audits record q46282/post46043 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 02:00 JST.

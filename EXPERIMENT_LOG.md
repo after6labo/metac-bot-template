@@ -7,6 +7,17 @@
   reconfirmed the same state at 06:47:14.413 JST. This completes the requested
   post-close forecast-retention evidence; official scoring eligibility remains
   unconfirmed.
+- The official [Fall tournament page](https://www.metaculus.com/tournament/fall-futureeval-2026/)
+  and [FutureEval resources page](https://www.metaculus.com/notebooks/38928/futureeval-resources-page/),
+  edited October 16, were rechecked. Fall still runs September 28–January 6
+  with a $50,000 seasonal prize pool; questions are open for three hours and
+  bot makers should submit one forecast per question with a private reasoning
+  comment. The no-human-in-the-loop rule still prohibits preview-driven
+  prompt/implementation changes or reruns on open/upcoming tournament
+  questions. The participation form, one primary prize-eligible bot, and
+  end-of-season survey/verification requirements remain in force. The
+  notification-only change below does not alter any of these conditions.
+
 - MiniBench's authenticated inventory still returns zero posts and remains
   `inventory_unexpected_empty` / `attention_required`. It is not treated as
   evidence of zero open questions. Fall remains complete/matched over 47 posts,

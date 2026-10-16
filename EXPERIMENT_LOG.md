@@ -1,3 +1,13 @@
+## 2026-10-16 18:21 JST — Fall q46294 retained after close and q46295 submitted in the next window
+
+- [Run 38879309432](https://github.com/after6labo/metac-bot-template/actions/runs/38879309432) began its authenticated tournament fetch at 18:17:12.204 JST. Its independent Fall audit records q46294/post46056 as `closed` with `already_forecasted=true`, confirming post-close forecast retention after the 18:00 JST close.
+- The same audit independently found new q46295/post46057 open and unanswered in its 18:00–21:00 JST window. Job logs record prediction publication at 18:18:24.302 JST and explanation-comment publication at 18:18:28.380 JST, leaving about 2h41m32s before close.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, and `provider_paused_for_run=false`; q46295's outcome is `submitted` with zero nonfatal errors.
+- The audits are complete/matched for MiniBench (60 posts, no open item) and Fall (45 posts, q46295 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded q46295 publication and therefore records it open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 3,757 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The fetch-start gap from 17:47:13.352 JST was 29m58.851s. The recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. q46294's publication, open-state recognition and post-close retention are confirmed. q46295 publication is confirmed; independent open-state recognition, post-close retention after 21:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 16:30 JST — Fall q46294 independently recognized as forecasted while open
 
 - [Run 38863099874](https://github.com/after6labo/metac-bot-template/actions/runs/38863099874) began its authenticated tournament fetch at 15:47:10.869 JST, and [run 38866154368](https://github.com/after6labo/metac-bot-template/actions/runs/38866154368) began at 16:17:25.837 JST. Both independent Fall audits record q46294/post46056 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 18:00 JST.

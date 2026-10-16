@@ -1,3 +1,11 @@
+## 2026-10-16 16:30 JST — Fall q46294 independently recognized as forecasted while open
+
+- [Run 38863099874](https://github.com/after6labo/metac-bot-template/actions/runs/38863099874) began its authenticated tournament fetch at 15:47:10.869 JST, and [run 38866154368](https://github.com/after6labo/metac-bot-template/actions/runs/38866154368) began at 16:17:25.837 JST. Both independent Fall audits record q46294/post46056 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 18:00 JST.
+- Both Fall audits are complete/matched over 44 posts, and both MiniBench audits are complete/matched over 60 posts. There are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, and `provider_paused_for_run=false`. The sole skip is q46294/`already_forecasted`, supported by the matching independent inventory, so no duplicate submission was attempted.
+- Neither confirmation run invoked a model or used runtime API tokens, and each incurred $0 new spending. Fetch-start gaps were 29m51.404s and 30m14.969s; the recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. In-window publication and independent open-state recognition are confirmed; post-close retention after 18:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 15:20 JST — Fall q46294 submitted within the open window
 
 - New Fall q46294/post46056 opened at 15:00 JST and closes at 18:00 JST on October 16. [Run 38860266613](https://github.com/after6labo/metac-bot-template/actions/runs/38860266613) began its authenticated tournament fetch at 15:17:19.465 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.

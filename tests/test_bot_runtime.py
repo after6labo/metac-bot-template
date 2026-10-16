@@ -13,7 +13,19 @@ def question(qid):
 
 
 async def empty_inventory(target):
-    return {'complete': True, 'questions': [], 'post_count': 0}
+    return {
+        'complete': True,
+        'questions': [{
+            'question_id': 900001 if target == 'minibench' else 900002,
+            'post_id': 910001 if target == 'minibench' else 910002,
+            'source': target,
+            'status': 'closed',
+            'open_time_utc': '2026-09-28T14:00:00+00:00',
+            'close_time_utc': '2026-09-28T17:00:00+00:00',
+            'already_forecasted': False,
+        }],
+        'post_count': 1,
+    }
 
 
 class Client:

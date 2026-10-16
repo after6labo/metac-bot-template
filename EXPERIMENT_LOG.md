@@ -41,6 +41,15 @@
   `attention_required` for MiniBench while Fall retains q46296
   `closed/already_forecasted=true`; no condition was hidden to make the JSON
   healthy.
+- The first unchanged scheduled run after this fix,
+  [38976745798](https://github.com/after6labo/metac-bot-template/actions/runs/38976745798),
+  fetched at 07:37:16.318 JST and completed successfully. Its persisted JSON
+  still records MiniBench `inventory_unexpected_empty` / `attention_required`,
+  while Fall remains matched and q46296 remains
+  `closed/already_forecasted=true`. This verifies on a normal scheduled run
+  that repeated audit-only failure mail is suppressed without hiding the
+  unresolved coverage incident.
+
 - Fetch-start gaps across the regular 05:17, 05:47, 06:17 and 06:47 runs were
   29m51.310s, 30m05.341s and 29m59.446s; the recent maximum remains
   30m19.657s, below the 60-minute investigation threshold. These checks used no

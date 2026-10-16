@@ -1,3 +1,11 @@
+## 2026-10-16 22:04 JST — Fall q46295 retained after close
+
+- [Run 38899357157](https://github.com/after6labo/metac-bot-template/actions/runs/38899357157) began its authenticated tournament fetch at 21:17:01.872 JST, after q46295/post46057 closed at 21:00 JST. Its independent Fall audit records q46295 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close. [Run 38902886378](https://github.com/after6labo/metac-bot-template/actions/runs/38902886378) reconfirmed the same state at 21:47:21.530 JST.
+- Both Fall audits are complete/matched over 45 posts, and both MiniBench audits are complete/matched over 60 posts. No other question is open; there are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `provider_paused_for_run=false`, and no skips. No duplicate submission was attempted.
+- Neither run invoked a model or used runtime API tokens, and each incurred $0 new spending. Recent fetch-start gaps were 30m02.609s, 30m00.576s and 30m19.657s; the recent maximum is 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication, open-state recognition and post-close retention are confirmed; official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 19:30 JST — Fall q46295 independently recognized as forecasted while open
 
 - [Run 38882736460](https://github.com/after6labo/metac-bot-template/actions/runs/38882736460) began its authenticated tournament fetch at 18:47:16.342 JST, and [run 38886123521](https://github.com/after6labo/metac-bot-template/actions/runs/38886123521) began at 19:17:18.924 JST. Both independent Fall audits record q46295/post46057 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 21:00 JST.

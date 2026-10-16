@@ -1,3 +1,42 @@
+## 2026-10-17 07:15 JST — q46296 retained after close; repeated audit-only failure mail suppressed
+
+- Fall q46296/post46058 closed at 06:00 JST. [Run 38968198767](https://github.com/after6labo/metac-bot-template/actions/runs/38968198767)
+  began its authenticated tournament fetch at 06:17:14.967 JST and independently
+  recorded q46296 as `closed` with `already_forecasted=true`.
+  [Run 38971592297](https://github.com/after6labo/metac-bot-template/actions/runs/38971592297)
+  reconfirmed the same state at 06:47:14.413 JST. This completes the requested
+  post-close forecast-retention evidence; official scoring eligibility remains
+  unconfirmed.
+- MiniBench's authenticated inventory still returns zero posts and remains
+  `inventory_unexpected_empty` / `attention_required`. It is not treated as
+  evidence of zero open questions. Fall remains complete/matched over 47 posts,
+  with no open or unanswered item, SDK fetch error, publication failure or
+  provider pause.
+- The repeated GitHub failure emails were traced to `main.py` returning exit
+  code 1 for every audit-only `needs_attention` result. Test-first commits
+  [f25bb3e](https://github.com/after6labo/metac-bot-template/commit/f25bb3ea71e903da8f5bad1beca7d3d2cd028c62),
+  [502d5a0](https://github.com/after6labo/metac-bot-template/commit/502d5a09c49a38db7de64007c410a3940805e8b3)
+  and [4ab5c6c](https://github.com/after6labo/metac-bot-template/commit/4ab5c6cb8ade57508165e548b179c4b976b32a07)
+  separate persisted audit attention from immediate Action failure.
+- Audit-only attention now stays visible in `latest.json` and monitoring, but
+  does not repeatedly fail the Action. Unanswered questions, SDK fetch errors,
+  failed/unconfirmed publication and provider pause still return a failing exit
+  code. This changes notification severity only; it does not change question
+  eligibility, batch/daily limits, model route, prompts, forecast values or
+  provider-limit handling.
+- Verification [run 38973988768](https://github.com/after6labo/metac-bot-template/actions/runs/38973988768)
+  passed all 63 Python regression tests, all 12 scheduler tests and the live bot
+  step, and completed successfully. Its persisted result remains correctly
+  `attention_required` for MiniBench while Fall retains q46296
+  `closed/already_forecasted=true`; no condition was hidden to make the JSON
+  healthy.
+- Fetch-start gaps across the regular 05:17, 05:47, 06:17 and 06:47 runs were
+  29m51.310s, 30m05.341s and 29m59.446s; the recent maximum remains
+  30m19.657s, below the 60-minute investigation threshold. These checks used no
+  model responses or runtime tokens and incurred $0 new spending. MiniBench
+  coverage remains unresolved; official score, rank and prize remain
+  unconfirmed.
+
 ## 2026-10-17 04:20 JST — Fall q46296 submitted; MiniBench zero-inventory incident surfaced
 
 - [Run 38946033520](https://github.com/after6labo/metac-bot-template/actions/runs/38946033520)

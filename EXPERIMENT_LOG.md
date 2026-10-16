@@ -1,3 +1,13 @@
+## 2026-10-16 23:45 JST — Fall q46282 submitted within the open window
+
+- [Run 38914417304](https://github.com/after6labo/metac-bot-template/actions/runs/38914417304) began its authenticated tournament fetch at 23:17:13.627 JST. The independent Fall audit found new q46282/post46043 open and unanswered in its 23:00 JST–02:00 JST window.
+- Job logs record prediction publication at 23:17:48.969 JST and explanation-comment publication at 23:17:53.537 JST, leaving about 2h42m06s before close.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, and `provider_paused_for_run=false`; q46282's outcome is `submitted` with zero nonfatal errors.
+- The audits are complete/matched for MiniBench (60 posts, no open item) and Fall (46 posts, q46282 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded publication and therefore records q46282 as open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 5,278 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The fetch-start gap from 22:47:14.874 JST was 29m58.753s. The recent maximum remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication is confirmed; independent open-state recognition, post-close retention after 02:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 22:04 JST — Fall q46295 retained after close
 
 - [Run 38899357157](https://github.com/after6labo/metac-bot-template/actions/runs/38899357157) began its authenticated tournament fetch at 21:17:01.872 JST, after q46295/post46057 closed at 21:00 JST. Its independent Fall audit records q46295 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close. [Run 38902886378](https://github.com/after6labo/metac-bot-template/actions/runs/38902886378) reconfirmed the same state at 21:47:21.530 JST.

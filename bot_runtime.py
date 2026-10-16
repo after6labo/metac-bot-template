@@ -2,9 +2,11 @@
 from dataclasses import asdict
 from datetime import datetime, timezone
 from runtime_policy import require_zero_cost_mode, select_eligible_questions
+from question_inventory import InventoryError
 
 MINIBENCH = 'minibench'
 FUTUREEVAL = 'fall-futureeval-2026'
+KNOWN_NONEMPTY_TARGETS = frozenset((MINIBENCH, FUTUREEVAL))
 
 
 def question_window(question, source):
@@ -81,6 +83,10 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None, *, fetch_invent
             data = await fetch_inventory(target)
             if data.get('complete') is not True or not isinstance(data.get('questions'), list):
                 raise ValueError('Incomplete inventory')
+            # Both configured tournaments have published posts. A sudden zero
+            # response is loss of audit coverage, not evidence that nothing is open.
+            if target in KNOWN_NONEMPTY_TARGETS and data.get('post_count') == 0:
+                raise InventoryError('inventory_unexpected_empty')
             raw_open = [row for row in data['questions'] if row['status'] == 'open']
             sdk_ids = {question.id_of_question for question in questions}
             missing = [row['question_id'] for row in raw_open if row['question_id'] not in sdk_ids]

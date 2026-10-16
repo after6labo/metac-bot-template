@@ -1,3 +1,12 @@
+## 2026-10-16 15:20 JST — Fall q46294 submitted within the open window
+
+- New Fall q46294/post46056 opened at 15:00 JST and closes at 18:00 JST on October 16. [Run 38860266613](https://github.com/after6labo/metac-bot-template/actions/runs/38860266613) began its authenticated tournament fetch at 15:17:19.465 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 15:18:18.088 JST and explanation-comment publication at 15:18:22.206 JST, leaving about 2h41m38s before close. Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, `provider_paused_for_run=false`; the outcome is `submitted` with zero nonfatal errors.
+- The submission-run audits were complete/matched for MiniBench (60 posts, no open item) and Fall (44 posts, q46294 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded publication and therefore records q46294 open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The submission run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 2,552 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The preceding fetch began at 14:47:16.745 JST, so the latest fetch-start gap was 30m02.719s. The recent maximum was 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication is confirmed; independent in-window API recognition, post-close retention after 18:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-16 02:45 JST — Fall q46333 and q46281 post-close forecast retention confirmed
 
 - [Run 38777329931](https://github.com/after6labo/metac-bot-template/actions/runs/38777329931) began its authenticated tournament fetch at 02:27:15.021 JST, after both questions closed at 02:00 JST.

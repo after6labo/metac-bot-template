@@ -23,6 +23,7 @@ from bot_helpers import (
     check_environment,
     print_run_summary_banner,
     print_startup_banner,
+    should_fail_run,
     silence_noisy_dependencies,
 )
 
@@ -828,5 +829,5 @@ if __name__ == "__main__":
     )
 
 
-    if run_result['needs_attention'] or run_result["status"] in ("failed", "partial_failure", "fetch_failed", "provider_paused"):
+    if should_fail_run(run_result):
         raise SystemExit(1)

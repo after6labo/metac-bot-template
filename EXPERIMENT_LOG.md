@@ -1,3 +1,50 @@
+## 2026-10-17 04:20 JST — Fall q46296 submitted; MiniBench zero-inventory incident surfaced
+
+- [Run 38946033520](https://github.com/after6labo/metac-bot-template/actions/runs/38946033520)
+  began its authenticated tournament fetch at 03:17:15.511 JST. The independent
+  Fall audit found q46296/post46058 open and unanswered in its 03:00–06:00 JST
+  window. Job logs record prediction publication at 03:18:52.294 JST and
+  explanation-comment publication at 03:18:56.291 JST, leaving about 2h41m04s
+  before close.
+- Runtime recorded `submitted=1`, `failed_or_unconfirmed=0`,
+  `pending_questions=[]`, `needs_attention=false`, no skips/fetch errors and
+  no provider pause. The outcome was submitted with zero nonfatal errors. The run
+  observed two successful free-route responses, zero failed/unconfirmed model
+  invocations, 7,505 runtime API tokens and $0 new spending.
+- The submission audit was complete/matched for MiniBench (60 posts, no open item)
+  and Fall (47 posts, q46296 the only open item). [Run 38949885309](https://github.com/after6labo/metac-bot-template/actions/runs/38949885309)
+  fetched at 03:47:19.211 JST and independently observed q46296 still open with
+  `already_forecasted=true`. It selected zero, made no model response, used zero
+  tokens and posted no duplicate.
+- That 03:47 run also exposed a new audit incident: the authenticated MiniBench
+  API inventory suddenly returned zero posts after returning 60 posts 30 minutes
+  earlier, but the old guard labelled the empty result `matched`. A read-only
+  rerun of [diagnostic 36520439098](https://github.com/after6labo/metac-bot-template/actions/runs/36520439098)
+  reproduced MiniBench zero posts while Fall still returned 47 posts, so this is
+  not evidence that MiniBench has no questions.
+- Test-first repair commits
+  [02a28e3](https://github.com/after6labo/metac-bot-template/commit/02a28e3cffb7ce55c3c91a348b3617d2c4fada56),
+  [f3e94b5](https://github.com/after6labo/metac-bot-template/commit/f3e94b576c8b6558ce52e9f8260cd761fe75baf8)
+  and [f77a89f](https://github.com/after6labo/metac-bot-template/commit/f77a89fc1e3863db95795ca89ded8f763d295135)
+  now treat a zero-post response from either configured, historically nonempty
+  tournament as `inventory_unexpected_empty` and `attention_required`, rather
+  than healthy zero inventory. This changes only audit integrity; it adds no
+  eligibility exclusion, batch/daily cap, prompt or probability adjustment.
+- Verification [run 38953749232](https://github.com/after6labo/metac-bot-template/actions/runs/38953749232)
+  passed all 61 Python regression tests and all 12 scheduler tests. Its live fetch
+  at 04:17:38.511 JST then correctly marked MiniBench failed with
+  `inventory_unexpected_empty`; the Action failed intentionally because the
+  incident remains unresolved. Fall remained complete/matched over 47 posts,
+  q46296 remained open/`already_forecasted=true`, and no duplicate/model call,
+  pending question, publication failure or provider pause occurred.
+- Fetch-start gaps from the preceding checkpoint through verification were
+  29m56.948s, 30m03.700s and 30m19.300s; the recent maximum remains 30m19.657s,
+  below the 60-minute investigation threshold. MiniBench coverage remains
+  unconfirmed until its official API inventory returns and a fresh audit records
+  the expected nonempty set. No paid route, retry storm or provider-limit
+  circumvention was used. q46296 post-close retention after 06:00 JST and official
+  acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
 ## 2026-10-17 02:19 JST — Fall q46282 retained after close
 
 - [Run 38938395482](https://github.com/after6labo/metac-bot-template/actions/runs/38938395482) began its authenticated tournament fetch at 02:17:14.456 JST, after q46282/post46043 closed at 02:00 JST. Its independent Fall audit records q46282 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close.

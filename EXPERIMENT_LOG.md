@@ -20,7 +20,7 @@
 - The run observed two successful free-route responses, zero failed/unconfirmed
   model invocations and 3,485 runtime API tokens; new spending was $0. These are
   observation counters, not provider quota or billing measurements.
-- Fetch-start gaps since 10:37 JST were 30m07.004s, 30m06.844s, 30m09.839s and
+- Fetch-start gaps since 10:37 JST were 30m07.004s, 30m09.839s and
   29m55.352s; the recent maximum remains 30m19.657s, below the 60-minute
   investigation threshold.
 - No code, configuration, prompt, forecast value, model route, target eligibility,

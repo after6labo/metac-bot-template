@@ -20,8 +20,16 @@
 - The run observed two successful free-route responses, zero failed/unconfirmed
   model invocations and 4,374 runtime API tokens; new spending was $0. These are
   observation counters, not provider quota or billing measurements.
-- The fetch-start gap from 22:37:16.841 JST was 29m50.418s. The recent maximum
-  remains 30m19.657s, below the 60-minute investigation threshold.
+- [Run 39041461120](https://github.com/after6labo/metac-bot-template/actions/runs/39041461120)
+  fetched at 23:37:00.496 JST and independently observed q46283 still open with
+  `already_forecasted=true`. It selected zero, made no model response, used zero
+  tokens and posted no duplicate. Fall remained complete/matched over 49 posts
+  with no pending question, fetch error, evidence mismatch, publication failure
+  or provider pause. The Action completed successfully. MiniBench's unchanged
+  unexpected-empty incident remains separately recorded.
+- Fetch-start gaps from 22:37:16.841 JST through the confirmation run were
+  29m50.418s and 29m53.236s. The recent maximum remains 30m19.657s, below the
+  60-minute investigation threshold.
 - No code, configuration, prompt, forecast value, model route, target eligibility,
   retry/stopping condition or owner action changed. Publication is confirmed;
   independent open-state recognition, post-close retention after 02:00 JST, and

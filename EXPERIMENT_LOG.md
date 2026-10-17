@@ -1,3 +1,34 @@
+## 2026-10-17 12:15 JST — Fall q46297 submitted within the open window
+
+- [Run 38997497205](https://github.com/after6labo/metac-bot-template/actions/runs/38997497205)
+  began its authenticated tournament fetch at 12:07:17.142 JST. The independent
+  Fall audit found new q46297/post46059 open and unanswered in its
+  12:00–15:00 JST window.
+- Job logs record prediction publication at 12:08:07.765 JST and
+  explanation-comment publication at 12:08:11.796 JST, leaving about 2h51m52s
+  before close when the prediction was posted.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`,
+  `pending_questions=[]`, `skips=[]`, `fetch_errors=[]`, and
+  `provider_paused_for_run=false`; q46297's outcome is `submitted` with zero
+  nonfatal errors. The Action completed successfully.
+- The Fall audit is complete/matched over 48 posts, with q46297 the only open
+  item. Its inventory preceded publication and therefore records q46297 as
+  open/`already_forecasted=false`; independent post-publication recognition
+  remains due. MiniBench still returns zero posts and remains
+  `inventory_unexpected_empty` / `attention_required`; this is not treated as
+  evidence of zero open questions.
+- The run observed two successful free-route responses, zero failed/unconfirmed
+  model invocations and 3,485 runtime API tokens; new spending was $0. These are
+  observation counters, not provider quota or billing measurements.
+- Fetch-start gaps since 10:37 JST were 30m07.004s, 30m06.844s, 30m09.839s and
+  29m55.352s; the recent maximum remains 30m19.657s, below the 60-minute
+  investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility,
+  retry/stopping condition or owner action changed. Publication is confirmed;
+  independent open-state recognition, post-close retention after 15:00 JST, and
+  official acceptance/scoring eligibility, score, rank and prize remain
+  unconfirmed.
+
 ## 2026-10-17 07:15 JST — q46296 retained after close; repeated audit-only failure mail suppressed
 
 - Fall q46296/post46058 closed at 06:00 JST. [Run 38968198767](https://github.com/after6labo/metac-bot-template/actions/runs/38968198767)

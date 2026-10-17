@@ -449,7 +449,7 @@ class SummerTemplateBot2026(ForecastBot):
             - Turn any values that are in scientific notation into regular numbers.
             """
         )
-        for attempt in range(2):
+        for attempt in range(3):
             try:
                 percentile_list: list[Percentile] = await structure_output(
                     reasoning,
@@ -464,10 +464,11 @@ class SummerTemplateBot2026(ForecastBot):
                 )
                 break
             except Exception as exc:
-                if attempt == 1:
+                if attempt == 2:
                     raise
                 logger.warning(
-                    "Numeric structure conversion failed; retrying once (%s)",
+                    "Numeric structure conversion failed; retrying (attempt %s/3, %s)",
+                    attempt + 2,
                     type(exc).__name__,
                 )
         logger.info(

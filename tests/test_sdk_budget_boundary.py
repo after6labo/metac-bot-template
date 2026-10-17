@@ -117,7 +117,7 @@ class SdkBudgetTests(unittest.TestCase):
 
         asyncio.run(scenario())
 
-    def test_numeric_parser_retries_one_malformed_free_response(self):
+    def test_numeric_parser_recovers_after_two_malformed_free_responses(self):
         from main import NumericDistribution, SummerTemplateBot2026
 
         async def scenario():
@@ -134,11 +134,15 @@ class SdkBudgetTests(unittest.TestCase):
             )
             prediction = SimpleNamespace(declared_percentiles=[])
             with patch('main.structure_output', new_callable=AsyncMock,
-                       side_effect=[ValueError('malformed response'), []]) as parser:
+                       side_effect=[
+                           ValueError('first malformed response'),
+                           ValueError('second malformed response'),
+                           [],
+                       ]) as parser:
                 with patch.object(NumericDistribution, 'from_question',
                                   return_value=prediction):
                     await bot._numeric_prompt_to_forecast(question, 'fixture')
-                self.assertEqual(parser.await_count, 2)
+                self.assertEqual(parser.await_count, 3)
                 self.assertTrue(all(
                     call.kwargs['allowed_tries'] == 1
                     for call in parser.await_args_list

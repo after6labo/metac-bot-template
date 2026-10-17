@@ -1,5 +1,5 @@
-Warning: truncated output (original token count: 56613)
-Total output lines: 2490
+Warning: truncated output (original token count: 56747)
+Total output lines: 2497
 
 ## 2026-10-18 04:20 JST — Fall q46298 submitted after bounded parser recovery
 
@@ -41,6 +41,13 @@ Total output lines: 2490
   gaps from the preceding 02:37 checkpoint through 04:07 were 29m54.224s,
   29m59.260s and 30m00.946s; the recent maximum remains 30m19.657s, below the
   60-minute investigation threshold.
+- The official Fall tournament and FutureEval resources pages were rechecked on
+  October 18 JST; the resources page remains edited October 16. The season is
+  still Sep 28–Jan 6 with a $50,000 pool; tournament questions remain open for
+  three hours, one forecast per question with a private reasoning comment is
+  required, and preview-driven changes or reruns on open/upcoming questions
+  remain prohibited. The bounded parser repair responds to publication failure
+  without inspecting or changing q46298's probability or prompt.
 - MiniBench remains `inventory_unexpected_empty` / `attention_required`; zero
   inventory is not treated as proof of zero open questions. Official acceptance
   and scoring eligibility, score, rank and prize remain unconfirmed. No owner
@@ -675,17 +682,7 @@ Total output lines: 2490
   Next fetch estimated near 22:47 JST from observed cadence, without guarantee.
 - No production submission; known q46022/q45980 losses and unachieved competitive
   participation remain. Availability evidence covers configured-tournament API
-  snapshots through 22:17 JST only. Cup distinction and unresolved website-total/
-  API-list discrepancy remain; no site-wide absence or full recovery claim.
-  Official acceptance/score/rank/prize remain unconfirmed.
-- New runs observed zero LLM responses/failures/tokens and $0 new spending.
-  Daily tracking remains zero, not provider quota consumption; balance unknown.
-  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
-  or owner operation changed. Monitoring continues; suppress duplicate notice
-  for today's unchanged, previously reported participation incident.
-
-
-…6613 tokens truncated…aining four questions. All current closes precede that reset.
+  snapshots through 22:17 JST only. Cup distinction and unresolve…6747 tokens truncated…aining four questions. All current closes precede that reset.
   No paid route or limit bypass was attempted. Both tournament inventories were
   complete/matched with no fetch error, missing ID or forecast-evidence mismatch;
   the blocker remains external free forecast-generation capacity, not retrieval.

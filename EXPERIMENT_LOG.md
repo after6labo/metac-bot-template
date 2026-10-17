@@ -1,3 +1,33 @@
+## 2026-10-17 23:23 JST — Fall q46283 submitted within the open window
+
+- [Run 39039326903](https://github.com/after6labo/metac-bot-template/actions/runs/39039326903)
+  began its authenticated tournament fetch at 23:07:07.260 JST. The independent
+  Fall audit found new q46283/post46044 open and unanswered in its
+  23:00 JST–02:00 JST window.
+- Job logs record prediction publication at 23:08:09.437 JST and
+  explanation-comment publication at 23:08:13.277 JST, leaving about 2h51m51s
+  before close when the prediction was posted.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`,
+  `pending_questions=[]`, `skips=[]`, `fetch_errors=[]`, and
+  `provider_paused_for_run=false`; q46283's outcome is `submitted` with zero
+  nonfatal errors. The Action completed successfully.
+- The Fall audit is complete/matched over 49 posts, with q46283 the only open
+  item. Its inventory preceded publication and therefore records q46283 as
+  open/`already_forecasted=false`; independent post-publication recognition
+  remains due. MiniBench still returns zero posts and remains
+  `inventory_unexpected_empty` / `attention_required`; this is not treated as
+  evidence of zero open questions.
+- The run observed two successful free-route responses, zero failed/unconfirmed
+  model invocations and 4,374 runtime API tokens; new spending was $0. These are
+  observation counters, not provider quota or billing measurements.
+- The fetch-start gap from 22:37:16.841 JST was 29m50.418s. The recent maximum
+  remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility,
+  retry/stopping condition or owner action changed. Publication is confirmed;
+  independent open-state recognition, post-close retention after 02:00 JST, and
+  official acceptance/scoring eligibility, score, rank and prize remain
+  unconfirmed.
+
 ## 2026-10-17 12:15 JST — Fall q46297 submitted within the open window
 
 - [Run 38997497205](https://github.com/after6labo/metac-bot-template/actions/runs/38997497205)

@@ -27,14 +27,21 @@
   with no pending question, fetch error, evidence mismatch, publication failure
   or provider pause. MiniBench's unchanged unexpected-empty incident remains
   separately recorded.
-- Fetch-start gaps since 10:37 JST were 30m07.004s, 30m09.839s and
-  29m55.352s; the recent maximum remains 30m19.657s, below the 60-minute
-  investigation threshold.
+- [Run 39008672623](https://github.com/after6labo/metac-bot-template/actions/runs/39008672623)
+  fetched at 15:07:15.993 JST, after q46297 closed at 15:00 JST, and
+  independently recorded it as `closed` with `already_forecasted=true`. Fall
+  remained complete/matched over 48 posts; no new open question, pending item,
+  fetch error, evidence mismatch, publication failure or provider pause was
+  present. The Action completed successfully. This confirms post-close forecast
+  retention; official scoring eligibility remains unconfirmed.
+- Fetch-start gaps across the regular 13:07, 13:37, 14:06, 14:37 and 15:07 runs
+  were 29m58.081s, 29m44.803s, 30m12.793s and 30m03.545s; the recent maximum
+  remains 30m19.657s, below the 60-minute investigation threshold.
 - No code, configuration, prompt, forecast value, model route, target eligibility,
   retry/stopping condition or owner action changed. Publication is confirmed;
-  independent open-state recognition, post-close retention after 15:00 JST, and
-  official acceptance/scoring eligibility, score, rank and prize remain
-  unconfirmed.
+  publication, independent open-state recognition and post-close retention are
+  confirmed. Official acceptance/scoring eligibility, score, rank and prize
+  remain unconfirmed.
 
 ## 2026-10-17 07:15 JST — q46296 retained after close; repeated audit-only failure mail suppressed
 

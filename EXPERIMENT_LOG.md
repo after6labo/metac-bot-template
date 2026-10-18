@@ -1,3 +1,10 @@
+## 2026-10-18 23:47 JST — Fall q46284 recognized after submission
+
+- [Run 39136745326](https://github.com/after6labo/metac-bot-template/actions/runs/39136745326) began its authenticated tournament fetch at 23:37:08.136 JST while q46284/post46045 remained open. The independent Fall audit observed the same question as `open / already_forecasted=true`; the bot selected zero and made no duplicate prediction or comment.
+- Fall inventory was complete/matched over 52 posts with no pending item, fetch error, missing ID or forecast-evidence mismatch/unknown. The `already_forecasted` skip is tied to q46284's matching API evidence rather than an independent eligibility exclusion.
+- The fetch-start gap from the submission run was 30m00.317s, below the 60-minute investigation threshold. This confirmation run made no model response, used zero tokens and added $0 spending.
+- q46284 closes at 2026-10-19 02:00 JST; post-close retention remains to be confirmed. MiniBench remains `inventory_unexpected_empty` / `attention_required`, and official tournament acceptance/scoring eligibility, score, rank and prize remain unconfirmed. No bot code or configuration changed.
+
 ## 2026-10-18 23:18 JST — Fall q46284 submitted
 
 - [Run 39134487427](https://github.com/after6labo/metac-bot-template/actions/runs/39134487427) began its authenticated tournament fetch at 23:07:07.819 JST while q46284/post46045 was open in its 23:00 JST–02:00 JST window. It published the prediction at 23:07:51.599 JST and the private explanation comment at 23:07:55.529 JST. The prediction publication preceded close by 2h52m08.401s.

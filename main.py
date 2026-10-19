@@ -75,6 +75,20 @@ def _parse_exact_numeric_percentile_lines(text: str) -> list[Percentile]:
     return [Percentile(percentile=item / 100, value=values[item]) for item in expected]
 
 
+def _parse_exact_binary_probability_line(text: str) -> BinaryPrediction:
+    """Parse the single exact probability line requested by the binary prompt."""
+    matches = re.findall(
+        r"(?im)^\\s*Probability\\s*:\\s*(\\d+(?:\\.\\d+)?)\\s*%\\s*$",
+        text,
+    )
+    if len(matches) != 1:
+        raise ValueError("Binary reasoning did not contain one exact probability line")
+    probability = float(matches[0])
+    if not 0 <= probability <= 100:
+        raise ValueError("Binary probability was outside 0-100")
+    return BinaryPrediction(prediction_in_decimal=probability / 100)
+
+
 class BudgetedFreeLlm(GeneralLlm):
     """One fixed free route; provider limits, with observed-outcome tracking."""
     budget = None
@@ -289,13 +303,22 @@ class SummerTemplateBot2026(ForecastBot):
     ) -> ReasonedPrediction[float]:
         reasoning = await self.get_llm("default", "llm").invoke(prompt)
         logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        binary_prediction: BinaryPrediction = await structure_output(
-            reasoning,
-            BinaryPrediction,
-            model=self.get_llm("parser", "llm"),
-            num_validation_samples=self._structure_output_validation_samples,
-            allowed_tries=1,
-        )
+        try:
+            binary_prediction: BinaryPrediction = await structure_output(
+                reasoning,
+                BinaryPrediction,
+                model=self.get_llm("parser", "llm"),
+                num_validation_samples=self._structure_output_validation_samples,
+                allowed_tries=1,
+            )
+        except Exception as exc:
+            try:
+                binary_prediction = _parse_exact_binary_probability_line(reasoning)
+                logger.warning(
+                    "Binary model conversion failed; used exact-line parser"
+                )
+            except Exception as fallback_exc:
+                raise exc from fallback_exc
         decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
 
         logger.info(

@@ -183,3 +183,46 @@ class SdkBudgetTests(unittest.TestCase):
                 self.assertEqual(parser.await_count, 2)
 
         asyncio.run(scenario())
+
+    def test_numeric_parser_falls_back_to_exact_percentile_lines(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            reasoning = """
+            Analysis omitted.
+            Percentile 10: $1,000
+            Percentile 20: $2,000
+            Percentile 40: $4,000
+            Percentile 60: $6,000
+            Percentile 80: $8,000
+            Percentile 90: $9,000
+            """
+            model = SimpleNamespace(invoke=AsyncMock(return_value=reasoning))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(
+                question_text='fixture',
+                unit_of_measure='$',
+                lower_bound=0,
+                upper_bound=10000,
+                open_lower_bound=False,
+                open_upper_bound=False,
+                zero_point=None,
+                cdf_size=201,
+                page_url='fixture',
+            )
+            with patch(
+                'main.structure_output',
+                new_callable=AsyncMock,
+                side_effect=ValueError('free parser returned no JSON'),
+            ) as parser:
+                result = await bot._numeric_prompt_to_forecast(question, 'fixture')
+
+            self.assertEqual(parser.await_count, 3)
+            self.assertEqual(
+                [item.value for item in result.prediction_value.declared_percentiles],
+                [1000, 2000, 4000, 6000, 8000, 9000],
+            )
+
+        asyncio.run(scenario())

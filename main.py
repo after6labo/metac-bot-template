@@ -3,6 +3,7 @@ import asyncio
 import logging
 import json
 import os
+import re
 import time
 from pathlib import Path
 from datetime import datetime, timezone
@@ -57,6 +58,21 @@ from forecasting_tools import (
 
 dotenv.load_dotenv()
 logger = logging.getLogger(__name__)
+
+
+def _parse_exact_numeric_percentile_lines(text: str) -> list[Percentile]:
+    """Parse the six exact percentile lines requested by the numeric prompt."""
+    matches = re.findall(
+        r"(?im)^\s*Percentile\s+(10|20|40|60|80|90)\s*:\s*"
+        r"[$£€¥]?\s*(-?\d+(?:,\d{3})*(?:\.\d+)?)\s*"
+        r"(?:\([^)]*\))?\s*$",
+        text,
+    )
+    values = {int(percentile): float(value.replace(",", "")) for percentile, value in matches}
+    expected = [10, 20, 40, 60, 80, 90]
+    if len(matches) != len(expected) or sorted(values) != expected:
+        raise ValueError("Numeric reasoning did not contain six exact percentile lines")
+    return [Percentile(percentile=item / 100, value=values[item]) for item in expected]
 
 
 class BudgetedFreeLlm(GeneralLlm):
@@ -465,7 +481,17 @@ class SummerTemplateBot2026(ForecastBot):
                 break
             except Exception as exc:
                 if attempt == 2:
-                    raise
+                    try:
+                        percentile_list = _parse_exact_numeric_percentile_lines(reasoning)
+                        prediction = NumericDistribution.from_question(
+                            percentile_list, question
+                        )
+                        logger.warning(
+                            "Numeric model conversion failed three times; used exact-line parser"
+                        )
+                        break
+                    except Exception as fallback_exc:
+                        raise exc from fallback_exc
                 logger.warning(
                     "Numeric structure conversion failed; retrying (attempt %s/3, %s)",
                     attempt + 2,

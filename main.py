@@ -17,7 +17,7 @@ from runtime_policy import (
 )
 from bot_runtime import run_forecasts
 from question_inventory import collect_inventory
-from request_budget import DailyRequestBudget
+from request_budget import DailyRequestBudget, ProviderPaused
 
 # Runtime helpers (env validation, banners, dependency-warning suppression).
 from bot_helpers import (
@@ -301,24 +301,31 @@ class SummerTemplateBot2026(ForecastBot):
         question: BinaryQuestion,
         prompt: str,
     ) -> ReasonedPrediction[float]:
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
-        logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        try:
-            binary_prediction: BinaryPrediction = await structure_output(
-                reasoning,
-                BinaryPrediction,
-                model=self.get_llm("parser", "llm"),
-                num_validation_samples=self._structure_output_validation_samples,
-                allowed_tries=1,
-            )
-        except Exception as exc:
+        for attempt in range(2):
+            reasoning = await self.get_llm("default", "llm").invoke(prompt)
+            logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
             try:
-                binary_prediction = _parse_exact_binary_probability_line(reasoning)
-                logger.warning(
-                    "Binary model conversion failed; used exact-line parser"
+                binary_prediction: BinaryPrediction = await structure_output(
+                    reasoning,
+                    BinaryPrediction,
+                    model=self.get_llm("parser", "llm"),
+                    num_validation_samples=self._structure_output_validation_samples,
+                    allowed_tries=1,
                 )
-            except Exception as fallback_exc:
-                raise exc from fallback_exc
+                break
+            except Exception as exc:
+                try:
+                    binary_prediction = _parse_exact_binary_probability_line(reasoning)
+                    logger.warning(
+                        "Binary model conversion failed; used exact-line parser"
+                    )
+                    break
+                except Exception as fallback_exc:
+                    if attempt == 1 or isinstance(exc, ProviderPaused):
+                        raise exc from fallback_exc
+                    logger.warning(
+                        "Binary generation was unusable; retrying once"
+                    )
         decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
 
         logger.info(

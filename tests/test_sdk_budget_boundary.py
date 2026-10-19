@@ -186,6 +186,33 @@ class SdkBudgetTests(unittest.TestCase):
 
         asyncio.run(scenario())
 
+    def test_binary_forecast_retries_one_successful_but_unusable_generation(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            model = SimpleNamespace(
+                invoke=AsyncMock(side_effect=[
+                    'User Safety: safe',
+                    'Analysis omitted.\n\nProbability: 60%\n',
+                ])
+            )
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(page_url='fixture')
+            with patch(
+                'main.structure_output',
+                new_callable=AsyncMock,
+                side_effect=ValueError('free parser returned no JSON'),
+            ) as parser:
+                result = await bot._binary_prompt_to_forecast(question, 'fixture')
+
+            self.assertEqual(model.invoke.await_count, 2)
+            self.assertEqual(parser.await_count, 2)
+            self.assertEqual(result.prediction_value, 0.6)
+
+        asyncio.run(scenario())
+
     def test_numeric_parser_recovers_after_two_malformed_free_responses(self):
         from main import NumericDistribution, SummerTemplateBot2026
 

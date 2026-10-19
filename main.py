@@ -96,7 +96,7 @@ class BudgetedFreeLlm(GeneralLlm):
     request_lock = asyncio.Lock()
 
     def __init__(self, **kwargs):
-        super().__init__(model="openrouter/openrouter/free", allowed_tries=1,
+        super().__init__(model="openrouter/openrouter/free", allowed_tries=2,
                          num_retries=0, timeout=180, **kwargs)
 
     async def _mockable_direct_call_to_model(self, prompt):

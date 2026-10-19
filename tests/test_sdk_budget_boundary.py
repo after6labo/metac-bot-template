@@ -123,7 +123,7 @@ class SdkBudgetTests(unittest.TestCase):
         async def scenario():
             bot = object.__new__(SummerTemplateBot2026)
             bot._structure_output_validation_samples = 1
-            reasoning = "Analysis omitted.\\n\\nProbability: 60%\\n"
+            reasoning = "Analysis omitted.\n\nProbability: 60%\n"
             model = SimpleNamespace(invoke=AsyncMock(return_value=reasoning))
             bot.get_llm = lambda *args: model
             question = SimpleNamespace(page_url='fixture')

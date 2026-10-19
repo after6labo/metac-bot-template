@@ -78,7 +78,7 @@ def _parse_exact_numeric_percentile_lines(text: str) -> list[Percentile]:
 def _parse_exact_binary_probability_line(text: str) -> BinaryPrediction:
     """Parse the single exact probability line requested by the binary prompt."""
     matches = re.findall(
-        r"(?im)^\\s*Probability\\s*:\\s*(\\d+(?:\\.\\d+)?)\\s*%\\s*$",
+        r"(?im)^\s*Probability\s*:\s*(\d+(?:\.\d+)?)\s*%\s*$",
         text,
     )
     if len(matches) != 1:

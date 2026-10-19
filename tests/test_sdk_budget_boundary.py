@@ -117,6 +117,28 @@ class SdkBudgetTests(unittest.TestCase):
 
         asyncio.run(scenario())
 
+    def test_binary_parser_falls_back_to_exact_probability_line(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            reasoning = "Analysis omitted.\\n\\nProbability: 60%\\n"
+            model = SimpleNamespace(invoke=AsyncMock(return_value=reasoning))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(page_url='fixture')
+            with patch(
+                'main.structure_output',
+                new_callable=AsyncMock,
+                side_effect=ValueError('free parser returned no JSON'),
+            ) as parser:
+                result = await bot._binary_prompt_to_forecast(question, 'fixture')
+
+            self.assertEqual(parser.await_count, 1)
+            self.assertEqual(result.prediction_value, 0.6)
+
+        asyncio.run(scenario())
+
     def test_numeric_parser_recovers_after_two_malformed_free_responses(self):
         from main import NumericDistribution, SummerTemplateBot2026
 

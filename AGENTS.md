@@ -79,7 +79,7 @@ Preserve start date, route/model history, calls/tokens/balance when observable,
 submission/failure/skip counts, official score/rank, calibration, reasons for
 changes, before/after outcomes, owner actions/time, new spend and prize receipts.
 Do not invent unobserved values. Runtime JSON is not a billing or payout receipt.
-Fall's first competitive report returned on Sep30; next verify official acceptance/scoring, the first MiniBench submission, and resolved outcomes.
+Fall's first competitive report returned on Sep30 and MiniBench's first competitive reports returned on Oct19; next verify official acceptance/scoring and resolved outcomes.
 The owner supplied the season's LLM-credit rejection notice (recorded Sep28).
 Treat Fall 2026 as no donated credits; continue only the existing free router.
 The email's sender/header was not independently authenticated. No reply or
@@ -167,7 +167,9 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   authorized. Notification does not transfer responsibility to a sleeping owner.
 - Remaining technical settings are disclosed: one reasoning sample per forecast;
   up to two structure-conversion attempts for multiple-choice forecasts, three for
-  numeric forecasts, and one for binary/date forecasts; a 180-second model timeout
+  numeric forecasts, and one for binary/date forecasts. Numeric answers also have a
+  local fallback only for all six exact requested percentile lines with plain numeric
+  values; it does not infer missing values or convert unit suffixes. A 180-second model timeout
   (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2
   seconds, a 25-minute Actions job timeout, and inventory reads capped at 10
   pages of 100 posts. These are implementation choices, not official tournament

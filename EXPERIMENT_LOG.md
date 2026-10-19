@@ -1,3 +1,13 @@
+## 2026-10-19 10:10 JST — First MiniBench competitive publications and inventory recovery
+
+- [Run 39181525282](https://github.com/after6labo/metac-bot-template/actions/runs/39181525282) began its authenticated tournament fetch at 09:37:11.008 JST after MiniBench q46352/post46123, q46353/post46124 and q46354/post46125 opened at 09:19:04, 09:21:42 and 09:28:46 JST. It published prediction/private-explanation pairs at 09:41:13.607/09:41:17.503, 09:39:35.109/09:39:39.504 and 09:38:20.499/09:38:25.177 JST respectively.
+- The same run returned three complete reports with `submitted=3`, `nonfatal_errors=0`, no pending item, fetch error, failed/unconfirmed invocation or provider pause. MiniBench inventory recovered from the prior `inventory_unexpected_empty` state and was complete/matched over the three open posts with no missing ID or forecast-evidence mismatch/unknown.
+- [Run 39183788854](https://github.com/after6labo/metac-bot-template/actions/runs/39183788854) began at 10:07:12.759 JST and independently recognized q46352, q46353 and q46354 as `already_forecasted=true`, making no duplicate submission for them. It also retrieved newly opened q46355/post46126 (09:46:02–12:46:02 JST), then published its prediction at 10:08:32.461 JST and private explanation at 10:08:36.856 JST with a complete report and no nonfatal error.
+- The second MiniBench audit was complete/matched over all four open posts with no pending item, fetch error, missing ID or forecast-evidence mismatch/unknown. A later authenticated inventory has not yet independently recognized q46355's publication; this remains a follow-up check, not a known submission failure.
+- Fetch-start gaps from the last Fall post-close check through these runs were 29m52.739s and 30m01.751s, below the 60-minute investigation threshold.
+- The two free-route runs observed eight successful API responses and 34,569 tokens in total; failed/unconfirmed invocations were zero and new spending was $0. These are response observations, not provider quota consumption.
+- These are the first confirmed MiniBench competitive publication returns since the experiment began. They do not by themselves prove official tournament acceptance/scoring eligibility, score, rank or prize. No bot code, prompt, question eligibility, provider route, retry or stopping condition changed.
+
 ## 2026-10-19 09:18 JST — Fall q46300 post-close forecast evidence
 
 - [Run 39179259281](https://github.com/after6labo/metac-bot-template/actions/runs/39179259281) began its authenticated tournament fetch at 09:07:18.269 JST, after q46300/post46062 closed at 09:00 JST. The independent Fall audit retained the same question as `closed / already_forecasted=true`.

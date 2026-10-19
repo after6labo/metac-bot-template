@@ -1,3 +1,11 @@
+## 2026-10-20 08:32 JST — q46383〜q46385未投稿確定、新規q46387
+
+- 本番run [39338350900](https://github.com/after6labo/metac-bot-template/actions/runs/39338350900) はJSON実取得開始07:57:14.751 JST。独立API監査でq46383/post46154とq46384/post46155がともに `closed / already_forecasted=false` となり、未投稿のまま締切を迎えたことを確認した。同runは新規MiniBench q46387/post46158（07:50:55〜10:50:55 JST）も検出した。q46385はこの時点では締切まで約1分2秒で、未回答・`provider_paused` だった。
+- 本番run [39340543142](https://github.com/after6labo/metac-bot-template/actions/runs/39340543142) はJSON実取得開始08:17:27.782 JST。監査でq46385/post46156も `closed / already_forecasted=false` となり、追加の取り逃しを確認した。受付中・未回答はq46386（締切09:42:50）とq46387（10:50:55）の2問で、いずれも `provider_paused` のまま。
+- 保存済みcooldown終了は09:00 JST。終了時点でq46386は42分50秒、q46387は1時間50分55秒の受付余裕が残る。workflowの既存cronはUTC/JST分7・27・47で、直近の実取得は07:57→08:17と20分13.031秒間隔。現在の遅延傾向から最初のcooldown後実取得は09:17頃、q46386の残り約25分23秒、q46387の残り約1時間33分28秒を見込むが、投稿成功は未確認であり保証しない。
+- 07:57・08:17 runのMiniBench/Fall監査はすべて `complete=true`・`status=matched`、fetch error・retrieval missing・forecast evidence mismatch/unknownはいずれも0。07:27→07:57は29分56.742秒、07:57→08:17は20分13.031秒で、最近の最大30分18.408秒および60分調査閾値を超えていない。
+- この確認区間のLLM呼出し、予測投稿、追加費用は0。累計観測値は成功応答49、失敗/未確認3、141,379 tokens、費用$0のまま。提供元指定の停止を尊重し、有料切替、停止回避、個別ライブ問題向け調整は行っていない。回答対象、停止条件、モデル、プロンプト、取得・送信コードは変更していない。公式スコア、順位、賞金は未確認。
+
 ## 2026-10-20 07:43 JST — q46381・q46382未投稿確定、新規q46386は09:00以後も受付
 
 - 本番run [39331333078](https://github.com/after6labo/metac-bot-template/actions/runs/39331333078) はJSON実取得開始06:57:15.739 JST。独立API監査でq46381/post46152とq46382/post46153がともに `closed / already_forecasted=false` となり、未投稿のまま締切を迎えたことを確認した。同runは新規MiniBench q46386/post46157（06:42:50〜09:42:50 JST）も検出した。

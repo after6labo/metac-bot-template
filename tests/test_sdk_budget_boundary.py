@@ -61,6 +61,29 @@ class SdkBudgetTests(unittest.TestCase):
                 self.assertEqual(provider.await_count, 2)
         self.check(scenario)
 
+    def test_transient_generation_failure_gets_one_bounded_retry(self):
+        from main import GeneralLlm
+
+        async def scenario(llm, path):
+            model = llm(temperature=0.3)
+            with patch.object(
+                GeneralLlm,
+                '_mockable_direct_call_to_model',
+                new_callable=AsyncMock,
+                side_effect=[
+                    TimeoutError('transient free-provider timeout'),
+                    SimpleNamespace(total_tokens_used=7, data='recovered'),
+                ],
+            ) as provider:
+                result = await model.invoke('fixture')
+
+            self.assertEqual(result, 'recovered')
+            self.assertEqual(provider.await_count, 2)
+            self.assertEqual(llm.budget.session_failures, 1)
+            self.assertEqual(llm.budget.session_responses, 1)
+
+        self.check(scenario)
+
     def test_provider_limit_prevents_further_generation_or_parsing_in_run(self):
         from main import GeneralLlm
         from request_budget import ProviderPaused
@@ -79,6 +102,30 @@ class SdkBudgetTests(unittest.TestCase):
                 self.assertEqual(llm.budget.session_responses, 0)
                 self.assertEqual(llm.budget.session_failures, 1)
                 self.assertNotIn('provider response', path.read_text())
+        self.check(scenario)
+
+    def test_bounded_retry_does_not_repeat_a_provider_limit_request(self):
+        from main import GeneralLlm
+        from request_budget import ProviderPaused
+
+        async def scenario(llm, path):
+            error = RuntimeError('provider rate limit')
+            error.status_code = 429
+            error.response = SimpleNamespace(headers={'Retry-After': '120'})
+            model = llm(temperature=0.3)
+            with patch.object(
+                GeneralLlm,
+                '_mockable_direct_call_to_model',
+                new_callable=AsyncMock,
+                side_effect=error,
+            ) as provider:
+                with self.assertRaises(ProviderPaused):
+                    await model.invoke('fixture')
+
+            self.assertEqual(provider.await_count, 1)
+            self.assertEqual(llm.budget.session_failures, 1)
+            self.assertEqual(llm.budget.session_responses, 0)
+
         self.check(scenario)
 
     def test_wait_failure_before_provider_entry_has_no_request_count(self):

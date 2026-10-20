@@ -1,3 +1,11 @@
+## 2026-10-21 02:34 JST — MiniBench q46401〜q46403を締切前に投稿、q46401・q46402の事後可視性を確認
+
+- 新規MiniBench q46401/post46172（受付00:28:31〜03:28:31 JST）は本番run [39452980859](https://github.com/after6labo/metac-bot-template/actions/runs/39452980859) が00:57:09.296 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を00:59:01.504、説明を00:59:06.010 JSTに投稿。次のrun [39457435595](https://github.com/after6labo/metac-bot-template/actions/runs/39457435595) が01:27:17.699 JSTに受付中の `already_forecasted=true` を独立確認した。
+- 新規MiniBench q46402/post46173（受付01:38:24〜04:38:24 JST）は本番run [39461791274](https://github.com/after6labo/metac-bot-template/actions/runs/39461791274) が01:57:17.889 JSTに実取得を開始し、予測を01:58:31.134、説明を01:58:35.537 JSTに投稿。次のrun [39466070334](https://github.com/after6labo/metac-bot-template/actions/runs/39466070334) が02:27:11.618 JSTに受付中の `already_forecasted=true` を独立確認した。
+- 同run 39466070334は新規MiniBench q46403/post46174（受付02:21:32〜05:21:32 JST）も受付中・未回答として検出し、予測を02:33:12.684、説明を02:33:17.303 JSTに投稿した。受付開始から約11分45秒、締切まで約2時間48分を残して完了。モデル呼び出し1件が失敗/未確認として記録されたが、同一run内で有効な応答を取得して投稿まで完了し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed_or_unconfirmed/needs_attention空、provider_paused=false。q46403の独立監査は投稿前取得なので `already_forecasted=false`、投稿後の独立確認は次回本番run待ち。
+- 3件の投稿runと事後確認runはいずれもMiniBench/Fall監査complete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。実取得間隔は00:27:02.446→00:57:09.296が30分06.850秒、→01:27:17.699が30分08.404秒、→01:57:17.889が30分00.190秒、→02:27:11.618が29分53.728秒。直近最大30分23.944秒で60分調査閾値を超えていない。
+- q46401は成功応答2・7,204 tokens、q46402は2・6,608 tokens、q46403は成功応答2・失敗/未確認invocation 1・13,815 tokens。UTC日累計の実行観測値は成功応答51、失敗/未確認invocation 2、151,226 tokens、費用$0。これは提供元の無料枠消費量ではない。新規費用、コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-20 22:08 JST — Fall q46307を受付開始約28分後に投稿、事後可視性を確認
 
 - 新規Fall 2026 q46307/post46069（受付21:00〜翌00:00 JST）は本番run [39422245075](https://github.com/after6labo/metac-bot-template/actions/runs/39422245075) が21:27:18.550 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を21:28:19.338、説明を21:28:23.380 JSTに投稿。受付開始から約28分、締切まで約2時間32分を残して完了した。

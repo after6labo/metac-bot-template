@@ -1,3 +1,11 @@
+## 2026-10-20 11:05 JST — 新規MiniBench q46389を受付開始12分後に投稿
+
+- 本番run [39352500256](https://github.com/after6labo/metac-bot-template/actions/runs/39352500256) はJSON実取得開始10:17:18.477 JST。新規MiniBench q46389/post46160（受付10:06:44〜13:06:44 JST）を独立監査とSDKの双方で検出し、未回答であることを確認して選択した。予測は10:18:29.867 JST、説明は10:18:34.110 JSTに投稿し、runtimeはsubmitted=1、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=falseを記録した。観測値は成功応答2、7,982 tokens、費用$0。
+- 次の本番run [39355274067](https://github.com/after6labo/metac-bot-template/actions/runs/39355274067) は10:47:17.225 JSTに実取得を開始。公式APIの独立監査でq46389が受付中かつ `already_forecasted=true` と確認され、選択0・モデル呼出し0・重複投稿0となった。q46387、q46388、Fall q46306も受付中・回答済みで、両大会の監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0、pending/attention/provider pauseは空またはfalse。
+- q46387は10:50:55 JSTに締切を経過した。最終監査10:47時点ではまだopenだったため、締切後の `closed / already_forecasted=true` は次回の独立監査で確認が必要。Fall q46306は12:00:00、q46388は12:05:42、q46389は13:06:44 JSTまで受付予定で、10:47監査時点では全件回答済み。
+- 実取得間隔は09:47:17.479→10:17:18.477が30分00.998秒、→10:47:17.225が29分58.748秒。最近の最大30分18.408秒および60分調査閾値を超えていない。
+- UTC日累計の実行観測値は成功応答14、失敗/未確認1、46,121 tokens、費用$0。提供元枠の請求・消費量ではない。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-20 10:14 JST — cooldown後に4問投稿、MiniBench数値変換失敗も次回復旧
 
 - 本番run [39343619200](https://github.com/after6labo/metac-bot-template/actions/runs/39343619200) はJSON実取得開始08:47:02.485 JST。保存済みcooldownは終了前で、q46386・q46387は受付中・未回答のまま `provider_paused=true`。MiniBench/Fallの独立監査はcomplete/matchedでfetch error・retrieval missing・forecast evidence mismatch/unknownは0だった。

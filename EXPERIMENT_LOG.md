@@ -1,3 +1,9 @@
+## 2026-10-21 06:44 JST — MiniBench q46405が無料提供元cooldownで未回答
+
+- 新規MiniBench q46405/post46176（受付06:13:05〜09:13:05 JST）は本番run [39501709740](https://github.com/after6labo/metac-bot-template/actions/runs/39501709740) が06:37:19.212 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。しかし前runで記録された無料提供元cooldownが09:00 JSTまで継続しているため、モデル呼び出しと投稿を行わず、runtimeはsubmitted=0、pendingにq46405（reason=provider_paused）、needs_attention=true、provider_paused_for_run=trueを記録した。これは妥当な見送りではなく、受付中・未回答の継続インシデントとして扱う。
+- MiniBench/Fallの監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。q46404は受付中・already_forecasted=true。q46405の締切はcooldown解除の13分後で、通常約30分間隔から見込まれる解除後最初の実取得は09:07頃、残り約6分となる。提供元制限の迂回、即時反復、有料経路への切替は行わない。解除後の実取得で投稿結果を確認する。
+- 実取得間隔は05:37:24.370→06:07:17.732が29分53.362秒、→06:37:19.212が30分01.480秒で60分調査閾値未満。UTC日累計は成功応答52、失敗/未確認invocation 3、153,707 tokens、費用$0。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-21 04:31 JST — MiniBench q46404を投稿、不要なbinary変換呼び出しを削減
 
 - 新規MiniBench q46404/post46175（受付04:11:51〜07:11:51 JST）は本番run [39483462813](https://github.com/after6labo/metac-bot-template/actions/runs/39483462813) が04:27:20.218 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を04:28:10.331、説明を04:28:14.524 JSTに投稿。締切まで約2時間43分を残して完了し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空。修正反映後の本番run [39485271323](https://github.com/after6labo/metac-bot-template/actions/runs/39485271323) が04:40:13.091 JSTに再取得し、q46404を受付中・`already_forecasted=true`として独立確認した。

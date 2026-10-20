@@ -306,6 +306,12 @@ class SummerTemplateBot2026(ForecastBot):
             reasoning = await self.get_llm("default", "llm").invoke(prompt)
             logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
             try:
+                binary_prediction = _parse_exact_binary_probability_line(reasoning)
+                logger.info("Parsed binary probability from exact line")
+                break
+            except Exception:
+                pass
+            try:
                 binary_prediction: BinaryPrediction = await structure_output(
                     reasoning,
                     BinaryPrediction,
@@ -315,18 +321,11 @@ class SummerTemplateBot2026(ForecastBot):
                 )
                 break
             except Exception as exc:
-                try:
-                    binary_prediction = _parse_exact_binary_probability_line(reasoning)
-                    logger.warning(
-                        "Binary model conversion failed; used exact-line parser"
-                    )
-                    break
-                except Exception as fallback_exc:
-                    if attempt == 1 or isinstance(exc, ProviderPaused):
-                        raise exc from fallback_exc
-                    logger.warning(
-                        "Binary generation was unusable; retrying once"
-                    )
+                if attempt == 1 or isinstance(exc, ProviderPaused):
+                    raise
+                logger.warning(
+                    "Binary generation was unusable; retrying once"
+                )
         decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
 
         logger.info(

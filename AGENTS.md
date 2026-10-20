@@ -41,7 +41,9 @@ The goal is measured official tournament performance and prize receipts, not a d
 - OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
   sample. Multiple-choice structure conversion may make one additional parser attempt
   after a malformed free response; numeric conversion may make two additional attempts;
-  binary/date conversion remains one attempt. No local daily request cap: the owner removed
+  binary forecasts first use the strict local `Probability: ZZ%` parser and only
+  fall back to one model conversion when that exact line is absent; date conversion
+  remains one attempt. No local daily request cap: the owner removed
   the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
   run-results/budget.json now stores observed responses/failures/tokens and any
   provider Retry-After or OpenRouter X-RateLimit-Reset cooldown, not reservations or measured quota consumption.

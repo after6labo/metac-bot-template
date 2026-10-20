@@ -164,7 +164,7 @@ class SdkBudgetTests(unittest.TestCase):
 
         asyncio.run(scenario())
 
-    def test_binary_parser_falls_back_to_exact_probability_line(self):
+    def test_binary_parser_uses_exact_probability_line_before_model_conversion(self):
         from main import SummerTemplateBot2026
 
         async def scenario():
@@ -177,11 +177,11 @@ class SdkBudgetTests(unittest.TestCase):
             with patch(
                 'main.structure_output',
                 new_callable=AsyncMock,
-                side_effect=ValueError('free parser returned no JSON'),
+                side_effect=ValueError('model conversion should not be called'),
             ) as parser:
                 result = await bot._binary_prompt_to_forecast(question, 'fixture')
 
-            self.assertEqual(parser.await_count, 1)
+            self.assertEqual(parser.await_count, 0)
             self.assertEqual(result.prediction_value, 0.6)
 
         asyncio.run(scenario())
@@ -204,7 +204,7 @@ class SdkBudgetTests(unittest.TestCase):
                 result = await bot._binary_prompt_to_forecast(question, 'fixture')
 
             self.assertEqual(model.invoke.await_count, 1)
-            self.assertEqual(parser.await_count, 1)
+            self.assertEqual(parser.await_count, 0)
             self.assertEqual(result.prediction_value, 0.6)
 
         asyncio.run(scenario())
@@ -231,7 +231,7 @@ class SdkBudgetTests(unittest.TestCase):
                 result = await bot._binary_prompt_to_forecast(question, 'fixture')
 
             self.assertEqual(model.invoke.await_count, 2)
-            self.assertEqual(parser.await_count, 2)
+            self.assertEqual(parser.await_count, 1)
             self.assertEqual(result.prediction_value, 0.6)
 
         asyncio.run(scenario())

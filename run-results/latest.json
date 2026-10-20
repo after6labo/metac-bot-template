@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-10-20T03:36:59.748526+00:00",
+  "started_at_utc": "2026-10-20T04:07:20.950791+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -36,11 +36,6 @@
       "question_id": 46390,
       "source": "minibench",
       "reason": "already_forecasted"
-    },
-    {
-      "question_id": 46389,
-      "source": "minibench",
-      "reason": "already_forecasted"
     }
   ],
   "question_windows": [
@@ -67,14 +62,6 @@
       "open_time_utc": "2026-10-20T02:07:37+00:00",
       "close_time_utc": "2026-10-20T05:07:37+00:00",
       "already_forecasted": true
-    },
-    {
-      "question_id": 46389,
-      "post_id": 46160,
-      "source": "minibench",
-      "open_time_utc": "2026-10-20T01:06:44+00:00",
-      "close_time_utc": "2026-10-20T04:06:44+00:00",
-      "already_forecasted": true
     }
   ],
   "pending_questions": [],
@@ -83,7 +70,7 @@
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-10-20T03:37:13.505119+00:00",
+      "checked_at_utc": "2026-10-20T04:07:34.644483+00:00",
       "complete": true,
       "post_count": 41,
       "questions": [
@@ -118,7 +105,7 @@
           "question_id": 46389,
           "post_id": 46160,
           "source": "minibench",
-          "status": "open",
+          "status": "closed",
           "open_time_utc": "2026-10-20T01:06:44+00:00",
           "close_time_utc": "2026-10-20T04:06:44+00:00",
           "already_forecasted": true
@@ -464,7 +451,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-10-20T03:37:15.596630+00:00",
+      "checked_at_utc": "2026-10-20T04:07:36.786197+00:00",
       "complete": true,
       "post_count": 59,
       "questions": [
@@ -999,11 +986,11 @@
   ],
   "status": "no_new_questions",
   "open_questions_returned": [
-    4,
+    3,
     0
   ],
   "selected": 0,
-  "finished_at_utc": "2026-10-20T03:37:17.818618+00:00",
+  "finished_at_utc": "2026-10-20T04:07:38.616867+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -1016,6 +1003,6 @@
     "cooldown_until_epoch": 1792454400.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "e845c7449d383304f437f8ab37265f1ede5a9fbd",
-  "workflow_run_id": "39365171287"
+  "git_sha": "9e7f163b0352258545bf3046577237a107e4ba04",
+  "workflow_run_id": "39367782730"
 }

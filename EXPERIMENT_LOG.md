@@ -1,3 +1,12 @@
+## 2026-10-20 10:14 JST — cooldown後に4問投稿、MiniBench数値変換失敗も次回復旧
+
+- 本番run [39343619200](https://github.com/after6labo/metac-bot-template/actions/runs/39343619200) はJSON実取得開始08:47:02.485 JST。保存済みcooldownは終了前で、q46386・q46387は受付中・未回答のまま `provider_paused=true`。MiniBench/Fallの独立監査はcomplete/matchedでfetch error・retrieval missing・forecast evidence mismatch/unknownは0だった。
+- cooldown後の本番run [39346644543](https://github.com/after6labo/metac-bot-template/actions/runs/39346644543) は09:17:13.467 JSTに実取得を開始し、MiniBench q46388/post46159（予測09:18:19.580、説明09:18:24.276 JST）、q46386/post46157（予測09:22:46.125、説明09:22:50.012 JST）、Fall q46306/post46068（予測09:24:03.647、説明09:24:07.914 JST）へ投稿した。q46387/post46158だけは数値構造変換で `No JSON found`、かつ6本の厳密なpercentile行も得られず失敗し、締切10:50:55 JSTまで未回答として残った。このrunは成功応答10、失敗/未確認1、29,792 tokens、費用$0。
+- 次の通常本番run [39349611058](https://github.com/after6labo/metac-bot-template/actions/runs/39349611058) は09:47:17.479 JSTに実取得を開始。q46388・q46306が回答済み、q46386が締切09:42:50後も `closed / already_forecasted=true` であることを独立監査で確認し、重複投稿を避けた。まだ受付中・未回答だったq46387だけを再処理し、予測を09:48:52.603、説明を09:48:56.633 JSTに投稿した。締切まで約1時間02分残して復旧し、pending/failed/needs_attentionは空、`provider_paused=false`、両大会の監査はcomplete/matched、各種監査異常は0。
+- 09:47 run時点の受付中問題はq46387、q46388（締切12:05:42）、Fall q46306（12:00:00）で、すべて回答済み。q46386は投稿後・締切後のAPI可視性まで確認済み。q46387・q46388・q46306は締切後の `already_forecasted=true` 証拠がなお必要。投稿完了と公式の得点対象・スコア・順位・賞金は区別し、後者は未確認。
+- 実取得間隔は08:17:27.782→08:47:02.485が29分34.703秒、→09:17:13.467が30分10.981秒、→09:47:17.479が30分04.012秒。最近の最大30分18.408秒および60分調査閾値を超えていない。
+- UTC日累計の実行観測値は成功応答12、失敗/未確認1、38,139 tokens、費用$0。提供元枠の請求・消費量ではない。q46387の失敗は次の定期実行で再現せず締切前に復旧したため、ライブ問題向けプロンプト調整やコード変更、手動の重複危険を伴う再実行、有料切替は行っていない。回答対象、停止条件、モデル経路、予測値も変更していない。
+
 ## 2026-10-20 08:32 JST — q46383〜q46385未投稿確定、新規q46387
 
 - 本番run [39338350900](https://github.com/after6labo/metac-bot-template/actions/runs/39338350900) はJSON実取得開始07:57:14.751 JST。独立API監査でq46383/post46154とq46384/post46155がともに `closed / already_forecasted=false` となり、未投稿のまま締切を迎えたことを確認した。同runは新規MiniBench q46387/post46158（07:50:55〜10:50:55 JST）も検出した。q46385はこの時点では締切まで約1分2秒で、未回答・`provider_paused` だった。

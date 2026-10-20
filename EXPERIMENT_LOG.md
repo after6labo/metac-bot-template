@@ -1,3 +1,10 @@
+## 2026-10-20 17:07 JST — MiniBench q46398投稿、q46393・q46395〜q46397の事後可視性確認
+
+- 本番run [39384377888](https://github.com/after6labo/metac-bot-template/actions/runs/39384377888) はJSON実取得開始16:07:14.089 JST。前runで投稿したq46395〜q46397を受付中かつ `already_forecasted=true` と独立監査で確認し、再投稿を回避した。
+- 新規MiniBench q46398/post46169（受付16:21:14〜19:21:14 JST）は本番run [39387608034](https://github.com/after6labo/metac-bot-template/actions/runs/39387608034) が16:37:12.572 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を16:37:53.945、説明を16:37:57.968 JSTに投稿。受付開始から約17分、締切まで約2時間43分を残して完了した。runtimeはsubmitted=1、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。成功応答2、3,338 tokens、費用$0。
+- 次の本番run [39389959377](https://github.com/after6labo/metac-bot-template/actions/runs/39389959377) は16:58:08.606 JSTに実取得を開始し、q46398とq46395〜q46397を受付中の `already_forecasted=true`、q46393を締切後の `closed / already_forecasted=true` と独立監査で確認した。q46394も受付中・回答済み。MiniBench/Fallの監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。新規未回答・outcome・モデル呼出しはなく、pending/failed/needs_attention空、provider_paused=false。
+- 実取得間隔は15:37:15.710→16:07:14.089が29分58.378秒、→16:37:12.572が29分58.483秒、→16:58:08.606が20分56.034秒。直近最大30分23.803秒で60分調査閾値を超えていない。UTC日累計の実行観測値は成功応答37、失敗/未確認invocation 1、101,729 tokens、費用$0。これは提供元の無料枠消費量ではない。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-20 16:02 JST — 新規MiniBench q46395〜q46397を同一本番実行で全件投稿
 
 - 本番run [39381351240](https://github.com/after6labo/metac-bot-template/actions/runs/39381351240) はJSON実取得開始15:37:15.710 JST。独立監査とSDKの双方で新規MiniBench q46395/post46166（受付15:07:50〜18:07:50 JST）、q46396/post46167（15:09:57〜18:09:57 JST）、q46397/post46168（15:30:33〜18:30:33 JST）を受付中・未回答として検出した。

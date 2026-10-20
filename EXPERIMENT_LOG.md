@@ -1,8 +1,8 @@
 ## 2026-10-21 04:31 JST — MiniBench q46404を投稿、不要なbinary変換呼び出しを削減
 
-- 新規MiniBench q46404/post46175（受付04:11:51〜07:11:51 JST）は本番run [39483462813](https://github.com/after6labo/metac-bot-template/actions/runs/39483462813) が04:27:20.218 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を04:28:10.331、説明を04:28:14.524 JSTに投稿。締切まで約2時間43分を残して完了し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空。投稿後の `already_forecasted=true` 独立確認は次回本番run待ち。
+- 新規MiniBench q46404/post46175（受付04:11:51〜07:11:51 JST）は本番run [39483462813](https://github.com/after6labo/metac-bot-template/actions/runs/39483462813) が04:27:20.218 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を04:28:10.331、説明を04:28:14.524 JSTに投稿。締切まで約2時間43分を残して完了し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空。修正反映後の本番run [39485271323](https://github.com/after6labo/metac-bot-template/actions/runs/39485271323) が04:40:13.091 JSTに再取得し、q46404を受付中・`already_forecasted=true`として独立確認した。
 - 推論応答には厳密な `Probability: 27%` 行があったが、従来コードは追加のモデル形式変換を先に呼び、その呼び出しが無料提供元制限で失敗した後にローカル解析で回復していた。このため成功応答1、失敗/未確認invocation 1、2,481 tokensを観測し、provider_paused_for_run=true、提供元リセットに基づくcooldownは09:00 JSTまで。q46404の予測・説明は停止前に投稿済みだが、それまでに出る別の新規問題は未回答になり得るため、提供元停止は未解決制約として扱う。リセットを迂回する再実行や有料経路への切替はしない。
-- 再発低減として、binary回答に厳密な確率行がある場合はローカル解析を先に行い、欠ける場合だけ従来のモデル形式変換を1回呼ぶ最小変更を実装。推論生成、予測値、プロンプト、回答対象、停止条件、無料経路は変更していない。回帰テストは修正前に外部変換1回を検出して失敗し、修正後は対象3件、全Python 69件、スケジューラ12件が成功した。
+- 再発低減として、binary回答に厳密な確率行がある場合はローカル解析を先に行い、欠ける場合だけ従来のモデル形式変換を1回呼ぶ最小変更を実装。推論生成、予測値、プロンプト、回答対象、停止条件、無料経路は変更していない。回帰テストは修正前に外部変換1回を検出して失敗し、修正後は対象3件、全Python 69件、スケジューラ12件が成功した。反映後runでもoffline regression testsとexternal scheduler testsが成功し、pending/failed/needs_attention、fetch error、retrieval missing、forecast evidence mismatch/unknownはいずれも0。
 - 実取得間隔は03:57:07.009→04:27:20.218が30分13.209秒、直近最大30分23.944秒で60分調査閾値未満。UTC日累計は成功応答52、失敗/未確認invocation 3、153,707 tokens、費用$0。公式の得点対象、スコア、順位、賞金は未確認。
 
 ## 2026-10-21 03:08 JST — q46403の投稿後可視性を独立監査で確認

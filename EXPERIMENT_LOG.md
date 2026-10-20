@@ -1,3 +1,11 @@
+## 2026-10-20 13:45 JST — MiniBench q46393数値変換失敗を1回再実行で締切前復旧
+
+- 本番run [39370457037 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/39370457037/attempts/1) はJSON実取得開始13:37:15.830 JST。新規MiniBench q46393/post46164（受付13:32:21〜16:32:21 JST）を独立監査とSDKの双方で受付中・未回答として検出した。数値予測が問題範囲150,000〜500,000に対して1,400,000〜1,960,000となって検証に失敗し、続く構造化応答もJSONにならず、`ExceptionGroup` で未回答のまま終了した。runtimeはsubmitted=0、failed_or_unconfirmed=1、pendingにq46393、needs_attention=trueを記録。成功応答4、14,010 tokens、費用$0。予測・説明の投稿は行われておらず、監査でも `already_forecasted=false` を確認した。
+- 402/429・cooldown・認証・取得・送信障害ではなく、投稿前の一時的な数値生成/構造化失敗だった。重複投稿リスクがないことを確認後、失敗ジョブを1回だけ再実行した。個別確率、ライブ問題向けプロンプト、コード、回答対象、停止条件、モデル経路は変更していない。
+- [attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/39370457037/attempts/2) は13:42:18.043 JSTに実取得を開始し、q46393の予測を13:42:53.752、説明を13:42:58.175 JSTに投稿。締切まで約2時間49分を残して復旧し、runtimeはsubmitted=1、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。成功応答2、3,900 tokens、費用$0。監査は投稿前取得のためq46393の `already_forecasted=true` 独立確認は次回run待ち。
+- MiniBench/Fallの監査は両attemptともcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。q46389は締切後 `closed / already_forecasted=true` も確認した。
+- 通常実取得間隔は12:36:59.749→13:07:20.951が30分21.202秒、→13:37:15.830が29分54.879秒。最大30分21.202秒で60分調査閾値を超えていない。UTC日累計の実行観測値は成功応答27、失敗/未確認invocation 1、77,297 tokens、費用$0。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-20 12:41 JST — q46392回答確認、q46388・Fall q46306の締切後可視性確認
 
 - 本番run [39362521494](https://github.com/after6labo/metac-bot-template/actions/runs/39362521494) はJSON実取得開始12:06:58.748 JST。前runで投稿したMiniBench q46392/post46163が受付中かつ `already_forecasted=true` と独立監査で確認され、重複投稿を回避した。同runでMiniBench q46388/post46159とFall q46306/post46068は締切後の `closed / already_forecasted=true` となり、09:18および09:24の予測投稿が締切後も公式APIから可視である証拠を得た。

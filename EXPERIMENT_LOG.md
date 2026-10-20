@@ -1,3 +1,10 @@
+## 2026-10-20 18:59 JST — q46399の事後可視性確認、新規MiniBench q46400を投稿
+
+- 本番run [39404321524](https://github.com/after6labo/metac-bot-template/actions/runs/39404321524) はJSON実取得開始18:57:08.079 JST。前runで投稿したq46399を受付中かつ `already_forecasted=true` と独立監査で確認し、再投稿を回避した。
+- 同runは新規MiniBench q46400/post46171（受付18:29:20〜21:29:20 JST）を独立監査とSDKの双方で受付中・未回答として検出した。予測を18:58:08.778、説明を18:58:12.960 JSTに投稿。受付開始から約29分、締切まで約2時間31分を残して完了した。runtimeはsubmitted=1、failed_or_unconfirmed=0、pending/needs_attention空、provider_paused=false。今回の観測値は成功応答2、3,702 tokens、費用$0。
+- MiniBench/Fallの監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。q46400の監査は投稿前取得なので `already_forecasted=false`。予測・説明のAPI成功はActionsログで確認済みだが、投稿後の `already_forecasted=true` は次回本番runで再確認する。
+- 実取得間隔は18:27:14.362→18:57:08.079が29分53.718秒。直近最大30分23.944秒で60分調査閾値を超えていない。UTC日累計の実行観測値は成功応答43、失敗/未確認invocation 1、120,469 tokens、費用$0。これは提供元の無料枠消費量ではない。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-20 18:48 JST — 新規MiniBench q46399を受付開始約12分後に投稿
 
 - 新規MiniBench q46399/post46170（受付18:17:04〜21:17:04 JST）は本番run [39400666385](https://github.com/after6labo/metac-bot-template/actions/runs/39400666385) が18:27:14.362 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を18:29:14.923、説明を18:29:19.540 JSTに投稿。受付開始から約12分、締切まで約2時間48分を残して完了した。

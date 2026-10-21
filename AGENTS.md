@@ -39,8 +39,9 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
-  sample. Multiple-choice structure conversion may make one additional parser attempt
-  after a malformed free response; numeric conversion may make two additional attempts;
+  sample. Multiple-choice forecasts first use strict local exact option-percentage lines
+  and may make one additional parser attempt when those lines are absent or invalid;
+  numeric conversion may make two additional attempts;
   binary forecasts first use the strict local `Probability: ZZ%` parser and only
   fall back to one model conversion when that exact line is absent; date conversion
   remains one attempt. No local daily request cap: the owner removed
@@ -168,7 +169,8 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   Honor actual service restrictions and zero spending while repairing what is
   authorized. Notification does not transfer responsibility to a sleeping owner.
 - Remaining technical settings are disclosed: one reasoning sample per forecast;
-  up to two structure-conversion attempts for multiple-choice forecasts, three for
+  a strict local exact-line parser followed by up to two structure-conversion attempts
+  for multiple-choice forecasts, three for
   numeric forecasts, and one for binary/date forecasts. Numeric answers also have a
   local fallback only for all six exact requested percentile lines with plain numeric
   values; it does not infer missing values or convert unit suffixes. A 180-second model timeout

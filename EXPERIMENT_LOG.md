@@ -1995,3 +1995,25 @@ Total output lines: 2927
   responses, two failed invocations and 76,363 tokens; these are not provider
   quota or billing measurements. Official acceptance/scoring eligibility,
   score, rank and prize remain unconfirmed. Post-close evidence remains due.
+
+## 2026-10-22 JST — Fall q46418 post-close forecast evidence
+- Fall q46418/post46191 closed at 00:00 JST. [Run 39622696522](https://github.com/after6labo/metac-bot-template/actions/runs/39622696522)
+  began its actual tournament fetch at 00:07:05.627 JST and the independent
+  Fall audit at 00:07:15.599 JST found the question closed with
+  already_forecasted=true. This completes post-close evidence for the prediction
+  and explanation published at 22:10:03 and 22:10:07 JST; it is not official
+  scoring eligibility, score, rank or prize confirmation.
+- Follow-up [run 39627195293](https://github.com/after6labo/metac-bot-template/actions/runs/39627195293)
+  fetched at 00:37:24.456 JST and [run 39631746642](https://github.com/after6labo/metac-bot-template/actions/runs/39631746642)
+  at 01:07:19.037 JST. Both independently retained q46418 as closed and
+  already_forecasted=true. Both target audits were complete/matched with fetch
+  errors and missing/mismatched/unknown forecast evidence empty.
+- The three post-close results had empty pending questions, windows, outcomes
+  and skips; attention/provider pause were false, and submitted/failed-unconfirmed
+  were zero. MiniBench and Fall had no open unanswered question. No duplicate
+  submission or retry occurred, and these confirmation runs used zero model
+  responses/tokens and $0 new spending.
+- Actual fetch-start gaps after the 22:15 confirmation had a maximum of
+  30m18.829s, below the 60-minute investigation threshold. No code, target
+  eligibility, prompt, forecast value, model route, retry/stopping condition,
+  scheduler or owner action changed. Monitoring continues.

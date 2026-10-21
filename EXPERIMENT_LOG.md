@@ -1,3 +1,9 @@
+## 2026-10-21 09:18 JST — cooldown解除後にq46405を締切前回復、q46406・Fall q46308も投稿
+
+- 無料提供元cooldown解除後最初の本番run [39519250840](https://github.com/after6labo/metac-bot-template/actions/runs/39519250840) は09:07:19.564 JSTに実取得を開始し、MiniBench q46406/post46177、q46405/post46176、Fall q46308/post46070の3問を独立監査とSDKの双方で受付中・未回答として検出した。MiniBench/Fallの監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。
+- q46406は予測を09:09:46.947、説明を09:09:51.320 JSTに投稿（締切11:10:54）。q46405は予測を09:10:42.687、説明を09:10:47.081 JSTに投稿し、09:13:05の締切まで予測で約2分22秒、説明で約2分18秒を残して、cooldown中の未回答インシデントを締切前に回復した。Fall q46308は予測を09:17:03.303、説明を09:17:08.218 JSTに投稿（締切12:00:00）。runtimeはsubmitted=3、outcomes全件submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused_for_run=false。次の独立実行でalready_forecasted=trueを確認する。
+- q46406の数値形式変換で最初の応答が使用不能となり1回再試行したが、同じ実行内で回復して投稿済み。本runの観測は成功応答7、失敗/未確認invocation 1、45,375 tokens、費用$0。前回08:37:11.535→今回09:07:19.564の実取得間隔は30分08.028秒で60分閾値未満。回答対象・停止条件・予測プロンプト・コードは変更していない。公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-21 06:44 JST — MiniBench q46405が無料提供元cooldownで未回答
 
 - 新規MiniBench q46405/post46176（受付06:13:05〜09:13:05 JST）は本番run [39501709740](https://github.com/after6labo/metac-bot-template/actions/runs/39501709740) が06:37:19.212 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。しかし前runで記録された無料提供元cooldownが09:00 JSTまで継続しているため、モデル呼び出しと投稿を行わず、runtimeはsubmitted=0、pendingにq46405（reason=provider_paused）、needs_attention=true、provider_paused_for_run=trueを記録した。これは妥当な見送りではなく、受付中・未回答の継続インシデントとして扱う。

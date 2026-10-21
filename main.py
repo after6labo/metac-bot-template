@@ -90,6 +90,35 @@ def _parse_exact_binary_probability_line(text: str) -> BinaryPrediction:
     return BinaryPrediction(prediction_in_decimal=probability / 100)
 
 
+def _parse_exact_multiple_choice_probability_lines(
+    text: str,
+    options: list[str],
+) -> PredictedOptionList:
+    """Parse one exact percentage line for every multiple-choice option."""
+    predicted_options = []
+    probabilities = []
+    for option in options:
+        matches = re.findall(
+            rf"(?m)^\s*(?:\*\*)?{re.escape(option)}\s*:\s*"
+            r"(\d+(?:\.\d+)?)\s*%\s*(?:\*\*)?\s*$",
+            text,
+        )
+        if len(matches) != 1:
+            raise ValueError(
+                "Multiple-choice reasoning did not contain one exact line per option"
+            )
+        probability = float(matches[0])
+        if not 0 <= probability <= 100:
+            raise ValueError("Multiple-choice probability was outside 0-100")
+        probabilities.append(probability)
+        predicted_options.append(
+            {"option_name": option, "probability": probability / 100}
+        )
+    if abs(sum(probabilities) - 100) > 0.01:
+        raise ValueError("Multiple-choice probabilities did not sum to 100%")
+    return PredictedOptionList(predicted_options=predicted_options)
+
+
 class BudgetedFreeLlm(GeneralLlm):
     """One fixed free route; provider limits, with observed-outcome tracking."""
     budget = None
@@ -396,14 +425,19 @@ class SummerTemplateBot2026(ForecastBot):
         )
         reasoning = await self.get_llm("default", "llm").invoke(prompt)
         logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        predicted_option_list: PredictedOptionList = await structure_output(
-            text_to_structure=reasoning,
-            output_type=PredictedOptionList,
-            model=self.get_llm("parser", "llm"),
-            num_validation_samples=self._structure_output_validation_samples,
-            allowed_tries=2,
-            additional_instructions=parsing_instructions,
-        )
+        try:
+            predicted_option_list = _parse_exact_multiple_choice_probability_lines(
+                reasoning, question.options
+            )
+        except ValueError:
+            predicted_option_list = await structure_output(
+                text_to_structure=reasoning,
+                output_type=PredictedOptionList,
+                model=self.get_llm("parser", "llm"),
+                num_validation_samples=self._structure_output_validation_samples,
+                allowed_tries=2,
+                additional_instructions=parsing_instructions,
+            )
 
         logger.info(
             f"Forecasted URL {question.page_url} with prediction: {predicted_option_list}."

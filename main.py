@@ -100,14 +100,16 @@ def _parse_exact_multiple_choice_probability_lines(
     for option in options:
         matches = re.findall(
             rf"(?m)^\s*(?:\*\*)?{re.escape(option)}\s*:\s*"
-            r"(\d+(?:\.\d+)?)\s*%\s*(?:\*\*)?\s*$",
+            r"(?:\*\*(\d+(?:\.\d+)?)\s*%\*\*|"
+            r"(\d+(?:\.\d+)?)\s*%)\s*(?:\*\*)?\s*$",
             text,
         )
         if len(matches) != 1:
             raise ValueError(
                 "Multiple-choice reasoning did not contain one exact line per option"
             )
-        probability = float(matches[0])
+        bold_probability, plain_probability = matches[0]
+        probability = float(bold_probability or plain_probability)
         if not 0 <= probability <= 100:
             raise ValueError("Multiple-choice probability was outside 0-100")
         probabilities.append(probability)

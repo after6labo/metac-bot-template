@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "date_utc": "2026-10-20",
-  "successful_responses": 52,
-  "failed_invocations": 3,
-  "observed_tokens": 153707,
+  "date_utc": "2026-10-21",
+  "successful_responses": 7,
+  "failed_invocations": 1,
+  "observed_tokens": 45375,
   "cooldown_until_epoch": 1792540800.0
 }

@@ -151,7 +151,9 @@ class SdkBudgetTests(unittest.TestCase):
         async def scenario():
             bot = object.__new__(SummerTemplateBot2026)
             bot._structure_output_validation_samples = 1
-            model = SimpleNamespace(invoke=AsyncMock(return_value='Option A: 100%'))
+            model = SimpleNamespace(
+                invoke=AsyncMock(return_value='Analysis without an exact final line')
+            )
             bot.get_llm = lambda *args: model
             question = SimpleNamespace(options=['Option A'], page_url='fixture')
             parsed = PredictedOptionList(
@@ -161,6 +163,37 @@ class SdkBudgetTests(unittest.TestCase):
                        return_value=parsed) as parser:
                 await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
                 self.assertEqual(parser.await_args.kwargs['allowed_tries'], 2)
+
+        asyncio.run(scenario())
+
+    def test_multiple_choice_uses_exact_probability_lines_before_model_conversion(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            bot._structure_output_validation_samples = 1
+            reasoning = "Analysis omitted.\n\nYes: 60%\nNo: 40%\n"
+            model = SimpleNamespace(invoke=AsyncMock(return_value=reasoning))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(options=['Yes', 'No'], page_url='fixture')
+            with patch(
+                'main.structure_output',
+                new_callable=AsyncMock,
+                side_effect=ValueError('model conversion should not be called'),
+            ) as parser:
+                result = await bot._multiple_choice_prompt_to_forecast(
+                    question, 'fixture'
+                )
+
+            self.assertEqual(parser.await_count, 0)
+            self.assertEqual(
+                [item.option_name for item in result.prediction_value.predicted_options],
+                ['Yes', 'No'],
+            )
+            self.assertEqual(
+                [item.probability for item in result.prediction_value.predicted_options],
+                [0.6, 0.4],
+            )
 
         asyncio.run(scenario())
 

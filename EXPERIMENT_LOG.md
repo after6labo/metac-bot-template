@@ -1,3 +1,9 @@
+## 2026-10-21 09:46 JST — q46405・q46406・Fall q46308の投稿後可視性を独立確認
+
+- 本番run [39522319664](https://github.com/after6labo/metac-bot-template/actions/runs/39522319664) はJSON実取得開始09:37:13.603 JST。前runで投稿したMiniBench q46406/post46177とFall q46308/post46070を受付中かつ `already_forecasted=true`、締切直前に回復したMiniBench q46405/post46176を締切後の `closed / already_forecasted=true` と公式APIの独立監査で確認した。投稿後の独立確認待ちは解消し、再投稿を回避した。
+- MiniBench/Fallの監査はいずれもcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatchは0。submitted=0、outcomes/pending/failed/needs_attention空、provider_paused=false。追加のモデル応答・tokens・費用は0で、コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
+- 実取得間隔は09:07:19.564→09:37:13.603が29分54.039秒で60分調査閾値未満。公式API上の投稿可視性は確認したが、公式の得点対象、スコア、順位、賞金は未確認。
+
 ## 2026-10-21 09:18 JST — cooldown解除後にq46405を締切前回復、q46406・Fall q46308も投稿
 
 - 無料提供元cooldown解除後最初の本番run [39519250840](https://github.com/after6labo/metac-bot-template/actions/runs/39519250840) は09:07:19.564 JSTに実取得を開始し、MiniBench q46406/post46177、q46405/post46176、Fall q46308/post46070の3問を独立監査とSDKの双方で受付中・未回答として検出した。MiniBench/Fallの監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。

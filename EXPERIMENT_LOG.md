@@ -2053,3 +2053,11 @@ Total output lines: 2927
 - 同runは新規Fall q46421/post46194（受付21:00〜24:00 JST）を独立監査とSDKの双方で受付中・未回答として検出した。予測を21:09:03.601、説明を21:09:08.105 JSTに投稿し、締切まで約2時間51分を残して完了した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗記録0、7,214 tokens、新規費用$0。
 - MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。実取得間隔は20:37:15.836→21:07:12.194が29分56.358秒、直前区間を含む最大は30分14.838秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
 - q46421の投稿API成功は確認済みだが、後続実行による `already_forecasted=true` と締切後保持は未確認。公式の得点対象、スコア、順位、賞金も未確認で、監視を継続する。
+
+
+## 2026-10-22 22:28 JST — Fall q46421の独立確認
+
+- 本番run [39779719420](https://github.com/after6labo/metac-bot-template/actions/runs/39779719420) は21:37:02.155 JSTに実取得を開始し、Fall q46421/post46194を受付中・`already_forecasted=true` と公式APIの独立監査で確認した。予測・説明の再投稿は行わず、投稿実行39775656073のAPI成功を後続実行から確認できた。
+- 最新の本番run [39784016167](https://github.com/after6labo/metac-bot-template/actions/runs/39784016167)（実取得22:07:37.380 JST）でも同状態を維持した。両実行ともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。pending/failed/needs_attentionは空、provider_paused=false、重複投稿なし。
+- 実取得間隔は21:07:12.194→21:37:02.155が29分49.962秒、→22:07:37.380が30分35.225秒で60分調査閾値未満。確認2実行のモデル応答・tokens・新規費用は0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
+- q46421の締切後保持は未確認。公式の得点対象、スコア、順位、賞金も未確認で、監視を継続する。

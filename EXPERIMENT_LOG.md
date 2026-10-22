@@ -2025,3 +2025,9 @@ Total output lines: 2927
 - 本番run [39703727891](https://github.com/after6labo/metac-bot-template/actions/runs/39703727891) は10:07:07.002 JSTに実取得を開始し、q46408とq46419をともに受付中・already_forecasted=trueと独立監査で確認した。両大会の監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。submitted=0、pending/failed/needs_attention空、provider_paused=falseで、モデル応答・tokens・費用は0。
 - 実取得間隔は08:37:09.484→09:07:18.470が30分08.987秒、→09:37:15.178が29分56.707秒、→10:07:07.002が29分51.825秒で、60分調査閾値未満。2件の投稿合計は観測応答3、失敗記録0、9,984 tokens、新規費用$0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。
 
+## 2026-10-22 13:16 JST — q46408・q46419の締切後投稿証拠を確認
+
+- Fall q46419/post46192（締切12:00 JST）は本番run [39715017754](https://github.com/after6labo/metac-bot-template/actions/runs/39715017754) が12:07:17.024 JSTに実取得を開始し、締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認した。
+- MiniBench q46408/post46179（締切12:17:37 JST）は本番run [39717757272](https://github.com/after6labo/metac-bot-template/actions/runs/39717757272) が12:37:21.441 JSTに実取得を開始し、締切後も `closed / already_forecasted=true` と確認した。次の本番run [39720491076](https://github.com/after6labo/metac-bot-template/actions/runs/39720491076)（実取得13:07:12.156 JST）でも両問の締切後証拠を維持した。
+- 3回ともMiniBench/Fallの監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。新規未回答・投稿失敗・provider pause・重複投稿はなく、追加のモデル応答・tokens・費用は0。実取得間隔は12:07:17.024→12:37:21.441が30分04.416秒、→13:07:12.156が29分50.716秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。投稿保持は確認したが、公式の得点対象、スコア、順位、賞金は未確認。
+

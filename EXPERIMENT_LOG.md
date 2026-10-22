@@ -2061,3 +2061,12 @@ Total output lines: 2927
 - 最新の本番run [39784016167](https://github.com/after6labo/metac-bot-template/actions/runs/39784016167)（実取得22:07:37.380 JST）でも同状態を維持した。両実行ともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。pending/failed/needs_attentionは空、provider_paused=false、重複投稿なし。
 - 実取得間隔は21:07:12.194→21:37:02.155が29分49.962秒、→22:07:37.380が30分35.225秒で60分調査閾値未満。確認2実行のモデル応答・tokens・新規費用は0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
 - q46421の締切後保持は未確認。公式の得点対象、スコア、順位、賞金も未確認で、監視を継続する。
+
+
+## 2026-10-23 01:24 JST — q46421締切後確認・q46422変換失敗から投稿復旧
+
+- Fall q46421/post46194（締切00:00 JST）は本番run [39801669571](https://github.com/after6labo/metac-bot-template/actions/runs/39801669571) が00:07:18.778 JSTに実取得を開始し、公式APIの独立監査で締切後も `closed / already_forecasted=true` と確認した。21:09:03の予測と21:09:08の説明が締切後も保持されている証拠であり、公式の得点対象認定そのものではない。
+- 同runは新規Fall q46422/post46195（受付00:00〜03:00 JST）を受付中・未回答として検出したが、数値予測の構造変換3回がいずれもJSONを得られず、厳密な6本の百分位行も抽出できなかったため投稿せず終了した。runtimeはfailed_or_unconfirmed=1、pending=q46422、needs_attention=true。両大会監査はcomplete/matched、取得・証拠不一致はなく、provider pauseもなかった。観測応答4、失敗呼び出し記録0、5,757 tokens、費用$0。
+- 次の通常本番run [39806405848](https://github.com/after6labo/metac-bot-template/actions/runs/39806405848) は00:37:03.017 JSTに実取得を開始し、予測を00:40:52.934、説明を00:40:57.183 JSTに投稿した。締切まで約2時間19分を残して復旧。runtimeはsubmitted=1、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗呼び出し記録1、3,252 tokens、費用$0。
+- 後続run [39811071340](https://github.com/after6labo/metac-bot-template/actions/runs/39811071340) は01:07:23.860 JSTにq46422を受付中・`already_forecasted=true` と独立確認し、重複投稿を回避した。MiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。未回答、投稿失敗、provider pauseは残っていない。
+- 実取得間隔は23:37:15.093→00:07:18.778が30分03.685秒、→00:37:03.017が29分44.238秒、→01:07:23.860が30分20.843秒で60分調査閾値未満。失敗・復旧2実行の合計は観測応答6、失敗呼び出し記録1、9,009 tokens、新規費用$0で、提供元の無料枠消費量ではない。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。q46422の締切後保持、公式の得点対象、スコア、順位、賞金は未確認。

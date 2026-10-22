@@ -2045,3 +2045,11 @@ Total output lines: 2927
 - 同runは新規Fall q46420/post46193（受付18:00〜21:00 JST）を独立監査とSDKの双方で受付中・未回答として検出し、予測を18:07:44.318、説明を18:07:48.498 JSTに投稿した。締切まで約2時間52分を残して完了。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答1、失敗記録0、1,304 tokens、新規費用$0。
 - 次の本番run [39756714023](https://github.com/after6labo/metac-bot-template/actions/runs/39756714023) は18:37:05.852 JSTに実取得を開始し、q46420を受付中・`already_forecasted=true` と公式APIの独立監査で確認して再投稿を回避した。MiniBench/Fall両監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。未回答・投稿失敗・提供元停止はなく、追加のモデル応答・tokens・費用は0。
 - 実取得間隔は17:37:15.941→18:07:05.032が29分49.090秒、→18:37:05.852が30分00.820秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金は未確認。q46420の締切後投稿保持は引き続き監視する。
+
+
+## 2026-10-22 21:16 JST — Fall q46420締切後確認・q46421投稿
+
+- Fall q46420/post46193（締切21:00 JST）は本番run [39775656073](https://github.com/after6labo/metac-bot-template/actions/runs/39775656073) が21:07:12.194 JSTに実取得を開始し、公式APIの独立監査で締切後も `closed / already_forecasted=true` と確認した。18:07:44の予測と18:07:48の説明が締切後も保持されている証拠であり、公式の得点対象認定そのものではない。
+- 同runは新規Fall q46421/post46194（受付21:00〜24:00 JST）を独立監査とSDKの双方で受付中・未回答として検出した。予測を21:09:03.601、説明を21:09:08.105 JSTに投稿し、締切まで約2時間51分を残して完了した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗記録0、7,214 tokens、新規費用$0。
+- MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。実取得間隔は20:37:15.836→21:07:12.194が29分56.358秒、直前区間を含む最大は30分14.838秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
+- q46421の投稿API成功は確認済みだが、後続実行による `already_forecasted=true` と締切後保持は未確認。公式の得点対象、スコア、順位、賞金も未確認で、監視を継続する。

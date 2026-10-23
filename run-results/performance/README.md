@@ -1,6 +1,6 @@
 # 公式成績
 
-取得開始（UTC）: 2026-10-23T08:48:17.877125+00:00
+取得開始（UTC）: 2026-10-23T15:17:44.299613+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
@@ -27,6 +27,7 @@
 | minibench-2026-10-05 | [q46084](https://www.metaculus.com/questions/45902/) | 56.96 | 8.98 |
 | minibench-2026-10-05 | [q46078](https://www.metaculus.com/questions/45896/) | no | 8.96 |
 | minibench-2026-10-05 | [q46119](https://www.metaculus.com/questions/45937/) | yes | 7.18 |
+| minibench-2026-10-05 | [q46132](https://www.metaculus.com/questions/45950/) | 2664.0 | 7.05 |
 | minibench-2026-10-05 | [q46117](https://www.metaculus.com/questions/45935/) | yes | 5.03 |
 | minibench-2026-10-05 | [q46118](https://www.metaculus.com/questions/45936/) | -20.7 | 4.28 |
 | minibench-2026-10-05 | [q46115](https://www.metaculus.com/questions/45933/) | 2.12 | 3.95 |
@@ -55,6 +56,7 @@
 | minibench-2026-10-05 | [q46131](https://www.metaculus.com/questions/45949/) | Two or more fixtures tie for the most goals | -104.68 |
 | minibench-2026-10-05 | [q46122](https://www.metaculus.com/questions/45940/) | yes | -138.13 |
 | minibench-2026-10-05 | [q46092](https://www.metaculus.com/questions/45910/) | yes | 未確認 |
+| minibench-2026-10-05 | [q46093](https://www.metaculus.com/questions/45911/) | 62.9 | 未確認 |
 | minibench-2026-10-05 | [q46094](https://www.metaculus.com/questions/45912/) | 109.86 | 未確認 |
 | minibench-2026-10-05 | [q46095](https://www.metaculus.com/questions/45913/) | 80.92 | 未確認 |
 | minibench-2026-10-05 | [q46096](https://www.metaculus.com/questions/45914/) | no | 未確認 |

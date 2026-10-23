@@ -2120,3 +2120,11 @@ Total output lines: 2927
 - runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。観測応答2、失敗呼び出し記録0、3,810 tokens、新規費用$0で、提供元の無料枠消費量ではない。
 - 後続本番run [39972483328](https://github.com/after6labo/metac-bot-template/actions/runs/39972483328) は23:47:15.260 JSTに実取得を開始し、q46412を受付中・`already_forecasted=true` と公式APIの独立監査で確認して再投稿を回避した。両大会監査はcomplete/matched、pending/failed/needs_attention空、provider_paused=false。追加のモデル応答・tokens・費用は0。
 - 今回確認した実取得間隔は22:37:08.490→22:51:51.057が14分42.568秒、→23:17:13.571が25分22.513秒、→23:47:15.260が30分01.690秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。q46412の締切後保持と公式の得点対象、スコア、順位、賞金は未確認で、監視を継続する。
+
+
+## 2026-10-24 02:41 JST — Fall q46412の締切後保持を確認
+
+- 締切直前の本番run [39989541604](https://github.com/after6labo/metac-bot-template/actions/runs/39989541604) は01:47:05.108 JSTに実取得を開始し、Fall q46412/post46184を受付中・`already_forecasted=true` と確認した。締切02:00 JST後の最初の本番run [39993700183](https://github.com/after6labo/metac-bot-template/actions/runs/39993700183) は02:17:15.633 JSTに実取得を開始し、同問を `closed / already_forecasted=true` と公式APIの独立監査で確認した。23:18:32の予測と23:18:36の説明が締切後もアカウントの回答済み証拠として保持され、再投稿は行っていない。
+- 最新runはsubmitted=0、outcomes/skips/question_windows/pending/failed空、needs_attention=false、provider_paused=false。MiniBench/Fall両監査はcomplete/matchedで、fetch error、missing question、forecast evidence mismatch/unknownは0。新しい受付中・未回答問題、投稿失敗、取得不一致、提供元停止はない。
+- 実取得間隔は01:17:16.366→01:47:05.108が29分48.743秒、→02:17:15.633が30分10.525秒で60分調査閾値未満。締切前後2実行のモデル応答・失敗呼び出し・tokens・新規費用は0。公式成績の最新取得（00:17:44 JST）はstatus=completed・errors空で、Fall 251位・スコア-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。q46412の公式得点対象認定、個別得点、順位・賞金への反映は未確認。
+- コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

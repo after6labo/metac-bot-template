@@ -2099,3 +2099,16 @@ Total output lines: 2927
 - 締切直前の本番run [39892291913](https://github.com/after6labo/metac-bot-template/actions/runs/39892291913) は11:57:00.617 JSTに実取得を開始し、Fall q46423/post46196を受付中・`already_forecasted=true` と確認した。締切12:00 JST後の本番run [39895016394](https://github.com/after6labo/metac-bot-template/actions/runs/39895016394) は12:27:15.747 JSTに実取得を開始し、同問を `closed / already_forecasted=true` と公式APIの独立監査で確認した。投稿実行39876058359の予測は締切後もアカウントの回答済み証拠として可視で、再投稿は行っていない。
 - 両実行ともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。post-close runはsubmitted=0、pending/failed/needs_attention空、provider_paused=false。新しい未回答、投稿失敗、取得不一致、提供元停止はない。
 - 実取得間隔は11:57:00.617→12:27:15.747が30分15.130秒で60分調査閾値未満。締切前後2実行のモデル応答・失敗呼び出し・tokens・新規費用は0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象認定、スコア、順位、賞金は未確認。
+
+## 2026-10-23 17:49 JST — 公式成績取得を実装し、初回の失点分析を実施
+
+- ユーザーから「結果・ランキングを知りたい、結果を受けて改善すべき」と指摘を受けた。従来は予測runにofficial_score/rank/prizeのnull欄があるだけで、成績の取得処理がなかった。投稿監視を成果評価に接続していなかった運用上の欠落として修正した。
+- performance_report.pyを追加。既存Metaculus認証のGETだけで自Botの公式順位表、採点への寄与、解決済みの自予測を取得する。Fall・現在のMiniBenchに加え、実験期間に重なる過去MiniBenchを含む。本番投稿結果を保存した後にJST日次と新規解決ID検出時に実行し、run-results/performance/latest.json・history・README.mdへ保存する。リポジトリREADMEに成績ページの入口を追加し、AGENTSにも成績レビューを明記した。予測対象、停止条件、ライブ予測値・プロンプトは変更していない。
+- 初回は順位表の集計行のuser=nullで停止し、回帰テスト後に修正。次に短時間連続GETで429を受けたため3.2秒間隔、Retry-After保存、その取得内の後続HTTP停止を追加。旧結果の429からも最低5分待って再検証した。個別post取得による診断run39925218961の5分タイムアウトは、一覧の一括取得へ変更して解消した。一覧APIはwith_cp=trueがなければ自予測やresolutionを返さないため、公式実装を確認して指定を追加し、詳細欠落を取得成功としないチェックも追加した。古いschema 2の詳細nullは評価に使用しない。
+- 最終確認は[run39927130050](https://github.com/after6labo/metac-bot-template/actions/runs/39927130050)、コード[6c0561c](https://github.com/after6labo/metac-bot-template/commit/6c0561c1bcde1a41e28709c5a6c4b89e2a7a2ff2)。取得開始17:48:17.877、終了17:49:25.543 JST、schema 3、全5大会のstatus=completed、errors空、GET19回、LLM呼び出し0。85件のPython回帰テストとschedulerテストがActionsで成功。診断用のキャンセルrunと最終の正常取得を混同しない。
+- Fall 2026：公式251位、spot_peer_tournamentスコア -152.0002565208251、採点寄与2問、exclusion_status=0。順位表の計算日時は10/21 07:32:03 JST、finalized=false。q46133（カボチャ2,000lb以上）はYes55%→Noで -23.2320。q46307（737 MAX 10認証）はYes23%→Yesで -128.7682。practice q45707はこの公式採点2問に含まれない。
+- MiniBench 2026-10-05：公式174位、スコア -202.40684204840116、採点寄与37問、exclusion_status=0、finalized=true。公式計算日時10/23 12:00:05 JST。公式賞金配分は$0。これは賞金の配分表示の確認であり、別途の入金口座照合ではない。
+- 現在のMiniBench（project33132）は公式順位表に自Bot未掲載、解決済み寄与0件であり、スコア・順位を0として扱わない。9/21・9/7ラウンドにも自Botの順位表エントリーはなかった。9/7ラウンドは終了日が実験期間と重なるため参照に含まれるが、参加実績とは数えない。
+- MiniBench 10/5の37問はプラス18・マイナス19。最大失点はq46122（Texas上訴通知、Yes10%→Yes）-138.1344、q46131（サッカー最多得点の同率、当該選択肢8%→同率）-104.6771。2問合計 -242.8115に対し、残る35問合計は +40.4046。まず大きな失点での情報不足・判断根拠・選択肢の確率配分を検証する。失点したという事実だけから原因やモデル全体の優劣は断定しない。
+- 解決済み二択25問（MiniBench23＋Fall2）の自予測pと公式結果yについて、単純平均Brier=(p-y)^2は0.169192。固定の20%縮小 p'=0.8p+0.1 を同じ結果へ適用した診断では0.17562688へ悪化した（低いほど良い）。無情報50%の0.25よりは低い。この診断は公式得点でも独立した検証データでの優位性確認でもない。一律縮小は採用せず、ライブ予測の変更も行わなかった。今後の改善案は既存の解決済み資料と分離した検証対象で比較する。
+- 投稿漏れは精度と分けて追う。17:33 JSTの独立監査では現MiniBench公開58問のうち40問に自予測あり、18問は締切済み・自予測なし。10/19〜20の無料提供元停止と形式変換の既存障害記録に照合し、正常終了によって取り逃しを消さない。最終本番実取得17:48:01.573 JSTでは両大会complete/matched、pending/fetch_errors/outcomes/skips空、failed=0、needs_attention/provider_paused=false、新規投稿なし。今回確認した17:27→17:31→17:33→17:37→17:44→17:48の実取得間隔は60分未満。新規モデル利用・新規費用は0、本人作業の追加はない。

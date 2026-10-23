@@ -9,7 +9,7 @@ from pathlib import Path
 
 BASE = "https://www.metaculus.com/api/"
 TARGETS = ("fall-futureeval-2026", "minibench")
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 ENTRY_FIELDS = ("score", "rank", "coverage", "contribution_count", "calculated_on",
                 "excluded", "exclusion_status", "prize", "ci_lower", "ci_upper")
 BOARD_FIELDS = ("id", "project_id", "project_name", "project_slug", "name", "score_type",
@@ -102,6 +102,8 @@ def resolved_question(post, question_id):
     q = next((q for q in questions if q.get("id") == question_id), None)
     if not q or q.get("status") != "resolved":
         return {"question_id": question_id, "status": "not_resolved_or_not_found"}
+    if q.get("resolution") is None or not isinstance(q.get("my_forecasts"), dict):
+        raise ApiError("resolved_forecast_details_missing")
     result = select(q, ("id", "type", "resolution", "actual_resolve_time", "open_time",
                         "actual_close_time", "spot_scoring_time", "default_score_type", "scaling", "options"))
     forecasts = q.get("my_forecasts") or {}
@@ -120,7 +122,8 @@ def resolved_posts(client, project_id, needed_post_ids):
     posts, offset, seen = {}, 0, set()
     while needed_post_ids - posts.keys():
         data = client.read("posts/", {"tournaments": project_id, "statuses": ["closed", "resolved"],
-                                      "limit": 100, "offset": offset, "order_by": "-published_at"})
+                                      "limit": 100, "offset": offset, "order_by": "-published_at",
+                                      "with_cp": "true", "include_conditional_cps": "true"})
         rows = data.get("results") if isinstance(data, dict) else None
         if not isinstance(rows, list):
             raise ApiError("invalid_posts_schema")
@@ -152,6 +155,7 @@ def collect(token, get=None, sleep=time.sleep):
         report["errors"].append({"stage": "identity", "error": str(exc)})
         report["status"] = "failed"
         report["api_get_calls"] = client.calls
+        report["retry_not_before_utc"] = client.retry_not_before_utc
         return report
     targets = list(TARGETS)
     try:
@@ -203,7 +207,7 @@ def collect(token, get=None, sleep=time.sleep):
                     board["contributions_status"] = "completed"
                     for row in board["resolved_contributions"]:
                         qid, pid = row.get("question_id"), row.get("post_id")
-                        if qid and pid and board["entry_status"] == "found" and row.get("coverage") != 0:
+                        if qid and pid and board["entry_status"] == "found" and (row.get("coverage") or 0) > 0:
                             questions[qid] = pid
                 except ApiError as exc:
                     board["contributions_status"] = "failed"

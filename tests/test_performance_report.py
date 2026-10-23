@@ -9,6 +9,7 @@ class PerformanceTest(unittest.TestCase):
             calls = 0
             def read(self, path, params):
                 self.calls += 1
+                assert params["with_cp"] == "true"
                 return {"results": [{"id": i} for i in range(60)]}
         client = FakeClient()
         self.assertEqual(len(resolved_posts(client, 123, set(range(60)))), 60)
@@ -49,7 +50,7 @@ class PerformanceTest(unittest.TestCase):
         self.assertEqual(data["own_entry"]["score"], -3)
 
     def test_refresh_daily_or_on_new_resolved_ids(self):
-        previous = {"schema_version": 2, "started_at_utc": "2026-10-23T08:00:00+00:00", "status": "completed", "resolution_signature": [1]}
+        previous = {"schema_version": 3, "started_at_utc": "2026-10-23T08:00:00+00:00", "status": "completed", "resolution_signature": [1]}
         now = datetime(2026, 10, 23, 9, tzinfo=timezone.utc)
         self.assertFalse(is_due(previous, [1], now))
         self.assertTrue(is_due(previous, [1, 2], now))

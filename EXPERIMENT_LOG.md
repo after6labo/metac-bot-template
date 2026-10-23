@@ -2092,3 +2092,10 @@ Total output lines: 2927
 - 最新の本番run [39882079304](https://github.com/after6labo/metac-bot-template/actions/runs/39882079304)（実取得10:07:17.914 JST）でも同状態を維持した。両実行ともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。pending/failed/needs_attentionは空、provider_paused=false、重複投稿なし。
 - 実取得間隔は09:07:22.730→09:37:05.654が29分42.925秒、→10:07:17.914が30分12.260秒で60分調査閾値未満。確認2実行のモデル応答・失敗呼び出し・tokens・新規費用は0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
 - q46423の締切後保持は未確認。公式の得点対象、スコア、順位、賞金も未確認で、監視を継続する。
+
+
+## 2026-10-23 12:47 JST — Fall q46423の締切後保持を確認
+
+- 締切直前の本番run [39892291913](https://github.com/after6labo/metac-bot-template/actions/runs/39892291913) は11:57:00.617 JSTに実取得を開始し、Fall q46423/post46196を受付中・`already_forecasted=true` と確認した。締切12:00 JST後の本番run [39895016394](https://github.com/after6labo/metac-bot-template/actions/runs/39895016394) は12:27:15.747 JSTに実取得を開始し、同問を `closed / already_forecasted=true` と公式APIの独立監査で確認した。投稿実行39876058359の予測は締切後もアカウントの回答済み証拠として可視で、再投稿は行っていない。
+- 両実行ともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。post-close runはsubmitted=0、pending/failed/needs_attention空、provider_paused=false。新しい未回答、投稿失敗、取得不一致、提供元停止はない。
+- 実取得間隔は11:57:00.617→12:27:15.747が30分15.130秒で60分調査閾値未満。締切前後2実行のモデル応答・失敗呼び出し・tokens・新規費用は0。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象認定、スコア、順位、賞金は未確認。

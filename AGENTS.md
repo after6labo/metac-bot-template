@@ -181,3 +181,11 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   healthy because they behaved as configured. Unanswered questions can be tried
   on subsequent runs while still open, after checking submission evidence and
   respecting provider cooldown. No individual probability tuning is allowed.
+
+
+## Official performance and improvement review — 2026-10-23
+- The owner explicitly requested actual results/ranking and evidence-based improvement. Read run-results/performance/latest.json and README.md alongside operational health; unknown score fields in the forecast-run JSON are not the performance source.
+- performance_report.py reads official leaderboards, own entries and resolved question contributions using the existing Metaculus token. The production workflow collects once per JST day and when the independent inventory's resolved IDs change, after forecast-result persistence. Store chronological snapshots. A failed/partial report is not a successful results audit; preserve timestamps, error categories and cooldowns.
+- Current and earlier MiniBench rounds overlapping the experiment are included. Rank, score, score type, calculation timestamp, coverage and exclusion status must be reported together. Prize allocation is provisional until finalized and never establishes payment receipt.
+- Compare only resolved competitive questions. Practice submissions, unresolved/live forecasts, and empty/error API responses do not support performance claims. Review official per-question contributions separately from missed opportunities and technical publication failures.
+- Improvement proposals must identify evidence and use historical/resolved evaluation data plus held-out validation. Do not change live probabilities or prompts based on live outputs, or overfit a small result sample. Existing free-only constraints remain in force.

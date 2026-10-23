@@ -2,11 +2,14 @@
 import json
 import os
 import sys
+import time
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 BASE = "https://www.metaculus.com/api/"
 TARGETS = ("fall-futureeval-2026", "minibench")
+SCHEMA_VERSION = 2
 ENTRY_FIELDS = ("score", "rank", "coverage", "contribution_count", "calculated_on",
                 "excluded", "exclusion_status", "prize", "ci_lower", "ci_upper")
 BOARD_FIELDS = ("id", "project_id", "project_name", "project_slug", "name", "score_type",
@@ -25,21 +28,42 @@ class ApiError(Exception):
 
 
 class Client:
-    def __init__(self, token, get=None):
+    def __init__(self, token, get=None, interval_seconds=3.2, sleep=time.sleep):
         self.token = token
         if get is None:
             import requests
             get = requests.get
         self.get = get
         self.calls = 0
+        self.interval_seconds = interval_seconds
+        self.sleep = sleep
+        self.paused = False
+        self.retry_not_before_utc = None
 
     def read(self, path, params=None):
+        if self.paused:
+            raise ApiError("http_429_paused")
+        if self.calls:
+            self.sleep(self.interval_seconds)
         self.calls += 1
         try:
             response = self.get(BASE + path, params=params,
                                 headers={"Authorization": f"Token {self.token}"},
                                 timeout=15)
             if response.status_code != 200:
+                if response.status_code == 429:
+                    self.paused = True
+                    # Stop this collection; do not retry or continue through other endpoints.
+                    retry = getattr(response, "headers", {}).get("Retry-After")
+                    now = datetime.now(timezone.utc)
+                    try:
+                        resume = now + timedelta(seconds=max(0, float(retry)))
+                    except (TypeError, ValueError):
+                        try:
+                            resume = parsedate_to_datetime(retry)
+                        except (TypeError, ValueError):
+                            resume = now + timedelta(minutes=5)
+                    self.retry_not_before_utc = resume.isoformat()
                 raise ApiError(f"http_{response.status_code}")
             return response.json()
         except ApiError:
@@ -79,21 +103,21 @@ def resolved_question(post, question_id):
     if not q or q.get("status") != "resolved":
         return {"question_id": question_id, "status": "not_resolved_or_not_found"}
     result = select(q, ("id", "type", "resolution", "actual_resolve_time", "open_time",
-                        "actual_close_time", "spot_scoring_time", "default_score_type"))
+                        "actual_close_time", "spot_scoring_time", "default_score_type", "scaling", "options"))
     forecasts = q.get("my_forecasts") or {}
     result["score_data"] = forecasts.get("score_data")
     # Only export the resolved question's own forecast; never live predictions.
     latest = forecasts.get("latest")
-    result["last_forecast"] = select(latest, ("start_time", "end_time", "probability_yes",
-                                              "probability_yes_per_category", "quartiles")) if latest else None
+    result["last_forecast"] = select(latest, ("start_time", "end_time", "forecast_values",
+                                              "interval_lower_bounds", "centers", "interval_upper_bounds")) if latest else None
     history = forecasts.get("history")
     result["forecast_count"] = len(history) if isinstance(history, list) else None
     return result
 
 
-def collect(token, get=None):
-    client = Client(token, get)
-    report = {"schema_version": 1, "started_at_utc": datetime.now(timezone.utc).isoformat(),
+def collect(token, get=None, sleep=time.sleep):
+    client = Client(token, get, sleep=sleep)
+    report = {"schema_version": SCHEMA_VERSION, "started_at_utc": datetime.now(timezone.utc).isoformat(),
               "run_id": os.getenv("GITHUB_RUN_ID"), "status": "completed", "errors": [],
               "projects": [], "llm_calls": 0, "prize_payment_confirmed": None}
     try:
@@ -107,7 +131,21 @@ def collect(token, get=None):
         report["status"] = "failed"
         report["api_get_calls"] = client.calls
         return report
-    for slug in TARGETS:
+    targets = list(TARGETS)
+    try:
+        rounds = client.read("projects/minibenches/")
+        if not isinstance(rounds, list):
+            raise ApiError("invalid_minibenches_schema")
+        # Include earlier rounds overlapping this experiment, not just the rolling alias.
+        report["minibench_rounds"] = [select(p, ("id", "slug", "name", "start_date", "close_date"))
+                                      for p in rounds if (p.get("close_date") or "") >= "2026-09-24"
+                                      and (p.get("start_date") or "9999") <= report["started_at_utc"]]
+        targets += [p["slug"] for p in report["minibench_rounds"] if p.get("slug") and p["slug"] not in targets]
+    except ApiError as exc:
+        report["errors"].append({"stage": "minibench_rounds", "error": str(exc)})
+        report["status"] = "partial_or_failed"
+    seen_projects = set()
+    for slug in targets:
         project = {"requested_slug": slug, "status": "completed", "leaderboards": [],
                    "resolved_questions": [], "errors": []}
         report["projects"].append(project)
@@ -116,6 +154,10 @@ def collect(token, get=None):
             project.update(select(info, ("id", "name", "slug", "start_date", "close_date")))
             if not isinstance(project["id"], int):
                 raise ApiError("missing_project_id")
+            if project["id"] in seen_projects:
+                report["projects"].remove(project)
+                continue
+            seen_projects.add(project["id"])
             boards = client.read(f"leaderboards/project/{project['id']}/")
             if not isinstance(boards, list):
                 raise ApiError("invalid_leaderboard_schema")
@@ -160,6 +202,7 @@ def collect(token, get=None):
             project["status"] = "partial_or_failed"
             report["status"] = "partial_or_failed"
     report["api_get_calls"] = client.calls
+    report["retry_not_before_utc"] = client.retry_not_before_utc
     report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
     return report
 
@@ -180,12 +223,13 @@ def main():
         previous = json.loads(path.read_text())
         now = datetime.now(timezone.utc)
         if not is_due(previous, signature, now):
-            print("Official performance report is current for this day/resolution set.")
+            print("Performance collection not due or cooling down; consult stored status and timestamp.")
             return
     report = collect(os.environ["METACULUS_TOKEN"])
     report["resolution_signature"] = signature
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    (path.parent / "README.md").write_text(render_markdown(report))
     if report["run_id"]:
         history = path.parent / "history"
         history.mkdir(exist_ok=True)
@@ -194,6 +238,24 @@ def main():
 
 
 def is_due(previous, signature, now):
+    if previous.get("retry_not_before_utc"):
+        try:
+            if now < datetime.fromisoformat(previous["retry_not_before_utc"]):
+                return False
+        except (TypeError, ValueError):
+            return False
+    # Older reports did not persist Retry-After. Wait at least five minutes after
+    # a recorded 429 when upgrading them, rather than using schema change as a retry.
+    if not previous.get("retry_not_before_utc"):
+        errors = previous.get("errors", []) + [e for p in previous.get("projects", []) for e in p.get("errors", [])]
+        if any(e.get("error", "").startswith("http_429") for e in errors):
+            try:
+                if now < datetime.fromisoformat(previous["started_at_utc"]) + timedelta(minutes=5):
+                    return False
+            except (KeyError, TypeError, ValueError):
+                return False
+    if previous.get("schema_version") != SCHEMA_VERSION:
+        return True
     try:
         previous_time = datetime.fromisoformat(previous["started_at_utc"])
         jst = timezone(timedelta(hours=9))
@@ -202,6 +264,36 @@ def is_due(previous, signature, now):
         return new_day or (previous.get("status") == "completed" and new_resolutions)
     except (KeyError, TypeError, ValueError):
         return True
+
+
+def render_markdown(report):
+    def value(x):
+        if x is None:
+            return "未確認"
+        return f"{x:.2f}" if isinstance(x, float) else str(x)
+    lines = ["# 公式成績", "", f"取得開始（UTC）: {report['started_at_utc']}",
+             f"取得状態: {report['status']}。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。", "",
+             "| 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |",
+             "|---|---:|---:|---:|---|"]
+    for project in report["projects"]:
+        for board in project["leaderboards"]:
+            entry = board.get("own_entry") or {}
+            lines.append("| " + " | ".join([project.get("name") or project["requested_slug"],
+                value(entry.get("rank")), value(entry.get("score")), value(entry.get("contribution_count")),
+                value(entry.get("calculated_on"))]) + " |")
+        if not project["leaderboards"]:
+            lines.append(f"| {project['requested_slug']}（{project['status']}） | 未確認 | 未確認 | 未確認 | 未確認 |")
+    lines += ["", "## 確定済み問題の公式採点", "", "| 大会 | 問題 | 結果 | 公式得点 |", "|---|---|---|---:|"]
+    for project in report["projects"]:
+        for board in project["leaderboards"]:
+            for row in board.get("resolved_contributions", []):
+                lines.append(f"| {project['requested_slug']} | [q{row['question_id']}](https://www.metaculus.com/questions/{row['post_id']}/) | {row['question_resolution']} | {value(row['score'])} |")
+    lines += ["", "## 改善レビュー", "", "- 各問の公式得点・予測値・確定結果を照合し、失点の大きい問題から原因を調べる。",
+              "- 少数の結果だけで予測値やプロンプトを最適化しない。改善案は解決済みの評価用データと別の検証用データで比較する。",
+              "- 投稿漏れ・形式変換失敗は予測精度と分けて改善する。ライブ問題への手動調整はしない。",
+              "- 新規モデル・有料検索は使用しない。この成績取得のLLM呼び出しは0回。", "",
+              "詳細な取得障害・確定状況・賞金表示は [latest.json](latest.json)、過去の推移は [history](history) を参照。", ""]
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

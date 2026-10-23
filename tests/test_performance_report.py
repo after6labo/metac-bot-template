@@ -4,12 +4,37 @@ from performance_report import Client, ApiError, board_summary, resolved_contrib
 
 
 class PerformanceTest(unittest.TestCase):
+    def test_rate_limit_stops_all_later_requests_and_records_wait(self):
+        class Response:
+            status_code = 429
+            headers = {"Retry-After": "600"}
+        client = Client("secret", lambda *a, **k: Response(), sleep=lambda s: None)
+        with self.assertRaisesRegex(ApiError, "http_429"):
+            client.read("a")
+        with self.assertRaisesRegex(ApiError, "http_429_paused"):
+            client.read("b")
+        self.assertEqual(client.calls, 1)
+        self.assertIsNotNone(client.retry_not_before_utc)
+
+    def test_cooldown_wins_over_schema_refresh(self):
+        previous = {"schema_version": 1, "retry_not_before_utc": "2026-10-24T00:00:00+00:00"}
+        self.assertFalse(is_due(previous, [], datetime(2026, 10, 23, tzinfo=timezone.utc)))
+
+    def test_requests_are_spaced(self):
+        waits = []
+        class Response:
+            status_code = 200
+            def json(self): return {}
+        client = Client("secret", lambda *a, **k: Response(), sleep=waits.append)
+        client.read("a")
+        client.read("b")
+        self.assertEqual(waits, [3.2])
     def test_aggregate_entries_have_no_user(self):
         data = board_summary({"entries": [{"user": None, "score": 30}, {"user": {"id": 9}, "score": -3, "rank": 4}]}, 9)
         self.assertEqual(data["own_entry"]["score"], -3)
 
     def test_refresh_daily_or_on_new_resolved_ids(self):
-        previous = {"started_at_utc": "2026-10-23T08:00:00+00:00", "status": "completed", "resolution_signature": [1]}
+        previous = {"schema_version": 2, "started_at_utc": "2026-10-23T08:00:00+00:00", "status": "completed", "resolution_signature": [1]}
         now = datetime(2026, 10, 23, 9, tzinfo=timezone.utc)
         self.assertFalse(is_due(previous, [1], now))
         self.assertTrue(is_due(previous, [1, 2], now))
@@ -35,6 +60,11 @@ class PerformanceTest(unittest.TestCase):
     def test_live_forecasts_never_exported(self):
         result = resolved_question({"question": {"id": 1, "status": "open", "my_forecasts": {"latest": {"probability_yes": .1}}}}, 1)
         self.assertNotIn("last_forecast", result)
+
+    def test_resolved_forecast_uses_official_serializer_shape(self):
+        result = resolved_question({"question": {"id": 1, "status": "resolved", "type": "binary", "resolution": "yes", "my_forecasts": {"latest": {"forecast_values": [.2, .8]}, "history": [{}]}}}, 1)
+        self.assertEqual(result["last_forecast"]["forecast_values"], [.2, .8])
+        self.assertEqual(result["forecast_count"], 1)
 
     def test_error_never_exports_response_or_token(self):
         class Response:

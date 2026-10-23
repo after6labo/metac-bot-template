@@ -115,6 +115,28 @@ def resolved_question(post, question_id):
     return result
 
 
+def resolved_posts(client, project_id, needed_post_ids):
+    """Batch closed/resolved post details; stop once all contributed posts are found."""
+    posts, offset, seen = {}, 0, set()
+    while needed_post_ids - posts.keys():
+        data = client.read("posts/", {"tournaments": project_id, "statuses": ["closed", "resolved"],
+                                      "limit": 100, "offset": offset, "order_by": "-published_at"})
+        rows = data.get("results") if isinstance(data, dict) else None
+        if not isinstance(rows, list):
+            raise ApiError("invalid_posts_schema")
+        ids = {p.get("id") for p in rows}
+        if ids & seen or len(ids) != len(rows):
+            raise ApiError("duplicate_posts_page")
+        seen.update(ids)
+        posts.update({p["id"]: p for p in rows if p.get("id") in needed_post_ids})
+        offset += len(rows)
+        if len(rows) < 100:
+            break
+    if needed_post_ids - posts.keys():
+        raise ApiError("resolved_contribution_posts_missing")
+    return posts
+
+
 def collect(token, get=None, sleep=time.sleep):
     client = Client(token, get, sleep=sleep)
     report = {"schema_version": SCHEMA_VERSION, "started_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -162,7 +184,6 @@ def collect(token, get=None, sleep=time.sleep):
             if not isinstance(boards, list):
                 raise ApiError("invalid_leaderboard_schema")
             project["leaderboards"] = [board_summary(b, user_id) for b in boards]
-            post_cache = {}
             questions = {}
             for board in project["leaderboards"]:
                 params = {"for_user": user_id, "project": project["id"]}
@@ -182,20 +203,20 @@ def collect(token, get=None, sleep=time.sleep):
                     board["contributions_status"] = "completed"
                     for row in board["resolved_contributions"]:
                         qid, pid = row.get("question_id"), row.get("post_id")
-                        if qid and pid:
+                        if qid and pid and board["entry_status"] == "found" and row.get("coverage") != 0:
                             questions[qid] = pid
                 except ApiError as exc:
                     board["contributions_status"] = "failed"
                     project["errors"].append({"stage": "contributions", "board_id": board["id"], "error": str(exc)})
-            for qid, pid in questions.items():
+            if questions:
                 try:
-                    if pid not in post_cache:
-                        post_cache[pid] = client.read(f"posts/{pid}/")
-                    question = resolved_question(post_cache[pid], qid)
-                    question["post_id"] = pid
-                    project["resolved_questions"].append(question)
+                    post_cache = resolved_posts(client, project["id"], set(questions.values()))
+                    for qid, pid in questions.items():
+                        question = resolved_question(post_cache[pid], qid)
+                        question["post_id"] = pid
+                        project["resolved_questions"].append(question)
                 except ApiError as exc:
-                    project["errors"].append({"stage": "resolved_question", "question_id": qid, "error": str(exc)})
+                    project["errors"].append({"stage": "resolved_questions", "error": str(exc)})
         except ApiError as exc:
             project["errors"].append({"stage": "project_or_leaderboard", "error": str(exc)})
         if project["errors"]:

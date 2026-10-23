@@ -1,4 +1,13 @@
 # Simple Metaculus forecasting bot
+
+## この実験の成績
+
+- [公式スコア・順位・確定済み結果](run-results/performance/README.md)
+- [取得日時・API障害を含む詳細](run-results/performance/latest.json) / [成績の推移](run-results/performance/history)
+- [運用・改善の実験記録](EXPERIMENT_LOG.md)
+
+既存の無料運用で、予測投稿後に日次および新規結果確定時の成績を取得します。投稿成功、公式採点、暫定賞金、受取済み賞金を分けて扱います。
+
 This repository contains a simple bot meant to get you started with creating your own bot for the AI Forecasting Tournament. Go to https://www.metaculus.com/futureeval/participate/ for more info and tournament rules (and then go to the  "Getting Started" section of our [resources](https://www.metaculus.com/notebooks/38928/ai-benchmark-resources/#want-to-join-the-ai-forecasting-benchmark) page).
 
 **Brand new to this?** You can get a working bot running in about 5 minutes without writing a single line of code — just fork this repo, paste two API keys into GitHub, and click "Run workflow". See **[Quick start](#quick-start--fork-and-use-github-actions)** below.

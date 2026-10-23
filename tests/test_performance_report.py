@@ -1,9 +1,24 @@
 import unittest
 from datetime import datetime, timezone
-from performance_report import Client, ApiError, board_summary, resolved_contributions, resolved_question, collect, is_due
+from performance_report import Client, ApiError, board_summary, resolved_contributions, resolved_question, resolved_posts, collect, is_due
 
 
 class PerformanceTest(unittest.TestCase):
+    def test_many_results_need_one_batch_request(self):
+        class FakeClient:
+            calls = 0
+            def read(self, path, params):
+                self.calls += 1
+                return {"results": [{"id": i} for i in range(60)]}
+        client = FakeClient()
+        self.assertEqual(len(resolved_posts(client, 123, set(range(60)))), 60)
+        self.assertEqual(client.calls, 1)
+
+    def test_missing_result_is_explicit_not_empty_success(self):
+        class FakeClient:
+            def read(self, path, params): return {"results": []}
+        with self.assertRaisesRegex(ApiError, "resolved_contribution_posts_missing"):
+            resolved_posts(FakeClient(), 123, {9})
     def test_rate_limit_stops_all_later_requests_and_records_wait(self):
         class Response:
             status_code = 429

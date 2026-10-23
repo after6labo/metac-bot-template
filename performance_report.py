@@ -1,7 +1,8 @@
 """Read-only official results collection. Never generates or changes forecasts."""
 import json
 import os
-from datetime import datetime, timezone
+import sys
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 BASE = "https://www.metaculus.com/api/"
@@ -55,9 +56,9 @@ def resolved_contributions(rows):
 def board_summary(board, user_id):
     summary = select(board, BOARD_FIELDS)
     entries = board.get("entries", [])
-    entry = next((e for e in entries if e.get("user", {}).get("id") == user_id), None)
+    entry = next((e for e in entries if (e.get("user") or {}).get("id") == user_id), None)
     own = board.get("userEntry")
-    if isinstance(own, dict) and own.get("user", {}).get("id") == user_id:
+    if isinstance(own, dict) and (own.get("user") or {}).get("id") == user_id:
         entry = own
     summary["entry_status"] = "found" if entry else "not_listed"
     summary["own_entry"] = select(entry, ENTRY_FIELDS) if entry else None
@@ -164,11 +165,43 @@ def collect(token, get=None):
 
 
 def main():
-    report = collect(os.environ["METACULUS_TOKEN"])
     path = Path("run-results/performance/latest.json")
+    forecast_path = Path("run-results/latest.json")
+    signature = []
+    if forecast_path.exists():
+        data = json.loads(forecast_path.read_text())
+        for audit in data.get("retrieval_audit", []):
+            if isinstance(audit, dict):
+                for question in audit.get("questions", []):
+                    if question.get("status") == "resolved":
+                        signature.append(question.get("question_id"))
+    signature = sorted(x for x in set(signature) if isinstance(x, int))
+    if "--if-due" in sys.argv and path.exists():
+        previous = json.loads(path.read_text())
+        now = datetime.now(timezone.utc)
+        if not is_due(previous, signature, now):
+            print("Official performance report is current for this day/resolution set.")
+            return
+    report = collect(os.environ["METACULUS_TOKEN"])
+    report["resolution_signature"] = signature
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    if report["run_id"]:
+        history = path.parent / "history"
+        history.mkdir(exist_ok=True)
+        (history / f"{report['run_id']}-{os.getenv('GITHUB_RUN_ATTEMPT', '1')}.json").write_text(path.read_text())
     print("PERFORMANCE_RESULT=" + json.dumps(report, ensure_ascii=False))
+
+
+def is_due(previous, signature, now):
+    try:
+        previous_time = datetime.fromisoformat(previous["started_at_utc"])
+        jst = timezone(timedelta(hours=9))
+        new_day = previous_time.astimezone(jst).date() != now.astimezone(jst).date()
+        new_resolutions = previous.get("resolution_signature") != signature
+        return new_day or (previous.get("status") == "completed" and new_resolutions)
+    except (KeyError, TypeError, ValueError):
+        return True
 
 
 if __name__ == "__main__":

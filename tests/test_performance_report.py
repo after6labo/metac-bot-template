@@ -1,8 +1,21 @@
 import unittest
-from performance_report import Client, ApiError, board_summary, resolved_contributions, resolved_question, collect
+from datetime import datetime, timezone
+from performance_report import Client, ApiError, board_summary, resolved_contributions, resolved_question, collect, is_due
 
 
 class PerformanceTest(unittest.TestCase):
+    def test_aggregate_entries_have_no_user(self):
+        data = board_summary({"entries": [{"user": None, "score": 30}, {"user": {"id": 9}, "score": -3, "rank": 4}]}, 9)
+        self.assertEqual(data["own_entry"]["score"], -3)
+
+    def test_refresh_daily_or_on_new_resolved_ids(self):
+        previous = {"started_at_utc": "2026-10-23T08:00:00+00:00", "status": "completed", "resolution_signature": [1]}
+        now = datetime(2026, 10, 23, 9, tzinfo=timezone.utc)
+        self.assertFalse(is_due(previous, [1], now))
+        self.assertTrue(is_due(previous, [1, 2], now))
+        self.assertTrue(is_due(previous, [1], datetime(2026, 10, 23, 15, tzinfo=timezone.utc)))
+        previous["status"] = "failed"
+        self.assertFalse(is_due(previous, [1, 2], now))
     def test_not_listed_is_unknown_not_zero(self):
         data = board_summary({"entries": [{"user": {"id": 8}, "score": 12}]}, 9)
         self.assertEqual(data["entry_status"], "not_listed")

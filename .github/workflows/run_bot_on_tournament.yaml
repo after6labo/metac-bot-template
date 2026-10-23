@@ -99,3 +99,33 @@ jobs:
           git commit -m "Record autonomous forecast run ${GITHUB_RUN_ID}"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Collect official performance daily and on resolved outcomes
+        if: always()
+        timeout-minutes: 3
+        env:
+          METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
+        run: poetry run python performance_report.py --if-due
+      - name: Preserve official performance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-performance-${{ github.run_id }}
+          path: run-results/performance
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Record official performance
+        if: always()
+        run: |
+          if [ ! -f run-results/performance/latest.json ]; then
+            exit 0
+          fi
+          git add run-results/performance
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Record official performance from run ${GITHUB_RUN_ID}"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -12,6 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Collect official scores and resolved outcomes (read only)
+        env:
+          METACULUS_TOKEN: ${{ secrets.METACULUS_TOKEN }}
+        run: |
+          python3 -m pip install --quiet 'requests==2.32.5'
+          python3 -m unittest discover -s tests -p test_performance_report.py -v
+          python3 performance_report.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-performance
+          path: run-results/performance/latest.json
+          retention-days: 30
       - name: Install official client's HTTP dependency
         run: python3 -m pip install --quiet 'requests==2.32.5'
       - name: Read question window metadata only

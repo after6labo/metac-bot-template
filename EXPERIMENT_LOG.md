@@ -2112,3 +2112,11 @@ Total output lines: 2927
 - MiniBench 10/5の37問はプラス18・マイナス19。最大失点はq46122（Texas上訴通知、Yes10%→Yes）-138.1344、q46131（サッカー最多得点の同率、当該選択肢8%→同率）-104.6771。2問合計 -242.8115に対し、残る35問合計は +40.4046。まず大きな失点での情報不足・判断根拠・選択肢の確率配分を検証する。失点したという事実だけから原因やモデル全体の優劣は断定しない。
 - 解決済み二択25問（MiniBench23＋Fall2）の自予測pと公式結果yについて、単純平均Brier=(p-y)^2は0.169192。固定の20%縮小 p'=0.8p+0.1 を同じ結果へ適用した診断では0.17562688へ悪化した（低いほど良い）。無情報50%の0.25よりは低い。この診断は公式得点でも独立した検証データでの優位性確認でもない。一律縮小は採用せず、ライブ予測の変更も行わなかった。今後の改善案は既存の解決済み資料と分離した検証対象で比較する。
 - 投稿漏れは精度と分けて追う。17:33 JSTの独立監査では現MiniBench公開58問のうち40問に自予測あり、18問は締切済み・自予測なし。10/19〜20の無料提供元停止と形式変換の既存障害記録に照合し、正常終了によって取り逃しを消さない。最終本番実取得17:48:01.573 JSTでは両大会complete/matched、pending/fetch_errors/outcomes/skips空、failed=0、needs_attention/provider_paused=false、新規投稿なし。今回確認した17:27→17:31→17:33→17:37→17:44→17:48の実取得間隔は60分未満。新規モデル利用・新規費用は0、本人作業の追加はない。
+
+
+## 2026-10-23 23:50 JST — Fall q46412へ本番投稿し独立確認
+
+- 新規Fall q46412/post46184（受付23:00〜翌02:00 JST）は本番run [39968204804](https://github.com/after6labo/metac-bot-template/actions/runs/39968204804) が23:17:13.571 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を23:18:32.325、説明を23:18:36.043 JSTに投稿し、締切まで約2時間41分を残して完了した。
+- runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。観測応答2、失敗呼び出し記録0、3,810 tokens、新規費用$0で、提供元の無料枠消費量ではない。
+- 後続本番run [39972483328](https://github.com/after6labo/metac-bot-template/actions/runs/39972483328) は23:47:15.260 JSTに実取得を開始し、q46412を受付中・`already_forecasted=true` と公式APIの独立監査で確認して再投稿を回避した。両大会監査はcomplete/matched、pending/failed/needs_attention空、provider_paused=false。追加のモデル応答・tokens・費用は0。
+- 今回確認した実取得間隔は22:37:08.490→22:51:51.057が14分42.568秒、→23:17:13.571が25分22.513秒、→23:47:15.260が30分01.690秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。q46412の締切後保持と公式の得点対象、スコア、順位、賞金は未確認で、監視を継続する。

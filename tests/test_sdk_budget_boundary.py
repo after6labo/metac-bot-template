@@ -162,6 +162,7 @@ class SdkBudgetTests(unittest.TestCase):
             with patch('main.structure_output', new_callable=AsyncMock,
                        return_value=parsed) as parser:
                 await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
+                # One initial conversion plus two bounded retries.
                 self.assertEqual(parser.await_args.kwargs['allowed_tries'], 3)
 
         asyncio.run(scenario())

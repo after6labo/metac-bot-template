@@ -437,7 +437,7 @@ class SummerTemplateBot2026(ForecastBot):
                 output_type=PredictedOptionList,
                 model=self.get_llm("parser", "llm"),
                 num_validation_samples=self._structure_output_validation_samples,
-                allowed_tries=2,
+                allowed_tries=3,
                 additional_instructions=parsing_instructions,
             )
 

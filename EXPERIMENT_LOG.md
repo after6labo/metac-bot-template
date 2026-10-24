@@ -2144,3 +2144,13 @@ Total output lines: 2927
 - 最新runはsubmitted=0、outcomes/skips/question_windows/pending/failed空、needs_attention=false、provider_paused=false。MiniBench/Fall両監査はcomplete/matchedで、fetch error、missing question、forecast evidence mismatch/unknownは0。新しい受付中・未回答問題、投稿失敗、取得不一致、提供元停止はない。Actions jobと全stepはsuccess。
 - 実取得間隔は20:06:59.728→20:37:10.792が30分11.064秒、→21:07:05.061が29分54.270秒で60分調査閾値未満。締切前後2実行のモデル応答・失敗呼び出し・tokens・新規費用は0。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。q46424の公式得点対象認定、個別得点、順位・賞金への反映は未確認。
 - コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+## 2026-10-25 00:06 JST — MiniBench q46410投稿、Fall q46413の形式変換障害を修正して締切内復旧
+
+- 新規MiniBench q46410/post46181（受付23:20:14〜翌02:20:14 JST）とFall q46413/post46185（受付23:00〜翌02:00 JST）は、本番run [40102491733](https://github.com/after6labo/metac-bot-template/actions/runs/40102491733) が23:27:11.283 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。q46410は予測を23:27:59.381、説明を23:28:03.521 JSTに投稿。後続run 40104623473と40104626822はいずれも受付中・`already_forecasted=true` と独立監査で確認し、再投稿を回避した。
+- 同じ初回runでq46413は、複数選択肢の構造変換が完全なJSONを返したものの確率合計が1.06で、SDKの厳密検証により投稿せず終了した。runtimeはq46410のsubmitted=1に対してq46413がfailed_or_unconfirmed=1、pending、needs_attention=true。両大会監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0、provider pauseもなかった。原因判明を復旧扱いせず、その場で修正した。
+- 最小修正は複数選択肢だけの既存構造変換試行を2回から3回へ増やすもの。独自の正規化や不正な確率の投稿は追加せず、SDKの厳密検証、質問対象、無料モデル経路、停止条件、予測生成プロンプト、ライブ問題の予測値は変更していない。回帰テストは許容試行3回を固定し、Python 85件と外部scheduler 12件を通過。実装は [ddca8c8](https://github.com/after6labo/metac-bot-template/commit/ddca8c8b4519694ccae0feb1e523cbe206057b0d)。
+- 修正直後の本番run [40104623473](https://github.com/after6labo/metac-bot-template/actions/runs/40104623473)（実取得23:55:54.384 JST）は追加した3回目まで試行したが、有効JSONを得られずq46413は未投稿のまま。失敗を正常扱いせず、pending/needs_attentionを維持した。次の本番run [40104626822](https://github.com/after6labo/metac-bot-template/actions/runs/40104626822) は23:57:30.560 JSTに新しい生成を行い、既存の厳密行パーサーで妥当な形式を取得して、予測を翌00:00:03.354、説明を00:00:08.165 JSTに投稿した。締切まで約1時間59分を残し、submitted=1、failed/pending/needs_attention空、provider_paused=falseへ復旧した。コメント失敗前の予測成功を疑う状態や再投稿はない。
+- 実取得間隔は前回13:57:16.461 UTCから14:27:11.283 UTCが29分54.822秒、次が28分43.101秒、その次が1分36.176秒で、最大でも60分調査閾値未満。3実行合計は観測応答11、失敗呼び出し記録0、34,003 tokens、新規費用$0で、提供元の無料枠消費量ではない。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。
+- q46413の投稿API成功は確認済みだが、後続実行の `already_forecasted=true` と両問の締切後保持、公式の得点対象認定、個別得点、順位・賞金への反映は未確認で、監視を継続する。本人作業の追加はない。
+

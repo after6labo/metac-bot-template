@@ -1,0 +1,1201 @@
+{
+  "started_at_utc": "2026-10-24T01:57:21.330053+00:00",
+  "mode": "tournament",
+  "targets": [
+    "minibench",
+    "fall-futureeval-2026"
+  ],
+  "model_route": "openrouter/openrouter/free",
+  "actual_routed_models": null,
+  "external_research": false,
+  "credit_approval": "unverified",
+  "credit_balance": null,
+  "api_call_count": null,
+  "api_token_usage": 0,
+  "official_score": null,
+  "official_rank": null,
+  "prize_usd": null,
+  "cost_measurement": "Free-only route; estimated costs cover returned reports, not provider billing",
+  "new_spending_usd": 0,
+  "submitted": 0,
+  "failed_or_unconfirmed": 0,
+  "estimated_llm_cost_usd": 0.0,
+  "outcomes": [],
+  "skips": [],
+  "question_windows": [],
+  "pending_questions": [],
+  "needs_attention": false,
+  "fetch_errors": [],
+  "retrieval_audit": [
+    {
+      "source": "minibench",
+      "checked_at_utc": "2026-10-24T01:57:29.548737+00:00",
+      "complete": true,
+      "post_count": 58,
+      "questions": [
+        {
+          "question_id": 46409,
+          "post_id": 46180,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T05:40:32+00:00",
+          "close_time_utc": "2026-10-22T08:40:32+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46408,
+          "post_id": 46179,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T00:17:37+00:00",
+          "close_time_utc": "2026-10-22T03:17:37+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46407,
+          "post_id": 46178,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-21T01:12:58+00:00",
+          "close_time_utc": "2026-10-21T04:12:58+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46406,
+          "post_id": 46177,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T23:10:54+00:00",
+          "close_time_utc": "2026-10-21T02:10:54+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46405,
+          "post_id": 46176,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T21:13:05+00:00",
+          "close_time_utc": "2026-10-21T00:13:05+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46404,
+          "post_id": 46175,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T19:11:51+00:00",
+          "close_time_utc": "2026-10-20T22:11:51+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46403,
+          "post_id": 46174,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T17:21:32+00:00",
+          "close_time_utc": "2026-10-20T20:21:32+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46402,
+          "post_id": 46173,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T16:38:24+00:00",
+          "close_time_utc": "2026-10-20T19:38:24+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46401,
+          "post_id": 46172,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T15:28:31+00:00",
+          "close_time_utc": "2026-10-20T18:28:31+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46400,
+          "post_id": 46171,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T09:29:20+00:00",
+          "close_time_utc": "2026-10-20T12:29:20+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46399,
+          "post_id": 46170,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T09:17:04+00:00",
+          "close_time_utc": "2026-10-20T12:17:04+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46398,
+          "post_id": 46169,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T07:21:14+00:00",
+          "close_time_utc": "2026-10-20T10:21:14+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46397,
+          "post_id": 46168,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T06:30:33+00:00",
+          "close_time_utc": "2026-10-20T09:30:33+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46396,
+          "post_id": 46167,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T06:09:57+00:00",
+          "close_time_utc": "2026-10-20T09:09:57+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46395,
+          "post_id": 46166,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T06:07:50+00:00",
+          "close_time_utc": "2026-10-20T09:07:50+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46394,
+          "post_id": 46165,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T05:14:55+00:00",
+          "close_time_utc": "2026-10-20T08:14:55+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46393,
+          "post_id": 46164,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T04:32:21+00:00",
+          "close_time_utc": "2026-10-20T07:32:21+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46392,
+          "post_id": 46163,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T02:31:54+00:00",
+          "close_time_utc": "2026-10-20T05:31:54+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46391,
+          "post_id": 46162,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T02:15:02+00:00",
+          "close_time_utc": "2026-10-20T05:15:02+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46390,
+          "post_id": 46161,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T02:07:37+00:00",
+          "close_time_utc": "2026-10-20T05:07:37+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46389,
+          "post_id": 46160,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T01:06:44+00:00",
+          "close_time_utc": "2026-10-20T04:06:44+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46388,
+          "post_id": 46159,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T00:05:42+00:00",
+          "close_time_utc": "2026-10-20T03:05:42+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46387,
+          "post_id": 46158,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T22:50:55+00:00",
+          "close_time_utc": "2026-10-20T01:50:55+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46386,
+          "post_id": 46157,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T21:42:50+00:00",
+          "close_time_utc": "2026-10-20T00:42:50+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46385,
+          "post_id": 46156,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T19:58:17+00:00",
+          "close_time_utc": "2026-10-19T22:58:17+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46384,
+          "post_id": 46155,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T19:38:37+00:00",
+          "close_time_utc": "2026-10-19T22:38:37+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46383,
+          "post_id": 46154,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T19:32:21+00:00",
+          "close_time_utc": "2026-10-19T22:32:21+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46382,
+          "post_id": 46153,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T18:37:08+00:00",
+          "close_time_utc": "2026-10-19T21:37:08+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46381,
+          "post_id": 46152,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T18:32:34+00:00",
+          "close_time_utc": "2026-10-19T21:32:34+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46380,
+          "post_id": 46151,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T18:04:08+00:00",
+          "close_time_utc": "2026-10-19T21:04:08+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46379,
+          "post_id": 46150,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T17:47:40+00:00",
+          "close_time_utc": "2026-10-19T20:47:40+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46378,
+          "post_id": 46149,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T16:57:22+00:00",
+          "close_time_utc": "2026-10-19T19:57:22+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46377,
+          "post_id": 46148,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T16:28:02+00:00",
+          "close_time_utc": "2026-10-19T19:28:02+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46376,
+          "post_id": 46147,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T16:14:14+00:00",
+          "close_time_utc": "2026-10-19T19:14:14+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46375,
+          "post_id": 46146,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T15:27:13+00:00",
+          "close_time_utc": "2026-10-19T18:27:13+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46374,
+          "post_id": 46145,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T14:29:32+00:00",
+          "close_time_utc": "2026-10-19T17:29:32+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46373,
+          "post_id": 46144,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T13:32:53+00:00",
+          "close_time_utc": "2026-10-19T16:32:53+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46372,
+          "post_id": 46143,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T13:10:03+00:00",
+          "close_time_utc": "2026-10-19T16:10:03+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46371,
+          "post_id": 46142,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T12:33:05+00:00",
+          "close_time_utc": "2026-10-19T15:33:05+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46370,
+          "post_id": 46141,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T12:19:47+00:00",
+          "close_time_utc": "2026-10-19T15:19:47+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46369,
+          "post_id": 46140,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T12:10:44+00:00",
+          "close_time_utc": "2026-10-19T15:10:44+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46368,
+          "post_id": 46139,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T11:46:16+00:00",
+          "close_time_utc": "2026-10-19T14:46:16+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46367,
+          "post_id": 46138,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T11:44:12+00:00",
+          "close_time_utc": "2026-10-19T14:44:12+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46366,
+          "post_id": 46137,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T11:37:12+00:00",
+          "close_time_utc": "2026-10-19T14:37:12+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46365,
+          "post_id": 46136,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T11:15:33+00:00",
+          "close_time_utc": "2026-10-19T14:15:33+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46364,
+          "post_id": 46135,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T08:08:50+00:00",
+          "close_time_utc": "2026-10-19T11:08:50+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46363,
+          "post_id": 46134,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T06:51:22+00:00",
+          "close_time_utc": "2026-10-19T09:51:22+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46362,
+          "post_id": 46133,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T06:48:41+00:00",
+          "close_time_utc": "2026-10-19T09:48:41+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46361,
+          "post_id": 46132,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T06:37:15+00:00",
+          "close_time_utc": "2026-10-19T09:37:15+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46360,
+          "post_id": 46131,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T03:18:17+00:00",
+          "close_time_utc": "2026-10-19T06:18:17+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46359,
+          "post_id": 46130,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T03:04:24+00:00",
+          "close_time_utc": "2026-10-19T06:04:24+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46358,
+          "post_id": 46129,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T03:02:53+00:00",
+          "close_time_utc": "2026-10-19T06:02:53+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46357,
+          "post_id": 46128,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T02:21:37+00:00",
+          "close_time_utc": "2026-10-19T05:21:37+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46356,
+          "post_id": 46127,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T01:52:09+00:00",
+          "close_time_utc": "2026-10-19T04:52:09+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46355,
+          "post_id": 46126,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T00:46:02+00:00",
+          "close_time_utc": "2026-10-19T03:46:02+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46354,
+          "post_id": 46125,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T00:28:46+00:00",
+          "close_time_utc": "2026-10-19T03:28:46+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46353,
+          "post_id": 46124,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T00:21:42+00:00",
+          "close_time_utc": "2026-10-19T03:21:42+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46352,
+          "post_id": 46123,
+          "source": "minibench",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T00:19:04+00:00",
+          "close_time_utc": "2026-10-19T03:19:04+00:00",
+          "already_forecasted": true
+        }
+      ],
+      "status": "matched",
+      "missing_question_ids": [],
+      "forecast_evidence_mismatches": [],
+      "forecast_evidence_unknown": []
+    },
+    {
+      "source": "fall-futureeval-2026",
+      "checked_at_utc": "2026-10-24T01:57:30.779848+00:00",
+      "complete": true,
+      "post_count": 68,
+      "questions": [
+        {
+          "question_id": 46412,
+          "post_id": 46184,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-23T14:00:00+00:00",
+          "close_time_utc": "2026-10-23T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46423,
+          "post_id": 46196,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-23T00:00:00+00:00",
+          "close_time_utc": "2026-10-23T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46422,
+          "post_id": 46195,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T15:00:00+00:00",
+          "close_time_utc": "2026-10-22T18:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46421,
+          "post_id": 46194,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T12:00:00+00:00",
+          "close_time_utc": "2026-10-22T15:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46420,
+          "post_id": 46193,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T09:00:00+00:00",
+          "close_time_utc": "2026-10-22T12:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46419,
+          "post_id": 46192,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-22T00:00:00+00:00",
+          "close_time_utc": "2026-10-22T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46418,
+          "post_id": 46191,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-21T12:00:00+00:00",
+          "close_time_utc": "2026-10-21T15:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46308,
+          "post_id": 46070,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-21T00:00:00+00:00",
+          "close_time_utc": "2026-10-21T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46307,
+          "post_id": 46069,
+          "source": "fall-futureeval-2026",
+          "status": "resolved",
+          "open_time_utc": "2026-10-20T12:00:00+00:00",
+          "close_time_utc": "2026-10-20T15:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46306,
+          "post_id": 46068,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-20T00:00:00+00:00",
+          "close_time_utc": "2026-10-20T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46305,
+          "post_id": 46067,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T18:00:00+00:00",
+          "close_time_utc": "2026-10-19T21:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46304,
+          "post_id": 46066,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T12:00:00+00:00",
+          "close_time_utc": "2026-10-19T15:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46303,
+          "post_id": 46065,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T09:00:00+00:00",
+          "close_time_utc": "2026-10-19T12:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46302,
+          "post_id": 46064,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T06:00:00+00:00",
+          "close_time_utc": "2026-10-19T09:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46301,
+          "post_id": 46063,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-19T03:00:00+00:00",
+          "close_time_utc": "2026-10-19T06:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46300,
+          "post_id": 46062,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-18T21:00:00+00:00",
+          "close_time_utc": "2026-10-19T00:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46284,
+          "post_id": 46045,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-18T14:00:00+00:00",
+          "close_time_utc": "2026-10-18T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46299,
+          "post_id": 46061,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-18T00:00:00+00:00",
+          "close_time_utc": "2026-10-18T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46298,
+          "post_id": 46060,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-17T18:00:00+00:00",
+          "close_time_utc": "2026-10-17T21:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46283,
+          "post_id": 46044,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-17T14:00:00+00:00",
+          "close_time_utc": "2026-10-17T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46297,
+          "post_id": 46059,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-17T03:00:00+00:00",
+          "close_time_utc": "2026-10-17T06:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46296,
+          "post_id": 46058,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-16T18:00:00+00:00",
+          "close_time_utc": "2026-10-16T21:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46282,
+          "post_id": 46043,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-16T14:00:00+00:00",
+          "close_time_utc": "2026-10-16T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46295,
+          "post_id": 46057,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-16T09:00:00+00:00",
+          "close_time_utc": "2026-10-16T12:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46294,
+          "post_id": 46056,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-16T06:00:00+00:00",
+          "close_time_utc": "2026-10-16T09:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46281,
+          "post_id": 46042,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-15T14:00:00+00:00",
+          "close_time_utc": "2026-10-15T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46333,
+          "post_id": 46095,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-15T14:00:00+00:00",
+          "close_time_utc": "2026-10-15T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46293,
+          "post_id": 46055,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-15T03:00:00+00:00",
+          "close_time_utc": "2026-10-15T06:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46292,
+          "post_id": 46054,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-15T00:00:00+00:00",
+          "close_time_utc": "2026-10-15T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46291,
+          "post_id": 46053,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T18:00:00+00:00",
+          "close_time_utc": "2026-10-14T21:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46290,
+          "post_id": 46052,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T12:00:00+00:00",
+          "close_time_utc": "2026-10-14T15:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46151,
+          "post_id": 45969,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T09:00:00+00:00",
+          "close_time_utc": "2026-10-14T12:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46150,
+          "post_id": 45968,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T06:00:00+00:00",
+          "close_time_utc": "2026-10-14T09:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46149,
+          "post_id": 45967,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T03:00:00+00:00",
+          "close_time_utc": "2026-10-14T06:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46148,
+          "post_id": 45966,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-14T00:00:00+00:00",
+          "close_time_utc": "2026-10-14T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46147,
+          "post_id": 45965,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-13T21:00:00+00:00",
+          "close_time_utc": "2026-10-14T00:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46146,
+          "post_id": 45964,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-13T18:00:00+00:00",
+          "close_time_utc": "2026-10-13T21:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46145,
+          "post_id": 45963,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-13T15:00:00+00:00",
+          "close_time_utc": "2026-10-13T18:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46144,
+          "post_id": 45962,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-13T06:00:00+00:00",
+          "close_time_utc": "2026-10-13T09:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46143,
+          "post_id": 45961,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-13T00:00:00+00:00",
+          "close_time_utc": "2026-10-13T03:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46142,
+          "post_id": 45960,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-12T21:00:00+00:00",
+          "close_time_utc": "2026-10-13T00:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46189,
+          "post_id": 46005,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-12T13:00:00+00:00",
+          "close_time_utc": "2026-10-12T16:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46141,
+          "post_id": 45959,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-12T09:00:00+00:00",
+          "close_time_utc": "2026-10-12T12:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46140,
+          "post_id": 45958,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-11T21:00:00+00:00",
+          "close_time_utc": "2026-10-12T00:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46139,
+          "post_id": 45957,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-11T06:00:00+00:00",
+          "close_time_utc": "2026-10-11T09:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46138,
+          "post_id": 45956,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-11T03:00:00+00:00",
+          "close_time_utc": "2026-10-11T06:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46066,
+          "post_id": 45884,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-10T16:51:00+00:00",
+          "close_time_utc": "2026-10-10T19:51:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46187,
+          "post_id": 46003,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-10T14:00:00+00:00",
+          "close_time_utc": "2026-10-10T17:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46188,
+          "post_id": 46004,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-10T14:00:00+00:00",
+          "close_time_utc": "2026-10-10T17:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46137,
+          "post_id": 45955,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-10T06:00:00+00:00",
+          "close_time_utc": "2026-10-10T09:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46136,
+          "post_id": 45954,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-09T12:00:00+00:00",
+          "close_time_utc": "2026-10-09T15:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46186,
+          "post_id": 46002,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-09T11:36:00+00:00",
+          "close_time_utc": "2026-10-09T14:36:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46065,
+          "post_id": 45883,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-09T09:00:00+00:00",
+          "close_time_utc": "2026-10-09T12:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46135,
+          "post_id": 45953,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-08T15:00:00+00:00",
+          "close_time_utc": "2026-10-08T18:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46185,
+          "post_id": 46001,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-08T14:00:00+00:00",
+          "close_time_utc": "2026-10-08T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46134,
+          "post_id": 45952,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-08T12:00:00+00:00",
+          "close_time_utc": "2026-10-08T15:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46133,
+          "post_id": 45951,
+          "source": "fall-futureeval-2026",
+          "status": "resolved",
+          "open_time_utc": "2026-10-07T18:00:00+00:00",
+          "close_time_utc": "2026-10-07T21:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46184,
+          "post_id": 46000,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-06T22:00:00+00:00",
+          "close_time_utc": "2026-10-07T01:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46056,
+          "post_id": 45875,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-05T17:20:00+00:00",
+          "close_time_utc": "2026-10-05T20:20:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 46021,
+          "post_id": 45846,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-01T14:00:00+00:00",
+          "close_time_utc": "2026-10-01T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46024,
+          "post_id": 45849,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-10-01T04:00:00+00:00",
+          "close_time_utc": "2026-10-01T07:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46020,
+          "post_id": 45845,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-09-30T14:00:00+00:00",
+          "close_time_utc": "2026-09-30T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46043,
+          "post_id": 45868,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-09-30T14:00:00+00:00",
+          "close_time_utc": "2026-09-30T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46023,
+          "post_id": 45848,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-09-29T21:00:00+00:00",
+          "close_time_utc": "2026-09-30T00:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46019,
+          "post_id": 45844,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-09-29T14:00:00+00:00",
+          "close_time_utc": "2026-09-29T17:00:00+00:00",
+          "already_forecasted": true
+        },
+        {
+          "question_id": 46022,
+          "post_id": 45847,
+          "source": "fall-futureeval-2026",
+          "status": "closed",
+          "open_time_utc": "2026-09-28T14:00:00+00:00",
+          "close_time_utc": "2026-09-28T17:00:00+00:00",
+          "already_forecasted": false
+        },
+        {
+          "question_id": 45707,
+          "post_id": 45516,
+          "source": "fall-futureeval-2026",
+          "status": "resolved",
+          "open_time_utc": "2026-09-06T06:00:00+00:00",
+          "close_time_utc": "2026-09-28T05:59:00+00:00",
+          "already_forecasted": true
+        }
+      ],
+      "status": "matched",
+      "missing_question_ids": [],
+      "forecast_evidence_mismatches": [],
+      "forecast_evidence_unknown": []
+    }
+  ],
+  "status": "no_new_questions",
+  "open_questions_returned": [
+    0,
+    0
+  ],
+  "selected": 0,
+  "finished_at_utc": "2026-10-24T01:57:32.570942+00:00",
+  "api_successful_response_count": 0,
+  "llm_failed_or_unconfirmed_invocations": 0,
+  "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
+  "free_request_tracking": {
+    "schema_version": 2,
+    "date_utc": "2026-10-24",
+    "successful_responses": 0,
+    "failed_invocations": 0,
+    "observed_tokens": 0,
+    "cooldown_until_epoch": 1792540800.0
+  },
+  "provider_paused_for_run": false,
+  "git_sha": "f1fbd4dbeec3f635b1e42d60a148434e40db70e0",
+  "workflow_run_id": "40052027476"
+}

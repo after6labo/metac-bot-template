@@ -2154,3 +2154,10 @@ Total output lines: 2927
 - 実取得間隔は前回13:57:16.461 UTCから14:27:11.283 UTCが29分54.822秒、次が28分43.101秒、その次が1分36.176秒で、最大でも60分調査閾値未満。3実行合計は観測応答11、失敗呼び出し記録0、34,003 tokens、新規費用$0で、提供元の無料枠消費量ではない。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。
 - 後続本番run [40106058056](https://github.com/after6labo/metac-bot-template/actions/runs/40106058056) は00:15:19.880 JSTに実取得を開始し、q46410・q46413をともに受付中・`already_forecasted=true` と独立監査で確認して再投稿を回避した。submitted/failed/pending/needs_attentionは0、provider pause=false、両大会監査complete/matched、取得・証拠不一致0、Actions全step success。直前実取得から15分11.714秒で、追加モデル応答・tokens・費用は0。両問の締切後保持、公式の得点対象認定、個別得点、順位・賞金への反映は未確認で、監視を継続する。本人作業の追加はない。
 
+## 2026-10-25 02:48 JST — q46410・q46413の締切後保持を確認
+
+- Fall q46413/post46185（締切02:00 JST）は本番run [40114223822](https://github.com/after6labo/metac-bot-template/actions/runs/40114223822) が02:02:08.272 JSTに実取得を開始し、公式APIの独立監査で `closed / already_forecasted=true` と確認した。00:00:03の予測と00:00:08の説明が締切後も回答済み証拠として保持され、再投稿は行っていない。
+- MiniBench q46410/post46181（締切02:20:14 JST）は本番run [40116114654](https://github.com/after6labo/metac-bot-template/actions/runs/40116114654) が02:27:12.252 JSTに実取得を開始し、同問を `closed / already_forecasted=true` と確認した。同runでもq46413の締切後証拠を維持した。
+- 最新runはsubmitted=0、outcomes/skips/question_windows/pending/failed空、needs_attention=false、provider_paused=false。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobはsuccess。追加モデル応答・失敗呼び出し・tokens・新規費用は0。
+- 実取得間隔は01:07:18.146→01:37:25.049が30分06.904秒、→02:02:08.272が24分43.222秒、→02:27:12.252が25分03.980秒で60分調査閾値未満。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。両問の公式得点対象認定、個別得点、順位・賞金への反映は未確認で、監視を継続する。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+

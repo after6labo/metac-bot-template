@@ -2225,3 +2225,11 @@ Total output lines: 2927
 - runtimeはsubmitted=0、failed/pending/needs_attention空、provider_paused=false、観測応答・失敗呼び出し・tokens・新規費用はいずれも0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全stepはsuccess。直前実取得23:57:17.781から29分39.115秒で、60分調査閾値未満。
 - 同runの日次成績収集ではFall（251位、-152.0002565208251、2問、暫定）と現行MiniBenchの取得は成功したが、確定済みMiniBench 2026-10-05のproject/leaderboard取得だけが `ReadTimeout` となり、performance全体はpartial_or_failed。既知の最終確定値174位・-202.40684204840116（37問、賞金配分$0）を0や欠落に置き換えない。投稿実行・受付監査への影響はない。
 - 成績取得timeoutは外部読取の単発障害で、Actions step自体は成功し、再実行して本番投稿を重ねる根拠はないためコード変更・即時再実行は行わず次回収集で監視する。4問の02:00 JST締切後保持、公式得点対象認定、個別得点、順位・賞金への反映は未確認。回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-26 03:19 JST — Fall 4問の締切後保持を確認
+
+- q46414/post46186、q46449/post46222、q46457/post46228、q46458/post46229（締切02:00 JST）は、締切前最後の本番run [40214057054](https://github.com/after6labo/metac-bot-template/actions/runs/40214057054) が01:57:15.259 JSTに4問とも `open` / `already_forecasted=true` を確認し、締切後最初の本番run [40216465841](https://github.com/after6labo/metac-bot-template/actions/runs/40216465841) が02:27:13.755 JSTに4問とも `closed` / `already_forecasted=true` と独立監査で確認した。投稿証拠は締切後も保持された。
+- 後続の本番run 40217350661（02:38:16.586 JST）と最新run [40219650470](https://github.com/after6labo/metac-bot-template/actions/runs/40219650470)（03:06:56.373 JST）でも同じ状態を確認した。各runは `submitted=0`、failed/pending/needs_attentionなし、`provider_paused_for_run=false`、LLM呼び出し・トークン・費用0。両大会のretrieval auditは `complete` / `matched`、fetch/missing/mismatch/unknownは0で、最新Actionsも成功。
+- 実取得開始間隔は29分58.496秒、11分02.830秒、28分39.788秒で、60分基準内。
+- 公式成績は変化なし。過去MiniBench大会の成績取得ReadTimeoutは未解消のため、次の日次取得で再確認する。コード・設定・予測プロンプトは変更せず、ユーザー作業はない。

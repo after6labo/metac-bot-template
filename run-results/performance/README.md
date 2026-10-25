@@ -1,13 +1,13 @@
 # 公式成績
 
-取得開始（UTC）: 2026-10-24T15:00:12.313421+00:00
-取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
+取得開始（UTC）: 2026-10-25T15:27:16.969525+00:00
+取得状態: partial_or_failed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
 | Fall 2026 FutureEval Bot Tournament | 251 | -152.00 | 2 | 2026-10-20T22:32:03.393204Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
-| MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
+| minibench-2026-10-05（partial_or_failed） | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-09-07 | 未確認 | 未確認 | 未確認 | 未確認 |
 
@@ -17,65 +17,6 @@
 |---|---|---|---:|
 | fall-futureeval-2026 | [q46133](https://www.metaculus.com/questions/45951/) | no | -23.23 |
 | fall-futureeval-2026 | [q46307](https://www.metaculus.com/questions/46069/) | yes | -128.77 |
-| minibench-2026-10-05 | [q46074](https://www.metaculus.com/questions/45892/) | 19.0 | 69.78 |
-| minibench-2026-10-05 | [q46128](https://www.metaculus.com/questions/45946/) | yes | 53.67 |
-| minibench-2026-10-05 | [q46082](https://www.metaculus.com/questions/45900/) | no | 32.29 |
-| minibench-2026-10-05 | [q46087](https://www.metaculus.com/questions/45905/) | 4.334 | 21.58 |
-| minibench-2026-10-05 | [q46114](https://www.metaculus.com/questions/45932/) | no | 20.40 |
-| minibench-2026-10-05 | [q46127](https://www.metaculus.com/questions/45945/) | yes | 19.36 |
-| minibench-2026-10-05 | [q46083](https://www.metaculus.com/questions/45901/) | yes | 15.37 |
-| minibench-2026-10-05 | [q46084](https://www.metaculus.com/questions/45902/) | 56.96 | 8.98 |
-| minibench-2026-10-05 | [q46078](https://www.metaculus.com/questions/45896/) | no | 8.96 |
-| minibench-2026-10-05 | [q46119](https://www.metaculus.com/questions/45937/) | yes | 7.18 |
-| minibench-2026-10-05 | [q46132](https://www.metaculus.com/questions/45950/) | 2664.0 | 7.05 |
-| minibench-2026-10-05 | [q46117](https://www.metaculus.com/questions/45935/) | yes | 5.03 |
-| minibench-2026-10-05 | [q46118](https://www.metaculus.com/questions/45936/) | -20.7 | 4.28 |
-| minibench-2026-10-05 | [q46115](https://www.metaculus.com/questions/45933/) | 2.12 | 3.95 |
-| minibench-2026-10-05 | [q46113](https://www.metaculus.com/questions/45931/) | no | 3.42 |
-| minibench-2026-10-05 | [q46080](https://www.metaculus.com/questions/45898/) | no | 3.34 |
-| minibench-2026-10-05 | [q46086](https://www.metaculus.com/questions/45904/) | Medium | 2.43 |
-| minibench-2026-10-05 | [q46125](https://www.metaculus.com/questions/45943/) | 1.0 | 1.09 |
-| minibench-2026-10-05 | [q46088](https://www.metaculus.com/questions/45906/) | no | 0.81 |
-| minibench-2026-10-05 | [q46116](https://www.metaculus.com/questions/45934/) | no | -1.14 |
-| minibench-2026-10-05 | [q46090](https://www.metaculus.com/questions/45908/) | yes | -2.33 |
-| minibench-2026-10-05 | [q46075](https://www.metaculus.com/questions/45893/) | 11722.0 | -3.34 |
-| minibench-2026-10-05 | [q46085](https://www.metaculus.com/questions/45903/) | no | -5.18 |
-| minibench-2026-10-05 | [q46089](https://www.metaculus.com/questions/45907/) | 63.0 | -7.27 |
-| minibench-2026-10-05 | [q46120](https://www.metaculus.com/questions/45938/) | yes | -9.75 |
-| minibench-2026-10-05 | [q46130](https://www.metaculus.com/questions/45948/) | no | -11.64 |
-| minibench-2026-10-05 | [q46079](https://www.metaculus.com/questions/45897/) | no | -12.02 |
-| minibench-2026-10-05 | [q46126](https://www.metaculus.com/questions/45944/) | no | -13.03 |
-| minibench-2026-10-05 | [q46077](https://www.metaculus.com/questions/45895/) | 250.0 | -14.32 |
-| minibench-2026-10-05 | [q46124](https://www.metaculus.com/questions/45942/) | Tied 2-2 | -14.91 |
-| minibench-2026-10-05 | [q46129](https://www.metaculus.com/questions/45947/) | 81410.0 | -15.55 |
-| minibench-2026-10-05 | [q46121](https://www.metaculus.com/questions/45939/) | no | -17.68 |
-| minibench-2026-10-05 | [q46076](https://www.metaculus.com/questions/45894/) | yes | -18.76 |
-| minibench-2026-10-05 | [q46081](https://www.metaculus.com/questions/45899/) | 6.7 | -22.80 |
-| minibench-2026-10-05 | [q46073](https://www.metaculus.com/questions/45891/) | no | -28.11 |
-| minibench-2026-10-05 | [q46091](https://www.metaculus.com/questions/45909/) | yes | -43.67 |
-| minibench-2026-10-05 | [q46131](https://www.metaculus.com/questions/45949/) | Two or more fixtures tie for the most goals | -104.68 |
-| minibench-2026-10-05 | [q46122](https://www.metaculus.com/questions/45940/) | yes | -138.13 |
-| minibench-2026-10-05 | [q46092](https://www.metaculus.com/questions/45910/) | yes | 未確認 |
-| minibench-2026-10-05 | [q46093](https://www.metaculus.com/questions/45911/) | 62.9 | 未確認 |
-| minibench-2026-10-05 | [q46094](https://www.metaculus.com/questions/45912/) | 109.86 | 未確認 |
-| minibench-2026-10-05 | [q46095](https://www.metaculus.com/questions/45913/) | 80.92 | 未確認 |
-| minibench-2026-10-05 | [q46096](https://www.metaculus.com/questions/45914/) | no | 未確認 |
-| minibench-2026-10-05 | [q46097](https://www.metaculus.com/questions/45915/) | 34.26 | 未確認 |
-| minibench-2026-10-05 | [q46098](https://www.metaculus.com/questions/45916/) | no | 未確認 |
-| minibench-2026-10-05 | [q46099](https://www.metaculus.com/questions/45917/) | 3.1 | 未確認 |
-| minibench-2026-10-05 | [q46100](https://www.metaculus.com/questions/45918/) | 1221.0 | 未確認 |
-| minibench-2026-10-05 | [q46101](https://www.metaculus.com/questions/45919/) | yes | 未確認 |
-| minibench-2026-10-05 | [q46102](https://www.metaculus.com/questions/45920/) | 64.0 | 未確認 |
-| minibench-2026-10-05 | [q46103](https://www.metaculus.com/questions/45921/) | 31.0 | 未確認 |
-| minibench-2026-10-05 | [q46104](https://www.metaculus.com/questions/45922/) | yes | 未確認 |
-| minibench-2026-10-05 | [q46105](https://www.metaculus.com/questions/45923/) | no | 未確認 |
-| minibench-2026-10-05 | [q46106](https://www.metaculus.com/questions/45924/) | no | 未確認 |
-| minibench-2026-10-05 | [q46107](https://www.metaculus.com/questions/45925/) | no | 未確認 |
-| minibench-2026-10-05 | [q46108](https://www.metaculus.com/questions/45926/) | no | 未確認 |
-| minibench-2026-10-05 | [q46109](https://www.metaculus.com/questions/45927/) | yes | 未確認 |
-| minibench-2026-10-05 | [q46110](https://www.metaculus.com/questions/45928/) | no | 未確認 |
-| minibench-2026-10-05 | [q46111](https://www.metaculus.com/questions/45929/) | no | 未確認 |
-| minibench-2026-10-05 | [q46112](https://www.metaculus.com/questions/45930/) | 15.0 | 未確認 |
 | minibench-2026-09-21 | [q45922](https://www.metaculus.com/questions/45737/) | 11142000.0 | 未確認 |
 | minibench-2026-09-21 | [q45923](https://www.metaculus.com/questions/45738/) | 7835.0 | 未確認 |
 | minibench-2026-09-21 | [q45924](https://www.metaculus.com/questions/45739/) | 3887.0 | 未確認 |

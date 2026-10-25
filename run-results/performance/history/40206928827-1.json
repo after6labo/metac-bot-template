@@ -1,0 +1,1497 @@
+{
+  "schema_version": 3,
+  "started_at_utc": "2026-10-25T15:27:16.969525+00:00",
+  "run_id": "40206928827",
+  "status": "partial_or_failed",
+  "errors": [],
+  "projects": [
+    {
+      "requested_slug": "fall-futureeval-2026",
+      "status": "completed",
+      "leaderboards": [
+        {
+          "id": 991,
+          "project_id": 33121,
+          "project_name": "Fall 2026 FutureEval Bot Tournament",
+          "project_slug": "fall-futureeval-2026",
+          "name": null,
+          "score_type": "spot_peer_tournament",
+          "is_primary_leaderboard": true,
+          "finalized": false,
+          "start_time": null,
+          "end_time": null,
+          "max_coverage": 2,
+          "prize_pool": 50000,
+          "bot_exclusion_status": 0,
+          "entry_status": "found",
+          "own_entry": {
+            "score": -152.0002565208251,
+            "rank": 251,
+            "coverage": 2,
+            "contribution_count": 2,
+            "calculated_on": "2026-10-20T22:32:03.393204Z",
+            "excluded": false,
+            "exclusion_status": 0,
+            "prize": 0,
+            "ci_lower": -257.5364392198274,
+            "ci_upper": -46.46407382182279
+          },
+          "listed_entry_count": 361,
+          "ranked_entry_count": 361,
+          "prize_payment_confirmed": null,
+          "resolved_contributions": [
+            {
+              "question_id": 46133,
+              "post_id": 45951,
+              "question_title": "Will the winning pumpkin at the 2026 Terminator weigh-off be greater than or equal to 2,000 pounds?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": -23.232036910911393,
+              "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46307,
+              "post_id": 46069,
+              "question_title": "Will the FAA type-certify the Boeing 737 MAX 10 before 2027?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": -128.7682196099137,
+              "coverage": 1,
+              "question_weight": 1
+            }
+          ],
+          "unresolved_contribution_count": 73,
+          "contributions_status": "completed"
+        }
+      ],
+      "resolved_questions": [
+        {
+          "id": 46133,
+          "type": "binary",
+          "resolution": "no",
+          "actual_resolve_time": "2026-10-20T22:14:00Z",
+          "open_time": "2026-10-07T18:00:00Z",
+          "actual_close_time": "2026-10-07T21:00:00Z",
+          "spot_scoring_time": "2026-10-07T21:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": -13.682640866206187,
+            "peer_score": -21.59606819441955,
+            "coverage": 0.900155421583741,
+            "relative_legacy_score": -0.46548029187434403,
+            "weighted_coverage": 0.900155421583741,
+            "spot_peer_score": -23.232036910911393,
+            "spot_baseline_score": -15.200309344505014
+          },
+          "last_forecast": {
+            "start_time": 1791397078.321447,
+            "end_time": null,
+            "forecast_values": [
+              0.44999999999999996,
+              0.55
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 45951
+        },
+        {
+          "id": 46307,
+          "type": "binary",
+          "resolution": "yes",
+          "actual_resolve_time": "2026-10-20T22:31:00Z",
+          "open_time": "2026-10-20T12:00:00Z",
+          "actual_close_time": "2026-10-20T15:00:00Z",
+          "spot_scoring_time": "2026-10-20T15:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": -94.40348840552684,
+            "peer_score": -108.94755345372118,
+            "coverage": 0.842666913425481,
+            "relative_legacy_score": -1.7112544595300132,
+            "weighted_coverage": 0.842666913425481,
+            "spot_peer_score": -128.7682196099137,
+            "spot_baseline_score": -112.02942337177117
+          },
+          "last_forecast": {
+            "start_time": 1792499299.197335,
+            "end_time": null,
+            "forecast_values": [
+              0.77,
+              0.23
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46069
+        }
+      ],
+      "errors": [],
+      "id": 33121,
+      "name": "Fall 2026 FutureEval Bot Tournament",
+      "slug": "fall-futureeval-2026",
+      "start_date": "2026-09-28T00:00:00Z",
+      "close_date": "2027-03-05T00:00:00Z"
+    },
+    {
+      "requested_slug": "minibench",
+      "status": "completed",
+      "leaderboards": [
+        {
+          "id": 1006,
+          "project_id": 33132,
+          "project_name": "MiniBench",
+          "project_slug": "minibench",
+          "name": null,
+          "score_type": "spot_peer_tournament",
+          "is_primary_leaderboard": true,
+          "finalized": false,
+          "start_time": null,
+          "end_time": null,
+          "max_coverage": 0,
+          "prize_pool": 1000,
+          "bot_exclusion_status": 0,
+          "entry_status": "not_listed",
+          "own_entry": null,
+          "listed_entry_count": 0,
+          "ranked_entry_count": 0,
+          "prize_payment_confirmed": null,
+          "resolved_contributions": [],
+          "unresolved_contribution_count": 59,
+          "contributions_status": "completed"
+        }
+      ],
+      "resolved_questions": [],
+      "errors": [],
+      "id": 33132,
+      "name": "MiniBench",
+      "slug": "minibench",
+      "start_date": "2026-10-19T00:00:00Z",
+      "close_date": "2026-11-06T00:00:00Z"
+    },
+    {
+      "requested_slug": "minibench-2026-10-05",
+      "status": "partial_or_failed",
+      "leaderboards": [],
+      "resolved_questions": [],
+      "errors": [
+        {
+          "stage": "project_or_leaderboard",
+          "error": "ReadTimeout"
+        }
+      ],
+      "id": 33129,
+      "name": "MiniBench - 2026-10-05",
+      "slug": "minibench-2026-10-05",
+      "start_date": "2026-10-05T00:00:00Z",
+      "close_date": "2026-10-23T00:00:00Z"
+    },
+    {
+      "requested_slug": "minibench-2026-09-21",
+      "status": "completed",
+      "leaderboards": [
+        {
+          "id": 997,
+          "project_id": 33125,
+          "project_name": "MiniBench - 2026-09-21",
+          "project_slug": "minibench-2026-09-21",
+          "name": null,
+          "score_type": "spot_peer_tournament",
+          "is_primary_leaderboard": true,
+          "finalized": true,
+          "start_time": null,
+          "end_time": null,
+          "max_coverage": 58,
+          "prize_pool": 1000,
+          "bot_exclusion_status": 0,
+          "entry_status": "not_listed",
+          "own_entry": null,
+          "listed_entry_count": 236,
+          "ranked_entry_count": 236,
+          "prize_payment_confirmed": null,
+          "resolved_contributions": [
+            {
+              "question_id": 45922,
+              "post_id": 45737,
+              "question_title": "How many metric tons of US soybeans will China have committed to for marketing year 2026/27, per the USDA Weekly Export Sales report covering the week ending October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "11142000.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45923,
+              "post_id": 45738,
+              "question_title": "What will Drewry's Shanghai–Los Angeles container freight rate be in the October 1, 2026 World Container Index release?",
+              "question_type": "numeric",
+              "question_resolution": "7835.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45924,
+              "post_id": 45739,
+              "question_title": "How many confirmed 2026 US measles cases will the CDC report in its weekly update closest to October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "3887.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45925,
+              "post_id": 45740,
+              "question_title": "Will Nvidia's anchor investment in Anthropic's IPO be publicly confirmed before October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45926,
+              "post_id": 45741,
+              "question_title": "Will Russia's federal Avialesookhrana daily report still list an active forest fire in the Sayano-Shushensky Nature Reserve on October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45927,
+              "post_id": 45742,
+              "question_title": "How many hectares of active wildfires will Russia's Avialesookhrana report in its national bulletin for 00:00 MSK on October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "90.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45928,
+              "post_id": 45743,
+              "question_title": "Which AI lab's model will rank #1 on the LMArena Text Arena overall leaderboard on October 1, 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Google (Gemini)",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45929,
+              "post_id": 45744,
+              "question_title": "Will the Skyworks–Qorvo merger close before October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45930,
+              "post_id": 45745,
+              "question_title": "Will a third person be arrested or charged in the Tuscaloosa 'Shacktown Reunion' mass shooting by October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45931,
+              "post_id": 45746,
+              "question_title": "What will India's June–September 2026 southwest monsoon seasonal rainfall be, as a percentage of the Long Period Average, per IMD?",
+              "question_type": "discrete",
+              "question_resolution": "87.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45932,
+              "post_id": 45747,
+              "question_title": "Will the FAO Vegetable Oil Price Index for September 2026 exceed its August 2026 value of 196.9?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45933,
+              "post_id": 45748,
+              "question_title": "How many cumulative 2026 human screwworm (gusano barrenador) cases will Honduras report as of early October 2026?",
+              "question_type": "numeric",
+              "question_resolution": "302.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45934,
+              "post_id": 45749,
+              "question_title": "How many cumulative laboratory-confirmed measles cases will Kerala's IDSP daily report show for 2026 as of the October 1, 2026 report?",
+              "question_type": "numeric",
+              "question_resolution": "475.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45935,
+              "post_id": 45750,
+              "question_title": "Will Brazil's STF hold an in-person plenary judgment session on October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45936,
+              "post_id": 45751,
+              "question_title": "Will the October 1, 2026 hearing on OpenAI's motion to dismiss Apple's trade-secrets suit go forward as scheduled?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45937,
+              "post_id": 45752,
+              "question_title": "What will the FAO Cereal Price Index value be for September 2026?",
+              "question_type": "discrete",
+              "question_resolution": "122.8",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45938,
+              "post_id": 45753,
+              "question_title": "What will Japan's national influenza cases per sentinel institution be in the MHLW weekly report published around October 2, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "7.17",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45939,
+              "post_id": 45754,
+              "question_title": "How many total measles cases in 2026 will Wisconsin DHS report on its outbreaks page as of early October 2026?",
+              "question_type": "numeric",
+              "question_resolution": "214.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45940,
+              "post_id": 45755,
+              "question_title": "What will be the result of the CD Eldense vs Real Oviedo LaLiga Hypermotion match on 2 October 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "CD Eldense win",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45941,
+              "post_id": 45756,
+              "question_title": "What will the September 2026 ISM Manufacturing PMI be?",
+              "question_type": "numeric",
+              "question_resolution": "54.5",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45942,
+              "post_id": 45757,
+              "question_title": "Will Lula appear at TV Globo's presidential debate on October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45944,
+              "post_id": 45759,
+              "question_title": "How many of Tokyo's 31 health-center districts will exceed the influenza \"alert\" threshold (10 cases per sentinel institution) in the most recent weekly surveillance report as of October 2, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "10.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45945,
+              "post_id": 45760,
+              "question_title": "Will the ZNPP's 750 kV Dniprovska line be reconnected/available as of October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45946,
+              "post_id": 45761,
+              "question_title": "Will Anthropic publicly file an S-1 IPO registration statement with the SEC before October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45947,
+              "post_id": 45762,
+              "question_title": "Will the CDC's measles data page show at least one confirmed 2026 U.S. measles death as of October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45948,
+              "post_id": 45763,
+              "question_title": "Will a finalized firm Boeing purchase agreement with a Chinese buyer be publicly confirmed as of October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45949,
+              "post_id": 45764,
+              "question_title": "How many confirmed measles cases will Pennsylvania report on its measles dashboard in the update closest to October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "977.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45950,
+              "post_id": 45765,
+              "question_title": "Will the September 2026 US jobs report show year-over-year average hourly earnings growth of 3.1% or higher?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45951,
+              "post_id": 45766,
+              "question_title": "How many port calls will IMF PortWatch record at Ukraine's three main Black Sea ports over the latest reported week as of October 1, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "0.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45952,
+              "post_id": 45767,
+              "question_title": "Will Flávio Bolsonaro participate in TV Globo's first-round presidential debate on October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45953,
+              "post_id": 45768,
+              "question_title": "What will the US unemployment rate be for September 2026, as reported by the BLS on October 2, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "4.2",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45954,
+              "post_id": 45769,
+              "question_title": "Will the US conduct a military strike inside Iranian territory on October 1 or October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45955,
+              "post_id": 45770,
+              "question_title": "Will Spain's registered unemployment fall in September 2026 compared to August 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45956,
+              "post_id": 45771,
+              "question_title": "Will NATO forces shoot down or destroy a Russian drone or aircraft over NATO territory between October 1 and October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45957,
+              "post_id": 45772,
+              "question_title": "Will Iranian President Masoud Pezeshkian personally deliver Iran's statement at the UNGA 81 general debate (22–28 September 2026)?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45958,
+              "post_id": 45773,
+              "question_title": "Will a CDC Epi-Aid investigation of Pennsylvania's measles outbreak be underway as of October 1, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45959,
+              "post_id": 45774,
+              "question_title": "How many drones will Russia launch at Ukraine during September 2026, according to Ukrainian Air Force daily reports?",
+              "question_type": "numeric",
+              "question_resolution": "6732.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45960,
+              "post_id": 45775,
+              "question_title": "How many cumulative confirmed New World screwworm animal cases in the US will APHIS report as of October 1, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "51.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45961,
+              "post_id": 45776,
+              "question_title": "Will Kerala health authorities have officially confirmed at least one 2026 measles death in Malappuram district as of October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45962,
+              "post_id": 45777,
+              "question_title": "What will be the SPIMEX exchange settlement price of AI-95 gasoline on October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "70250.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45963,
+              "post_id": 45778,
+              "question_title": "How many people will Polish prosecutors have publicly named as charged in the Zondacrypto investigation as of October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "6.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45964,
+              "post_id": 45779,
+              "question_title": "How many confirmed 2026 measles cases will Iowa HHS report in its October 1, 2026 update?",
+              "question_type": "discrete",
+              "question_resolution": "39.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45965,
+              "post_id": 45780,
+              "question_title": "How many commodity vessels will transit the Strait of Hormuz on October 1, 2026, according to Reuters?",
+              "question_type": "discrete",
+              "question_resolution": "0.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45966,
+              "post_id": 45781,
+              "question_title": "Will the September 2026 US jobs report show nonfarm payrolls rose by more than 100,000?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45967,
+              "post_id": 45782,
+              "question_title": "Will the Kennedy Center's main building be open to the general public on October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45968,
+              "post_id": 45783,
+              "question_title": "What will the iShares China Large-Cap ETF (FXI) close at on October 1, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "33.92",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45969,
+              "post_id": 45784,
+              "question_title": "Will the judicial reconstitution of Delphine Jubillar's murder take place at Cagnac-les-Mines on October 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45970,
+              "post_id": 45785,
+              "question_title": "Will South African police officially state that the Ekurhuleni women's killings are the work of a single serial killer before October 3, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45971,
+              "post_id": 45786,
+              "question_title": "What will be the result of the France vs Italy UEFA Nations League match on 2 October 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Draw",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45972,
+              "post_id": 45787,
+              "question_title": "Will Russia and Ukraine both publicly confirm a mutual energy-infrastructure ceasefire agreement by October 3, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45973,
+              "post_id": 45788,
+              "question_title": "Will an Atlantic hurricane exist at any point between October 1 and October 3, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45974,
+              "post_id": 45789,
+              "question_title": "How many candidates will officially remain in the UN Secretary-General race as of October 3, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "7.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45975,
+              "post_id": 45790,
+              "question_title": "Will the UN Security Council hold a fourth Secretary-General straw poll between October 1 and October 3, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45976,
+              "post_id": 45791,
+              "question_title": "Will either Gulf Cup 27 semi-final on 3 October 2026 be decided by a penalty shootout?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45977,
+              "post_id": 45792,
+              "question_title": "What will Turkey's month-on-month CPI inflation rate be for September 2026?",
+              "question_type": "numeric",
+              "question_resolution": "1.84",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45978,
+              "post_id": 45793,
+              "question_title": "Will the Armada Acquisition Corp. II / Evernorth business combination close on October 1 or 2, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45979,
+              "post_id": 45794,
+              "question_title": "How many total goals will be scored across both 27th Arabian Gulf Cup semi-finals on 3 October 2026?",
+              "question_type": "discrete",
+              "question_resolution": "1.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45981,
+              "post_id": 45796,
+              "question_title": "How many orbital launches will SpaceX conduct between October 1 and October 3, 2026 (inclusive)?",
+              "question_type": "discrete",
+              "question_resolution": "3.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            }
+          ],
+          "unresolved_contribution_count": 0,
+          "contributions_status": "completed"
+        }
+      ],
+      "resolved_questions": [],
+      "errors": [],
+      "id": 33125,
+      "name": "MiniBench - 2026-09-21",
+      "slug": "minibench-2026-09-21",
+      "start_date": "2026-09-21T00:00:00Z",
+      "close_date": "2026-10-09T00:00:00Z"
+    },
+    {
+      "requested_slug": "minibench-2026-09-07",
+      "status": "completed",
+      "leaderboards": [
+        {
+          "id": 993,
+          "project_id": 33122,
+          "project_name": "MiniBench - 2026-09-07",
+          "project_slug": "minibench-2026-09-07",
+          "name": null,
+          "score_type": "spot_peer_tournament",
+          "is_primary_leaderboard": true,
+          "finalized": true,
+          "start_time": null,
+          "end_time": null,
+          "max_coverage": 58,
+          "prize_pool": 1000,
+          "bot_exclusion_status": 0,
+          "entry_status": "not_listed",
+          "own_entry": null,
+          "listed_entry_count": 205,
+          "ranked_entry_count": 205,
+          "prize_payment_confirmed": null,
+          "resolved_contributions": [
+            {
+              "question_id": 45709,
+              "post_id": 45518,
+              "question_title": "How many confirmed measles cases will the CDC report in the United States for 2026, as of the update closest to September 17, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "3471.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45710,
+              "post_id": 45519,
+              "question_title": "Will Turkey's NDK have issued an operating license for Akkuyu Nuclear Power Plant Unit 1 by September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45711,
+              "post_id": 45520,
+              "question_title": "Will Venezuela be elected to the IAEA Board of Governors at the 70th General Conference?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45712,
+              "post_id": 45521,
+              "question_title": "What heat-wave \"bollino\" level will Italy's Ministry of Health assign to Rome for September 17, 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Level 0 (verde)",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45713,
+              "post_id": 45522,
+              "question_title": "Will Solana (SOL) close above $100 on September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45714,
+              "post_id": 45523,
+              "question_title": "What will Bitcoin dominance be on September 17, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "58.8",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45715,
+              "post_id": 45524,
+              "question_title": "Will Turkey's Court of Cassation have issued a ruling in the CHP 'mutlak butlan' case by September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45716,
+              "post_id": 45525,
+              "question_title": "What will U.S. spot Ethereum ETFs report as their total net flow for September 17, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "-39.2",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45717,
+              "post_id": 45526,
+              "question_title": "What will the 54-hole leader's score to par be at the 2026 BMW PGA Championship?",
+              "question_type": "discrete",
+              "question_resolution": "-13.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45718,
+              "post_id": 45527,
+              "question_title": "Will the 'Ban Artificial Superintelligence Act' be formally introduced in Congress by September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45719,
+              "post_id": 45528,
+              "question_title": "Will the NSE IPO be open for subscription at any point on September 17 or September 18, 2026 (IST)?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45720,
+              "post_id": 45529,
+              "question_title": "How many metric tons of net US soybean sales to China (2026/27 marketing year) will the USDA Weekly Export Sales report released September 17, 2026 show?",
+              "question_type": "numeric",
+              "question_resolution": "875000.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45721,
+              "post_id": 45530,
+              "question_title": "How many drones will Russia launch at Ukraine in the overnight attack reported on the morning of September 18, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "93.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45722,
+              "post_id": 45531,
+              "question_title": "Will ECDC report locally acquired human West Nile virus cases in 17 or more countries in its 2026 weekly surveillance update published around 18 September 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45723,
+              "post_id": 45532,
+              "question_title": "What will the top score on the ARC Prize 2026 – ARC-AGI-3 Kaggle public leaderboard be on September 17, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "18.81",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45724,
+              "post_id": 45533,
+              "question_title": "Will exploratory coalition talks involving the CDU have publicly begun in Saxony-Anhalt by 17 September 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45725,
+              "post_id": 45534,
+              "question_title": "What will the September 2026 Philadelphia Fed Manufacturing Business Outlook Survey current general activity index read?",
+              "question_type": "numeric",
+              "question_resolution": "37.8",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45726,
+              "post_id": 45535,
+              "question_title": "What will U.S. seasonally adjusted advance initial jobless claims be for the week ending September 12, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "196000.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45727,
+              "post_id": 45536,
+              "question_title": "What will the U.S. seasonally adjusted annual rate of total housing starts be for August 2026?",
+              "question_type": "discrete",
+              "question_resolution": "1275.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45728,
+              "post_id": 45537,
+              "question_title": "Will Bitcoin close above $80,000 on September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45730,
+              "post_id": 45539,
+              "question_title": "If Anthropic files a public IPO prospectus by September 17, 2026, which U.S. exchange will it name as its intended listing venue?",
+              "question_type": "multiple_choice",
+              "question_resolution": "No public S-1 filed yet",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45731,
+              "post_id": 45540,
+              "question_title": "How many locally acquired human West Nile virus cases will ECDC report for Italy in 2026 in the weekly update published on or around 18 September 2026?",
+              "question_type": "numeric",
+              "question_resolution": "652.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45732,
+              "post_id": 45541,
+              "question_title": "How many SpaceX orbital launches will occur on September 17, 2026 (UTC)?",
+              "question_type": "discrete",
+              "question_resolution": "1.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45733,
+              "post_id": 45542,
+              "question_title": "Will Singapore's 24-hour PSI reach the Unhealthy band (101 or higher) in at least one region on September 17 or 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45734,
+              "post_id": 45543,
+              "question_title": "Will the Bishkek City Court's appellate verdict in the 'Letter 75' case have been issued by September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45735,
+              "post_id": 45544,
+              "question_title": "What will UNE forecast as Cuba's peak-hour electricity generation deficit for the night of September 18, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "1977.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45736,
+              "post_id": 45545,
+              "question_title": "What will Lululemon's (LULU) closing stock price be on September 17, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "99.39",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45737,
+              "post_id": 45546,
+              "question_title": "Will the first dedicated bilateral US-China AI safety/security talks of Trump's second term be publicly confirmed to have taken place before September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45738,
+              "post_id": 45547,
+              "question_title": "How many countries will vote in favor of the IAEA resolution \"Application of IAEA Safeguards in the Middle East\" at the 70th General Conference?",
+              "question_type": "discrete",
+              "question_resolution": "112.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45739,
+              "post_id": 45548,
+              "question_title": "Will the CDC report 5 or more human West Nile virus disease cases in Florida for 2026 by September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45740,
+              "post_id": 45549,
+              "question_title": "How many cumulative locally acquired human West Nile virus cases in Europe will ECDC report in its weekly surveillance update published on or around 18 September 2026?",
+              "question_type": "numeric",
+              "question_resolution": "1482.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45741,
+              "post_id": 45550,
+              "question_title": "How many cumulative autochthonous human West Nile virus cases in Île-de-France in 2026 will Santé publique France report in its bulletin covering data up to about 14 September 2026?",
+              "question_type": "discrete",
+              "question_resolution": "17.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45742,
+              "post_id": 45551,
+              "question_title": "Will the Detroit Lions defeat the Buffalo Bills on Thursday, September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45743,
+              "post_id": 45552,
+              "question_title": "What number will DeFlock's \"Cities Rejecting LPRs\" counter show on September 18, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "153.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45744,
+              "post_id": 45553,
+              "question_title": "Which company will hold the #1 rank on the LMArena Text Arena leaderboard on September 17, 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Anthropic",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45745,
+              "post_id": 45554,
+              "question_title": "What will the USDA Choice boxed beef cutout value (600–900 lb) be on September 17, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "372.15",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45746,
+              "post_id": 45555,
+              "question_title": "Where will GPT-6 Astra rank on the LMArena Text Arena leaderboard on September 18, 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Rank 21 or lower",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45747,
+              "post_id": 45556,
+              "question_title": "What will the CME October 2026 live cattle futures contract settle at on September 17, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "215.65",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45748,
+              "post_id": 45557,
+              "question_title": "Will the official price band for the NSE IPO be announced on or before September 17, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45749,
+              "post_id": 45558,
+              "question_title": "How many tonnes of rare-earth permanent magnets will China export to the United States in August 2026?",
+              "question_type": "numeric",
+              "question_resolution": "512.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45750,
+              "post_id": 45559,
+              "question_title": "How many countries will abstain on the IAEA General Conference resolution 'Application of IAEA safeguards in the Middle East' at the 70th General Conference?",
+              "question_type": "discrete",
+              "question_resolution": "9.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45751,
+              "post_id": 45560,
+              "question_title": "How many Florida counties will have reported locally acquired dengue cases in 2026, per the latest Florida Arbovirus Surveillance report available around September 18, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "6.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45753,
+              "post_id": 45562,
+              "question_title": "Will a new named storm form in the Atlantic basin between September 17 and September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45754,
+              "post_id": 45563,
+              "question_title": "How many combined points will be scored in the Detroit Lions at Buffalo Bills game on September 17, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "72.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45755,
+              "post_id": 45564,
+              "question_title": "Will Zcash (ZEC) trade above $1,100 on September 17 or 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45756,
+              "post_id": 45565,
+              "question_title": "Will Bitcoin trade above $83,000 at any point between September 17 and September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45757,
+              "post_id": 45566,
+              "question_title": "Will the US and China announce an extension of their tariff truce during or immediately after the September 2026 Madrid trade talks?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45758,
+              "post_id": 45567,
+              "question_title": "Will Ethereum (ETH/USD) close above $2,550 on September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45759,
+              "post_id": 45568,
+              "question_title": "Will Trump have formally nominated a permanent Secretary of the Army by September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45760,
+              "post_id": 45569,
+              "question_title": "How many \"Attack\" incidents will UKMTO log on its incident feed on September 17, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "1.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45761,
+              "post_id": 45570,
+              "question_title": "In the first national Lula-vs-Flávio-Bolsonaro runoff poll released September 17–18, 2026, what will be Lula's lead over Flávio Bolsonaro?",
+              "question_type": "numeric",
+              "question_resolution": "2.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45762,
+              "post_id": 45571,
+              "question_title": "How many cumulative locally acquired 2026 dengue cases will Hillsborough County, Florida show in the Florida Arbovirus Surveillance report published on or around September 18, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "134.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45763,
+              "post_id": 45572,
+              "question_title": "What will be the highest 24-hour PSI reading recorded in any region of Singapore on September 18, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "102.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45764,
+              "post_id": 45573,
+              "question_title": "Will Zcash (ZEC) be a top-10 cryptocurrency by market cap on September 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45765,
+              "post_id": 45574,
+              "question_title": "Will the House Energy & Commerce Committee begin a markup on the Trahan–Obernolte comprehensive AI framework (or a bill derived from the Great American AI Act) on September 17 or 18, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45766,
+              "post_id": 45575,
+              "question_title": "What will Boyaa Interactive (0434.HK) close at on September 18, 2026?",
+              "question_type": "numeric",
+              "question_resolution": "2.87",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45767,
+              "post_id": 45576,
+              "question_title": "As of September 18, 2026, will NASA have announced a specific-day launch date for SpaceX Crew-13?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            },
+            {
+              "question_id": 45768,
+              "post_id": 45577,
+              "question_title": "Will Maykel 'Osorbo' Castillo Pérez have left Cuba by September 19, 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
+            }
+          ],
+          "unresolved_contribution_count": 0,
+          "contributions_status": "completed"
+        }
+      ],
+      "resolved_questions": [],
+      "errors": [],
+      "id": 33122,
+      "name": "MiniBench - 2026-09-07",
+      "slug": "minibench-2026-09-07",
+      "start_date": "2026-09-07T00:00:00Z",
+      "close_date": "2026-09-25T00:00:00Z"
+    }
+  ],
+  "llm_calls": 0,
+  "prize_payment_confirmed": null,
+  "bot": {
+    "id": 308890,
+    "username": "negio"
+  },
+  "minibench_rounds": [
+    {
+      "id": 33132,
+      "slug": "minibench",
+      "name": "MiniBench",
+      "start_date": "2026-10-19T00:00:00Z",
+      "close_date": "2026-11-06T00:00:00Z"
+    },
+    {
+      "id": 33129,
+      "slug": "minibench-2026-10-05",
+      "name": "MiniBench - 2026-10-05",
+      "start_date": "2026-10-05T00:00:00Z",
+      "close_date": "2026-10-23T00:00:00Z"
+    },
+    {
+      "id": 33125,
+      "slug": "minibench-2026-09-21",
+      "name": "MiniBench - 2026-09-21",
+      "start_date": "2026-09-21T00:00:00Z",
+      "close_date": "2026-10-09T00:00:00Z"
+    },
+    {
+      "id": 33122,
+      "slug": "minibench-2026-09-07",
+      "name": "MiniBench - 2026-09-07",
+      "start_date": "2026-09-07T00:00:00Z",
+      "close_date": "2026-09-25T00:00:00Z"
+    }
+  ],
+  "api_get_calls": 17,
+  "retry_not_before_utc": null,
+  "finished_at_utc": "2026-10-25T15:28:29.994154+00:00",
+  "resolution_signature": [
+    45707,
+    46133,
+    46307
+  ]
+}

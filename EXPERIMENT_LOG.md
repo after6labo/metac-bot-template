@@ -2207,3 +2207,13 @@ Total output lines: 2927
 - 最新本番run [40182060379](https://github.com/after6labo/metac-bot-template/actions/runs/40182060379) は18:48:08.123 JSTに再確認した。締切後各runはsubmitted=0、failed/pending/needs_attention空、provider_paused=false、観測応答・失敗呼び出し・tokens・新規費用はいずれも0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。確認対象のActions jobと全stepはsuccess。
 - 実取得間隔は16:57:02.653→17:27:11.364が30分08.711秒、→17:57:16.780が30分05.416秒、→18:27:14.817が29分58.037秒、→18:47:14.532が19分59.715秒、→18:48:08.123が53.591秒で、最大30分08.711秒・60分調査閾値未満。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。q46427の公式得点対象認定、個別得点、順位・賞金への反映は未確認で監視を継続する。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
 
+
+
+## 2026-10-26 00:17 JST — Fall 4問の受付を検出し、3問投稿後の1問障害を次回実行で復旧
+
+- 本番run [40202230032](https://github.com/after6labo/metac-bot-template/actions/runs/40202230032) は23:27:17.193 JSTに実取得を開始し、Fall q46414/post46186、q46449/post46222、q46457/post46228、q46458/post46229を独立監査とSDKの双方で受付中・未回答として検出した。4問とも受付は23:00〜翌02:00 JST。
+- 同runはq46457の予測を23:32:12.771、説明を23:32:16.639、q46449の予測を23:33:31.561、説明を23:33:35.260、q46414の予測を23:34:18.203、説明を23:34:22.397 JSTに投稿した。これら3問は後続run 40204565100の独立監査で受付中・`already_forecasted=true` と確認され、再投稿を回避した。
+- q46458は同runで数値分布の構造変換を既定の3回すべて試したが、無料モデルが有効JSONも六つの正確なpercentile行も返さず、SDK検証前に失敗した。runtimeはq46458をfailed_or_unconfirmed、pending、needs_attention=trueとして保持し、runのActions `Run bot` stepはfailure。原因判明だけを復旧扱いせず、未投稿のままと記録した。提供元pause、API取得失敗、監査不一致、予測投稿後のコメントだけの失敗はなかった。
+- 次の通常本番run [40204565100](https://github.com/after6labo/metac-bot-template/actions/runs/40204565100) は23:57:17.781 JSTに再取得し、q46458の有効な数値分布を得て、予測を23:58:31.126、説明を23:58:35.678 JSTに投稿した。締切まで約2時間01分を残し、submitted=1、failed/pending/needs_attention空、provider_paused=falseへ復旧し、Actions全stepはsuccess。q46414・q46449・q46457はalready_forecastedとしてスキップし、重複投稿していない。
+- 両runのMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。実取得間隔は22:59:36.191→23:27:17.193が27分41.001秒、→23:57:17.781が30分00.588秒で60分調査閾値未満。合計は観測応答12、失敗呼び出し記録1、31,885 tokens、新規費用$0（提供元の無料枠消費数ではない）。
+- q46458の後続実行による `already_forecasted=true` の独立確認と4問の締切後保持は未確認のため継続監視する。公式成績はFall 251位・-152.0002565208251（2問、暫定）、MiniBench 2026-10-05は174位・-202.40684204840116（37問、finalized、賞金配分$0）から更新なし。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

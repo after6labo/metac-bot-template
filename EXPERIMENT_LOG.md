@@ -1,9 +1,3 @@
-From https://github.com/after6labo/metac-bot-template
- * branch            main       -> FETCH_HEAD
-   6aa1406..aca64e7  main       -> origin/main
-Warning: truncated output (original token count: 79556)
-Total output lines: 2927
-
 ## 2026-10-21 11:12 JST — 新規MiniBench q46407を投稿し、次回監査で可視性確認
 
 - 新規MiniBench q46407/post46178（受付10:12:58〜13:12:58 JST）は本番run [39528286866](https://github.com/after6labo/metac-bot-template/actions/runs/39528286866) が10:37:00.279 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。同run内で予測と説明を投稿し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。成功応答2、7,722 tokens、費用$0。
@@ -566,7 +560,940 @@ Total output lines: 2927
   unconfirmed.
 - The official [Fall tournament page](https://www.metaculus.com/tournament/fall-futureeval-2026/)
   and [FutureEval resources page](https://www.metaculus.com/notebooks/38928/futureeval-resources-page/),
-  edited October 16, were rechecked. F…29556 tokens truncated… a bot account because
+  edited October 16, were rechecked. Fall still runs September 28–January 6
+  with a $50,000 seasonal prize pool; questions are open for three hours and
+  bot makers should submit one forecast per question with a private reasoning
+  comment. The no-human-in-the-loop rule still prohibits preview-driven
+  prompt/implementation changes or reruns on open/upcoming tournament
+  questions. The participation form, one primary prize-eligible bot, and
+  end-of-season survey/verification requirements remain in force. The
+  notification-only change below does not alter any of these conditions.
+
+- MiniBench's authenticated inventory still returns zero posts and remains
+  `inventory_unexpected_empty` / `attention_required`. It is not treated as
+  evidence of zero open questions. Fall remains complete/matched over 47 posts,
+  with no open or unanswered item, SDK fetch error, publication failure or
+  provider pause.
+- The repeated GitHub failure emails were traced to `main.py` returning exit
+  code 1 for every audit-only `needs_attention` result. Test-first commits
+  [f25bb3e](https://github.com/after6labo/metac-bot-template/commit/f25bb3ea71e903da8f5bad1beca7d3d2cd028c62),
+  [502d5a0](https://github.com/after6labo/metac-bot-template/commit/502d5a09c49a38db7de64007c410a3940805e8b3)
+  and [4ab5c6c](https://github.com/after6labo/metac-bot-template/commit/4ab5c6cb8ade57508165e548b179c4b976b32a07)
+  separate persisted audit attention from immediate Action failure.
+- Audit-only attention now stays visible in `latest.json` and monitoring, but
+  does not repeatedly fail the Action. Unanswered questions, SDK fetch errors,
+  failed/unconfirmed publication and provider pause still return a failing exit
+  code. This changes notification severity only; it does not change question
+  eligibility, batch/daily limits, model route, prompts, forecast values or
+  provider-limit handling.
+- Verification [run 38973988768](https://github.com/after6labo/metac-bot-template/actions/runs/38973988768)
+  passed all 63 Python regression tests, all 12 scheduler tests and the live bot
+  step, and completed successfully. Its persisted result remains correctly
+  `attention_required` for MiniBench while Fall retains q46296
+  `closed/already_forecasted=true`; no condition was hidden to make the JSON
+  healthy.
+- The first unchanged scheduled run after this fix,
+  [38976745798](https://github.com/after6labo/metac-bot-template/actions/runs/38976745798),
+  fetched at 07:37:16.318 JST and completed successfully. Its persisted JSON
+  still records MiniBench `inventory_unexpected_empty` / `attention_required`,
+  while Fall remains matched and q46296 remains
+  `closed/already_forecasted=true`. This verifies on a normal scheduled run
+  that repeated audit-only failure mail is suppressed without hiding the
+  unresolved coverage incident.
+
+- Fetch-start gaps across the regular 05:17, 05:47, 06:17 and 06:47 runs were
+  29m51.310s, 30m05.341s and 29m59.446s; the recent maximum remains
+  30m19.657s, below the 60-minute investigation threshold. These checks used no
+  model responses or runtime tokens and incurred $0 new spending. MiniBench
+  coverage remains unresolved; official score, rank and prize remain
+  unconfirmed.
+
+## 2026-10-17 04:20 JST — Fall q46296 submitted; MiniBench zero-inventory incident surfaced
+
+- [Run 38946033520](https://github.com/after6labo/metac-bot-template/actions/runs/38946033520)
+  began its authenticated tournament fetch at 03:17:15.511 JST. The independent
+  Fall audit found q46296/post46058 open and unanswered in its 03:00–06:00 JST
+  window. Job logs record prediction publication at 03:18:52.294 JST and
+  explanation-comment publication at 03:18:56.291 JST, leaving about 2h41m04s
+  before close.
+- Runtime recorded `submitted=1`, `failed_or_unconfirmed=0`,
+  `pending_questions=[]`, `needs_attention=false`, no skips/fetch errors and
+  no provider pause. The outcome was submitted with zero nonfatal errors. The run
+  observed two successful free-route responses, zero failed/unconfirmed model
+  invocations, 7,505 runtime API tokens and $0 new spending.
+- The submission audit was complete/matched for MiniBench (60 posts, no open item)
+  and Fall (47 posts, q46296 the only open item). [Run 38949885309](https://github.com/after6labo/metac-bot-template/actions/runs/38949885309)
+  fetched at 03:47:19.211 JST and independently observed q46296 still open with
+  `already_forecasted=true`. It selected zero, made no model response, used zero
+  tokens and posted no duplicate.
+- That 03:47 run also exposed a new audit incident: the authenticated MiniBench
+  API inventory suddenly returned zero posts after returning 60 posts 30 minutes
+  earlier, but the old guard labelled the empty result `matched`. A read-only
+  rerun of [diagnostic 36520439098](https://github.com/after6labo/metac-bot-template/actions/runs/36520439098)
+  reproduced MiniBench zero posts while Fall still returned 47 posts, so this is
+  not evidence that MiniBench has no questions.
+- Test-first repair commits
+  [02a28e3](https://github.com/after6labo/metac-bot-template/commit/02a28e3cffb7ce55c3c91a348b3617d2c4fada56),
+  [f3e94b5](https://github.com/after6labo/metac-bot-template/commit/f3e94b576c8b6558ce52e9f8260cd761fe75baf8)
+  and [f77a89f](https://github.com/after6labo/metac-bot-template/commit/f77a89fc1e3863db95795ca89ded8f763d295135)
+  now treat a zero-post response from either configured, historically nonempty
+  tournament as `inventory_unexpected_empty` and `attention_required`, rather
+  than healthy zero inventory. This changes only audit integrity; it adds no
+  eligibility exclusion, batch/daily cap, prompt or probability adjustment.
+- Verification [run 38953749232](https://github.com/after6labo/metac-bot-template/actions/runs/38953749232)
+  passed all 61 Python regression tests and all 12 scheduler tests. Its live fetch
+  at 04:17:38.511 JST then correctly marked MiniBench failed with
+  `inventory_unexpected_empty`; the Action failed intentionally because the
+  incident remains unresolved. Fall remained complete/matched over 47 posts,
+  q46296 remained open/`already_forecasted=true`, and no duplicate/model call,
+  pending question, publication failure or provider pause occurred.
+- Fetch-start gaps from the preceding checkpoint through verification were
+  29m56.948s, 30m03.700s and 30m19.300s; the recent maximum remains 30m19.657s,
+  below the 60-minute investigation threshold. MiniBench coverage remains
+  unconfirmed until its official API inventory returns and a fresh audit records
+  the expected nonempty set. No paid route, retry storm or provider-limit
+  circumvention was used. q46296 post-close retention after 06:00 JST and official
+  acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-17 02:19 JST — Fall q46282 retained after close
+
+- [Run 38938395482](https://github.com/after6labo/metac-bot-template/actions/runs/38938395482) began its authenticated tournament fetch at 02:17:14.456 JST, after q46282/post46043 closed at 02:00 JST. Its independent Fall audit records q46282 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close.
+- The Fall audit is complete/matched over 46 posts, and the MiniBench audit is complete/matched over 60 posts. No question is open; there are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- The run records `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `provider_paused_for_run=false`, and no skips. No duplicate submission was attempted.
+- The run did not invoke a model or use runtime API tokens and incurred $0 new spending. Fetch-start gaps since the previous report were 30m00.103s, 29m56.796s and 30m02.507s; the recent maximum remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication, open-state recognition and post-close retention are confirmed; official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-17 00:50 JST — Fall q46282 independently recognized as forecasted while open
+
+- [Run 38918469933](https://github.com/after6labo/metac-bot-template/actions/runs/38918469933) began its authenticated tournament fetch at 23:47:00.903 JST, [run 38922560879](https://github.com/after6labo/metac-bot-template/actions/runs/38922560879) at 00:17:04.880 JST, and [run 38926624743](https://github.com/after6labo/metac-bot-template/actions/runs/38926624743) at 00:47:15.049 JST. All three independent Fall audits record q46282/post46043 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 02:00 JST.
+- All three Fall audits are complete/matched over 46 posts, and all three MiniBench audits are complete/matched over 60 posts. There are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Each run records `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, and `provider_paused_for_run=false`. The sole skip is q46282/`already_forecasted`, supported by the matching independent inventory, so no duplicate submission was attempted.
+- None of the confirmation runs invoked a model or used runtime API tokens, and each incurred $0 new spending. Fetch-start gaps were 29m47.277s, 30m03.977s and 30m10.169s; the recent maximum remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication and independent open-state recognition are confirmed; post-close retention after 02:00 JST, official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 23:45 JST — Fall q46282 submitted within the open window
+
+- [Run 38914417304](https://github.com/after6labo/metac-bot-template/actions/runs/38914417304) began its authenticated tournament fetch at 23:17:13.627 JST. The independent Fall audit found new q46282/post46043 open and unanswered in its 23:00 JST–02:00 JST window.
+- Job logs record prediction publication at 23:17:48.969 JST and explanation-comment publication at 23:17:53.537 JST, leaving about 2h42m06s before close.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, and `provider_paused_for_run=false`; q46282's outcome is `submitted` with zero nonfatal errors.
+- The audits are complete/matched for MiniBench (60 posts, no open item) and Fall (46 posts, q46282 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded publication and therefore records q46282 as open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 5,278 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The fetch-start gap from 22:47:14.874 JST was 29m58.753s. The recent maximum remains 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication is confirmed; independent open-state recognition, post-close retention after 02:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 22:04 JST — Fall q46295 retained after close
+
+- [Run 38899357157](https://github.com/after6labo/metac-bot-template/actions/runs/38899357157) began its authenticated tournament fetch at 21:17:01.872 JST, after q46295/post46057 closed at 21:00 JST. Its independent Fall audit records q46295 as `closed` with `already_forecasted=true`, confirming that the in-window prediction remained associated with the bot after close. [Run 38902886378](https://github.com/after6labo/metac-bot-template/actions/runs/38902886378) reconfirmed the same state at 21:47:21.530 JST.
+- Both Fall audits are complete/matched over 45 posts, and both MiniBench audits are complete/matched over 60 posts. No other question is open; there are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `provider_paused_for_run=false`, and no skips. No duplicate submission was attempted.
+- Neither run invoked a model or used runtime API tokens, and each incurred $0 new spending. Recent fetch-start gaps were 30m02.609s, 30m00.576s and 30m19.657s; the recent maximum is 30m19.657s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication, open-state recognition and post-close retention are confirmed; official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 19:30 JST — Fall q46295 independently recognized as forecasted while open
+
+- [Run 38882736460](https://github.com/after6labo/metac-bot-template/actions/runs/38882736460) began its authenticated tournament fetch at 18:47:16.342 JST, and [run 38886123521](https://github.com/after6labo/metac-bot-template/actions/runs/38886123521) began at 19:17:18.924 JST. Both independent Fall audits record q46295/post46057 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 21:00 JST.
+- Both Fall audits are complete/matched over 45 posts, and both MiniBench audits are complete/matched over 60 posts. There are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, and `provider_paused_for_run=false`. The sole skip is q46295/`already_forecasted`, supported by the matching independent inventory, so no duplicate submission was attempted.
+- Neither confirmation run invoked a model or used runtime API tokens, and each incurred $0 new spending. Fetch-start gaps were 30m04.138s and 30m02.583s; the recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. In-window publication and independent open-state recognition are confirmed; post-close retention after 21:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 18:21 JST — Fall q46294 retained after close and q46295 submitted in the next window
+
+- [Run 38879309432](https://github.com/after6labo/metac-bot-template/actions/runs/38879309432) began its authenticated tournament fetch at 18:17:12.204 JST. Its independent Fall audit records q46294/post46056 as `closed` with `already_forecasted=true`, confirming post-close forecast retention after the 18:00 JST close.
+- The same audit independently found new q46295/post46057 open and unanswered in its 18:00–21:00 JST window. Job logs record prediction publication at 18:18:24.302 JST and explanation-comment publication at 18:18:28.380 JST, leaving about 2h41m32s before close.
+- Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, and `provider_paused_for_run=false`; q46295's outcome is `submitted` with zero nonfatal errors.
+- The audits are complete/matched for MiniBench (60 posts, no open item) and Fall (45 posts, q46295 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded q46295 publication and therefore records it open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 3,757 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The fetch-start gap from 17:47:13.352 JST was 29m58.851s. The recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. q46294's publication, open-state recognition and post-close retention are confirmed. q46295 publication is confirmed; independent open-state recognition, post-close retention after 21:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 16:30 JST — Fall q46294 independently recognized as forecasted while open
+
+- [Run 38863099874](https://github.com/after6labo/metac-bot-template/actions/runs/38863099874) began its authenticated tournament fetch at 15:47:10.869 JST, and [run 38866154368](https://github.com/after6labo/metac-bot-template/actions/runs/38866154368) began at 16:17:25.837 JST. Both independent Fall audits record q46294/post46056 as `open` with `already_forecasted=true`, confirming post-publication API recognition while the question remains open until 18:00 JST.
+- Both Fall audits are complete/matched over 44 posts, and both MiniBench audits are complete/matched over 60 posts. There are no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence.
+- Both runs record `submitted=0`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, and `provider_paused_for_run=false`. The sole skip is q46294/`already_forecasted`, supported by the matching independent inventory, so no duplicate submission was attempted.
+- Neither confirmation run invoked a model or used runtime API tokens, and each incurred $0 new spending. Fetch-start gaps were 29m51.404s and 30m14.969s; the recent maximum remains 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. In-window publication and independent open-state recognition are confirmed; post-close retention after 18:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 15:20 JST — Fall q46294 submitted within the open window
+
+- New Fall q46294/post46056 opened at 15:00 JST and closes at 18:00 JST on October 16. [Run 38860266613](https://github.com/after6labo/metac-bot-template/actions/runs/38860266613) began its authenticated tournament fetch at 15:17:19.465 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 15:18:18.088 JST and explanation-comment publication at 15:18:22.206 JST, leaving about 2h41m38s before close. Runtime records `submitted=1`, `failed_or_unconfirmed=0`, `pending_questions=[]`, `needs_attention=false`, `skips=[]`, `fetch_errors=[]`, `provider_paused_for_run=false`; the outcome is `submitted` with zero nonfatal errors.
+- The submission-run audits were complete/matched for MiniBench (60 posts, no open item) and Fall (44 posts, q46294 the only open item), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded publication and therefore records q46294 open/`already_forecasted=false`; independent post-publication recognition remains due.
+- The submission run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 2,552 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- The preceding fetch began at 14:47:16.745 JST, so the latest fetch-start gap was 30m02.719s. The recent maximum was 30m17.037s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication is confirmed; independent in-window API recognition, post-close retention after 18:00 JST, and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 02:45 JST — Fall q46333 and q46281 post-close forecast retention confirmed
+
+- [Run 38777329931](https://github.com/after6labo/metac-bot-template/actions/runs/38777329931) began its authenticated tournament fetch at 02:27:15.021 JST, after both questions closed at 02:00 JST.
+- The independent Fall audit records q46333/post46095 and q46281/post46042 as closed with already_forecasted=true. The audit is complete/matched over 43 posts, with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. MiniBench is also complete/matched over 60 posts.
+- No new open question was present. Runtime records submitted=0, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, question_windows=[], outcomes=[], skips=[], fetch_errors=[] and provider_paused_for_run=false.
+- This run made no model invocation, used zero runtime API tokens and incurred $0 new spending. The fetch-start gap from 01:57:14.516 JST was 30m00.505s; the recent maximum is 30m23.422s, below the 60-minute investigation threshold.
+- No code, configuration, prompt, forecast value, model route, target eligibility or stopping condition changed. In-window publication, open-state recognition and post-close forecast retention are now confirmed for both questions. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-16 00:12 JST — Two Fall questions submitted and independently recognized while open
+
+- Fall q46333/post46095 and q46281/post46042 both opened at 23:00 JST on October 15 and close at 02:00 JST on October 16. [Run 38751400031](https://github.com/after6labo/metac-bot-template/actions/runs/38751400031) began its authenticated tournament fetch at 23:27:19.360 JST, independently found both open and unanswered, selected both without an eligibility skip, and completed successfully.
+- Job logs record q46333 prediction publication at 23:28:07.206 JST and explanation-comment publication at 23:28:11.091 JST, leaving about 2h31m49s before close. They record q46281 prediction publication at 23:30:50.280 JST and explanation-comment publication at 23:30:54.813 JST, leaving about 2h29m05s before close.
+- Runtime records submitted=2, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false. Both outcomes are submitted with zero nonfatal errors.
+- Submission-run audits were complete/matched for MiniBench (60 posts, no open item) and Fall (43 posts, the two open items), with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. The Fall inventory preceded publication and therefore records both already_forecasted=false.
+- Follow-up [run 38755875660](https://github.com/after6labo/metac-bot-template/actions/runs/38755875660) fetched at 23:57:13.595 JST and independently recorded both questions open with already_forecasted=true. It selected neither beyond the evidence-backed already_forecasted skips, made no duplicate submission/model response, used zero tokens and incurred $0 new spending. Both audits remained complete/matched with pending/failures/fetch errors/missing/mismatch/unknown empty; attention/provider pause false.
+- The submission run observed 4 successful free-route responses, 0 failed/unconfirmed model invocations and 13,543 runtime API tokens; new spending was $0. These are observation counters, not provider quota or billing measurements.
+- Fetch-start gaps from 22:57:21.001 JST to the submission run and then follow-up were 29m58.359s and 29m54.235s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication and independent in-window recognition are confirmed. Post-close retention after 02:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-15 16:31 JST — Fall q46293 post-close forecast evidence confirmed
+
+- Fall q46293/post46055 closed at 15:00 JST after prediction and explanation publication in run 38678843180. The first post-close [run 38692398122](https://github.com/after6labo/metac-bot-template/actions/runs/38692398122) began its authenticated tournament fetch at 15:27:15.789 JST and independently recorded q46293 closed with already_forecasted=true.
+- [Runs 38695468082](https://github.com/after6labo/metac-bot-template/actions/runs/38695468082) and [38698745979](https://github.com/after6labo/metac-bot-template/actions/runs/38698745979) reconfirmed the same closed/already_forecasted=true state at 15:57:13.982 and 16:27:16.506 JST. No duplicate publication was attempted.
+- All three post-close runs found no newly open Fall or MiniBench question. Both target audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- Fetch-start gaps from the last pre-close checkpoint through 16:27 were 30m07.723s, 29m58.193s and 30m02.525s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- These post-close checks used zero model responses, failed/unconfirmed invocations, tokens and new spending. No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed.
+- q46293 post-close retention is confirmed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-15 13:01 JST — Fall q46293 recovered after free-route timeout; q46292 post-close confirmed
+
+- Fall q46293/post46055 opened at 12:00 JST and closes at 15:00 JST on October 15. [Run 38676263267](https://github.com/after6labo/metac-bot-template/actions/runs/38676263267) began its authenticated tournament fetch at 12:27:03.491 JST, independently found it open and unanswered, but published nothing. The research stage completed, then the free OpenRouter route timed out while generating the binary forecast after 180.552 seconds. Runtime preserved q46293 as failed_or_unconfirmed and pending with needs_attention=true; the failure run recorded no successful response/token usage and $0 new spending.
+- The failure log contains no prediction-post or comment-post success event, and the independent Fall audit still recorded q46293 open/already_forecasted=false. Therefore the failed run was not manually re-run. The next scheduled [run 38678843180](https://github.com/after6labo/metac-bot-template/actions/runs/38678843180) performed a fresh authenticated inventory at 12:56:57.925 JST and safely retried the unanswered question.
+- The recovery job log records prediction publication at 12:57:53.214 JST and explanation-comment publication at 12:57:58.148 JST, leaving about 2h02m before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- Both failure and recovery inventories were complete/matched for MiniBench and Fall, with no missing IDs, forecast-evidence mismatches or unknown evidence. They also record q46292/post46054 closed after its 12:00 JST deadline with already_forecasted=true, completing q46292 post-close publication evidence.
+- The fetch-start gap from the failed run to recovery was 29m54.435s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- The recovery used 2 observed free-route responses and 3,150 runtime API tokens, with 0 failed/unconfirmed invocations and $0 new spending. These are observation counters, not provider quota or billing measurements.
+- Follow-up [run 38681453409](https://github.com/after6labo/metac-bot-template/actions/runs/38681453409) fetched at 13:27:14.148 JST and independently recorded q46293 open with already_forecasted=true. It made no duplicate submission, model response or token use and incurred $0 new spending. Both target audits remained complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false. The fetch-start gap from recovery was 30m16.222s, and the recent maximum remains 30m16.710s.
+- The unchanged next run succeeded and the follow-up recognized the saved forecast, so the evidence supports a transient free-provider connection timeout rather than a verified code defect. No code, model route, prompt, forecast value, target eligibility, retry/stopping condition, scheduler interval, paid fallback or owner action changed. q46293 publication and independent in-window recognition are confirmed; post-close retention and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-15 10:23 JST — Fall q46292 submitted and independently recognized while open
+
+- New Fall q46292/post46054 opened at 09:00 JST and closes at 12:00 JST on October 15. [Run 38660021712](https://github.com/after6labo/metac-bot-template/actions/runs/38660021712) began its authenticated tournament fetch at 09:27:04.502 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 09:27:42.725 JST and explanation-comment publication at 09:27:47.319 JST, leaving about 2h32m13s before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The submission run's independent audits were complete/matched for MiniBench (60 posts, no open item) and Fall (40 posts, q46292 the only open item), with no missing IDs, forecast-evidence mismatches or unknown evidence. Its inventory preceded publication and therefore records q46292 open/already_forecasted=false.
+- Follow-up [run 38662850784](https://github.com/after6labo/metac-bot-template/actions/runs/38662850784) fetched at 09:57:08.914 JST and independently records q46292 open with already_forecasted=true. It selected nothing beyond the evidence-backed already_forecasted skip, made no duplicate submission, model response or token use, and incurred $0 new spending. Both audits remained complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- Fetch-start gaps from the 08:57:05.617 JST checkpoint were 29m58.885s and 30m04.412s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- The submission run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 5,026 runtime API tokens; new spending was $0. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Publication and independent in-window recognition are confirmed. Post-close retention after 12:00 JST and official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-15 07:29 JST — Fall q46291 submitted, independently recognized and post-close confirmed
+
+- New Fall q46291/post46053 opened at 03:00 JST and closed at 06:00 JST on October 15. [Run 38612315579](https://github.com/after6labo/metac-bot-template/actions/runs/38612315579) began its authenticated tournament fetch at 03:07:14.948 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 03:09:10.336 JST and explanation-comment publication at 03:09:14.666 JST, leaving about 2h50m45s before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The same independent inventories were complete/matched for MiniBench (60 posts, no open item) and Fall (39 posts, q46291 the only open item), with no missing IDs, forecast-evidence mismatches or unknown evidence. The Fall audit also records q46290/post46052 closed with already_forecasted=true, preserving its post-close evidence.
+- Follow-up [run 38616564774](https://github.com/after6labo/metac-bot-template/actions/runs/38616564774) fetched at 03:37:04.132 JST and independently recorded q46291 open with already_forecasted=true. Later pre-close runs through [38633478832](https://github.com/after6labo/metac-bot-template/actions/runs/38633478832) at 05:37:16.728 JST retained that state without a duplicate submission.
+- The first post-close [run 38637607517](https://github.com/after6labo/metac-bot-template/actions/runs/38637607517) fetched at 06:07:09.102 JST and recorded q46291 closed with already_forecasted=true. Runs [38640267672](https://github.com/after6labo/metac-bot-template/actions/runs/38640267672), [38644035159](https://github.com/after6labo/metac-bot-template/actions/runs/38644035159), and latest [38647640103](https://github.com/after6labo/metac-bot-template/actions/runs/38647640103) reconfirmed that state at 06:27:22.945, 06:57:12.364, and 07:27:00.367 JST.
+- All four post-close runs found no newly open Fall or MiniBench question. Both target audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false. They selected nothing, made no duplicate submission, used zero model responses/tokens, and incurred $0 new spending.
+- Fetch-start gaps from the 05:37 checkpoint through 07:27 were 29m52.374s, 20m13.844s, 29m49.418s and 29m48.003s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- The submission run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 7,229 runtime API tokens; new spending was $0. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. q46291 post-close retention is confirmed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-15 00:56 JST — Fall q46290 submitted, independently recognized and post-close confirmed
+
+- New Fall q46290/post46052 opened at 21:00 JST and closes at 00:00 JST on October 15. [Run 38561341227](https://github.com/after6labo/metac-bot-template/actions/runs/38561341227) began its authenticated tournament fetch at 21:07:17.730 JST, independently found it open and unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 21:08:40.611 JST and explanation-comment publication at 21:08:44.540 JST, leaving about 2h51m15s before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The same complete/matched independent Fall audit records q46151/post45969 closed after its 21:00 JST deadline with already_forecasted=true, completing q46151 post-close publication evidence. MiniBench remains 60 posts with no open item; neither tournament audit has missing IDs, forecast-evidence mismatches or unknown evidence.
+- Follow-up [run 38565084457](https://github.com/after6labo/metac-bot-template/actions/runs/38565084457) fetched at 21:37:21.036 JST and independently records q46290 open with already_forecasted=true. It selected nothing beyond the evidence-backed already_forecasted skip, made no duplicate submission, model response or token use, and incurred $0 new spending. Both audits remained complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- The 20:37:12.916 JST checkpoint still recorded q46151 open/already_forecasted=true with no duplicate. Fetch-start gaps after the 20:07 checkpoint were 29m54.147s, 30m04.814s and 30m03.306s; the recent maximum is 30m16.710s, below the 60-minute investigation threshold.
+- The q46290 submission used 2 observed free-route responses and 8,076 runtime API tokens, with 0 failed or unconfirmed LLM invocations and $0 new spending. These are observation counters, not provider quota measurements.
+- Later pre-close checkpoints through [run 38582002327](https://github.com/after6labo/metac-bot-template/actions/runs/38582002327) at 23:37:05.401 JST continued to record q46290 open/already_forecasted=true without a duplicate submission. The first post-close [run 38586391862](https://github.com/after6labo/metac-bot-template/actions/runs/38586391862) fetched at 00:07:17.835 JST on October 15 and recorded q46290 closed/already_forecasted=true. [Run 38590798343](https://github.com/after6labo/metac-bot-template/actions/runs/38590798343) reconfirmed that state at 00:37:03.082 JST.
+- The 00:07 and 00:37 audits found no newly open Fall or MiniBench item. Both target audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false. These no-new-question runs used zero model responses, tokens and new spending.
+- Fetch-start gaps from the 21:37 checkpoint through 00:37 were 29m57.716s, 29m42.702s, 30m16.484s, 29m47.463s, 30m12.434s and 29m45.247s. The recent maximum remains 30m16.710s, below the 60-minute investigation threshold.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. q46290 post-close retention is confirmed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-14 19:19 JST — Fall q46151 submitted and independently recognized; q46150 post-close confirmed
+
+- New Fall q46151/post45969 opened at 18:00 JST and closes at 21:00 JST. [Run 38539904736](https://github.com/after6labo/metac-bot-template/actions/runs/38539904736) began its authenticated tournament fetch at 18:07:18.452 JST, independently found it open and unanswered, and completed successfully.
+- Job logs separately record prediction publication at 18:10:00.204 JST and explanation-comment publication at 18:10:04.078 JST, leaving about 2h49m56s before close. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The same complete/matched independent Fall audit records q46150/post45968 closed after its 18:00 JST deadline with already_forecasted=true, completing q46150 post-close publication evidence. MiniBench remains 60 posts with no open item; neither tournament audit has missing IDs, forecast-evidence mismatches or unknown evidence.
+- Follow-up [run 38543569231](https://github.com/after6labo/metac-bot-template/actions/runs/38543569231) fetched at 18:37:19.725 JST and [run 38547206140](https://github.com/after6labo/metac-bot-template/actions/runs/38547206140) at 19:07:19.645 JST. Both independently record q46151 open with already_forecasted=true, select nothing beyond the evidence-backed already_forecasted skip, and make no duplicate submission. Both audits remain complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause are false.
+- Actual fetch-start gaps from the 17:37 checkpoint were 30m04.449s, 30m01.273s and 29m59.921s. The recent maximum remains 30m12.663s, below the 60-minute investigation threshold.
+- The submission used 2 observed free-route responses and 9,182 runtime API tokens, with 0 failed or unconfirmed LLM invocations and $0 new spending. Both follow-ups used zero model responses/tokens and $0 new spending. These are observation counters, not provider quota measurements.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. q46151 post-close retention remains to be checked after 21:00 JST. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-14 17:05 JST — Fall q46150 publication independently recognized while open
+
+- Follow-up tournament [run 38526207354](https://github.com/after6labo/metac-bot-template/actions/runs/38526207354) fetched at 16:07:22.326 JST, [run 38529409944](https://github.com/after6labo/metac-bot-template/actions/runs/38529409944) at 16:37:09.214 JST, and [run 38532790297](https://github.com/after6labo/metac-bot-template/actions/runs/38532790297) at 17:07:17.529 JST. All three independent Fall inventories record q46150/post45968 open with already_forecasted=true, confirming recognition after the 15:38 publication.
+- Each run selected nothing beyond the evidence-backed already_forecasted skip, made zero model responses, used zero tokens, posted no duplicate, and incurred $0 new spending. Both tournament audits were complete/matched with empty fetch errors, pending questions, failures, missing IDs, forecast-evidence mismatches and unknown evidence; attention/provider pause were false.
+- Actual fetch-start gaps after publication were 30m08.360s, 29m46.889s and 30m08.315s. The recent maximum remains 30m12.663s, below the 60-minute investigation threshold. q46150 closes at 18:00 JST; post-close retention remains to be confirmed afterward.
+- No code, prompt, forecast value, model route, target eligibility, retry/stopping condition or owner action changed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-14 15:44 JST — Fall q46150 transient structure failure recovered and submitted
+
+- New Fall q46150/post45968 opened at 15:00 JST and closes at 18:00 JST. [Run 38520272753](https://github.com/after6labo/metac-bot-template/actions/runs/38520272753) began its authenticated tournament fetch at 15:07:13.350 JST, independently found it open and unanswered, but published nothing. The free route returned a normal reasoning response followed by a non-JSON safety-label response during BinaryPrediction structure conversion; forecasting-tools raised ExceptionGroup. Runtime preserved q46150 as failed_or_unconfirmed and pending with needs_attention=true. Both tournament audits were complete/matched with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence, and provider_paused_for_run=false.
+- The same 15:07 independent Fall audit records q46149/post45967 closed after its 15:00 JST deadline with already_forecasted=true, completing q46149 post-close forecast-retention evidence. This remains separate from official scoring eligibility, score, rank or prize.
+- No partial prediction or comment publication appeared in the failed job log. Therefore the next scheduled [run 38523185732](https://github.com/after6labo/metac-bot-template/actions/runs/38523185732) safely retried after an independent fetch at 15:37:13.966 JST. Job logs record prediction publication at 15:38:31.987 JST and explanation-comment publication at 15:38:36.661 JST, leaving about 2h21m23s before close. Runtime recorded submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The successful run's independent audits were complete/matched for MiniBench (60 posts, no open item) and Fall (36 posts, q46150 the only open item), with no missing/mismatched/unknown forecast evidence. Its inventory preceded publication, so q46150 still reads already_forecasted=false there; a later authenticated inventory must confirm recognition and, after 18:00 JST, post-close retention. The failed run was not manually re-run, avoiding a duplicate-risk retry.
+- From the prior 12:37:17.789 JST checkpoint through the recovery fetch, actual fetch-start gaps were 29m45.167s, 29m58.034s, 29m59.570s, 30m12.663s, 30m00.126s and 30m00.616s. The maximum remained below the 60-minute investigation threshold.
+- The incident and recovery observed four free-route responses and 6,124 tokens in total, with zero runtime-counted failed/unconfirmed LLM invocations and $0 new spending; these are observation counters, not provider quota measurements. The second unchanged run succeeded, so this is treated as a transient provider-output failure rather than a verified code defect. No code, model route, prompt, live probability, target eligibility, retry limit, stopping condition or paid fallback changed. Official acceptance/scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-14 12:43 JST — Fall q46149 submitted; q46148 post-close evidence confirmed
+
+- New Fall q46149/post45967 opened at 12:00 JST and closes at 15:00 JST. [Run 38504516215](https://github.com/after6labo/metac-bot-template/actions/runs/38504516215) began its authenticated tournament fetch at 12:07:15.953 JST, found it open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 12:09:30.866 JST and explanation-comment publication at 12:09:35.532 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The same independent inventory records q46148/post45966 closed after its 12:00 JST deadline with already_forecasted=true. Follow-up [run 38507113571](https://github.com/after6labo/metac-bot-template/actions/runs/38507113571) fetched at 12:37:17.789 JST and records q46149 open with already_forecasted=true, confirming post-publication recognition without a duplicate retry.
+- Both tournament inventories were complete/matched in both runs, with empty missing IDs, forecast-evidence mismatches/unknowns, fetch errors, pending questions, failures, and attention flags. The latest fetch-start gaps were 30m02.696s and 30m01.836s, below the 60-minute investigation threshold.
+- The submission used 2 observed free-route responses and 12,606 runtime API tokens, with 0 failed or unconfirmed LLM invocations and $0 new spending. No code, eligibility, stopping condition, forecast prompt or live probability was changed. Official score, rank, and prize remain unavailable.
+
+## 2026-10-14 10:13 JST — Fall q46148 submitted; q46147 post-close evidence confirmed
+
+- New Fall q46148/post45966 opened at 09:00 JST and closes at 12:00 JST. [Run 38488215366](https://github.com/after6labo/metac-bot-template/actions/runs/38488215366) began its authenticated tournament fetch at 09:07:01.698 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 09:09:13.765 JST and explanation-comment publication at 09:09:18.226 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- Follow-up runs [38491124337](https://github.com/after6labo/metac-bot-template/actions/runs/38491124337) and [38493876290](https://github.com/after6labo/metac-bot-template/actions/runs/38493876290) independently recorded q46148 open with already_forecasted=true at 09:37:16.436 and 10:06:57.765 JST. The same inventories record q46147/post45965 closed after 09:00 JST with already_forecasted=true, confirming post-close retention.
+- Both tournament inventories were complete/matched in all checked runs, with empty missing IDs, forecast-evidence mismatches/unknowns, fetch errors, pending questions, failures, and attention flags. No duplicate submission was attempted.
+- The q46148 submission used 2 observed free-route responses and 5,898 tokens, with no failed or unconfirmed LLM invocation and no new spending. The next evidence milestone is q46148 post-close retention after 12:00 JST. Official score, rank, and prize remain unavailable.
+
+## 2026-10-14 08:12 JST — Fall q46147 post-submission evidence confirmed
+
+- Follow-up tournament runs [38474255203](https://github.com/after6labo/metac-bot-template/actions/runs/38474255203), [38477795168](https://github.com/after6labo/metac-bot-template/actions/runs/38477795168), and [38481064440](https://github.com/after6labo/metac-bot-template/actions/runs/38481064440) fetched at 06:57:08.701, 07:27:17.021, and 07:57:16.989 JST. Each independently recorded q46147/post45965 as open with already_forecasted=true, confirming recognition after the 06:27 publication.
+- Both tournament inventories were complete/matched on all three runs, with empty missing IDs, forecast-evidence mismatches/unknowns, fetch errors, pending questions, failures, and attention flags. No duplicate submission was attempted.
+- Fetch-start gaps from the publication run were 29m53.451s, 30m08.320s, and 29m59.968s; the recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- These checks used no model responses, tokens, or new spending. The bot configuration and answer coverage were left unchanged; the next evidence milestone is q46147 post-close retention after 09:00 JST. Official score, rank, and prize remain unavailable.
+
+## 2026-10-14 06:30 JST — Fall q46147 submitted; q46146 post-close evidence confirmed
+
+- New Fall q46147/post45965 opened at 06:00 JST and closes at 09:00 JST. [Run 38470598542](https://github.com/after6labo/metac-bot-template/actions/runs/38470598542) began its authenticated tournament fetch at 06:27:15.250 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 06:27:58.290 JST and explanation-comment publication at 06:28:02.460 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The independent inventories were complete/matched for both configured tournaments with empty missing IDs and forecast-evidence mismatches/unknowns. The Fall inventory also records q46146/post45964 closed after 06:00 JST with already_forecasted=true, completing q46146 post-close publication evidence. q46147's audit preceded its publication and therefore records open/already_forecasted=false; follow-up recognition remains to be checked in a subsequent run.
+- The preceding production fetch began at 05:57:14.624 JST, so the latest fetch-start gap was 30m00.625s. The recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- This run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 6,520 tokens; new spending was $0. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. Publication is confirmed; official scoring eligibility, score, rank and prize remain unconfirmed. Monitoring continues.
+
+## 2026-10-14 05:05 JST — Fall q46146 publication independently recognized while open
+
+- The three production fetches after q46146/post45964 publication began at 03:57:16.259, 04:27:10.028 and 04:57:13.682 JST. Their independent Fall inventories all record the question open with already_forecasted=true, confirming that the official API recognizes the published forecast while the 03:00–06:00 JST window remains open.
+- [Latest run 38458817115](https://github.com/after6labo/metac-bot-template/actions/runs/38458817115) and the two preceding runs have complete/matched inventories for both configured tournaments, with empty fetch errors, missing IDs, forecast-evidence mismatches and unknowns. pending_questions=[], needs_attention=false, failed_or_unconfirmed=0 and provider_paused_for_run=false throughout.
+- Each follow-up recorded only the evidence-backed already_forecasted skip for q46146, made zero model calls, used zero additional tokens, incurred $0 new spending and made no duplicate submission. q46145 remains closed/already_forecasted=true.
+- Successive fetch-start gaps were 30m01.406s, 29m53.770s and 30m03.653s. The recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- No code, prompt, forecast value, model route, eligibility or stop condition changed. Post-close retention for q46146 remains to be checked after 06:00 JST; official scoring eligibility, score, rank and prize remain unconfirmed.
+
+## 2026-10-14 03:50 JST — Fall q46146 submitted; q46145 post-close evidence confirmed
+
+- New Fall q46146/post45964 opened at 03:00 JST and closes at 06:00 JST. [Run 38446736635](https://github.com/after6labo/metac-bot-template/actions/runs/38446736635) began its authenticated tournament fetch at 03:27:14.852 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 03:28:44.315 JST and explanation-comment publication at 03:28:49.156 JST, within the official window. Runtime records submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false.
+- The independent inventories were complete/matched for both configured tournaments with empty missing IDs and forecast-evidence mismatches/unknowns. The Fall inventory also records q46145/post45963 closed after 03:00 JST with already_forecasted=true, completing q46145 post-close publication evidence. q46146's audit preceded its publication and therefore records open/already_forecasted=false; follow-up recognition remains to be checked in a subsequent run.
+- The preceding production fetch began at 02:57:14.601 JST, so the latest fetch-start gap was 30m00.251s. The recent maximum remains about 31m08s, below the 60-minute investigation threshold.
+- This run observed 2 successful free-route responses, 0 failed/unconfirmed model invocations and 7,181 tokens; new spending was $0. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. Publication is confirmed; official scoring eligibility, score, rank and prize remain unconfirmed. Monitoring continues.
+
+## 2026-10-13 05:21 JST — MiniBench q46132 post-close forecast evidence confirmed
+
+- [Run 38303117365](https://github.com/after6labo/metac-bot-template/actions/runs/38303117365) began its authenticated tournament fetch at 05:17:14.977 JST, after q46132/post45950 closed at 04:16:44 JST. The independent MiniBench inventory records the question closed with already_forecasted=true, completing its post-close publication evidence.
+- MiniBench and Fall audits are both complete/matched with empty fetch errors, missing IDs and unknown/conflicting forecast evidence. There are no open or pending questions, attention condition, failed/unconfirmed submission, provider pause or duplicate post in this snapshot.
+- Production fetches continued at roughly 30-minute intervals through the deadline and afterward; no interval exceeded the 60-minute investigation threshold. The confirmation run used zero model responses/tokens and incurred $0 new spending.
+- No code, prompt, forecast value, model route, eligibility or stop condition changed. This confirms persisted forecast evidence, not official scoring eligibility, score, rank or prize. The ten outage-period missed Fall questions remain missed.
+
+## 2026-10-13 01:47 JST — MiniBench q46132 submitted immediately after opening and independently verified
+
+- New MiniBench q46132/post45950 opened at 01:16:44 JST and closes at 04:16:44 JST. The production fetch in [run 38276221028](https://github.com/after6labo/metac-bot-template/actions/runs/38276221028) began at 01:17:16.130 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 01:18:12.527 JST and explanation-comment publication at 01:18:16.820 JST, about 1m29s after opening and 2h58m before close. Runtime submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false. This is publication evidence, not yet official scoring/eligibility/prize confirmation.
+- The next production fetch in [run 38279723828](https://github.com/after6labo/metac-bot-template/actions/runs/38279723828) began at 01:47:06.608 JST. Its independent MiniBench audit is complete/matched and finds q46132 still open with already_forecasted=true; the bot records only the evidence-backed already_forecasted skip and makes no duplicate submission. Both tournament audits have no missing IDs or unknown/conflicting forecast evidence, and no open unanswered question exists in the configured targets at that snapshot.
+- The same two post-deadline Fall audits record q46189/post46005 closed at 01:00 JST with already_forecasted=true, completing its post-close publication evidence. The ten outage-period missed Fall questions remain missed.
+- Actual fetch-start gaps around the new question were 29m57.326s and 29m50.478s, below the 60-minute investigation threshold. The submission run observed 2 successful model responses, 0 failed/unconfirmed invocations, 5,961 tokens and $0 new spending; daily observed counters became 6 successful responses, 0 failures and 30,500 tokens. These are observed responses/tokens, not provider quota or billing measurements.
+- No code, prompt, forecast value, model route, eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. Official score/rank/prize remain unconfirmed. Monitoring continues.
+
+## 2026-10-12 23:03 JST — second post-restoration Fall report submitted and independently verified
+
+- New Fall q46189/post46005 opened at 22:00 JST and closes Oct 13 01:00 JST. The production fetch in [run 38254522428](https://github.com/after6labo/metac-bot-template/actions/runs/38254522428) began at 22:17:05.203 JST, found the question open and previously unanswered, selected it without an eligibility skip, and completed successfully.
+- Job logs separately record prediction publication at 22:18:31.050 JST and explanation-comment publication at 22:18:35.770 JST, about 2h41m before close. Runtime submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], fetch_errors=[], provider_paused_for_run=false. This is publication evidence, not yet official scoring/eligibility/prize confirmation.
+- The next production fetch in [run 38258032886](https://github.com/after6labo/metac-bot-template/actions/runs/38258032886) began at 22:47:40.038 JST. Its independent Fall audit remains complete/matched and finds q46189 still open with already_forecasted=true; the bot therefore records an already_forecasted skip and makes no duplicate submission. Both audits have no missing IDs or unknown/conflicting forecast evidence. MiniBench has no open question. No other open or pending unanswered question exists in the configured targets at that snapshot.
+- Actual fetch-start gaps since 21:47 were 29m53.229s and 30m34.835s (maximum); tail at 23:03:54 JST was 16m13.962s. No >60-minute gap. Follow-up cadence remains observed rather than guaranteed.
+- The submission run observed 2 successful model responses, 0 failed/unconfirmed model invocations, 9,578 tokens and $0 new spending. Daily observed counters became 4 successful responses, 0 failures and 24,539 tokens; these are not provider quota/billing measurements. The follow-up used zero model responses/tokens and $0 new spending.
+- No code, prompt, forecast value, model route, eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. The ten outage-period missed questions remain missed. Official score/rank/prize remain unconfirmed. Monitoring continues.
+
+## 2026-10-12 21:50 JST — post-restoration retrieval and q46141 saved forecast verified
+
+- Read current AGENTS.md/log/latest, all three post-restoration tournament histories and recent Actions. The two follow-up workflow_dispatch runs [38247987306](https://github.com/after6labo/metac-bot-template/actions/runs/38247987306) and [38251130023](https://github.com/after6labo/metac-bot-template/actions/runs/38251130023) began actual retrieval at 21:17:12.116 JST and 21:47:11.974 JST. Jobs, regression/scheduler checks and result persistence all succeeded. Latest matches history/38251130023-1.json.
+- Actual start-to-start intervals since the 20:52:44.873 restoration fetch were 24m27.243s and 29m59.857s (maximum); the tail at 21:50:39 was 3m27.026s. This establishes two follow-up retrievals after restoration, not a future availability guarantee. The historical 81h35m18.878s outage and its ten documented missed Fall windows remain on record.
+- Both new independent inventories are complete/matched, with no fetch errors, missing IDs or unknown/conflicting forecast evidence. MiniBench has 59 closed question records and Fall 25 closed records (26 posts). No current open/pending questions, attention condition, skips, failed/unconfirmed submissions or provider pause. Across all three post-restoration snapshots the only question-state change was q46141 becoming closed/already_forecasted=true; no additional expired unanswered ID appeared.
+- q46141/post45959 is closed with already_forecasted=true in both follow-up official API snapshots. This confirms the stored prediction after its 21:00 JST deadline, supplementing the separately recorded prediction and explanation publication logs from run 38245388956. No duplicate submission/retry occurred. Tournament scoring eligibility, official score/rank and prize remain unconfirmed.
+- These two checks used zero model responses, failed model invocations, tokens and new spending. Daily observed counters remain 2 successful responses, 0 failures and 14,961 tokens; not provider quota/billing measurements. No code, forecast value/prompt, model route, eligibility or stop condition changed. Reused today's official-page review and retained its rule-rendering limitations. Monitoring continues.
+
+## 2026-10-12 20:57 JST — Actions re-enabled; live Fall report submitted before deadline
+
+- The owner explicitly approved adding Google sign-in to the existing GitHub account and completed the secure device-verification flow. The signed-in repository page offered the official maintainer control to re-enable fork workflows. Clicked that control and observed "Actions Enabled." No new account, key, billing option or paid service was added.
+- Started exactly one production workflow from main: [run 38245388956](https://github.com/after6labo/metac-bot-template/actions/runs/38245388956), created 20:51:48 JST, completed successfully 20:55:44 JST. Offline Python tests: 61 passed; scheduler tests: 12 passed, 0 failed. Latest JSON and history/38245388956-1.json match and were persisted successfully.
+- Actual tournament retrieval began 20:52:44.873 JST, ending an 81h35m18.878s interval since Oct 9 11:17:25.995 JST. Both independent retrieval audits are complete/matched with no fetch errors, missing IDs, forecast-evidence mismatches or unknown evidence. MiniBench has 59 closed questions and no open item. Fall has 1 open and 24 closed question records (26 posts; post counts are not open-question counts).
+- Fall q46141/post45959 was open Oct 12 18:00–21:00 JST. Job logs separately confirm prediction publication at 20:55:33.793 JST and explanation-comment publication at 20:55:38.391 JST, 4m21.609s before close. Runtime submitted=1, failed_or_unconfirmed=0, pending_questions=[], needs_attention=false, skips=[], provider_paused_for_run=false. This is successful publication, not yet official scoring/eligibility/prize confirmation. The pre-submission inventory naturally had already_forecasted=false; the next normal inventory must confirm the saved forecast, without a duplicate retry.
+- Reconciled the uncovered interval against current official closed metadata: 10 newly observed Fall questions opened and closed during the outage with already_forecasted=false and no intervening run/submission evidence. These remain missed opportunities, not resolved by empty current pending:
+  - q46140/post45958: 2026-10-11T21:00:00+00:00 through 2026-10-12T00:00:00+00:00 (UTC).
+  - q46139/post45957: 2026-10-11T06:00:00+00:00 through 2026-10-11T09:00:00+00:00 (UTC).
+  - q46138/post45956: 2026-10-11T03:00:00+00:00 through 2026-10-11T06:00:00+00:00 (UTC).
+  - q46066/post45884: 2026-10-10T16:51:00+00:00 through 2026-10-10T19:51:00+00:00 (UTC).
+  - q46187/post46003: 2026-10-10T14:00:00+00:00 through 2026-10-10T17:00:00+00:00 (UTC).
+  - q46188/post46004: 2026-10-10T14:00:00+00:00 through 2026-10-10T17:00:00+00:00 (UTC).
+  - q46137/post45955: 2026-10-10T06:00:00+00:00 through 2026-10-10T09:00:00+00:00 (UTC).
+  - q46136/post45954: 2026-10-09T12:00:00+00:00 through 2026-10-09T15:00:00+00:00 (UTC).
+  - q46186/post46002: 2026-10-09T11:36:00+00:00 through 2026-10-09T14:36:00+00:00 (UTC).
+  - q46065/post45883: 2026-10-09T09:00:00+00:00 through 2026-10-09T12:00:00+00:00 (UTC).
+- Restored the existing hourly Metaculus monitoring task; update confirmed is_enabled=true, retaining its existing prompt and schedule. Existing GAS trigger remains installed; its 20:56:16.241 JST scheduled check completed with dispatch_cooldown. No extra dispatch was issued. Next GAS dispatch is estimated around 21:16 JST under the existing guards, or a native schedule may run earlier; this is not a guarantee. Automatic post-restoration dispatch cadence still requires observation.
+- Free-router run observed 2 successful responses, 0 failed/unconfirmed model invocations and 14,961 tokens; runtime new_spending_usd=0. These are observed counters, not provider quota/billing measurements. Official score/rank/prize remain unknown.
+- No forecast probability, prompt, model route, question eligibility, stop condition, scheduler interval, trigger or concurrency setting changed. The temporary Apps Script recovery file is confirmed read-only with no trigger. The prior owner-action blocker is resolved; missed windows and scoring verification remain outstanding.
+
+## 2026-10-12 20:47 JST — cancellation verified; monitoring paused at owner-authentication blocker
+
+- Re-read current AGENTS.md, EXPERIMENT_LOG.md, latest tournament result, complete repository tree and latest Actions runs. Run [37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725) is now completed/cancelled, updated at 19:54:15 JST, with zero latest-attempt jobs. No later run exists; history remains 736 files and latest result blob remains 6b4c8efcdd69aa3ef4d8b8b42675d765f1c0cb57.
+- Latest actual fetch remains Oct 9 11:17:25.995 JST. At this checkpoint the uncovered tail is 81h30m01.005s; it exceeds the 90-minute coverage-failure threshold. Both audits were complete/matched only at that old snapshot, with empty fetch_errors/pending/outcomes/skips/windows and no provider pause or failed/unconfirmed submissions. Current availability, any missed windows during the outage, and next actual retrieval time remain unknown. Cancellation is not recovery.
+- The 20:01 diagnosis records repository Actions disabled by GitHub and dispatch HTTP 422. The owner's interactive recovery conversation confirms Google scheduler operation/authentication and cancellation, then a GitHub sign-in-method linking confirmation awaiting an explicit decision. No approval to add an authentication method is inferred. Remaining prerequisite: complete owner-approved GitHub authentication and use the repository's offered Actions re-enable control, then verify actual tournament retrieval and publication evidence.
+- Paused only the recurring ChatGPT monitoring task under the user's explicit fully-blocked-run instruction, after confirming its update returned is_enabled=false. No Bot workflow, Apps Script trigger, eligibility rule, stop condition, model route, forecast prompt/probability or concurrency setting was changed. Monitoring must be resumed after the access blocker is resolved; it will not resume itself.
+- The official Fall page was freshly opened at https://www.metaculus.com/tournament/fall-futureeval-2026/ and still displays Sep 28 2026–Jan 6 2027. Its View Questions(59) total is not an open-question count or authenticated inventory; rendered content did not establish the full current rules or question windows.
+- No forecast/model call, extra dispatch/retry, credential disclosure or new spending was caused by this check. Provider quota/balance and official acceptance/score/rank/prize remain unconfirmed.
+
+## 2026-10-12 20:01 JST — queued run cancelled; repository Actions disabled
+
+- After owner-assisted Google sign-in, directly inspected the existing Apps Script project. Its single time-based metaculusSchedulerTick trigger remains installed. Displayed recent executions occurred every 10 minutes; the 19:46 JST check logged active_run (checked_at_utc 2026-10-12T10:46:16.437Z). The token exists and successfully accesses GitHub; no secret value was read or copied.
+- Run 37873774725 was still queued with zero latest-attempt jobs. A temporary manual helper, restricted to that exact old queued run and guarded against repeat cancellation, called GitHub's official cancel endpoint once at 19:54:16 JST (HTTP 202). A separate connector read verified status=completed, conclusion=cancelled. No force-cancel was needed. Earlier instructions delegating this routine cancellation to the owner were unnecessary.
+- A normal scheduler invocation at 19:55:13 JST failed with HTTP 422. Read-only diagnosis confirmed the workflow state active and repository archived=false/disabled=false; these fields do not establish repository Actions availability. One bounded diagnostic dispatch at 19:59:27 JST returned HTTP 422 with message "Actions has been disabled for this repository." No run was created; this was not a successful restart.
+- The GitHub Actions page independently displays: workflows are not running on this fork due to the scale of GitHub Actions usage, and a repository maintainer can re-enable them. The current browser is not signed in to GitHub. Re-enablement has not been attempted; no service restriction is bypassed. Owner authentication is the remaining access step before inspecting the offered re-enable control.
+- Cancellation and diagnosis used only the existing Apps Script GitHub credential and no paid service. The original scheduler, its trigger, duplicate guard, free model route, forecast prompts/probabilities and eligibility conditions were not changed. The temporary recovery file is being reduced to a read-only diagnosis; it has no trigger. Additional marker properties prevent repeating the one-off requests. Standard dispatch cooldown remains in force.
+- Coverage remains unresolved: latest actual tournament fetch is Oct 9 11:17:25.995 JST, so current question availability and missed windows are unconfirmed. No new forecast/model invocation or spending was caused by these failed dispatches. Official score/rank/prize remain unconfirmed.
+
+## 2026-10-12 JST — daily unresolved production coverage incident
+
+- At 00:27:11 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST on Oct 9. The uncovered tail reached 61h09m45.005s. There is no later tournament result or independent inventory, so question availability during the outage remains unknown rather than zero.
+- The same run remains `queued` with `run_attempt=1`, its last update remains 12:19:50 JST on Oct 9, and the jobs endpoint still exposes no generated job. The latest history file remains `37873774725-1.json`; no later workflow run exists.
+- The last actual fetch remains structurally healthy only for its own 11:17 snapshot: MiniBench and Fall audits complete/`matched`, zero open or pending questions, no retrieval mismatch, failed/unconfirmed item, provider pause, model use, tokens, or spending. It is not evidence for the subsequent outage interval.
+- The operator re-read current AGENTS.md, the persisted result/history, Actions run list, queued-run metadata and jobs. No additional rerun, workflow/concurrency change, paid route, model/prompt/probability change, eligibility restriction, or duplicate-risking dispatch was made.
+- Owner action remains required: cancel the queued GitHub Actions run, inspect the existing Apps Script project's **Executions** and **Triggers** for missing scheduler dispatches, and verify only that Script Property `GITHUB_ACTIONS_TOKEN` exists without exposing its value. Official score, rank and prize remain unconfirmed. Monitoring continues; the recurring automation remains enabled.
+
+## 2026-10-11 JST — daily unresolved production coverage incident
+
+- At 00:32:39 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST on Oct 9. The uncovered tail reached 37h15m13.005s. There is no later tournament result or independent inventory, so question availability during the outage remains unknown rather than zero.
+- The same run remains `queued` with `run_attempt=1`, its last update remains 12:19:50 JST on Oct 9, and the jobs endpoint still exposes no generated job. The latest history file remains `37873774725-1.json`; no later workflow run exists.
+- The last actual fetch remains structurally healthy only for its own 11:17 snapshot: MiniBench and Fall audits complete/`matched`, zero open or pending questions, no retrieval mismatch, failed/unconfirmed item, provider pause, model use, tokens, or spending. It is not evidence for the subsequent outage interval.
+- The operator re-read current AGENTS.md, the persisted result/history, Actions run list, queued-run metadata and jobs. No additional rerun, workflow/concurrency change, paid route, model/prompt/probability change, eligibility restriction, or duplicate-risking dispatch was made.
+- Owner action remains required: cancel the queued GitHub Actions run, inspect the existing Apps Script project's **Executions** and **Triggers** for missing scheduler dispatches, and verify only that Script Property `GITHUB_ACTIONS_TOKEN` exists without exposing its value. Official score, rank and prize remain unconfirmed. Monitoring continues; the recurring automation remains enabled.
+
+## 2026-10-10 JST — daily unresolved production coverage incident
+
+- At 01:05:46 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST on Oct 9. The uncovered tail reached 13h48m20.005s. There is no later tournament result or independent inventory, so question availability during the outage remains unknown rather than zero.
+- The same run remains `queued` with `run_attempt=1`, its last update remains 12:19:50 JST on Oct 9, and the jobs endpoint still exposes no generated job. The latest history file remains `37873774725-1.json`; no later workflow run exists.
+- The last actual fetch remains structurally healthy only for its own 11:17 snapshot: MiniBench and Fall audits complete/`matched`, zero open or pending questions, no retrieval mismatch, failed/unconfirmed item, provider pause, model use, tokens, or spending. It is not evidence for the subsequent outage interval.
+- The operator re-read current AGENTS.md, the persisted result/history, Actions run list, queued-run metadata and jobs. No additional rerun, workflow/concurrency change, paid route, model/prompt/probability change, eligibility restriction, or duplicate-risking dispatch was made.
+- Owner action remains required: cancel the queued GitHub Actions run, inspect the existing Apps Script project's **Executions** and **Triggers** for missing scheduler dispatches, and verify only that Script Property `GITHUB_ACTIONS_TOKEN` exists without exposing its value. Official score, rank and prize remain unconfirmed. Monitoring continues; the recurring automation remains enabled.
+
+## 2026-10-09 JST — production coverage failure over 90 minutes (unresolved)
+
+- At 13:10:35 JST, the newest persisted tournament fetch was still [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725), started at 11:17:25.995 JST. The observed tail gap reached 1h53m09.005s, exceeding the 90-minute coverage-failure threshold. No later result or independent inventory exists, so question availability after 11:17 remains unknown rather than zero.
+- The authorized one-time job rerun accepted at 12:19:50 JST remained `queued` through this check and had created zero jobs. No later external `workflow_dispatch`, native schedule run, or push-triggered run appeared. This is not a successful or confirmed fetch.
+- The production workflow still uses concurrency group `metaculus-zero-cost` with `cancel-in-progress: false`. The operator did not change that group because a delayed old run could then execute concurrently with a new group and create duplicate-submission risk. No additional rerun was requested.
+- Owner action is now required in GitHub: open the linked queued run and cancel it so it cannot retain or later compete for the production concurrency slot. Then, in the existing Apps Script scheduler project, inspect **Executions** and **Triggers** for the missing 11:47, 12:17, 12:47 and 13:17 JST dispatches and verify that Script Property `GITHUB_ACTIONS_TOKEN` still exists, without copying or sharing its value.
+- The last completed result before the gap remained structurally healthy (both retrieval audits complete and `matched`, zero open/pending questions, no fetch errors, evidence mismatches, failed/unconfirmed submissions, provider pause, model usage, tokens, or spending), but it does not cover the subsequent outage interval. Official score, rank and prize remain unconfirmed. Monitoring continues; this recurring automation is not disabled.
+
+## 2026-10-09 JST — production fetch gap over 60 minutes (ongoing)
+
+- The last confirmed tournament fetch began in [run 37873774725](https://github.com/after6labo/metac-bot-template/actions/runs/37873774725) at 11:17:25.995 JST. At 12:30 JST the tail gap was 72m34.005s, exceeding the 60-minute investigation threshold. No later production result existed, so current question availability after 11:17 is unknown rather than zero.
+- The 11:17 result itself was healthy: MiniBench and Fall audits were complete and `matched`, both had zero open questions, and there were no pending questions, fetch errors, evidence mismatches, failed/unconfirmed submissions, provider pause, model calls, tokens or new spending.
+- No external `workflow_dispatch` appeared around 11:47 or 12:17 JST, and no native scheduled run appeared by 12:30. Official GitHub Status reported Actions operational with no October 9 incident; this repository-specific dispatch/queue fault remains unresolved.
+- One authorized recovery attempt re-ran the last successful job. GitHub accepted the request at 12:19:50 JST, but the run stayed `queued` without creating a new attempt or job through 12:30. No second retry was issued.
+- Commit [8b117fe](https://github.com/after6labo/metac-bot-template/commit/8b117fe67203c4067321174bc59c0946073557f8) changed only the cron-line explanation comment to trigger a fresh push event; no push-triggered workflow appeared by 12:30. Runtime behavior, model, prompt, prediction values, answer scope, stopping conditions and free-only policy did not change.
+- This is an unresolved coverage incident, not a healthy zero-question run. Continue checking for recovery and actual retrieval evidence. If it persists, the account owner must inspect the installed Apps Script trigger/execution history and its Script Property token in the existing scheduler project; do not request or expose the token in chat.
+
+## 2026-10-09 JST — q46135 post-close forecast evidence
+
+- Fall production question q46135/post45953 closed at 03:00 JST. The independent tournament fetch in [run 37822984772](https://github.com/after6labo/metac-bot-template/actions/runs/37822984772) began at 03:17:18.968 JST and found it `closed` with `already_forecasted=true`. This supplies post-close evidence for the prediction and explanation submitted at 00:47:48 and 00:47:52 JST.
+- No configured MiniBench or Fall question was open at this fetch. Both retrieval audits were complete and `matched`, with no fetch errors, missing IDs, pending questions, failed or unconfirmed submissions, attention condition, provider pause, duplicate submission, or newly expired unanswered question. q46134 and q46185 also remained `closed` and `already_forecasted=true`.
+- The actual fetch-start gap from the preceding result was 29m40.790s; the recent checkpoint maximum remains 30m20.233s, below the 60-minute investigation threshold. The workflow job and every step completed successfully.
+- This confirmation run used zero model responses, failed invocations, tokens, and new spending. Official acceptance, score, rank, and prize remain unconfirmed.
+- No code, model, prompt, prediction value, answer scope, stopping condition, or retry behavior changed. Monitoring continues for newly opened questions and production submission evidence.
+
+## 2026-10-09 JST — q46185 post-close forecast evidence
+
+- Fall production question q46185/post46001 closed at 02:00 JST. Independent tournament fetches in [run 37815262689](https://github.com/after6labo/metac-bot-template/actions/runs/37815262689) at 02:17:17.945 JST and [run 37819210033](https://github.com/after6labo/metac-bot-template/actions/runs/37819210033) at 02:47:38.178 JST found it `closed` with `already_forecasted=true`. This supplies post-close evidence for the prediction previously submitted at 23:49:38 JST.
+- q46135/post45953 remained open through 03:00 JST and `already_forecasted=true` in both audits. There were no pending questions, failed or unconfirmed submissions, fetch errors, retrieval mismatches, missing IDs, provider pauses, or duplicate submissions. Both MiniBench and Fall audits were complete and `matched`.
+- Actual fetch-start gaps since the prior checkpoint were 30m08.876s and 30m20.233s; maximum 30m20.233s, below the 60-minute investigation threshold. Both workflow jobs and all steps completed successfully.
+- These confirmation runs used zero model responses, failed invocations, tokens, and new spending. Official acceptance, score, rank, and prize remain unconfirmed.
+- No code, model, prompt, prediction value, answer scope, stopping condition, or retry behavior changed. Monitoring continues for q46135 post-close evidence after 03:00 JST.
+
+  began its JSON fetch phase at 19:17:14.087 JST. Offline regression and scheduler
+  checks, bot run, artifact preservation and repository persistence succeeded;
+  latest matches history. Both target audits exist and are complete/matched,
+  with no missing IDs or unknown/conflicting forecast evidence.
+- All 62 question metadata/window/forecast-presence records are unchanged from
+  18:47: MiniBench 60 closed; Fall two closed including practice (three posts).
+  Pending/windows/skips/outcomes/fetch errors empty; attention/provider pause
+  false; zero selected/submitted/failed-unconfirmed. No new expired pending ID.
+- Actual fetch-start gap and interval maximum 30m00.911s; tail at checkpoint
+  29m03.913s. No >60-minute gap or missing new result. Next fetch estimated near
+  19:47 JST from observed cadence, without guarantee.
+- No production submission or competitive participation evidence. Known
+  q46022/q45980 losses remain. Availability observations concern only configured
+  tournament API snapshots through 19:17 JST. Retain Cup distinction and the
+  unresolved website-total/API-list discrepancy; do not infer site-wide absence.
+  Official acceptance/score/rank/prize remain unconfirmed.
+- New run observed zero LLM responses/failures/tokens and $0 new spending.
+  Daily tracking remains zero, not provider quota consumption; balance unknown.
+  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
+  or owner operation changed. Monitoring continues; no duplicate notice for
+  today's unchanged, already reported participation incident.
+
+
+## 2026-09-29 JST — checkpoint at 21:11:45
+- Read current AGENTS.md/log/latest, four tournament history records spanning the
+  prior checkpoint, ten Actions runs and all three new jobs' steps. Reused
+  today's official-rule review with its documented access limitations.
+- New runs 36557620802 (19:47:14.791 JST), 36560700915 (20:17:13.260 JST),
+  and [36563813218](https://github.com/after6labo/metac-bot-template/actions/runs/36563813218)
+  (20:47:13.885 JST) passed their offline checks and persisted artifacts/results.
+  Latest matches history. Both audits exist and are complete/matched, with no
+  missing IDs or unknown/conflicting forecast evidence.
+- All 62 question metadata/window/forecast-presence records are unchanged from
+  19:17: MiniBench 60 closed; Fall two closed including practice (three posts).
+  Every new run has empty pending/windows/skips/outcomes/fetch errors, false
+  attention/provider pause, and zero submitted/failed-unconfirmed. No new
+  expired pending ID or competitive submission evidence.
+- Actual JSON fetch-start gaps: 30m00.704s, 29m58.469s, 30m00.626s; maximum
+  30m00.704s. Tail at checkpoint 24m31.115s. No >60-minute gap or missing new
+  result. Next fetch estimated near 21:17 JST from observed cadence, not guaranteed.
+- Empty retrieval is no production submission. Known q46022/q45980 losses and
+  unachieved competitive participation remain. Availability statements cover only
+  configured-tournament API snapshots through 20:47 JST; retain Cup distinction
+  and unresolved website-total/API-list discrepancy, without site-wide absence
+  or full recovery claims. Official acceptance/score/rank/prize unconfirmed.
+- New runs observed zero LLM responses/failures/tokens and $0 new spending.
+  Daily tracking remains zero; provider balance/quota consumption unknown.
+  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
+  or owner operation changed. Continue monitoring; no duplicate notice for
+  today's unchanged, already reported participation incident.
+
+
+## 2026-09-29 JST — checkpoint at 22:24:35
+- Read current AGENTS.md/log/latest, four tournament histories spanning the prior
+  checkpoint, ten Actions runs and all three new jobs' steps. Reused today's
+  official-rule review and its documented access limitations.
+- New runs 36567009822 (21:17:13.692 JST), 36570359302 (21:47:19.349 JST),
+  and [36573878593](https://github.com/after6labo/metac-bot-template/actions/runs/36573878593)
+  (22:17:19.048 JST) passed offline regression/scheduler checks and persisted
+  artifacts/results. Latest matches history. Both target audits exist and are
+  complete/matched; missing IDs and unknown/conflicting forecast evidence empty.
+- All 62 metadata/window/forecast-presence records unchanged from 20:47:
+  MiniBench 60 closed; Fall two closed including practice (three posts).
+  All new runs have empty pending/windows/skips/outcomes/fetch errors, false
+  attention/provider pause, zero submitted/failed-unconfirmed. No newly expired
+  pending ID or competitive submission evidence.
+- Actual fetch-start gaps: 29m59.806s, 30m05.658s (maximum), 29m59.699s.
+  Current tail 7m15.952s. No >60-minute gap or missing new result.
+  Next fetch estimated near 22:47 JST from observed cadence, without guarantee.
+- No production submission; known q46022/q45980 losses and unachieved competitive
+  participation remain. Availability evidence covers configured-tournament API
+  snapshots through 22:17 JST only. Cup distinction and unresolved website-total/
+  API-list discrepancy remain; no site-wide absence or full recovery claim.
+  Official acceptance/score/rank/prize remain unconfirmed.
+- New runs observed zero LLM responses/failures/tokens and $0 new spending.
+  Daily tracking remains zero, not provider quota consumption; balance unknown.
+  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
+  or owner operation changed. Monitoring continues; suppress duplicate notice
+  for today's unchanged, previously reported participation incident.
+
+
+## 2026-09-29 JST — checkpoint at 22:56:18
+- Read current AGENTS.md/log/latest, both tournament history records spanning the
+  prior checkpoint, eight Actions runs and the new job's steps. Reused today's
+  official-rule review with its documented access limitations.
+- [36577575648](https://github.com/after6labo/metac-bot-template/actions/runs/36577575648)
+  started its JSON fetch phase at 22:47:13.557 JST. Offline regression/scheduler
+  checks and artifact/repository persistence succeeded; latest matches history.
+  Both target audits exist and are complete/matched; no missing IDs or
+  unknown/conflicting forecast evidence.
+- All 62 question metadata/window/forecast-presence records unchanged from
+  22:17: MiniBench 60 closed; Fall two closed including practice (three posts).
+  Pending/windows/skips/outcomes/fetch errors empty; attention/provider pause
+  false; zero selected/submitted/failed-unconfirmed. No newly expired pending ID.
+- Actual fetch-start gap and interval maximum 29m54.509s; tail 9m04.443s.
+  No >60-minute gap or missing new result. Next fetch estimated near 23:17 JST
+  from observed cadence, without guarantee.
+- No production submission or competitive participation evidence. Known
+  q46022/q45980 losses remain. Availability evidence concerns configured-tournament
+  API snapshots through 22:47 JST only. Retain Cup distinction and unresolved
+  website-total/API-list discrepancy; no site-wide absence or full recovery claim.
+  Official acceptance/score/rank/prize remain unconfirmed.
+- New run observed zero LLM responses/failures/tokens and $0 new spending.
+  Daily tracking remains zero; provider balance/quota consumption unknown.
+  No code, eligibility/stopping conditions, model/prompt, extra dispatch/retry
+  or owner operation changed. Continue monitoring; no duplicate notice for
+  today's unchanged, previously reported participation incident.
+
+
+## 2026-09-29 JST — active timeout incident at 23:37
+- Fall q46019/post45844 is open Sep29 23:00–Sep30 02:00 JST. First detected
+  at 23:00:59.699 by run36579317463; run36582669502 fetched again at
+  23:27:08.408. Both inventories complete/matched, MiniBench still 60 closed,
+  Fall three questions/four posts, with q46019 pending and no retrieval errors.
+  Actual start gaps from prior run: 13m46.142s and 26m08.710s, no coverage gap.
+- Both runs failed before obtaining any model response: job109443006539 recorded
+  litellm.Timeout after 45.809s; job109454646377 after 45.156s. These are the
+  locally configured 45-second cutoff, not evidence of provider 402/429 or
+  cooldown. No model output was inspected or tuned. Second authenticated audit
+  still reports already_forecasted=false; failed generation precedes publication.
+  Both failed runs preserved artifacts/results. This is unresolved, not healthy.
+- Minimal repair6579680b682ad76c7350c47db59494cedb8d97aa increases response timeout
+  to 180 seconds only. A local configuration check failed at45 and passed at180,
+  preserving the free router and one-attempt/no-immediate-retry invariants.
+  Answer eligibility unchanged; local request timeout relaxed; provider pause
+  behavior, free-only routing, prompts and forecast probabilities unchanged.
+  AGENTS.md updated to disclose the new setting.
+- Push-triggered [36583895938](https://github.com/after6labo/metac-bot-template/actions/runs/36583895938)
+  has passed offline regression/scheduler checks and is running production.
+  Remaining window approximately2h23m; verify this run before deciding next action.
+  Prior observed LLM failures today2, successful responses/tokens0; not provider
+  quota usage. $0 new spending recorded; provider balance/usage unknown.
+
+
+### 23:41:37 JST — repair verified, provider-response failure remains unresolved
+- Repair run36583895938 fetched at23:37:12.996 JST and finished23:40:28.438.
+  Both inventories remained complete/matched; q46019 open and unforecasted at
+ 23:37:27 audit. No fetch errors, skips, or provider pause; pending remains1.
+  Job109458949223 confirms the applied180-second timeout still failed after
+  180.258s with litellm.Timeout/OpenrouterException. No model response or
+  prediction/explanation publication occurred. Do not call this restored.
+- Existing full Actions tests passed:54 Python tests and12 scheduler tests.
+  Artifact and repository persistence succeeded; latest and history are equal.
+  Local cutoff was relaxed successfully, but slow/unavailable model response
+  remains a barrier. The logs do not establish whether the underlying failure
+  is provider processing or connection availability. Official status page
+  https://status.openrouter.ai/ returned no readable status details to this
+  check; do not infer either an outage or service health from that.
+- Known q46022/q45980 losses and unconfirmed competitive participation remain.
+  Official acceptance/score/rank/prize unknown. Daily observed failures now3,
+  successful responses/tokens0; this is not consumed provider quota. Recorded
+  new spending $0; no paid routing, prompt/value tuning or topic exclusions.
+- Deadline Sep30 02:00 JST; remaining2h18m23s at this checkpoint. Production
+  keeps the180-second setting and existing no-immediate-retry/provider-cooldown
+  guards. Scheduler source enforces20min since latest production creation,
+  with10min wake-ups: latest push launch near23:36 implies the next external
+  fetch likely23:57–00:07 JST; native scheduler may differ, no guarantee.
+  No extra immediate launch added after this failed repair validation.
+- This is a new active submission incident and is reported to the owner,
+  without requiring owner intervention or treating notification as resolution.
+  Continue checking actual submission evidence before any future retry.
+
+
+## 2026-09-30 JST — first Fall competitive prediction and explanation returned
+- [Run 36593994796](https://github.com/after6labo/metac-bot-template/actions/runs/36593994796)
+  fetched at 00:57:19.713 JST while Fall q46019/post45844 was open
+  (Sep29 23:00–Sep30 02:00 JST). Both independent inventories were
+  complete/matched, with no missing IDs, forecast-evidence conflicts, unknowns,
+  or fetch errors. MiniBench remained 60 closed; Fall had one open question.
+- Job109494074487 records separate publication success: prediction posted on
+  q46019 at 00:58:59.446 JST and explanation comment posted on post45844 at
+  00:59:03.287 JST. Runtime outcome is submitted with nonfatal_errors=0,
+  pending/skips empty, needs_attention/provider pause false. This is the first
+  returned complete report on a competitive Fall question; the Sep24 practice
+  post is not counted. It does not independently establish tournament acceptance,
+  scoring eligibility, official score/rank, or prize, which remain unconfirmed.
+- The two intervening runs after the earlier timeout incident did reach the free
+  provider but failed before publication. Runs36586343299 (23:57:19.715 JST) and
+  36590191414 (00:27:11.290 JST) each received two responses, then the parser got
+  a safety-only string instead of the required structured prediction. Each
+  preserved q46019 as pending/unforecasted. This was not 402/429 or a provider
+  cooldown. No prompt, individual forecast, eligibility, retry count, model
+  route, or stopping condition was changed; the later free-route run succeeded.
+- Actual fetch-start gaps from the 23:37 repair run through submission were
+  20m06.719s, 29m51.575s and 30m08.423s. No >60-minute coverage gap. The
+  successful run observed two responses and 5,120 tokens with $0 new spending;
+  daily instrumentation after it shows six successful responses, three failed
+  invocations and 13,226 tokens. These are runtime observations, not provider
+  quota or billing receipts; actual routed model and balance remain unknown.
+- The pre-publication audit necessarily recorded already_forecasted=false.
+  Await the next authenticated inventory to confirm that q46019 is recognized as
+  already forecasted and therefore not reposted. Do not launch an immediate retry.
+  MiniBench still has zero confirmed competitive submissions; known q46022 and
+  q45980 missed windows remain losses.
+
+### 01:27 JST — authenticated post-submission confirmation
+- [Run 36597709015](https://github.com/after6labo/metac-bot-template/actions/runs/36597709015)
+  fetched at 01:27:22.225 JST and completed successfully. Its independent Fall
+  inventory at 01:27:37.446 JST still found q46019 open but now explicitly
+  already_forecasted=true. Runtime selected zero, made no LLM calls, submitted
+  zero duplicates, and recorded only the evidence-backed already_forecasted
+  skip. Pending/fetch errors/mismatches/unknowns are empty and needs_attention is
+  false; both target audits are complete/matched.
+- This confirms the Metaculus API now exposes forecast presence after the prior
+  publication and the bot's duplicate guard acted correctly. It strengthens
+  submission evidence but still does not establish tournament scoring acceptance,
+  official score/rank, or prize. No code, prompt, probability, eligibility,
+  stopping condition, paid route, or manual retry was added.
+
+### 06:17 JST — second Fall competitive submission
+- [Run 36632151100](https://github.com/after6labo/metac-bot-template/actions/runs/36632151100)
+  fetched at 06:17:24.088 JST while q46023/post45848 was open (06:00–09:00
+  JST), selected one question and returned `submitted` with zero nonfatal errors.
+  The run observed two successful free-route responses and 3,576 tokens, with
+  zero failed invocations and $0 new spending.
+- [Run 36635466085](https://github.com/after6labo/metac-bot-template/actions/runs/36635466085)
+  fetched again at 06:47:15.117 JST and independently found q46023 open with
+  `already_forecasted=true`. Both target inventories were complete/matched;
+  pending, retrieval errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made.
+
+## 2026-10-01 JST — two-question Fall window completed and confirmed
+- [Run 36727851268](https://github.com/after6labo/metac-bot-template/actions/runs/36727851268)
+  fetched at Sep30 23:17:17.221 JST while q46043/post45868 and
+  q46020/post45845 were open (23:00–Oct1 02:00 JST). It selected and submitted
+  both questions, each with zero nonfatal errors. The run observed four
+  successful free-route responses and 11,391 tokens, zero failed invocations,
+  and $0 new spending.
+- [Run 36736196909](https://github.com/after6labo/metac-bot-template/actions/runs/36736196909)
+  fetched at 00:23:06.612 JST and independently found both questions still open
+  with `already_forecasted=true`. Both inventories were complete/matched and no
+  duplicate submission was made. Pending, retrieval errors, evidence mismatches
+  and unknowns were empty.
+
+### 13:27 JST — fourth Fall window submission and confirmation
+- [Run 36815115062](https://github.com/after6labo/metac-bot-template/actions/runs/36815115062)
+  fetched at 13:27:26.566 JST while q46024/post45849 was open (13:00–16:00
+  JST), selected one question and finished at 13:28:35.695 JST with
+  `submitted`, zero nonfatal errors, no pending question and no provider pause.
+  It observed two successful free-route responses and 5,531 tokens, zero failed
+  invocations, and $0 new spending.
+- [Run 36817431157](https://github.com/after6labo/metac-bot-template/actions/runs/36817431157)
+  fetched at 13:56:57.187 JST and independently found q46024 still open with
+  `already_forecasted=true`. Both target inventories remained complete/matched;
+  missing IDs, fetch errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made.
+- [Run 36828419370](https://github.com/after6labo/metac-bot-template/actions/runs/36828419370)
+  fetched at 16:07:19.270 JST after the window closed and independently retained
+  q46024 as `closed` with `already_forecasted=true`. Both inventories remained
+  complete/matched; there was no unanswered expiry or retrieval gap.
+- Across these returned results, official tournament acceptance/score/rank/prize
+  remain unconfirmed. MiniBench still has zero confirmed competitive submissions;
+  known q46022 and q45980 missed windows remain losses. No paid route, prompt or
+  live probability tuning, topic exclusion, batch cap, or manual retry was added.
+
+### 23:17 JST — fifth Fall window submission and confirmation
+- [Run 36875025857](https://github.com/after6labo/metac-bot-template/actions/runs/36875025857)
+  fetched at 23:17:20.460 JST while q46021/post45846 was open (23:00–Oct2
+  02:00 JST), selected one question and finished at 23:18:00.160 JST with
+  `submitted`, zero nonfatal errors, no pending question and no provider pause.
+  It observed two successful free-route responses and 6,419 tokens, zero failed
+  invocations, and $0 new spending.
+- [Run 36878989980](https://github.com/after6labo/metac-bot-template/actions/runs/36878989980)
+  fetched at 23:47:30.191 JST and independently found q46021 still open with
+  `already_forecasted=true`. Both target inventories were complete/matched;
+  missing IDs, fetch errors, evidence mismatches and unknowns were empty. No
+  duplicate submission was made and the question remained pending-free.
+- [Run 36898147797](https://github.com/after6labo/metac-bot-template/actions/runs/36898147797)
+  fetched at 02:17:17.760 JST after the window closed and independently retained
+  q46021 as `closed` with `already_forecasted=true`. Both inventories remained
+  complete/matched; there was no unanswered expiry or retrieval gap.
+- This confirms publication and the subsequent authenticated forecast-presence
+  check, but not official tournament acceptance, scoring eligibility, score,
+  rank or prize. MiniBench still has zero confirmed competitive submissions;
+  known q46022 and q45980 missed windows remain losses. No paid route, prompt or
+  live probability tuning, topic exclusion, batch cap, or manual retry was added.
+
+## 2026-10-03 JST — MiniBench series rollover verified
+- [Run 37056275215](https://github.com/after6labo/metac-bot-template/actions/runs/37056275215)
+  fetched at 04:47:15.980 JST and still returned the prior MiniBench inventory of
+  60 closed posts/questions. [Run 37057289174](https://github.com/after6labo/metac-bot-template/actions/runs/37057289174)
+  fetched at 04:56:55.335 JST and [run 37059505783](https://github.com/after6labo/metac-bot-template/actions/runs/37059505783)
+  fetched at 05:17:18.809 JST; both independently returned zero MiniBench posts
+  while Fall remained complete/matched at nine posts. No repository code or
+  configuration change occurred between the nonzero and zero inventories.
+- A fresh check of the official `minibench` page showed that the slug now points
+  to a new series scheduled for Oct5–Oct23, 2026, with `View Questions (0)`.
+  Thus the 60-to-0 transition is an official series rollover, not evidence that
+  zero currently open questions were silently accepted from an API failure.
+  The current SDK and independent inventory paths agree with the public page:
+  no MiniBench question is presently available for submission.
+- The previous MiniBench round is not reclassified as successful: q45980 remains
+  a confirmed missed window and the bot still has zero confirmed competitive
+  MiniBench submissions. Fall q46022 also remains a confirmed missed window.
+  No fixed historical-count guard was added because it would falsely block the
+  legitimate slug rollover. No paid route, prompt/probability adjustment,
+  exclusion, batch cap or retry was introduced; new spending remains $0, and
+  official score/rank/prize remain unconfirmed.
+
+## 2026-10-04 JST — daily participation checkpoint
+- [Run 37159013114](https://github.com/after6labo/metac-bot-template/actions/runs/37159013114)
+  fetched at 07:37:12.723 JST and completed with both independent inventories
+  complete/matched. MiniBench returned zero posts and Fall returned nine posts;
+  neither target had an open question. Pending questions, fetch errors, evidence
+  mismatches/unknowns, skips and outcomes were empty; no provider pause or LLM
+  invocation occurred. The last 24 hours contained 53 tournament fetches with a
+  maximum start-to-start gap of 30m17.755s, below the 60-minute investigation
+  threshold. New spending remained $0; official score/rank/prize remain unknown.
+- The current official MiniBench page now identifies project 33129, displays 60
+  series questions, and schedules the series for Oct5 09:00–Oct23 09:00 JST;
+  the authenticated all-status API inventory still returns zero post metadata
+  before the series start. This aggregate page/API
+  visibility difference is not an open unanswered question and supplies no
+  question IDs or windows to submit against, but it must be rechecked as the
+  series opens. The previous-round q45980 miss and zero confirmed competitive
+  MiniBench submissions remain unresolved; Fall q46022 remains missed.
+- No code, prompt, probability, eligibility, stopping condition, paid route,
+  topic exclusion, batch cap or manual retry was changed. The page/API difference
+  was recorded rather than being treated as proof of either successful coverage
+  or a current submission opportunity.
+
+
+## 2026-10-05 JST — first MiniBench competitive submissions and failure recovery
+- The new MiniBench series exposed ten forecastable questions between 09:07 and
+  12:07 JST. The bot submitted q46073–q46078 during their three-hour windows:
+  q46073 at 09:27, q46075/q46076 at 09:50, q46074 after one failed run at
+  10:17, and q46077/q46078 at 10:47. [Run 37254740411](https://github.com/after6labo/metac-bot-template/actions/runs/37254740411)
+  fetched at 11:17 JST and independently confirmed all six as
+  `already_forecasted=true`, with both tournament inventories complete/matched.
+  These are the first confirmed competitive MiniBench publications; they do not
+  by themselves establish official score, rank or prize.
+- [Run 37256710117 attempt 1](https://github.com/after6labo/metac-bot-template/actions/runs/37256710117/attempts/1)
+  fetched at 11:47 JST and found three new MiniBench questions. q46080 was
+  published, while q46081 failed when the free-routed parser returned only a
+  safety-label string instead of JSON, and q46079 failed after an empty/None
+  model answer. The result correctly retained both as pending, set
+  `needs_attention=true`, and failed the workflow. This was not a topic
+  exclusion, 402/429, paid-route switch or provider cooldown.
+- The failed jobs were rerun without changing a live prediction, prompt,
+  eligibility rule, model route, local request cap or stopping condition.
+  [Attempt 2](https://github.com/after6labo/metac-bot-template/actions/runs/37256710117/attempts/2)
+  fetched at 12:15 JST and published q46082 at 12:18:38, q46081 at 12:21:12
+  and q46079 at 12:21:27 JST, including their explanation comments. It completed
+  with three submissions, zero failed/unconfirmed items and no pending question.
+- [Run 37259441239](https://github.com/after6labo/metac-bot-template/actions/runs/37259441239)
+  fetched at 12:27:04 JST and independently confirmed all ten current MiniBench
+  questions q46073–q46082 as `already_forecasted=true`. Both MiniBench and Fall
+  inventories were complete/matched; pending, fetch errors, evidence mismatches,
+  provider pause and duplicate submissions were all absent. The most recent
+  start-to-start gap was 11m36.668s, below the 60-minute investigation threshold.
+- The recovery used the existing OpenRouter free route and recorded $0 new
+  spending. Official score, rank and prize remain unconfirmed. Historical missed
+  questions MiniBench q45980 and Fall q46022 remain losses; this recovery does
+  not reclassify them.
+
+
+### 12:58–14:27 JST — four more MiniBench questions completed
+- [Run 37261403431](https://github.com/after6labo/metac-bot-template/actions/runs/37261403431)
+  published q46083 at 12:58:49 JST and its explanation at 12:58:54 JST.
+- [Run 37263515486](https://github.com/after6labo/metac-bot-template/actions/runs/37263515486)
+  published q46085 and its explanation at 13:28:40–13:28:45 JST. q46084
+  produced forecast reasoning but its free-route structure-conversion request
+  timed out at the configured 180 seconds. The result correctly retained q46084
+  as pending, set `needs_attention=true`, and failed the workflow. This was not
+  a topic exclusion, provider 402/429, cooldown, local request ceiling or paid
+  fallback.
+- [Run 37265619626](https://github.com/after6labo/metac-bot-template/actions/runs/37265619626)
+  fetched at 13:57 JST, published the newly available q46086 at 13:57:52 and its
+  explanation at 13:57:57 JST, then recovered q46084 by publishing its prediction
+  at 14:00:03 and explanation at 14:00:07 JST. It completed with two submissions,
+  zero failed/unconfirmed items, no pending question and $0 new spending.
+- [Run 37267790265](https://github.com/after6labo/metac-bot-template/actions/runs/37267790265)
+  fetched at 14:27:16 JST and independently confirmed all fourteen MiniBench
+  questions q46073–q46086 as `already_forecasted=true`. Eight were still open
+  and six were closed; none expired unanswered. Both tournament inventories were
+  complete/matched, with no pending items, fetch errors, missing IDs, evidence
+  mismatches/unknowns, provider pause or duplicate submission.
+- Actual fetch-start gaps across these runs were about 30m10.769s, 29m51.715s
+  and 29m56.120s; none exceeded the 60-minute investigation threshold. The
+  timeout recovered on the next ordinary run, so no model, prompt, eligibility,
+  stopping-condition or retry-policy change was made. Official score, rank and
+  prize remain unconfirmed; historical misses q45980 and q46022 remain losses.
+
+
+### 14:57–17:17 JST — five more submissions, then the free daily limit blocked four open questions
+- [Run 37269991464](https://github.com/after6labo/metac-bot-template/actions/runs/37269991464)
+  fetched at 14:57:15 JST and published q46088 at 14:57:54 JST with its
+  explanation immediately afterward. q46087 remained pending because the
+  free-routed structure-conversion response contained only `User Safety: safe`
+  instead of the required JSON. This was a parser-response failure, not a
+  Metaculus rejection, topic exclusion or provider 402/429.
+- [Run 37272414585](https://github.com/after6labo/metac-bot-template/actions/runs/37272414585)
+  fetched at 15:27:12 JST and recovered q46087 by publishing its prediction at
+  15:33:26 JST, before its 17:40:32 JST close. The same run published q46090 at
+  15:31:07 and q46089 at 15:32:50 JST. q46091 failed in that run, then
+  [run 37274946966](https://github.com/after6labo/metac-bot-template/actions/runs/37274946966)
+  published it at 15:58:23 JST. Later authenticated inventories independently
+  marked q46087–q46091 `already_forecasted=true`.
+- q46092 opened at 16:16:10 JST. [Run 37276816306](https://github.com/after6labo/metac-bot-template/actions/runs/37276816306)
+  produced two free-route responses but the structure-conversion response again
+  contained only `User Safety: safe`, so no forecast was posted. Subsequent
+  runs found q46093, q46094 and q46095 open as well.
+- [Run 37282601879](https://github.com/after6labo/metac-bot-template/actions/runs/37282601879)
+  fetched at 17:17:09 JST and received OpenRouter HTTP 429
+  `free-models-per-day`, with limit 50, remaining 0 and provider reset
+  2026-10-06 09:00 JST. It retained q46092–q46095 as pending; their closes are
+  19:16:10, 19:38:05, 19:44:15 and 20:04:44 JST, all before the reset.
+  No paid route or limit bypass was attempted. Under the zero-new-spending and
+  provider-limit constraints, these four open questions cannot currently be
+  completed and are expected to expire unanswered unless the provider state
+  changes before their deadlines.
+- Both independent tournament inventories remained complete/matched with no
+  fetch error, missing ID or evidence mismatch. The incident is therefore a
+  forecast-generation capacity failure, not retrieval loss. New spending remains
+  $0. Official score, rank and prize remain unconfirmed.
+
+- At 18:26:12 JST q46096/post45914 opened with a 21:26:12 JST close.
+  [Run 37292235645](https://github.com/after6labo/metac-bot-template/actions/runs/37292235645)
+  fetched it at 18:47:09 JST and received the same OpenRouter HTTP 429
+  `free-models-per-day` response (limit 50, remaining 0, reset Oct6 09:00
+  JST). q46096 was retained as pending, bringing the open unanswered set to
+  q46092–q46096. Its close is also before the provider reset, so it is expected
+  to expire unanswered under the current zero-new-spending and no-limit-bypass
+  constraints. Both inventories remained complete/matched with no retrieval or
+  forecast-evidence mismatch.
+
+- [Run 37298694651](https://github.com/after6labo/metac-bot-template/actions/runs/37298694651)
+  fetched at 19:47:20 JST. The authenticated MiniBench inventory now records
+  q46092, q46093 and q46094 as `closed` with
+  `already_forecasted=false`, confirming three missed windows at 19:16:10,
+  19:38:05 and 19:44:15 JST. They are losses, not resolved pending items.
+- The same run found q46095 still open until 20:04:44 JST and newly found
+  q46097/post45915 (19:05:05–22:05:05 JST) and q46098/post45916
+  (19:32:53–22:32:53 JST), in addition to q46096 (until 21:26:12 JST).
+  It received the same OpenRouter HTTP 429 free-daily-limit response and
+  retained q46095–q46098 as pending. All four closes precede the provider's
+  Oct6 09:00 JST reset. No paid route or limit bypass was attempted; both
+  independent inventories remained complete/matched.
+
+- [Run 37308376374](https://github.com/after6labo/metac-bot-template/actions/runs/37308376374)
+  fetched at 21:17:21 JST. The authenticated MiniBench inventory now records
+  q46095 as `closed` with `already_forecasted=false`, confirming a fourth
+  missed window in the free-limit incident (20:04:44 JST close).
+- It also found two new unanswered questions: q46099/post45917
+  (20:39:05–23:39:05 JST) and q46100/post45918
+  (20:57:16–23:57:16 JST). Together with q46096–q46098, five questions were
+  still open and unanswered at the fetch. q46096's 21:26:12 JST deadline has
+  since passed; its post-deadline authenticated status remains to be confirmed
+  by the next inventory. q46097–q46100 close between 22:05:05 and 23:57:16 JST.
+- The job again received OpenRouter HTTP 429 `free-models-per-day` while
+  attempting q46100, with limit 50, remaining 0 and reset Oct6 09:00 JST, then
+  paused the remaining four questions. All current closes precede that reset.
+  No paid route or limit bypass was attempted. Both tournament inventories were
+  complete/matched with no fetch error, missing ID or forecast-evidence mismatch;
+  the blocker remains external free forecast-generation capacity, not retrieval.
+
+- [Run 37311857164](https://github.com/after6labo/metac-bot-template/actions/runs/37311857164)
+  fetched at 21:47:21 JST and confirmed q46096 closed at 21:26:12 JST with
+  `already_forecasted=false`. [Run 37315512790](https://github.com/after6labo/metac-bot-template/actions/runs/37315512790)
+  fetched at 22:17:18 JST and likewise confirmed q46097 closed at 22:05:05 JST
+  with `already_forecasted=false`. These are the fifth and sixth confirmed
+  missed windows in the current free-limit incident.
+- At the 22:17 fetch, q46098 remained open/unanswered until 22:32:53 JST,
+  followed by q46099 until 23:39:05 and q46100 until 23:57:16 JST. The job again
+  received OpenRouter HTTP 429 `free-models-per-day` while attempting q46100,
+  with limit 50, remaining 0 and reset Oct6 09:00 JST, then paused q46098 and
+  q46099. No paid route or limit bypass was attempted.
+- The 21:47-to-22:17 actual fetch-start gap was 29m57.122s, below the 60-minute
+  investigation threshold. Both tournament inventories remained
+  complete/matched with no fetch error, missing ID or forecast-evidence mismatch.
+  New spending remained $0; official score, rank and prize remain unconfirmed.
+
+- [Run 37319391213](https://github.com/after6labo/metac-bot-template/actions/runs/37319391213)
+  fetched at 22:47:18 JST and confirmed q46098 closed at 22:32:53 JST with
+  `already_forecasted=false`, the seventh confirmed missed window in the
+  current free-limit incident.
+- The same run first detected q46101/post45919, open 22:31:46–Oct6 01:31:46
+  JST. [Run 37323356872](https://github.com/after6labo/metac-bot-template/actions/runs/37323356872)
+  fetched at 23:17:16 JST and retained q46099, q46100 and q46101 as open,
+  unanswered and pending. Their closes are 23:39:05, 23:57:16 and 01:31:46 JST,
+  all before the provider reset.
+- The latest job again received OpenRouter HTTP 429 `free-models-per-day` while
+  attempting q46101, with limit 50, remaining 0 and reset Oct6 09:00 JST, then
+  paused q46100 and q46099. No paid route or limit bypass was attempted. The
+  22:47-to-23:17 actual fetch-start gap was 29m57.559s. Both tournament
+  inventories remained complete/matched with no fetch error, missing ID or
+  forecast-evidence mismatch; new spending remained $0.
+
+
+### Account-type correction reported by owner — Oct5 JST
+- The owner supplied a service notice reporting that the forecasting account had
+  been classified as a normal account and was migrated to a bot account because
   its forecasts were primarily submitted through the API. This is owner-reported
   service action; the account-type field and migration time were not independently
   verified. API forecast capability did not establish bot-account registration.
@@ -1963,6 +2890,7 @@ Total output lines: 2927
   cadence estimate, not a guarantee. Post-close evidence remains due after
   03:00 JST.
 
+
 ## 2026-10-21 JST — Fall q46418 parsing failure, repair, and publication
 - [Run 39596966695](https://github.com/after6labo/metac-bot-template/actions/runs/39596966695)
   fetched at 21:07:15.333 JST and [run 39600936055](https://github.com/after6labo/metac-bot-template/actions/runs/39600936055)
@@ -2242,3 +3170,11 @@ Total output lines: 2927
 - 後続本番run [40250846884](https://github.com/after6labo/metac-bot-template/actions/runs/40250846884)（09:46:02.661 JST）と [40252551341](https://github.com/after6labo/metac-bot-template/actions/runs/40252551341)（10:07:16.497 JST）は、q46428を受付中・`already_forecasted=true` と独立監査で確認し、再投稿を回避した。
 - 3 runともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全stepはsuccess。前回確認以降の実取得間隔は29分55.476秒、29分47.774秒、18分53.266秒、21分13.836秒で60分調査閾値未満。
 - q46428の12:00 JST締切後保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認。成績収集は日次期限前のため新規取得されず、既存performanceの過去MiniBench ReadTimeoutも未解消のまま保持した。コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-26 12:46 JST — Fall q46428の締切後保持を確認し、実験ログ欠落を復元
+
+- q46428/post46201（受付09:00〜12:00 JST）は、締切前の本番run [40259923209](https://github.com/after6labo/metac-bot-template/actions/runs/40259923209) が11:37:24.199 JSTに受付中・`already_forecasted=true` を確認した。締切後最初の本番run [40262391364](https://github.com/after6labo/metac-bot-template/actions/runs/40262391364) は12:07:13.872 JST、最新run [40264891695](https://github.com/after6labo/metac-bot-template/actions/runs/40264891695) は12:37:05.834 JSTに実取得を開始し、両方とも同問を `closed / already_forecasted=true` と公式APIの独立監査で確認した。09:28:44の予測と09:28:49の説明が締切後も回答済み証拠として保持され、再投稿は行っていない。
+- 締切後2 runはsubmitted=0、failed/pending/needs_attention空、provider_paused=false、観測応答・失敗呼び出し・tokens・新規費用はいずれも0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。両runのActions jobと全stepはsuccess。
+- 実取得間隔は11:37:24.199→12:07:13.872が29分49.672秒、→12:37:05.834が29分51.962秒で60分調査閾値未満。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251と、確定MiniBench 174位・-202.40684204840116（賞金配分$0）から更新を確認していない。過去MiniBench大会の成績取得ReadTimeoutは未解消のまま保持し、q46428の公式得点対象認定、個別得点・順位・賞金への反映は未確認。
+- 今回の確認中、EXPERIMENT_LOG.mdが2026-10-21の更新コミット3d82497で取得ツールの省略表示を本文として置換され、934行の履歴が欠落し警告文が混入していたことを特定した。最後の正常版8bfcdb1を基底に、q46418以降の後続エントリを全件保持して欠落履歴を復元した。予測実行・投稿証拠JSONは影響を受けていない。コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

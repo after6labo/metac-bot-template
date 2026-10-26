@@ -3208,3 +3208,12 @@
 - 後続本番run [40379205192](https://github.com/after6labo/metac-bot-template/actions/runs/40379205192) は03:37:06.201 JSTに実取得を開始し、q46429を受付中・already_forecasted=trueと公式APIの独立監査で確認して再投稿を回避した。submitted=0、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・tokens・費用0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全stepはsuccess。
 - 前回確認後の実取得間隔は29分52.551秒、13分41.952秒、26分47.834秒、29分31.512秒で、最大29分52.551秒・60分調査閾値未満。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251と確定MiniBench 174位・-202.40684204840116（賞金配分$0）から更新を確認していない。q46429の06:00 JST締切後保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。
 - コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-27 06:48 JST — q46429の締切後保持を確認し、Fall q46430へ締切内投稿
+
+- 本番run [40401499683](https://github.com/after6labo/metac-bot-template/actions/runs/40401499683) は06:07:17.331 JSTに実取得を開始した。独立監査はq46429/post46202を06:00 JST締切後の `closed / already_forecasted=true` と確認し、03:10:33の予測と03:10:37の説明が締切後も回答済み証拠として保持された。
+- 同runは新規Fall q46430/post46203を受付中・未回答としてSDKと独立監査の双方で検出した。公式受付は06:00〜09:00 JSTで、予測を06:09:38.371、説明コメントを06:09:43.054 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗呼び出し記録0、12,054 tokens、新規費用$0（提供元の無料枠消費数ではない）。
+- 後続本番run [40405757663](https://github.com/after6labo/metac-bot-template/actions/runs/40405757663) は06:37:17.464 JSTに実取得を開始し、q46430を受付中・`already_forecasted=true`、q46429を締切後の `closed / already_forecasted=true` と公式APIの独立監査で確認して再投稿を回避した。submitted=0、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・tokens・費用0。両runともMiniBench/Fall監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全stepはsuccess。
+- 実取得間隔は05:37:28.407→06:07:17.331が29分48.924秒、→06:37:17.464が30分00.133秒で60分調査閾値未満。公式成績は既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新なし。賞金支払受領、q46429・q46430の公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。
+- コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

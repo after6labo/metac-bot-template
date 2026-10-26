@@ -3199,3 +3199,12 @@
 - 日次成績収集を実行した本番run [40349305132](https://github.com/after6labo/metac-bot-template/actions/runs/40349305132) は00:27:19.829 JSTに実取得を開始し、成績収集は00:27:36.142〜00:28:43.733 JSTに完了した。前回 `ReadTimeout` だった確定済みMiniBench 2026-10-05のproject/leaderboard取得が成功し、performance全体は `partial_or_failed` から `completed` へ復旧した。errorsとretry_not_beforeは空で、Actions jobと全stepもsuccess。
 - 取得できた確定値は174位、-202.40684204840116、coverage 37、賞金配分$0で、既知値から変更なし。これは大会側の配分値であり、支払受領の証拠ではない。Fallも暫定251位、-152.0002565208251、coverage 2、賞金配分$0から変更なし。現行MiniBenchはleaderboard entryがまだ確認できず、q46411を含む最近の投稿の公式得点・順位反映は未確認のまま継続監視する。
 - 前回確認後の本番run 40349305132、40354228124、40359119436はいずれも受付中0件、submitted=0、failed/pending/needs_attention空、provider_paused=false、観測応答・失敗呼び出し・tokens・新規費用0。両大会のretrieval auditはcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。実取得間隔は30分00.410秒、29分54.327秒、30分02.207秒で60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-27 03:42 JST — Fall q46429へ締切内投稿し後続監査で確認
+
+- 本番run [40374761664](https://github.com/after6labo/metac-bot-template/actions/runs/40374761664) は03:07:34.689 JSTに実取得を開始し、Fall q46429/post46202を独立監査とSDKの双方で受付中・未回答として検出した。公式受付は03:00〜06:00 JST。
+- 同runは予測を03:10:33.194、説明コメントを03:10:37.144 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗呼び出し記録0、15,529 tokens、新規費用$0（提供元の無料枠消費数ではない）。Actions jobと全stepはsuccess。
+- 後続本番run [40379205192](https://github.com/after6labo/metac-bot-template/actions/runs/40379205192) は03:37:06.201 JSTに実取得を開始し、q46429を受付中・already_forecasted=trueと公式APIの独立監査で確認して再投稿を回避した。submitted=0、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・tokens・費用0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全stepはsuccess。
+- 前回確認後の実取得間隔は29分52.551秒、13分41.952秒、26分47.834秒、29分31.512秒で、最大29分52.551秒・60分調査閾値未満。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251と確定MiniBench 174位・-202.40684204840116（賞金配分$0）から更新を確認していない。q46429の06:00 JST締切後保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。
+- コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

@@ -3178,3 +3178,11 @@
 - 締切後2 runはsubmitted=0、failed/pending/needs_attention空、provider_paused=false、観測応答・失敗呼び出し・tokens・新規費用はいずれも0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。両runのActions jobと全stepはsuccess。
 - 実取得間隔は11:37:24.199→12:07:13.872が29分49.672秒、→12:37:05.834が29分51.962秒で60分調査閾値未満。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251と、確定MiniBench 174位・-202.40684204840116（賞金配分$0）から更新を確認していない。過去MiniBench大会の成績取得ReadTimeoutは未解消のまま保持し、q46428の公式得点対象認定、個別得点・順位・賞金への反映は未確認。
 - 今回の確認中、EXPERIMENT_LOG.mdが2026-10-21の更新コミット3d82497で取得ツールの省略表示を本文として置換され、934行の履歴が欠落し警告文が混入していたことを特定した。最後の正常版8bfcdb1を基底に、q46418以降の後続エントリを全件保持して欠落履歴を復元した。予測実行・投稿証拠JSONは影響を受けていない。コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-26 15:29 JST — MiniBench q46411へ締切内投稿し後続監査で確認
+
+- 本番run [40272466159](https://github.com/after6labo/metac-bot-template/actions/runs/40272466159) は14:07:09.272 JSTに実取得を開始し、MiniBench q46411/post46182を独立監査とSDKの双方で受付中・未回答として検出した。公式受付は14:01:38〜17:01:38 JST。
+- 数値分布の最初の構造変換応答は形式検証に通らなかったが、既存の有界試行内で妥当な形式を取得した。同runは予測を14:10:06.754、説明コメントを14:10:11.059 JSTに投稿し、締切まで約2時間51分を残して完了した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答3、失敗呼び出し記録0、18,757 tokens、新規費用$0（提供元の無料枠消費数ではない）。
+- 後続本番run [40274349613](https://github.com/after6labo/metac-bot-template/actions/runs/40274349613)（14:28:34.862 JST）、[40276951971](https://github.com/after6labo/metac-bot-template/actions/runs/40276951971)（14:57:12.064 JST）、[40279814503](https://github.com/after6labo/metac-bot-template/actions/runs/40279814503)（15:27:10.577 JST）は、q46411を受付中・`already_forecasted=true` と公式APIの独立監査で確認し、再投稿を回避した。各runはsubmitted=0、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・tokens・費用0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。最新Actions jobと全stepはsuccess。
+- 今回区間の実取得間隔の最大は29分58.513秒で、60分調査閾値未満。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251と確定MiniBench 174位・-202.40684204840116（賞金配分$0）から更新を確認していない。q46411の17:01:38 JST締切後保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。

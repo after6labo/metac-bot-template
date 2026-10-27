@@ -3242,3 +3242,14 @@
 - 実取得間隔は12:27:21.543→12:57:12.468が29分50.925秒、→13:27:19.091が30分06.623秒、→13:57:10.509が29分51.418秒で、最大30分06.623秒・60分調査閾値未満。確認時点で締切まで約35分、次回実取得も締切前に見込まれる。15:00 JST締切後の投稿保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。
 - 公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新を確認していない。コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
 - 追確認の本番run [40455315687](https://github.com/after6labo/metac-bot-template/actions/runs/40455315687) は14:27:08.514 JSTに実取得を開始し、q46431を受付中・`already_forecasted=true` と再確認した。直前からの実取得間隔は29分58.005秒で、submitted=0、failed/pending/needs_attention空、provider_paused=false、両監査complete/matched、Actions jobはsuccess。締切まで約33分を残して回答済み証拠を保持している。
+
+## 2026-10-27 15:27 JST — Fall q46431の締切後保持を確認
+
+- 対象: Fall 2026 FutureEval の question 46431 / post 46204（受付 2026-10-27 12:00–15:00 JST）。
+- 受付中の最終確認は [run 40458155949](https://github.com/after6labo/metac-bot-template/actions/runs/40458155949) の実取得開始 14:57:16.067 JSTで、`open` / `already_forecasted=true`。締切後の最初の通常本番 [run 40461104019](https://github.com/after6labo/metac-bot-template/actions/runs/40461104019) は実取得開始 15:27:14.798 JSTで、独立取得監査が `closed` / `already_forecasted=true` を保持した。
+- run 40461104019 は `mode=tournament`、`submitted=0`（再投稿なし）、`pending_questions=[]`、`needs_attention=false`、`failed_or_unconfirmed=0`、`outcomes=[]`、`skips=[]`、`provider_paused_for_run=false`。MiniBench / Fall の両監査は `complete=true` / `status=matched` で、missing / forecast evidence mismatch / unknown はすべて空。受付中問題は0件だった。
+- 前回からの実取得間隔は29分58.731秒。今回確認範囲の最大間隔は30分06.623秒で、60分超の空白はない。Actionsの全ジョブ・回帰テスト・本番・結果保存・成績保存ステップは成功。
+- q46431への予測は 12:30:17.845 JST、説明コメントは 12:30:21.721 JSTに送信済みであり、締切後も公式APIの回答済み証拠が残った。今回の追加モデル応答0、追加観測トークン0、追加費用0円。無料提供元の累計観測は成功応答2、観測トークン8,278、失敗0のまま。
+- 公式成績は前回取得（2026-10-27 00:27:36 JST開始）のまま。Fall暫定 rank 251 / score -152.0002565208251 / coverage 2 / prize allocation 0、支払確認なし。q46431単体の得点・順位反映は未確認。
+- AI判断: 余分な診断実行や再投稿をせず、通常スケジュールの締切後実行で永続化を確認。コード・設定・回答対象・停止条件・ライブ予測値・プロンプトは変更なし。ユーザー作業なし。
+

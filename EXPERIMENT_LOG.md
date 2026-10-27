@@ -3274,3 +3274,13 @@
 - MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actions jobと全17 stepはsuccess。前回20:47:15.104→今回21:17:11.377の実取得間隔は29分56.274秒で60分調査閾値未満。
 - UTC日累計は成功応答6、失敗呼び出し0、観測トークン18,191、新規費用$0。q46433の後続runでの`already_forecasted=true`確認、翌00:00 JST締切後保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。公式成績は既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新なし。
 - コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+
+
+## 2026-10-27 23:28 JST — Fall q46433の後続保持を確認
+
+- q46433/post46206（受付21:00〜翌00:00 JST）は、投稿後の本番run [40506406260](https://github.com/after6labo/metac-bot-template/actions/runs/40506406260)（21:46:57.381 JST）、[40506480934](https://github.com/after6labo/metac-bot-template/actions/runs/40506480934)（21:48:13.715 JST）、[40510569162](https://github.com/after6labo/metac-bot-template/actions/runs/40510569162)（22:17:12.283 JST）、[40515009204](https://github.com/after6labo/metac-bot-template/actions/runs/40515009204)（22:47:14.061 JST）、[40519525360](https://github.com/after6labo/metac-bot-template/actions/runs/40519525360)（23:17:00.910 JST）の5回すべてで受付中・`already_forecasted=true` と公式APIの独立監査で確認され、再投稿を回避した。21:18:28.565の予測と21:18:32.709の説明の投稿証拠が保持されている。
+- 5 runはいずれもsubmitted=0、outcomes空、failed/pending/needs_attention空、provider_paused=false、追加の観測応答・失敗呼び出し・tokens・新規費用0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。各Actions jobと全17 stepはsuccess。
+- 定期scheduleと外部dispatchが近接した21:46〜21:48 JSTの2 runも重複投稿や結果不一致を生じなかった。投稿runからの実取得間隔は29分46.003秒、1分16.334秒、28分58.568秒、30分01.778秒、29分46.849秒で、最大30分01.778秒・60分調査閾値未満。
+- UTC日累計は成功応答6、失敗呼び出し0、観測トークン18,191、新規費用$0のまま。公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新を確認していない。翌00:00 JST締切後の投稿保持、公式得点対象認定、個別得点・順位・賞金への反映は未確認で監視を継続する。
+- コード、設定、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。本人作業の追加はない。
+

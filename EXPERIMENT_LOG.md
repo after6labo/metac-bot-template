@@ -1,3 +1,9 @@
+## 2026-10-28 03:05 JST — Fall q46434の投稿後可視性を5回の独立監査で確認
+
+- Fall q46434/post46207（受付00:00〜03:00 JST）は、本番run [40529317582](https://github.com/after6labo/metac-bot-template/actions/runs/40529317582) で予測を00:18:47.049、説明を00:18:50.968 JSTに投稿した後、run [40534287482](https://github.com/after6labo/metac-bot-template/actions/runs/40534287482)、[40539262006](https://github.com/after6labo/metac-bot-template/actions/runs/40539262006)、[40544174393](https://github.com/after6labo/metac-bot-template/actions/runs/40544174393)、[40548990424](https://github.com/after6labo/metac-bot-template/actions/runs/40548990424)、[40553712156](https://github.com/after6labo/metac-bot-template/actions/runs/40553712156) の5実行すべてで受付中かつ `already_forecasted=true` と公式APIの独立監査で確認し、再投稿を回避した。
+- 5実行はいずれもmode=tournament、MiniBench/Fall監査complete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknown、pending、failed、needs_attention、provider pauseがすべて空またはfalse。submitted=0、追加のモデル応答・tokens・費用は0で、Actionsは各17ステップ成功した。
+- 実取得間隔は00:17:12.657→00:47:16.042が30分03.385秒、→01:17:02.937が29分46.895秒、→01:47:14.885が30分11.948秒、→02:17:05.479が29分50.595秒、→02:47:11.406が30分05.927秒で、最大30分11.948秒、60分調査閾値未満。03:00 JST締切後の `closed / already_forecasted=true` は次回実取得で確認する。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金反映は未確認。
+
 ## 2026-10-21 11:12 JST — 新規MiniBench q46407を投稿し、次回監査で可視性確認
 
 - 新規MiniBench q46407/post46178（受付10:12:58〜13:12:58 JST）は本番run [39528286866](https://github.com/after6labo/metac-bot-template/actions/runs/39528286866) が10:37:00.279 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。同run内で予測と説明を投稿し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。成功応答2、7,722 tokens、費用$0。

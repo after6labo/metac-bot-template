@@ -1,3 +1,9 @@
+## 2026-10-28 20:11 JST — Fall q46436の投稿後可視性を3回の独立監査で確認
+
+- Fall q46436/post46209（受付18:00〜21:00 JST）は本番run [40662945086](https://github.com/after6labo/metac-bot-template/actions/runs/40662945086) で予測を18:17:55.364、説明を18:17:59.386 JSTに投稿した後、run [40666852589](https://github.com/after6labo/metac-bot-template/actions/runs/40666852589)（18:47:06.370 JST）、[40670790149](https://github.com/after6labo/metac-bot-template/actions/runs/40670790149)（19:17:11.695 JST）、[40674742436](https://github.com/after6labo/metac-bot-template/actions/runs/40674742436)（19:47:15.436 JST）の3実行すべてで受付中かつ `already_forecasted=true` と公式APIの独立監査で確認し、再投稿を回避した。投稿後可視性の確認待ちは解消した。
+- 3実行はいずれもmode=tournament、MiniBench/Fall監査complete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknown、pending、failed、needs_attention、provider pauseがすべて空またはfalse。追加のモデル応答・tokens・費用は0で、UTC日累計は成功応答4、失敗/未確認invocation 0、観測tokens 9,589、費用$0。
+- 実取得間隔は18:17:15.743→18:47:06.370が29分50.627秒、→19:17:11.695が30分05.325秒、→19:47:15.436が30分03.741秒で、最大30分05.325秒、60分調査閾値未満。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。公式の得点対象、スコア、順位、賞金反映は未確認。
+
 ## 2026-10-28 18:22 JST — Fall q46435締切後保持を確認し、q46436へ締切内投稿
 
 - 本番run [40662945086](https://github.com/after6labo/metac-bot-template/actions/runs/40662945086) は18:17:15.743 JSTに実取得を開始した。直前まで受付中だったFall q46435/post46208を、18:00 JST締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認し、締切で未回答IDが消えた取り逃しではないことを確認した。

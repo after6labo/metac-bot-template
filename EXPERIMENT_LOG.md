@@ -1,3 +1,12 @@
+## 2026-10-29 03:52 JST — Fall q46507の無料ルーター応答障害を復旧し締切内投稿
+
+- 本番run [40743540020](https://github.com/after6labo/metac-bot-template/actions/runs/40743540020) は03:17:13.573 JSTに実取得を開始し、Fall q46507/post46277（公式受付03:00〜06:00 JST）を独立監査とSDKの双方で受付中・未回答として検出した。しかし無料ルーターの2回の生成がいずれも安全判定だけで、厳密形式パーサーと1回の形式変換も予測値を得られず、予測POST前に終了した。submitted=0、pending=q46507、failed=1、needs_attention=trueで、これは妥当な見送りではなく未解決障害として扱った。MiniBench/Fall監査自体はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0だった。
+- 復旧の第1段階として、バイナリ問題の外側生成を2回から最大3回の有界試行へ変更した（commit [fcfde318](https://github.com/after6labo/metac-bot-template/commit/fcfde31864028807064840e5eb4265007991e0b2)）。run [40745393466](https://github.com/after6labo/metac-bot-template/actions/runs/40745393466)（実取得03:29:02.827 JST）では3回目に内容のある応答を得たが、必須の最終形式まで出力されず投稿できなかった。第2段階で無料経路の出力上限を2,048 tokensに明示した（commit [e087b68e](https://github.com/after6labo/metac-bot-template/commit/e087b68e94cea81c4d7a36b42d22d463f10feef3)）が、run [40746367195](https://github.com/after6labo/metac-bot-template/actions/runs/40746367195)（03:35:01.671 JST）は安全判定だけの応答に続く生成失敗が外側試行を中断し、なおsubmitted=0だった。
+- 最小の最終修正として、ProviderPaused以外の個別生成例外を同じ最大3回の有界枠内で次の生成へ進め、3回目の失敗時だけ再送出するようにした（commit [36b10b3](https://github.com/after6labo/metac-bot-template/commit/36b10b3ca5b7d31176b6cd0f06e484943733495f)）。402/429とRetry-After/cooldownの即時停止、無料専用ルート、1回の形式変換、直列実行は維持し、有料切替・提供元制限迂回・新しい題材除外・固定件数上限は追加していない。ライブ問題向けプロンプトと予測値も調整していない。
+- 修正後run [40747509919](https://github.com/after6labo/metac-bot-template/actions/runs/40747509919) は03:42:37.320 JSTに実取得を開始し、予測を03:44:22.000、説明コメントを03:44:26.291 JSTに送信した。06:00 JST締切内で、submitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。両大会の独立監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actionsのテスト・本番・結果永続化を含む全工程はsuccess。
+- 回帰検証はローカルでPython 88件とNode 12件、各修正のActions内offline testsも成功。4実行の観測tokensは順に3,850、9,646、1,915、5,445（合計20,856）で、新規費用$0。これは提供元の無料枠消費数ではない。前回正常runから復旧runまでの実取得間隔の最大は29分52.508秒で60分調査閾値未満。コード変更は回答対象や停止条件を狭めず、無料応答の形式・生成失敗から復旧する範囲だけ。
+- 投稿完了のAPI返却は確認したが、大会側の公式得点対象認定、個別得点、順位、賞金反映は未確認。本人作業の追加はない。後続の独立監査による `already_forecasted=true` と重複回避を継続確認する。
+
 ## 2026-10-28 21:28 JST — Fall q46436の締切後回答保持を独立監査で確認
 
 - Fall q46436/post46209は21:00 JST締切後、最初の本番run [40686443833](https://github.com/after6labo/metac-bot-template/actions/runs/40686443833)（実取得21:17:11.777 JST）で `closed / already_forecasted=true` と公式APIの独立監査により確認した。締切で未回答IDが消えた取り逃しではなく、18:17 JSTに送信した予測と説明の回答証拠が締切後も保持されている。

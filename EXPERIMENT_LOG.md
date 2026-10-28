@@ -5,7 +5,8 @@
 - 最小の最終修正として、ProviderPaused以外の個別生成例外を同じ最大3回の有界枠内で次の生成へ進め、3回目の失敗時だけ再送出するようにした（commit [36b10b3](https://github.com/after6labo/metac-bot-template/commit/36b10b3ca5b7d31176b6cd0f06e484943733495f)）。402/429とRetry-After/cooldownの即時停止、無料専用ルート、1回の形式変換、直列実行は維持し、有料切替・提供元制限迂回・新しい題材除外・固定件数上限は追加していない。ライブ問題向けプロンプトと予測値も調整していない。
 - 修正後run [40747509919](https://github.com/after6labo/metac-bot-template/actions/runs/40747509919) は03:42:37.320 JSTに実取得を開始し、予測を03:44:22.000、説明コメントを03:44:26.291 JSTに送信した。06:00 JST締切内で、submitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。両大会の独立監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actionsのテスト・本番・結果永続化を含む全工程はsuccess。
 - 回帰検証はローカルでPython 88件とNode 12件、各修正のActions内offline testsも成功。4実行の観測tokensは順に3,850、9,646、1,915、5,445（合計20,856）で、新規費用$0。これは提供元の無料枠消費数ではない。前回正常runから復旧runまでの実取得間隔の最大は29分52.508秒で60分調査閾値未満。コード変更は回答対象や停止条件を狭めず、無料応答の形式・生成失敗から復旧する範囲だけ。
-- 投稿完了のAPI返却は確認したが、大会側の公式得点対象認定、個別得点、順位、賞金反映は未確認。本人作業の追加はない。後続の独立監査による `already_forecasted=true` と重複回避を継続確認する。
+- 投稿完了のAPI返却は確認したが、大会側の公式得点対象認定、個別得点、順位、賞金反映は未確認。本人作業の追加はない。
+- 後続本番run [40748693655](https://github.com/after6labo/metac-bot-template/actions/runs/40748693655) は03:50:21.559 JSTに実取得を開始し、q46507を受付中・`already_forecasted=true` と公式APIの独立監査で確認した。reason=`already_forecasted`で再投稿を回避し、submitted=0、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・失敗呼び出し・tokens・費用0。MiniBench/Fall両監査はcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0、Actions全工程もsuccess。投稿後可視性と重複回避の確認待ちは解消した。投稿runからの実取得間隔は7分44.239秒だった。
 
 ## 2026-10-28 21:28 JST — Fall q46436の締切後回答保持を独立監査で確認
 

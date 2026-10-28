@@ -40,6 +40,13 @@ class SdkBudgetTests(unittest.TestCase):
                 self.assertEqual(llm.budget.data['successful_responses'], 52)
         self.check(scenario)
 
+    def test_free_route_requests_enough_output_tokens_for_a_complete_forecast(self):
+        from main import BudgetedFreeLlm
+
+        model = BudgetedFreeLlm(temperature=0.3)
+
+        self.assertGreaterEqual(model.litellm_kwargs['max_tokens'], 2048)
+
     def test_presend_failure_does_not_consume_a_request_or_block_next_call(self):
         from main import GeneralLlm
 

@@ -128,6 +128,7 @@ class BudgetedFreeLlm(GeneralLlm):
     request_lock = asyncio.Lock()
 
     def __init__(self, **kwargs):
+        kwargs.setdefault("max_tokens", 2048)
         super().__init__(model="openrouter/openrouter/free", allowed_tries=2,
                          num_retries=0, timeout=180, **kwargs)
 

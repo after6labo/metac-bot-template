@@ -1,3 +1,10 @@
+## 2026-10-28 16:34 JST — Fall q46435へ締切内投稿、Poetry導入障害を復旧・再発緩和
+
+- 本番run [40642841653](https://github.com/after6labo/metac-bot-template/actions/runs/40642841653) は15:17:03.989 JSTに実取得を開始し、Fall q46435/post46208を独立監査とSDKの双方で受付中・未回答として検出した。公式受付は15:00〜18:00 JST。同runは15:19:26.502 JSTまでに予測と説明の完全投稿を返し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。個別API送信時刻は結果JSONに保存されていないため、この実行区間より細かい時刻は未確認。観測応答2、失敗呼び出し記録0、7,227 tokens、新規費用$0（観測応答数は提供元の無料枠消費数ではない）。
+- 次の本番run [40645888888](https://github.com/after6labo/metac-bot-template/actions/runs/40645888888) は15:46 JSTに開始したが、`Install poetry` が失敗してBot本体・独立監査を起動できず、history JSONも作成されなかった。同じコミットの後続run [40648992283](https://github.com/after6labo/metac-bot-template/actions/runs/40648992283) は16:17:03.065 JSTに依存導入から監査まで成功し、q46435を受付中・`already_forecasted=true` と確認して再投稿を回避した。MiniBench/Fall監査はcomplete/matched、pending/failed/needs_attention空、provider_paused=false、追加モデル応答・tokens・費用0。投稿済みだったため15:47の障害による同問の取り逃しはない。
+- 実取得間隔は14:46:58.992→15:17:03.989が30分04.998秒、→16:17:03.065が59分59.075秒で、失敗runを挟んだ最大間隔も60分調査閾値未満。同一コミットの次回成功から一過性のPoetry導入障害と判定したが、再発時の受付空白を縮めるため、本番workflowは既存`snok/install-poetry`失敗時だけ`python -m pip install poetry`を1回実行し、その後`poetry --version`を必須確認する構成へ変更した。無限再試行・有料経路・質問除外は追加していない。回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更なし。
+- 公式成績の新規取得はなく、既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新なし。q46435の大会側受理・得点対象、個別得点・順位・賞金への反映は未確認。本人作業の追加はない。
+
 ## 2026-10-28 04:06 JST — Fall q46434の締切後保持を3回の独立監査で確認
 
 - Fall q46434/post46207は03:00 JST締切後、最初の本番run [40558402210](https://github.com/after6labo/metac-bot-template/actions/runs/40558402210)（実取得03:17:13.576 JST）で `closed / already_forecasted=true` と公式APIの独立監査により確認した。続くnative schedule run [40559606732](https://github.com/after6labo/metac-bot-template/actions/runs/40559606732)（03:24:32.116 JST）と本番run [40563050179](https://github.com/after6labo/metac-bot-template/actions/runs/40563050179)（03:47:04.369 JST）でも同じ状態を保持し、締切で未回答IDが消えた取り逃しではない。

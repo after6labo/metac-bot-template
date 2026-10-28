@@ -1,3 +1,11 @@
+## 2026-10-29 06:43 JST — q46507締切後保持を確認し、Fall q46508へ締切内投稿・事後確認
+
+- 本番run [40771946268](https://github.com/after6labo/metac-bot-template/actions/runs/40771946268) は06:27:11.609 JSTに実取得を開始した。直前まで受付中だったFall q46507/post46277を、06:00 JST締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認し、締切で未回答IDが消えた取り逃しではないことを確認した。
+- 同runは新規Fall q46508/post46278（公式受付06:00〜09:00 JST）を独立監査とSDKの双方で受付中・未回答として検出し、予測を06:28:17.571 JST、説明コメントを06:28:22.106 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。最初のmultiple-choice形式変換1回は使用不能だったが、既存の有界再試行内で回復して投稿を完了した。観測応答3、失敗/未確認invocation 1、3,736 tokens、新規費用$0。
+- 投稿後確認run [40773872777](https://github.com/after6labo/metac-bot-template/actions/runs/40773872777) は06:41:05.899 JSTに実取得を開始し、q46508を受付中・`already_forecasted=true` と独立監査で確認した。reason=`already_forecasted`で再投稿を回避し、submitted=0、pending/failed/needs_attention空、provider_paused=false、追加のモデル応答・失敗呼び出し・tokens・費用0。投稿後可視性の確認待ちは解消した。
+- 05:28:44.330→05:57:16.960→06:27:11.609→06:41:05.899 JSTの実取得間隔は28分32.630秒、29分54.649秒、13分54.290秒で、最大29分54.649秒、60分調査閾値未満。関連3実行のMiniBench/Fall監査はいずれもcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0で、Actions全工程もsuccess。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。
+- 公式成績は既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新なし。q46508の大会側得点対象認定、個別得点、順位・賞金への反映は未確認。本人作業の追加はない。
+
 ## 2026-10-29 03:52 JST — Fall q46507の無料ルーター応答障害を復旧し締切内投稿
 
 - 本番run [40743540020](https://github.com/after6labo/metac-bot-template/actions/runs/40743540020) は03:17:13.573 JSTに実取得を開始し、Fall q46507/post46277（公式受付03:00〜06:00 JST）を独立監査とSDKの双方で受付中・未回答として検出した。しかし無料ルーターの2回の生成がいずれも安全判定だけで、厳密形式パーサーと1回の形式変換も予測値を得られず、予測POST前に終了した。submitted=0、pending=q46507、failed=1、needs_attention=trueで、これは妥当な見送りではなく未解決障害として扱った。MiniBench/Fall監査自体はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0だった。

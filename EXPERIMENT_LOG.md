@@ -1,3 +1,10 @@
+## 2026-10-28 18:22 JST — Fall q46435締切後保持を確認し、q46436へ締切内投稿
+
+- 本番run [40662945086](https://github.com/after6labo/metac-bot-template/actions/runs/40662945086) は18:17:15.743 JSTに実取得を開始した。直前まで受付中だったFall q46435/post46208を、18:00 JST締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認し、締切で未回答IDが消えた取り逃しではないことを確認した。
+- 同runは新規Fall q46436/post46209（公式受付18:00〜21:00 JST）を独立監査とSDKの双方で受付中・未回答として検出し、予測を18:17:55.364 JST、説明コメントを18:17:59.386 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗/未確認invocation 0、2,362 tokens、新規費用$0。UTC日累計の実行観測値は成功応答4、失敗/未確認invocation 0、9,589 tokens、費用$0で、これは提供元の無料枠消費量ではない。
+- MiniBench/Fallの独立監査はいずれもcomplete/matchedで、fetch error・retrieval missing・forecast evidence mismatch/unknownは0。Actionsは依存導入、テスト、Bot、結果永続化、成績取得を含めsuccess。実取得間隔は17:22:57.844→17:47:20.987が24分23.143秒、→18:17:15.743が29分54.756秒で60分調査閾値未満。
+- 公式成績は既知のFall暫定251位・-152.0002565208251（coverage 2）と確定MiniBench 174位・-202.40684204840116（coverage 37、賞金配分$0）から更新なし。q46436の投稿後 `already_forecasted=true` の独立確認、大会側の受理・得点対象、個別得点・順位・賞金への反映は次回実取得待ち。コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更しておらず、本人作業の追加はない。
+
 ## 2026-10-28 16:34 JST — Fall q46435へ締切内投稿、Poetry導入障害を復旧・再発緩和
 
 - 本番run [40642841653](https://github.com/after6labo/metac-bot-template/actions/runs/40642841653) は15:17:03.989 JSTに実取得を開始し、Fall q46435/post46208を独立監査とSDKの双方で受付中・未回答として検出した。公式受付は15:00〜18:00 JST。同runは15:19:26.502 JSTまでに予測と説明の完全投稿を返し、runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。個別API送信時刻は結果JSONに保存されていないため、この実行区間より細かい時刻は未確認。観測応答2、失敗呼び出し記録0、7,227 tokens、新規費用$0（観測応答数は提供元の無料枠消費数ではない）。

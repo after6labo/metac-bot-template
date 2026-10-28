@@ -335,7 +335,19 @@ class SummerTemplateBot2026(ForecastBot):
         prompt: str,
     ) -> ReasonedPrediction[float]:
         for attempt in range(3):
-            reasoning = await self.get_llm("default", "llm").invoke(prompt)
+            try:
+                reasoning = await self.get_llm("default", "llm").invoke(prompt)
+            except ProviderPaused:
+                raise
+            except Exception as exc:
+                if attempt == 2:
+                    raise
+                logger.warning(
+                    "Binary generation failed; retrying (%s/3, %s)",
+                    attempt + 2,
+                    type(exc).__name__,
+                )
+                continue
             logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
             try:
                 binary_prediction = _parse_exact_binary_probability_line(reasoning)

@@ -43,8 +43,9 @@ The goal is measured official tournament performance and prize receipts, not a d
   and may make two additional parser attempts when those lines are absent or invalid;
   numeric conversion may make two additional attempts;
   binary forecasts first use the strict local `Probability: ZZ%` parser and only
-  fall back to one model conversion when that exact line is absent; date conversion
-  remains one attempt. No local daily request cap: the owner removed
+  fall back to one model conversion per generation when that exact line is absent;
+  up to three bounded generations may recover malformed free-router responses.
+  Date conversion remains one attempt. No local daily request cap: the owner removed
   the arbitrary 40-call ceiling on 2026-09-29 JST. OpenRouter enforces its quota.
   run-results/budget.json now stores observed responses/failures/tokens and any
   provider Retry-After or OpenRouter X-RateLimit-Reset cooldown, not reservations or measured quota consumption.
@@ -171,7 +172,8 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
 - Remaining technical settings are disclosed: one reasoning sample per forecast;
   a strict local exact-line parser followed by up to three structure-conversion attempts
   for multiple-choice forecasts, three for
-  numeric forecasts, and one for binary/date forecasts. Numeric answers also have a
+  numeric forecasts; binary forecasts allow three bounded generations with one
+  conversion each, while date forecasts retain one conversion. Numeric answers also have a
   local fallback only for all six exact requested percentile lines with plain numeric
   values; it does not infer missing values or convert unit suffixes. A 180-second model timeout
   (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2

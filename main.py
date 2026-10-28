@@ -333,7 +333,7 @@ class SummerTemplateBot2026(ForecastBot):
         question: BinaryQuestion,
         prompt: str,
     ) -> ReasonedPrediction[float]:
-        for attempt in range(2):
+        for attempt in range(3):
             reasoning = await self.get_llm("default", "llm").invoke(prompt)
             logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
             try:
@@ -352,10 +352,11 @@ class SummerTemplateBot2026(ForecastBot):
                 )
                 break
             except Exception as exc:
-                if attempt == 1 or isinstance(exc, ProviderPaused):
+                if attempt == 2 or isinstance(exc, ProviderPaused):
                     raise
                 logger.warning(
-                    "Binary generation was unusable; retrying once"
+                    "Binary generation was unusable; retrying (%s/3)",
+                    attempt + 2,
                 )
         decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
 

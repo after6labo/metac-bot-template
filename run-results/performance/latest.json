@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-10-29T15:18:28.289254+00:00",
-  "run_id": "40899857545",
+  "started_at_utc": "2026-10-29T21:49:09.319796+00:00",
+  "run_id": "40960559353",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,26 +20,36 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 2,
+          "max_coverage": 3,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -152.0002565208251,
-            "rank": 251,
-            "coverage": 2,
-            "contribution_count": 2,
-            "calculated_on": "2026-10-20T22:32:03.393204Z",
+            "score": -168.03461643193094,
+            "rank": 266,
+            "coverage": 3,
+            "contribution_count": 3,
+            "calculated_on": "2026-10-29T21:23:07.426359Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -257.5364392198274,
-            "ci_upper": -46.46407382182279
+            "ci_lower": -386.30465882974113,
+            "ci_upper": -48.10307973331753
           },
-          "listed_entry_count": 361,
-          "ranked_entry_count": 361,
+          "listed_entry_count": 382,
+          "ranked_entry_count": 382,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
+            {
+              "question_id": 46291,
+              "post_id": 46053,
+              "question_title": "Will under 58% of the contiguous U.S. be in drought on October 27, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": -16.03435991110584,
+              "coverage": 1,
+              "question_weight": 1
+            },
             {
               "question_id": 46133,
               "post_id": 45951,
@@ -66,6 +76,50 @@
         }
       ],
       "resolved_questions": [
+        {
+          "id": 46291,
+          "type": "binary",
+          "resolution": "yes",
+          "actual_resolve_time": "2026-10-29T20:51:00Z",
+          "open_time": "2026-10-14T18:00:00Z",
+          "actual_close_time": "2026-10-14T21:00:00Z",
+          "spot_scoring_time": "2026-10-14T21:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": 13.04984908511158,
+            "peer_score": -15.89341149487523,
+            "coverage": 0.9490556117561127,
+            "relative_legacy_score": -0.3509729172557052,
+            "weighted_coverage": 0.9490556117561127,
+            "spot_peer_score": -16.03435991110584,
+            "spot_baseline_score": 13.750352374993504
+          },
+          "last_forecast": {
+            "start_time": 1792001350.199393,
+            "end_time": null,
+            "forecast_values": [
+              0.44999999999999996,
+              0.55
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46053
+        },
         {
           "id": 46133,
           "type": "binary",
@@ -7609,10 +7663,11 @@
   ],
   "api_get_calls": 19,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-10-29T15:19:38.485062+00:00",
+  "finished_at_utc": "2026-10-29T21:50:19.036405+00:00",
   "resolution_signature": [
     45707,
     46133,
+    46291,
     46307
   ]
 }

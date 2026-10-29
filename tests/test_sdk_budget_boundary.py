@@ -10,6 +10,32 @@ from unittest.mock import AsyncMock, patch
 
 @unittest.skipUnless(importlib.util.find_spec('forecasting_tools'), 'SDK installed in Actions')
 class SdkBudgetTests(unittest.TestCase):
+    def test_response_diagnostics_record_metadata_without_prompts_or_answers(self):
+        from main import FreeResponseDiagnostics
+        from litellm import ModelResponse
+
+        response = ModelResponse(
+            model='example/free-reasoner',
+            choices=[{'finish_reason': 'length', 'message': {
+                'role': 'assistant', 'content': None,
+                'reasoning_content': 'PRIVATE_REASONING',
+            }}],
+            usage={'prompt_tokens': 100, 'completion_tokens': 2048,
+                   'total_tokens': 2148,
+                   'completion_tokens_details': {'reasoning_tokens': 2048}},
+        )
+        with self.assertLogs('main', level='INFO') as logs:
+            asyncio.run(FreeResponseDiagnostics().async_log_success_event(
+                {'api_key': 'PRIVATE_KEY', 'messages': ['PRIVATE_PROMPT']},
+                response, None, None,
+            ))
+        output = '\n'.join(logs.output)
+        self.assertIn('"finish_reason": "length"', output)
+        self.assertIn('"completion_tokens": 2048', output)
+        self.assertIn('"reasoning_tokens": 2048', output)
+        self.assertIn('"has_content": false', output)
+        self.assertNotIn('PRIVATE_', output)
+
     def check(self, scenario):
         from main import BudgetedFreeLlm
         from request_budget import DailyRequestBudget

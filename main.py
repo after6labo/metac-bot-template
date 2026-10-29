@@ -10,6 +10,8 @@ from datetime import datetime, timezone
 from typing import Literal
 
 import dotenv
+import litellm
+from litellm.integrations.custom_logger import CustomLogger
 from runtime_policy import (
     FORECASTING_PRINCIPLES,
     require_zero_cost_mode,
@@ -121,6 +123,31 @@ def _parse_exact_multiple_choice_probability_lines(
     return PredictedOptionList(predicted_options=predicted_options)
 
 
+class FreeResponseDiagnostics(CustomLogger):
+    """Log allowlisted response metadata even when the SDK rejects empty text."""
+
+    async def async_log_success_event(self, kwargs, response_obj, start_time, end_time):
+        choices = getattr(response_obj, "choices", None)
+        choice = choices[0] if isinstance(choices, list) and choices else None
+        message = getattr(choice, "message", None)
+        usage = getattr(response_obj, "usage", None)
+        model = getattr(response_obj, "model", None)
+        if not isinstance(model, str) or not re.fullmatch(r"[A-Za-z0-9_./:@-]{1,160}", model):
+            model = None
+        finish = getattr(choice, "finish_reason", None)
+        if finish not in (None, "stop", "length", "content_filter", "tool_calls", "error"):
+            finish = "other"
+        metadata = {"model": model, "finish_reason": finish,
+                    "has_content": bool(getattr(message, "content", None))}
+        for name in ("prompt_tokens", "completion_tokens", "total_tokens"):
+            value = getattr(usage, name, None)
+            metadata[name] = value if type(value) is int and value >= 0 else None
+        details = getattr(usage, "completion_tokens_details", None)
+        value = getattr(details, "reasoning_tokens", None)
+        metadata["reasoning_tokens"] = value if type(value) is int and value >= 0 else None
+        logger.info("Free response metadata: %s", json.dumps(metadata))
+
+
 class BudgetedFreeLlm(GeneralLlm):
     """One fixed free route; provider limits, with observed-outcome tracking."""
     budget = None
@@ -128,6 +155,8 @@ class BudgetedFreeLlm(GeneralLlm):
     request_lock = asyncio.Lock()
 
     def __init__(self, **kwargs):
+        if not any(isinstance(callback, FreeResponseDiagnostics) for callback in litellm.callbacks):
+            litellm.callbacks.append(FreeResponseDiagnostics())
         kwargs.setdefault("max_tokens", 2048)
         super().__init__(model="openrouter/openrouter/free", allowed_tries=2,
                          num_retries=0, timeout=180, **kwargs)

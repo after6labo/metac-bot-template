@@ -1,3 +1,13 @@
+## 2026-10-30 01:05 JST — Fall q46512へ自動投稿、q46511締切後保持を確認
+
+- 本番run [40899857545](https://github.com/after6labo/metac-bot-template/actions/runs/40899857545)は00:17:13.756 JSTに実取得を開始。Fall q46512/post46282（公式受付10/30 00:00〜03:00 JST）を検出し、予測00:18:18.789、説明コメント00:18:23.688 JSTに投稿した。submitted=1、nonfatal_errors=0、観測2応答・4,062 tokens、失敗/未確認invocation 0、新規費用$0。無料枠消費数や請求額の実測とは区別する。
+- 後続run [40904924644](https://github.com/after6labo/metac-bot-template/actions/runs/40904924644)は00:47:26.498 JSTに実取得し、公式APIの別取得経路でq46512のopen / already_forecasted=trueを確認。再投稿なし、追加モデル応答・tokens・費用0。両runともMiniBench/Fall監査complete/matched、fetch_errors、missing IDs、forecast evidence mismatch/unknown、pendingは空、failed=0、needs_attention/provider_paused=false。Actionsの取得・実行・保存・成績収集工程も成功。
+- 前回復旧したq46511/post46281は00:00締切後の両runでclosed / already_forecasted=true。未回答が締切で消えた取り逃しではなく、22:22の予測・説明投稿証拠と整合する。新規の締切済み未回答はこの確認区間では見つからない。
+- 実取得開始23:46:55.670→00:17:13.756→00:47:26.498 JSTの間隔は30分18.085秒、30分12.743秒。最大30分18.085秒で60分調査閾値未満。01:02:37時点の直近空白は約15分11秒。直近実測から次は01:17頃の取得が見込まれるが保証ではない。受付中q46512は既投稿、締切まで約1時間57分。
+- 00:18:28〜00:19:38 JSTの成績収集はcompleted/errors=[]。Fall暫定251/361位、score -152.0002565208251、coverage 2（10/20算出）、10/05 MiniBench確定174/306位、score -202.40684204840116、coverage 37、賞金配分0から変化なし。現行MiniBenchは未採点。新規投稿の得点対象認定・個別得点・順位反映と賞金受領は未確認。
+- 日付更新に伴い[公式参加案内](https://www.metaculus.com/futureeval/participate/)、[公式ルール](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)、[公式リソース](https://www.metaculus.com/questions/38928/)、[Fall大会ページ](https://www.metaculus.com/tournament/fall-futureeval-2026/)を再確認。参加案内の直接取得はサイズ超過のため公式ページ検索結果で補完。自動予測・説明投稿、個別ライブ予測への介入禁止、季末アンケート/審査、寄付クレジット利用は必須ではないことを確認。個別クレジット不採択という本人報告は維持。大会ページの期間9/28〜1/6と成績APIのproject close_date=3/5は異なるメタデータとして区別し、個別受付はquestion日時を採用する。
+- 今回は記録のみ更新。コード、設定、回答対象・停止条件、モデル経路、ライブ予測・プロンプトの変更なし。ユーザーの追加作業なし。
+
 ## 2026-10-29 22:25 JST — Fall q46511の回答生成障害を修正し、締切内投稿・独立確認まで復旧
 
 - Fall q46511/post46281（受付2026-10-29 21:00〜翌00:00 JST）は、run [40873248971](https://github.com/after6labo/metac-bot-template/actions/runs/40873248971)（21:27:10.468実取得）と[40877453037](https://github.com/after6labo/metac-bot-template/actions/runs/40877453037)（21:57:00.608）で、無料モデルの本文がNoneとなりSDK AssertionErrorで未投稿になった。取得は両大会ともcomplete/matchedで、提供元402/429・cooldownではなかった。未回答を正常扱いせず調査した。

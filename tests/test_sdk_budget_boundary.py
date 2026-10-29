@@ -73,6 +73,36 @@ class SdkBudgetTests(unittest.TestCase):
 
         self.assertGreaterEqual(model.litellm_kwargs['max_tokens'], 2048)
 
+    def test_free_route_leaves_output_room_after_reasoning_tokens(self):
+        from litellm import ModelResponse
+
+        async def scenario(llm, path):
+            answer = 'Fixture reasoning.\nYes: 60%\nNo: 40%\n'
+
+            async def provider(**kwargs):
+                # The provider counts internal reasoning against max_tokens.
+                # This fixture needs 2,030 reasoning + 1,000 visible tokens.
+                allowance = kwargs['max_tokens']
+                complete = allowance >= 3030
+                return ModelResponse(
+                    model='example/free-reasoner',
+                    choices=[{'finish_reason': 'stop' if complete else 'length',
+                              'message': {'role': 'assistant',
+                                          'content': answer if complete else None}}],
+                    usage={'prompt_tokens': 100,
+                           'completion_tokens': min(allowance, 3030),
+                           'total_tokens': 100 + min(allowance, 3030)},
+                )
+
+            with patch('forecasting_tools.ai_models.general_llm.acompletion',
+                       side_effect=provider):
+                result = await llm(temperature=0.3).invoke('fixture')
+            self.assertEqual(result, answer)
+            self.assertEqual(llm.budget.session_responses, 1)
+            self.assertEqual(llm.budget.session_failures, 0)
+
+        self.check(scenario)
+
     def test_presend_failure_does_not_consume_a_request_or_block_next_call(self):
         from main import GeneralLlm
 

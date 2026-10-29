@@ -157,7 +157,9 @@ class BudgetedFreeLlm(GeneralLlm):
     def __init__(self, **kwargs):
         if not any(isinstance(callback, FreeResponseDiagnostics) for callback in litellm.callbacks):
             litellm.callbacks.append(FreeResponseDiagnostics())
-        kwargs.setdefault("max_tokens", 2048)
+        # Reasoning tokens share this allowance with the visible final answer.
+        # 2,048 was exhausted by reasoning before MC option lines were emitted.
+        kwargs.setdefault("max_tokens", 8192)
         super().__init__(model="openrouter/openrouter/free", allowed_tries=2,
                          num_retries=0, timeout=180, **kwargs)
 

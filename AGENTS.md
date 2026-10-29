@@ -178,7 +178,7 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   numeric forecasts; binary forecasts allow three bounded generations with one
   conversion each, while date forecasts retain one conversion. Numeric answers also have a
   local fallback only for all six exact requested percentile lines with plain numeric
-  values; it does not infer missing values or convert unit suffixes. A 2,048-token model output
+  values; it does not infer missing values or convert unit suffixes. An 8,192-token model output
   allowance and 180-second model timeout
   (increased Sep29 after two observed 45-second timeouts), sequential calls spaced by at least 3.2
   seconds, a 25-minute Actions job timeout, and inventory reads capped at 10

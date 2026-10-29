@@ -1,3 +1,11 @@
+## 2026-10-30 03:54 JST — Fall q46512の締切後回答保持を確認
+
+- 締切前の本番run [40924492432](https://github.com/after6labo/metac-bot-template/actions/runs/40924492432)（02:47:12.649 JST実取得）はq46512/post46282をopen / already_forecasted=trueと確認。03:00締切後のrun [40929218003](https://github.com/after6labo/metac-bot-template/actions/runs/40929218003)（03:17:14.642）と[40933937373](https://github.com/after6labo/metac-bot-template/actions/runs/40933937373)（03:47:12.373）ではclosed / already_forecasted=trueを確認した。00:18の予測・説明投稿証拠と整合し、未回答が締切で消えた取り逃しではない。
+- 3実行はいずれもmode=tournament、両大会retrieval_audit complete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknown・pendingは空、failed=0、needs_attention/provider_paused=false。Actionsの実行・保存工程も成功。最新監査ではMiniBench公開60件、Fall公開92件のうち受付中はともに0件。本確認区間の新規投稿はなく、新しい締切済み未回答も見つからない。
+- 実取得02:17:07.065→02:47:12.649→03:17:14.642→03:47:12.373 JSTの間隔は30分05.584秒、30分01.993秒、29分57.731秒。最大30分05.584秒で60分調査閾値未満。03:54:11時点の直近空白は約6分59秒。直近実測から次は04:17頃と見込まれるが保証ではない。
+- 追加モデル応答・失敗invocation・tokens・新規費用は各runで0。公式成績スナップショットは00:18取得のcompleted/errors=[]から更新なし。q46512の得点対象認定・個別得点・順位反映と賞金受領は未確認。同日01:05の公式規則監査を再利用した。
+- 記録のみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプトの変更なし。本人作業なし。
+
 ## 2026-10-30 01:05 JST — Fall q46512へ自動投稿、q46511締切後保持を確認
 
 - 本番run [40899857545](https://github.com/after6labo/metac-bot-template/actions/runs/40899857545)は00:17:13.756 JSTに実取得を開始。Fall q46512/post46282（公式受付10/30 00:00〜03:00 JST）を検出し、予測00:18:18.789、説明コメント00:18:23.688 JSTに投稿した。submitted=1、nonfatal_errors=0、観測2応答・4,062 tokens、失敗/未確認invocation 0、新規費用$0。無料枠消費数や請求額の実測とは区別する。

@@ -1,3 +1,11 @@
+## 2026-10-29 16:29 JST — Fall q46510へ締切内投稿し事後可視性を独立確認
+
+- 新規Fall 2026 q46510/post46280（公式受付15:00〜18:00 JST）は本番run [40827212126](https://github.com/after6labo/metac-bot-template/actions/runs/40827212126) が15:07:15.663 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を15:08:01.062 JST、説明コメントを15:08:04.915 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。
+- 最初の無料ルーター応答は安全判定だけで、形式変換も使用不能だったが、既存の最大3回の有界生成内で回復して投稿まで完了した。観測応答3、失敗/未確認invocation 0、4,256 tokens、新規費用$0。402/429・cooldown停止、無料専用経路、直列実行は維持し、有料切替・制限迂回・回答対象や停止条件・ライブ問題向けプロンプト・予測値は変更していない。
+- 投稿後の本番run [40829762107](https://github.com/after6labo/metac-bot-template/actions/runs/40829762107)、[40832251639](https://github.com/after6labo/metac-bot-template/actions/runs/40832251639)、[40835424474](https://github.com/after6labo/metac-bot-template/actions/runs/40835424474) は、それぞれ15:32:41.512、15:57:11.105、16:27:10.076 JSTに実取得を開始し、q46510を受付中・`already_forecasted=true` と独立監査で確認した。reason=`already_forecasted`で再投稿を回避し、追加のモデル応答・tokens・費用は0。
+- 4実行はいずれもmode=tournament、MiniBench/Fall監査complete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknown、pending、failed、needs_attention、provider pauseがすべて空またはfalseで、Actions全工程もsuccess。14:37:13.933→15:07:15.663→15:32:41.512→15:57:11.105→16:27:10.076 JSTの実取得間隔は30分01.730秒、25分25.849秒、24分29.593秒、29分58.971秒で、最大30分01.730秒、60分調査閾値未満。
+- 公式成績スナップショットは更新なし。Fallはprimary leaderboard rank 251、score -152.0002565208251、coverage 2、provisionalで、q46510の大会側得点対象・個別得点反映は未確認。MiniBenchの確定済み旧回はrank 174、score -202.40684204840116、coverage 37、prize 0。賞金受領は未確認。同日確認済みの広い公式規則監査を再利用し、本人作業は0。
+
 ## 2026-10-29 13:23 JST — Fall q46509の締切後回答保持を独立監査で確認
 
 - 締切前最後の本番run [40809275263](https://github.com/after6labo/metac-bot-template/actions/runs/40809275263) は11:57:31.292 JSTに実取得を開始し、Fall q46509/post46279を受付中・`already_forecasted=true` と独立監査で確認した。12:00 JST締切後最初のrun [40812132981](https://github.com/after6labo/metac-bot-template/actions/runs/40812132981) は12:27:04.288 JSTに同問を `closed / already_forecasted=true` と確認し、締切で未回答IDが消えた取り逃しではないことを確認した。最新run [40814926631](https://github.com/after6labo/metac-bot-template/actions/runs/40814926631)（12:57:22.858 JST）でも同じ回答保持を再確認した。

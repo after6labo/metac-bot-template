@@ -152,6 +152,69 @@ class SdkBudgetTests(unittest.TestCase):
                     self.assertEqual(llm.budget.session_failures, 0)
         self.check(scenario)
 
+    def test_multiple_choice_recovers_after_empty_generation_failures(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            model = SimpleNamespace(invoke=AsyncMock(side_effect=[
+                AssertionError('Answer is not a string: None'),
+                AssertionError('Answer is not a string: None'),
+                'Fixture reasoning.\nYes: 60%\nNo: 40%\n',
+            ]))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(options=['Yes', 'No'], page_url='fixture')
+            result = await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
+            self.assertEqual(
+                [item.probability for item in result.prediction_value.predicted_options],
+                [0.6, 0.4],
+            )
+            self.assertEqual(result.reasoning, 'Fixture reasoning.\nYes: 60%\nNo: 40%\n')
+            self.assertEqual(model.invoke.await_count, 3)
+
+        asyncio.run(scenario())
+
+    def test_multiple_choice_generation_failures_stop_after_three_attempts(self):
+        from main import SummerTemplateBot2026
+
+        async def scenario():
+            bot = object.__new__(SummerTemplateBot2026)
+            model = SimpleNamespace(invoke=AsyncMock(
+                side_effect=AssertionError('Answer is not a string: None')
+            ))
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(options=['Yes', 'No'], page_url='fixture')
+            with self.assertRaises(AssertionError):
+                await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
+            self.assertEqual(model.invoke.await_count, 3)
+
+        asyncio.run(scenario())
+
+    def test_multiple_choice_generation_stops_on_provider_pause(self):
+        from main import GeneralLlm, SummerTemplateBot2026
+        from request_budget import ProviderPaused
+
+        async def scenario(llm, path):
+            bot = object.__new__(SummerTemplateBot2026)
+            model = llm(temperature=0.3)
+            bot.get_llm = lambda *args: model
+            question = SimpleNamespace(options=['Yes', 'No'], page_url='fixture')
+            for status in (402, 429):
+                with self.subTest(status=status):
+                    llm.budget.blocked_for_run = False
+                    llm.budget.data['cooldown_until_epoch'] = 0
+                    error = RuntimeError('provider limit')
+                    error.status_code = status
+                    error.response = SimpleNamespace(headers={'Retry-After': '120'})
+                    with patch.object(GeneralLlm, '_mockable_direct_call_to_model',
+                                      new_callable=AsyncMock, side_effect=error) as provider:
+                        with self.assertRaises(ProviderPaused):
+                            await bot._multiple_choice_prompt_to_forecast(question, 'fixture')
+                        self.assertEqual(provider.await_count, 1)
+                    self.assertFalse(llm.budget.can_request)
+
+        self.check(scenario)
+
     def test_multiple_choice_parser_allows_two_bounded_retries(self):
         from main import PredictedOptionList, SummerTemplateBot2026
 
@@ -468,3 +531,4 @@ class SdkBudgetTests(unittest.TestCase):
             )
 
         asyncio.run(scenario())
+

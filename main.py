@@ -439,7 +439,20 @@ class SummerTemplateBot2026(ForecastBot):
             Additionally, you may sometimes need to parse a 0% probability. Please do not skip options with 0% but rather make it an entry in your final list with 0% probability.
             """
         )
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
+        for attempt in range(3):
+            try:
+                reasoning = await self.get_llm("default", "llm").invoke(prompt)
+                break
+            except ProviderPaused:
+                raise
+            except Exception as exc:
+                if attempt == 2:
+                    raise
+                logger.warning(
+                    "Multiple-choice generation failed; retrying (%s/3, %s)",
+                    attempt + 2,
+                    type(exc).__name__,
+                )
         logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
         try:
             predicted_option_list = _parse_exact_multiple_choice_probability_lines(
@@ -938,3 +951,4 @@ if __name__ == "__main__":
 
     if should_fail_run(run_result):
         raise SystemExit(1)
+

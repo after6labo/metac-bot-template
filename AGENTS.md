@@ -39,7 +39,10 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
-  sample. Multiple-choice forecasts first use strict local exact option-percentage lines
+  sample. Multiple-choice generation allows up to three bounded invocations on
+  generation exceptions (at most six provider attempts with the SDK's two-attempt
+  policy); ProviderPaused immediately propagates. Successful generation is not
+  repeated for parsing failures. Multiple-choice forecasts first use strict local exact option-percentage lines
   and may make two additional parser attempts when those lines are absent or invalid;
   numeric conversion may make two additional attempts;
   binary forecasts first use the strict local `Probability: ZZ%` parser and only

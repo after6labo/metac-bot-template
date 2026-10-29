@@ -1,11 +1,11 @@
 # 公式成績
 
-取得開始（UTC）: 2026-10-29T21:49:09.319796+00:00
+取得開始（UTC）: 2026-10-29T22:47:22.764701+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 266 | -168.03 | 3 | 2026-10-29T21:23:07.426359Z |
+| Fall 2026 FutureEval Bot Tournament | 276 | -275.37 | 6 | 2026-10-29T22:40:27.561824Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
@@ -16,7 +16,10 @@
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
 | fall-futureeval-2026 | [q46291](https://www.metaculus.com/questions/46053/) | yes | -16.03 |
+| fall-futureeval-2026 | [q46185](https://www.metaculus.com/questions/46001/) | 3.57 | -23.01 |
 | fall-futureeval-2026 | [q46133](https://www.metaculus.com/questions/45951/) | no | -23.23 |
+| fall-futureeval-2026 | [q46184](https://www.metaculus.com/questions/46000/) | Luiz Inácio Lula da Silva | -33.71 |
+| fall-futureeval-2026 | [q46135](https://www.metaculus.com/questions/45953/) | yes | -50.62 |
 | fall-futureeval-2026 | [q46307](https://www.metaculus.com/questions/46069/) | yes | -128.77 |
 | minibench-2026-10-05 | [q46074](https://www.metaculus.com/questions/45892/) | 19.0 | 69.78 |
 | minibench-2026-10-05 | [q46128](https://www.metaculus.com/questions/45946/) | yes | 53.67 |

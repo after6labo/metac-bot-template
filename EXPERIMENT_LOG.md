@@ -1,3 +1,12 @@
+## 2026-10-30 07:56 JST — q46513投稿後の独立確認完了、Fall採点6問へ更新
+
+- 前回の予測06:49:00.181・説明06:49:04.817 JST投稿（run40960559353）に続き、本番run [40964566770](https://github.com/after6labo/metac-bot-template/actions/runs/40964566770)（07:17:18.931実取得）と[40968369575](https://github.com/after6labo/metac-bot-template/actions/runs/40968369575)（07:47:00.598実取得）が、公式APIの独立取得経路でFall q46513/post46283をopen / already_forecasted=trueと確認した。投稿後の可視性確認待ちは解消。already_forecastedだけで説明成功と判断せず、前回の説明投稿ログと照合した。再投稿・追加モデル呼び出しなし。09:00締切まで07:55:29時点で約1時間4分31秒、次回実取得は直近実測から08:17頃を見込むが保証ではない。
+- 両runともmode=tournament、status=no_new_questions、submitted=0、failed=0、pending=[]、needs_attention/provider_paused=false。MiniBench/Fall両監査はcomplete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknownは空。最新監査のMiniBench60問は全てclosed、Fall93posts中の92questionsはopen 1・closed 84・resolved 7。唯一のopenは既投稿q46513。q46512もclosed/already_forecasted=trueを保持し、前回以降に新しい締切済み未回答は検出していない。両Actionsの回帰テスト・Bot実行・結果/状態/成績保存の全該当工程はsuccessで、JSONは履歴にも存在する。
+- 実取得06:47:10.068→07:17:18.931→07:47:00.598 JSTの間隔は30分08.862秒、29分41.668秒、最大30分08.862秒。07:55:29時点の直近空白は8分28.402秒、60分調査閾値未満。両runの追加観測応答・失敗invocation・tokens・新規費用は0。提供元の残り無料枠・請求額の実測を意味しない。
+- 公式成績は07:47:22〜07:48:31 JST取得、completed/errors=[]、LLM calls=0。Fall primary leaderboard 991 / spot_peer_tournamentは暫定276/390位、score -275.36723238633675、coverage/contribution_count 6、excluded=false（公式計算07:40:27.562 JST）。前回の266/382位・-168.03461643193094・3問から更新された。新たな寄与はq46185（numeric、結果3.57）-23.006388983087387、q46184（multiple_choice、結果Luiz Inácio Lula da Silva）-33.708444750130205、q46135（binary、結果yes）-50.617782221188236。追加3問はいずれも負の寄与、合計約-107.33。これは予測成績であり、今回の投稿障害やq46513の採点とは別。少数の結果だけを根拠にライブ予測・プロンプトは調整しない。
+- 10/05 MiniBenchは確定174/306位、score -202.40684204840116、coverage 37、賞金配分$0のまま。現行MiniBenchの自Bot順位・スコアは未確認。賞金受領はnull/未確認、q46513の得点対象認定・個別得点も未確認。
+- 同日01:05の公式規則監査を再利用。記録のみ変更し、コード・設定・回答対象・停止条件は変更なし。本人作業なし。今後の無停止や形式変換失敗の非再発を保証するものではない。
+
 ## 2026-10-30 06:55 JST — Fall q46513の形式変換失敗から定期実行で投稿回復、公式成績更新
 
 - 本番run [40956358392](https://github.com/after6labo/metac-bot-template/actions/runs/40956358392)は06:17:13.235 JSTに実取得を開始し、Fall q46513/post46283（公式受付10/30 06:00〜09:00 JST）を検出したが、数値形式変換が3試行とも成立せず、厳密な6本のpercentile行を要求するローカルfallbackも不成立で予測POST前に失敗した。submitted=0、failed=1、pending=q46513、needs_attention=true。提供元402/429・cooldownではなく、妥当な見送りとして扱わない。限定診断では最初の無料応答がfinish_reason=length / has_content=false / completion=8192、後続応答は本文ありでも形式変換不成立だった。予測・説明の投稿成功行はこの失敗jobにはない。

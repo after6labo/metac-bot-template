@@ -1,3 +1,12 @@
+## 2026-10-29 09:31 JST — q46508締切後保持を確認し、Fall q46509へ締切内投稿・事後確認
+
+- 08:07:12.558 JST開始の本番run [40784945471](https://github.com/after6labo/metac-bot-template/actions/runs/40784945471) と08:37:17.984 JST開始のrun [40788518855](https://github.com/after6labo/metac-bot-template/actions/runs/40788518855) は、締切前のFall q46508/post46278を受付中・`already_forecasted=true`として保持した。いずれも再投稿なし、pending/failed/needs_attention空、provider_paused=false、両大会監査complete/matchedだった。
+- 投稿run [40791828795](https://github.com/after6labo/metac-bot-template/actions/runs/40791828795) は09:07:02.075 JSTに実取得を開始した。q46508を09:00 JST締切後も `closed / already_forecasted=true` と独立監査で確認し、締切で未回答IDが消えた取り逃しではないことを確認した。同時に新規Fall q46509/post46279（公式受付09:00〜12:00 JST）を受付中・未回答として検出し、予測を09:08:07.434 JST、説明コメントを09:08:12.649 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。観測応答2、失敗/未確認invocation 0、4,804 tokens、新規費用$0。
+- 投稿後確認run [40794176108](https://github.com/after6labo/metac-bot-template/actions/runs/40794176108) は09:28:23.375 JSTに実取得を開始し、q46509を受付中・`already_forecasted=true`、q46508を締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認した。q46509はreason=`already_forecasted`で再投稿を回避し、submitted=0、pending/failed/needs_attention空、provider_paused=false、追加のモデル応答・失敗呼び出し・tokens・費用0。両大会監査はcomplete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknownは0で、Actions全工程もsuccess。投稿後可視性の確認待ちは解消した。
+- 07:37:16.174→08:07:12.558→08:37:17.984→09:07:02.075→09:28:23.375 JSTの実取得間隔は29分56.384秒、30分05.426秒、29分44.092秒、21分21.300秒で、最大30分05.426秒、60分調査閾値未満。
+- 公式成績スナップショットは更新なし。Fallはprimary leaderboard rank 251、score -152.0002565208251、coverage 2、provisional、q46509の大会側得点対象・個別得点反映は未確認。MiniBenchの確定済み旧回はrank 174、score -202.40684204840116、coverage 37、prize 0。賞金受領は未確認。
+- コード、回答対象、停止条件、モデル経路、ライブ問題向けプロンプト・予測値は変更していない。同日確認済みの広い公式規則監査を再利用し、新規費用・本人作業は0。
+
 ## 2026-10-29 06:43 JST — q46507締切後保持を確認し、Fall q46508へ締切内投稿・事後確認
 
 - 本番run [40771946268](https://github.com/after6labo/metac-bot-template/actions/runs/40771946268) は06:27:11.609 JSTに実取得を開始した。直前まで受付中だったFall q46507/post46277を、06:00 JST締切後も `closed / already_forecasted=true` と公式APIの独立監査で確認し、締切で未回答IDが消えた取り逃しではないことを確認した。

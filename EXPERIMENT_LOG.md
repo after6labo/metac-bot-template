@@ -1,3 +1,10 @@
+## 2026-10-29 19:30 JST — Fall q46510の締切後回答保持を独立確認
+
+- Fall 2026 q46510/post46280（公式受付15:00〜18:00 JST）は、締切後最初の本番run [40849627515](https://github.com/after6labo/metac-bot-template/actions/runs/40849627515) が18:27:12.581 JSTに実取得を開始し、独立監査で `closed / already_forecasted=true` を確認した。投稿済み回答が締切時に消えた取り逃しではない。
+- 後続run [40853542093](https://github.com/after6labo/metac-bot-template/actions/runs/40853542093)（18:57:10.547 JST開始）と[40857562461](https://github.com/after6labo/metac-bot-template/actions/runs/40857562461)（19:27:09.286 JST開始）でも同じ回答保持を再確認した。3実行ともmode=tournament、受付中問題0件、MiniBench/Fall監査complete/matched、fetch error・retrieval missing・forecast evidence mismatch/unknown、pending、failed、needs_attention、provider pauseはすべて空またはfalseで、Actionsもsuccess。
+- 17:57:06.684→18:27:12.581→18:57:10.547→19:27:09.286 JSTの実取得間隔は30分05.897秒、29分57.966秒、29分58.739秒で、最大30分05.897秒、60分調査閾値未満。3実行の追加モデル応答・tokens・新規費用は0。
+- 新しい受付問題や技術障害はなく、コード・設定・回答対象・停止条件・予測値は変更していない。同日確認済みの広い公式規則監査を再利用し、公式成績スナップショットにも更新はない。大会側のq46510得点対象認定・個別得点・順位・賞金反映は引き続き未確認。ユーザー作業なし。
+
 ## 2026-10-29 16:29 JST — Fall q46510へ締切内投稿し事後可視性を独立確認
 
 - 新規Fall 2026 q46510/post46280（公式受付15:00〜18:00 JST）は本番run [40827212126](https://github.com/after6labo/metac-bot-template/actions/runs/40827212126) が15:07:15.663 JSTに実取得を開始し、独立監査とSDKの双方で受付中・未回答として検出した。予測を15:08:01.062 JST、説明コメントを15:08:04.915 JSTに投稿した。runtimeはsubmitted=1、outcome=submitted、nonfatal_errors=0、pending/failed/needs_attention空、provider_paused=false。

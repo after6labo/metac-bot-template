@@ -119,6 +119,11 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
   fetch_errors are target-specific; healthy targets still run. All pending items
   and audit/fetch failures set needs_attention and cause a nonzero process exit,
   including partial success. Provider limits remain respected but unresolved.
+- A zero-post MiniBench alias must fetch official project ID/slug/start/close metadata.
+  Only an empty SDK/raw inventory for the exact alias with a valid future start
+  is a verified pre-start empty round. Missing/malformed metadata, API errors,
+  conflicting SDK questions, or zero posts after start remain attention-required.
+  This changes audit classification only, never forecast eligibility or provider stops.
 - Inspect Actions failures and missing result files as well as result JSON.
   Do not close incidents merely because pending IDs disappear after a deadline.
   Reconcile previous pending IDs against submission history and official windows;

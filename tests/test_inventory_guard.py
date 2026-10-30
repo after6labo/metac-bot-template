@@ -20,6 +20,34 @@ async def empty_inventory(target):
 
 
 class InventoryGuardTests(unittest.TestCase):
+    def test_empty_minibench_requires_official_future_project_metadata(self):
+        for start, expected in [('2099-11-02T00:00:00Z', 'matched'),
+                                ('2020-11-02T00:00:00Z', 'failed'),
+                                (None, 'failed')]:
+            async def inventory(target):
+                return {'complete': True, 'questions': [],
+                        'post_count': 0 if target == 'minibench' else 1,
+                        'empty_project': {'id': 33135, 'slug': 'minibench',
+                                          'start_date': start}}
+            with self.subTest(start=start):
+                _, result = asyncio.run(run_forecasts(Client(), Bot(), 'tournament', fetch_inventory=inventory))
+                self.assertEqual(result['retrieval_audit'][0]['status'], expected)
+                self.assertEqual(result['needs_attention'], expected == 'failed')
+
+    def test_future_metadata_cannot_hide_conflicts_or_invalid_identity(self):
+        for override, sdk_questions in [({'id': True}, []), ({'id': 0}, []),
+                ({'slug': 'other'}, []), ({'start_date': '2099-11-02T00:00:00'}, []),
+                ({'start_date': 'invalid'}, []), ({}, [question(7)])]:
+            async def inventory(target):
+                return {'complete': True, 'questions': [],
+                        'post_count': 0 if target == 'minibench' else 1,
+                        'empty_project': {'id': 33135, 'slug': 'minibench',
+                            'start_date': '2099-11-02T00:00:00Z', **override}}
+            with self.subTest(override=override, sdk=bool(sdk_questions)):
+                _, result = asyncio.run(run_forecasts(Client(sdk_questions), Bot(), 'tournament', fetch_inventory=inventory))
+                self.assertEqual(result['retrieval_audit'][0]['status'], 'failed')
+                self.assertTrue(result['needs_attention'])
+
     def test_silent_empty_sdk_result_is_detected_against_raw_inventory(self):
         async def inventory(target):
             return {'complete': True, 'questions': [row(7)] if target == 'minibench' else [], 'post_count': 1}
@@ -115,3 +143,4 @@ class InventoryGuardTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

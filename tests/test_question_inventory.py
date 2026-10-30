@@ -32,6 +32,26 @@ class Transport:
 
 
 class InventoryTests(unittest.TestCase):
+    def test_empty_alias_collects_sanitized_official_project_metadata(self):
+        def get(url, **kwargs):
+            if url == 'https://www.metaculus.com/api/posts/':
+                payload = {'results': [], 'next': None}
+            elif url == 'https://www.metaculus.com/api/projects/tournaments/minibench/':
+                payload = {'id': 33135, 'slug': 'minibench',
+                           'start_date': '2099-11-02T00:00:00Z',
+                           'close_date': '2099-11-20T00:00:00Z', 'description': 'not retained'}
+            else:
+                raise AssertionError('Unexpected API destination')
+            class Response:
+                def raise_for_status(self): pass
+                def json(self): return payload
+            return Response()
+        result = collect_inventory('minibench', 'test-only-credential', get=get)
+        self.assertEqual(result.get('empty_project'), {
+            'id': 33135, 'slug': 'minibench', 'start_date': '2099-11-02T00:00:00Z',
+            'close_date': '2099-11-20T00:00:00Z'})
+        self.assertNotIn('not retained', str(result))
+
     def collect(self, pages):
         return collect_inventory('minibench', 'test-only-credential', get=Transport(pages))
 
@@ -106,3 +126,4 @@ class InventoryTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

@@ -105,5 +105,17 @@ def collect_inventory(target, token, *, get=None):
             count = data.get('count')
             if isinstance(count, int) and count != len(seen_posts):
                 raise InventoryError('inventory_count_mismatch')
-            return {'complete': True, 'post_count': len(seen_posts), 'questions': rows}
+            result = {'complete': True, 'post_count': len(seen_posts), 'questions': rows}
+            if target == 'minibench' and not seen_posts:
+                # The official alias rolls to the next round before it opens.
+                # Preserve official dates; the runner must validate them before
+                # treating an empty list as a verified pre-start inventory.
+                response = get('https://www.metaculus.com/api/projects/tournaments/minibench/',
+                    headers={'Authorization': 'Token ' + token, 'Accept-Language': 'en'}, timeout=15)
+                response.raise_for_status()
+                project = response.json()
+                result['empty_project'] = {key: project.get(key)
+                    for key in ('id', 'slug', 'start_date', 'close_date')}
+            return result
     raise InventoryError('pagination_limit_reached')
+

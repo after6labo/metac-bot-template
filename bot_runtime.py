@@ -83,10 +83,22 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None, *, fetch_invent
             data = await fetch_inventory(target)
             if data.get('complete') is not True or not isinstance(data.get('questions'), list):
                 raise ValueError('Incomplete inventory')
-            # Both configured tournaments have published posts. A sudden zero
-            # response is loss of audit coverage, not evidence that nothing is open.
+            # A zero is unknown unless the official MiniBench alias has rolled
+            # to a future round. Do not relax this for an active/malformed project.
             if target in KNOWN_NONEMPTY_TARGETS and data.get('post_count') == 0:
-                raise InventoryError('inventory_unexpected_empty')
+                project = data.get('empty_project') or {}
+                start = project.get('start_date')
+                try:
+                    start = datetime.fromisoformat(start.replace('Z', '+00:00'))
+                    upcoming = (target == MINIBENCH and not questions and not data['questions']
+                                and type(project.get('id')) is int and project['id'] > 0
+                                and project.get('slug') == MINIBENCH
+                                and start.tzinfo is not None
+                                and start > datetime.now(timezone.utc))
+                except (AttributeError, TypeError, ValueError):
+                    upcoming = False
+                if not upcoming:
+                    raise InventoryError('inventory_unexpected_empty')
             raw_open = [row for row in data['questions'] if row['status'] == 'open']
             sdk_ids = {question.id_of_question for question in questions}
             missing = [row['question_id'] for row in raw_open if row['question_id'] not in sdk_ids]
@@ -170,3 +182,4 @@ async def run_forecasts(fetch_questions, bot, mode, budget=None, *, fetch_invent
         result['status'] = 'attention_required'
     result['finished_at_utc'] = datetime.now(timezone.utc).isoformat()
     return reports, result
+

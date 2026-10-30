@@ -1,3 +1,11 @@
+## 2026-10-30 19:41 JST — q46515投稿後の独立API確認完了
+
+- 本番run [41036845347](https://github.com/after6labo/metac-bot-template/actions/runs/41036845347)（18:55:27.956 JST実取得）と[41039515477](https://github.com/after6labo/metac-bot-template/actions/runs/41039515477)（19:17:14.163実取得）の独立API一覧でFall q46515/post46285をopen/already_forecasted=trueと確認。前回確認した予測18:28:09.657・説明18:28:14.209の成功証拠と整合し、投稿後API確認待ちは解消。得点対象認定・個別採点は未確認。追加再実行・再投稿なし。
+- 両runともmode=tournament、no_new_questions、submitted=0、failed_or_unconfirmed=0、pending=[]、needs_attention/provider_paused=false。両大会監査complete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknownは空。唯一のskipは投稿証拠に対応するq46515のalready_forecasted。MiniBench60問全てclosed、Fall95posts中94questionsはopen 1・closed 86・resolved 7。既存一覧の差分はq46515の投稿済み反映のみ、変更・消失による新しい取り逃しなし。過去の取り逃しは保持。latestと最新historyは一致し、両Actionsの実行・保存・テスト工程successを確認。
+- 実取得18:27:13.394→18:55:27.956→19:17:14.163の最大間隔28分14.563秒。19:40:36時点の直近空白23分21.837秒で60分未満。q46515は21:00締切まで1時間19分24秒あるが既投稿。直近の取得間隔は約22〜30分、次回は19:39〜19:47頃の見込みに過ぎず保証しない。
+- 今回2runの追加観測LLM応答・失敗invocation・tokens・記録上の新規費用は0。日次観測累計4応答・16,125 tokensは不変で、無料枠消費数・残量・請求額の実測ではない。成績latest/READMEは07:47取得のcompleted/errors=[]から更新なし。q46515の採点・賞金受領は未確認。
+- 同日01:05公式規則監査を再利用。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプトの変更、本人作業なし。
+
 ## 2026-10-30 18:39 JST — Fall q46515へ受付内に予測・説明を自動投稿
 
 - 前回確認以降の本番run [41033428208](https://github.com/after6labo/metac-bot-template/actions/runs/41033428208)は18:27:13.394 JSTに実取得。Fall q46515/post46285（公式受付10/30 18:00〜21:00 JST）を検出し、予測18:28:09.657、説明コメント18:28:14.209 JSTの成功ログを個別に確認した。mode=tournament、submitted=1、nonfatal_errors=0、failed_or_unconfirmed=0、pending=[]、needs_attention/provider_paused=false。投稿後の別取得によるalready_forecasted再確認、得点対象認定・個別採点は未確認。重複リスクを避け追加再実行・再投稿なし。

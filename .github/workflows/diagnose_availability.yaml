@@ -48,7 +48,7 @@ jobs:
           from pathlib import Path
           
           FIELDS = ("id", "status", "type", "open_time", "close_time", "scheduled_close_time", "actual_close_time", "published_at", "cp_reveal_time")
-          TARGETS = ("minibench", "fall-futureeval-2026")
+          TARGETS = ("minibench", "fall-futureeval-2026", "minibench-2026-10-19", "33135")
           BASE = "https://www.metaculus.com/api/posts/"
           
           def metadata(node):

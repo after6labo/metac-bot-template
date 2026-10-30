@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-10-30T20:07:02.958541+00:00",
+  "started_at_utc": "2026-10-30T20:37:04.228204+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -29,7 +29,7 @@
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-10-30T20:07:22.087341+00:00",
+      "checked_at_utc": "2026-10-30T20:37:13.460685+00:00",
       "complete": true,
       "post_count": 60,
       "questions": [
@@ -581,7 +581,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-10-30T20:07:24.100038+00:00",
+      "checked_at_utc": "2026-10-30T20:37:14.977793+00:00",
       "complete": true,
       "post_count": 96,
       "questions": [
@@ -1453,7 +1453,7 @@
     0
   ],
   "selected": 0,
-  "finished_at_utc": "2026-10-30T20:07:26.321364+00:00",
+  "finished_at_utc": "2026-10-30T20:37:16.917146+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -1466,6 +1466,6 @@
     "cooldown_until_epoch": 1792540800.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "c40cba5b628cef7a1ddd1ef332227ec5f68a5d45",
-  "workflow_run_id": "41120613817"
+  "git_sha": "6f74ae3949fa59252349aa5f35a9e52bd61eb287",
+  "workflow_run_id": "41124554939"
 }

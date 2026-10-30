@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-10-30T23:37:13.494942+00:00",
+  "started_at_utc": "2026-10-30T23:38:45.259607+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -24,19 +24,29 @@
   "skips": [],
   "question_windows": [],
   "pending_questions": [],
-  "needs_attention": true,
+  "needs_attention": false,
   "fetch_errors": [],
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-10-30T23:37:22.550309+00:00",
-      "status": "failed",
-      "error_type": "InventoryError",
-      "error_code": "inventory_unexpected_empty"
+      "checked_at_utc": "2026-10-30T23:39:09.190759+00:00",
+      "complete": true,
+      "post_count": 0,
+      "questions": [],
+      "empty_project": {
+        "id": 33135,
+        "slug": "minibench",
+        "start_date": "2026-11-02T00:00:00Z",
+        "close_date": "2026-11-20T00:00:00Z"
+      },
+      "status": "matched",
+      "missing_question_ids": [],
+      "forecast_evidence_mismatches": [],
+      "forecast_evidence_unknown": []
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-10-30T23:37:23.145109+00:00",
+      "checked_at_utc": "2026-10-30T23:39:09.810526+00:00",
       "complete": true,
       "post_count": 96,
       "questions": [
@@ -902,13 +912,13 @@
       "forecast_evidence_unknown": []
     }
   ],
-  "status": "attention_required",
+  "status": "no_new_questions",
   "open_questions_returned": [
     0,
     0
   ],
   "selected": 0,
-  "finished_at_utc": "2026-10-30T23:37:25.489456+00:00",
+  "finished_at_utc": "2026-10-30T23:39:11.846771+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -921,6 +931,6 @@
     "cooldown_until_epoch": 1792540800.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "1b68bc889fd77cb685b08fcbaac840cf4463abc8",
-  "workflow_run_id": "41145469738"
+  "git_sha": "84baf4481f850b4f2446b0593a08d736777ecc49",
+  "workflow_run_id": "41145622747"
 }

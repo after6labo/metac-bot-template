@@ -1,3 +1,4 @@
+# Read-only incident recheck: 2026-10-30T23:32Z, run 41142396482 inventory_unexpected_empty.
 name: Diagnose tournament availability
 on:
   workflow_dispatch:

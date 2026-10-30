@@ -1,3 +1,11 @@
+## 2026-10-31 00:14 JST — 日次公式規則再確認、23:47本番取得を照合
+
+- 前回23:17実取得run41070398955以降の本番run [41074587795](https://github.com/after6labo/metac-bot-template/actions/runs/41074587795)は10/30 23:47:07.712 JSTに開始、23:47:25.617に終了。mode=tournament、両大会監査complete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknown・pending=[]、failed=0、needs_attention/provider_paused=false。全件一覧は前回と同一、latest/history一致。Actionsの実行・保存・テスト工程success。
+- 取得時点のMiniBench60問は全てclosed、Fall96posts中95questionsはopen 1・closed 87・resolved 7。唯一のopen/skipはq46516/post46286のalready_forecastedで、既確認の予測21:17:59.411・説明21:18:03.590の成功証拠と整合。新規投稿・新しい取り逃しは今回の比較範囲ではない。過去の取り逃しは保持。q46516の公式締切は10/31 00:00 JSTだが、00:13:52確認時点では締切後の取得結果はまだなく、閉鎖後保持・現在受付件数は未確認。23:47のopenを現在のopenと誤認しない。
+- 実取得間隔29分56.464秒、00:13:52時点の直近空白26分44.288秒で60分調査閾値未満。直近実測から次は00:17頃の見込みのみで保証しない。追加手動実行・再投稿なし。追加観測応答・tokens・失敗invocation・記録上新規費用は0。無料枠残量や請求額の実測ではない。
+- 日付変更に伴い[公式規則](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)、[参加案内](https://www.metaculus.com/futureeval/participate/)、[Fall](https://www.metaculus.com/tournament/fall-futureeval-2026/)、[公式リソース](https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/)を再確認（リソース本文は公式検索結果で補完）。自動予測と説明、個別ライブ出力への人の介入禁止、参加フォーム、季末survey/審査、寄付クレジット使用は必須でないことを確認。Fall ID33121/slug、9/28〜1/6を確認。本人報告のフォーム提出済み・クレジット不採択は維持し、新たな同意や申請操作はしない。WebのView Questions(110)は受付中数とみなさず、公開API監査の96posts/95questionsと別の表示値として記録。
+- 成績latest/READMEは10/30 07:47取得の保存済み情報から更新なし。日付変更後の本番実行・成績収集はまだ観測していない。q46516の得点対象認定・個別採点・賞金受領は未確認。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプトの変更、本人作業なし。
+
 ## 2026-10-30 21:54 JST — Fall q46516へ自動投稿・独立確認、q46515締切後保持
 
 - 本番run [41054086874](https://github.com/after6labo/metac-bot-template/actions/runs/41054086874)は21:17:09.157 JSTに実取得を開始。Fall q46516/post46286（公式受付10/30 21:00〜10/31 00:00 JST）へ予測21:17:59.411、説明コメント21:18:03.590 JSTを投稿した。job124057108961の双方の成功行を確認。submitted=1、nonfatal_errors=0、failed_or_unconfirmed=0。後続run [41057869435](https://github.com/after6labo/metac-bot-template/actions/runs/41057869435)（21:47:14.948実取得）の独立API一覧でもopen/already_forecasted=trueを確認し、投稿後のAPI確認待ちは解消。大会側の得点対象認定・個別採点は未確認。

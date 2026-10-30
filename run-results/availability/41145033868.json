@@ -1,0 +1,4008 @@
+{
+  "checked_at_utc": "2026-10-30T23:33:28.813156+00:00",
+  "read_only": true,
+  "targets": {
+    "minibench": {
+      "api_count": null,
+      "complete": true,
+      "posts": [],
+      "raw_open_post_ids": [],
+      "raw_open_complete": true,
+      "question_status_counts": {}
+    },
+    "fall-futureeval-2026": {
+      "api_count": null,
+      "complete": true,
+      "posts": [
+        {
+          "id": 46286,
+          "status": "closed",
+          "open_time": "2026-10-30T12:00:00Z",
+          "scheduled_close_time": "2026-10-30T15:00:00Z",
+          "actual_close_time": "2026-10-30T15:00:00Z",
+          "published_at": "2026-10-30T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46516,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-30T12:00:00Z",
+              "scheduled_close_time": "2026-10-30T15:00:00Z",
+              "actual_close_time": "2026-10-30T15:00:00Z",
+              "cp_reveal_time": "2026-10-30T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46285,
+          "status": "closed",
+          "open_time": "2026-10-30T09:00:00Z",
+          "scheduled_close_time": "2026-10-30T12:00:00Z",
+          "actual_close_time": "2026-10-30T12:00:00Z",
+          "published_at": "2026-10-30T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46515,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-30T09:00:00Z",
+              "scheduled_close_time": "2026-10-30T12:00:00Z",
+              "actual_close_time": "2026-10-30T12:00:00Z",
+              "cp_reveal_time": "2026-10-30T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46284,
+          "status": "closed",
+          "open_time": "2026-10-30T00:00:00Z",
+          "scheduled_close_time": "2026-10-30T03:00:00Z",
+          "actual_close_time": "2026-10-30T03:00:00Z",
+          "published_at": "2026-10-30T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46514,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-30T00:00:00Z",
+              "scheduled_close_time": "2026-10-30T03:00:00Z",
+              "actual_close_time": "2026-10-30T03:00:00Z",
+              "cp_reveal_time": "2026-10-30T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46283,
+          "status": "closed",
+          "open_time": "2026-10-29T21:00:00Z",
+          "scheduled_close_time": "2026-10-30T00:00:00Z",
+          "actual_close_time": "2026-10-30T00:00:00Z",
+          "published_at": "2026-10-29T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46513,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-29T21:00:00Z",
+              "scheduled_close_time": "2026-10-30T00:00:00Z",
+              "actual_close_time": "2026-10-30T00:00:00Z",
+              "cp_reveal_time": "2026-10-30T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46282,
+          "status": "closed",
+          "open_time": "2026-10-29T15:00:00Z",
+          "scheduled_close_time": "2026-10-29T18:00:00Z",
+          "actual_close_time": "2026-10-29T18:00:00Z",
+          "published_at": "2026-10-29T15:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46512,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-29T15:00:00Z",
+              "scheduled_close_time": "2026-10-29T18:00:00Z",
+              "actual_close_time": "2026-10-29T18:00:00Z",
+              "cp_reveal_time": "2026-10-29T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46281,
+          "status": "closed",
+          "open_time": "2026-10-29T12:00:00Z",
+          "scheduled_close_time": "2026-10-29T15:00:00Z",
+          "actual_close_time": "2026-10-29T15:00:00Z",
+          "published_at": "2026-10-29T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46511,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-29T12:00:00Z",
+              "scheduled_close_time": "2026-10-29T15:00:00Z",
+              "actual_close_time": "2026-10-29T15:00:00Z",
+              "cp_reveal_time": "2026-10-29T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46280,
+          "status": "closed",
+          "open_time": "2026-10-29T06:00:00Z",
+          "scheduled_close_time": "2026-10-29T09:00:00Z",
+          "actual_close_time": "2026-10-29T09:00:00Z",
+          "published_at": "2026-10-29T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46510,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-29T06:00:00Z",
+              "scheduled_close_time": "2026-10-29T09:00:00Z",
+              "actual_close_time": "2026-10-29T09:00:00Z",
+              "cp_reveal_time": "2026-10-29T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46279,
+          "status": "closed",
+          "open_time": "2026-10-29T00:00:00Z",
+          "scheduled_close_time": "2026-10-29T03:00:00Z",
+          "actual_close_time": "2026-10-29T03:00:00Z",
+          "published_at": "2026-10-29T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46509,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-29T00:00:00Z",
+              "scheduled_close_time": "2026-10-29T03:00:00Z",
+              "actual_close_time": "2026-10-29T03:00:00Z",
+              "cp_reveal_time": "2026-10-29T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46278,
+          "status": "closed",
+          "open_time": "2026-10-28T21:00:00Z",
+          "scheduled_close_time": "2026-10-29T00:00:00Z",
+          "actual_close_time": "2026-10-29T00:00:00Z",
+          "published_at": "2026-10-28T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46508,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-28T21:00:00Z",
+              "scheduled_close_time": "2026-10-29T00:00:00Z",
+              "actual_close_time": "2026-10-29T00:00:00Z",
+              "cp_reveal_time": "2026-10-29T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46277,
+          "status": "closed",
+          "open_time": "2026-10-28T18:00:00Z",
+          "scheduled_close_time": "2026-10-28T21:00:00Z",
+          "actual_close_time": "2026-10-28T21:00:00Z",
+          "published_at": "2026-10-28T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46507,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-28T18:00:00Z",
+              "scheduled_close_time": "2026-10-28T21:00:00Z",
+              "actual_close_time": "2026-10-28T21:00:00Z",
+              "cp_reveal_time": "2026-10-28T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46209,
+          "status": "closed",
+          "open_time": "2026-10-28T09:00:00Z",
+          "scheduled_close_time": "2026-10-28T12:00:00Z",
+          "actual_close_time": "2026-10-28T12:00:00Z",
+          "published_at": "2026-10-28T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46436,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-28T09:00:00Z",
+              "scheduled_close_time": "2026-10-28T12:00:00Z",
+              "actual_close_time": "2026-10-28T12:00:00Z",
+              "cp_reveal_time": "2026-10-28T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46208,
+          "status": "closed",
+          "open_time": "2026-10-28T06:00:00Z",
+          "scheduled_close_time": "2026-10-28T09:00:00Z",
+          "actual_close_time": "2026-10-28T09:00:00Z",
+          "published_at": "2026-10-28T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46435,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-28T06:00:00Z",
+              "scheduled_close_time": "2026-10-28T09:00:00Z",
+              "actual_close_time": "2026-10-28T09:00:00Z",
+              "cp_reveal_time": "2026-10-28T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46207,
+          "status": "closed",
+          "open_time": "2026-10-27T15:00:00Z",
+          "scheduled_close_time": "2026-10-27T18:00:00Z",
+          "actual_close_time": "2026-10-27T18:00:00Z",
+          "published_at": "2026-10-27T15:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46434,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-27T15:00:00Z",
+              "scheduled_close_time": "2026-10-27T18:00:00Z",
+              "actual_close_time": "2026-10-27T18:00:00Z",
+              "cp_reveal_time": "2026-10-27T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46206,
+          "status": "closed",
+          "open_time": "2026-10-27T12:00:00Z",
+          "scheduled_close_time": "2026-10-27T15:00:00Z",
+          "actual_close_time": "2026-10-27T15:00:00Z",
+          "published_at": "2026-10-27T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46433,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-27T12:00:00Z",
+              "scheduled_close_time": "2026-10-27T15:00:00Z",
+              "actual_close_time": "2026-10-27T15:00:00Z",
+              "cp_reveal_time": "2026-10-27T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46205,
+          "status": "closed",
+          "open_time": "2026-10-27T09:00:00Z",
+          "scheduled_close_time": "2026-10-27T12:00:00Z",
+          "actual_close_time": "2026-10-27T12:00:00Z",
+          "published_at": "2026-10-27T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46432,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-27T09:00:00Z",
+              "scheduled_close_time": "2026-10-27T12:00:00Z",
+              "actual_close_time": "2026-10-27T12:00:00Z",
+              "cp_reveal_time": "2026-10-27T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46204,
+          "status": "closed",
+          "open_time": "2026-10-27T03:00:00Z",
+          "scheduled_close_time": "2026-10-27T06:00:00Z",
+          "actual_close_time": "2026-10-27T06:00:00Z",
+          "published_at": "2026-10-27T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46431,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-27T03:00:00Z",
+              "scheduled_close_time": "2026-10-27T06:00:00Z",
+              "actual_close_time": "2026-10-27T06:00:00Z",
+              "cp_reveal_time": "2026-10-27T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46203,
+          "status": "closed",
+          "open_time": "2026-10-26T21:00:00Z",
+          "scheduled_close_time": "2026-10-27T00:00:00Z",
+          "actual_close_time": "2026-10-27T00:00:00Z",
+          "published_at": "2026-10-26T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46430,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-26T21:00:00Z",
+              "scheduled_close_time": "2026-10-27T00:00:00Z",
+              "actual_close_time": "2026-10-27T00:00:00Z",
+              "cp_reveal_time": "2026-10-27T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46202,
+          "status": "closed",
+          "open_time": "2026-10-26T18:00:00Z",
+          "scheduled_close_time": "2026-10-26T21:00:00Z",
+          "actual_close_time": "2026-10-26T21:00:00Z",
+          "published_at": "2026-10-26T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46429,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-26T18:00:00Z",
+              "scheduled_close_time": "2026-10-26T21:00:00Z",
+              "actual_close_time": "2026-10-26T21:00:00Z",
+              "cp_reveal_time": "2026-10-26T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46201,
+          "status": "closed",
+          "open_time": "2026-10-26T00:00:00Z",
+          "scheduled_close_time": "2026-10-26T03:00:00Z",
+          "actual_close_time": "2026-10-26T03:00:00Z",
+          "published_at": "2026-10-26T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46428,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-26T00:00:00Z",
+              "scheduled_close_time": "2026-10-26T03:00:00Z",
+              "actual_close_time": "2026-10-26T03:00:00Z",
+              "cp_reveal_time": "2026-10-26T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46186,
+          "status": "closed",
+          "open_time": "2026-10-25T14:00:00Z",
+          "scheduled_close_time": "2026-10-25T17:00:00Z",
+          "actual_close_time": "2026-10-25T17:00:00Z",
+          "published_at": "2026-10-25T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46414,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-25T14:00:00Z",
+              "scheduled_close_time": "2026-10-25T17:00:00Z",
+              "actual_close_time": "2026-10-25T17:00:00Z",
+              "cp_reveal_time": "2026-10-25T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46222,
+          "status": "closed",
+          "open_time": "2026-10-25T14:00:00Z",
+          "scheduled_close_time": "2026-10-25T17:00:00Z",
+          "actual_close_time": "2026-10-25T17:00:00Z",
+          "published_at": "2026-10-25T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46449,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-25T14:00:00Z",
+              "scheduled_close_time": "2026-10-25T17:00:00Z",
+              "actual_close_time": "2026-10-25T17:00:00Z",
+              "cp_reveal_time": "2026-10-25T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46228,
+          "status": "closed",
+          "open_time": "2026-10-25T14:00:00Z",
+          "scheduled_close_time": "2026-10-25T17:00:00Z",
+          "actual_close_time": "2026-10-25T17:00:00Z",
+          "published_at": "2026-10-25T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46457,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-25T14:00:00Z",
+              "scheduled_close_time": "2026-10-25T17:00:00Z",
+              "actual_close_time": "2026-10-25T17:00:00Z",
+              "cp_reveal_time": "2026-10-25T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46229,
+          "status": "closed",
+          "open_time": "2026-10-25T14:00:00Z",
+          "scheduled_close_time": "2026-10-25T17:00:00Z",
+          "actual_close_time": "2026-10-25T17:00:00Z",
+          "published_at": "2026-10-25T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46458,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-25T14:00:00Z",
+              "scheduled_close_time": "2026-10-25T17:00:00Z",
+              "actual_close_time": "2026-10-25T17:00:00Z",
+              "cp_reveal_time": "2026-10-25T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46200,
+          "status": "closed",
+          "open_time": "2026-10-25T06:00:00Z",
+          "scheduled_close_time": "2026-10-25T09:00:00Z",
+          "actual_close_time": "2026-10-25T09:00:00Z",
+          "published_at": "2026-10-25T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46427,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-25T06:00:00Z",
+              "scheduled_close_time": "2026-10-25T09:00:00Z",
+              "actual_close_time": "2026-10-25T09:00:00Z",
+              "cp_reveal_time": "2026-10-25T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46199,
+          "status": "closed",
+          "open_time": "2026-10-25T00:00:00Z",
+          "scheduled_close_time": "2026-10-25T03:00:00Z",
+          "actual_close_time": "2026-10-25T03:00:00Z",
+          "published_at": "2026-10-25T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46426,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-25T00:00:00Z",
+              "scheduled_close_time": "2026-10-25T03:00:00Z",
+              "actual_close_time": "2026-10-25T03:00:00Z",
+              "cp_reveal_time": "2026-10-25T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46198,
+          "status": "closed",
+          "open_time": "2026-10-24T21:00:00Z",
+          "scheduled_close_time": "2026-10-25T00:00:00Z",
+          "actual_close_time": "2026-10-25T00:00:00Z",
+          "published_at": "2026-10-24T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46425,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-24T21:00:00Z",
+              "scheduled_close_time": "2026-10-25T00:00:00Z",
+              "actual_close_time": "2026-10-25T00:00:00Z",
+              "cp_reveal_time": "2026-10-25T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46185,
+          "status": "closed",
+          "open_time": "2026-10-24T14:00:00Z",
+          "scheduled_close_time": "2026-10-24T17:00:00Z",
+          "actual_close_time": "2026-10-24T17:00:00Z",
+          "published_at": "2026-10-24T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46413,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-24T14:00:00Z",
+              "scheduled_close_time": "2026-10-24T17:00:00Z",
+              "actual_close_time": "2026-10-24T17:00:00Z",
+              "cp_reveal_time": "2026-10-24T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46197,
+          "status": "closed",
+          "open_time": "2026-10-24T09:00:00Z",
+          "scheduled_close_time": "2026-10-24T12:00:00Z",
+          "actual_close_time": "2026-10-24T12:00:00Z",
+          "published_at": "2026-10-24T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46424,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-24T09:00:00Z",
+              "scheduled_close_time": "2026-10-24T12:00:00Z",
+              "actual_close_time": "2026-10-24T12:00:00Z",
+              "cp_reveal_time": "2026-10-24T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46184,
+          "status": "closed",
+          "open_time": "2026-10-23T14:00:00Z",
+          "scheduled_close_time": "2026-10-23T17:00:00Z",
+          "actual_close_time": "2026-10-23T17:00:00Z",
+          "published_at": "2026-10-23T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46412,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-23T14:00:00Z",
+              "scheduled_close_time": "2026-10-23T17:00:00Z",
+              "actual_close_time": "2026-10-23T17:00:00Z",
+              "cp_reveal_time": "2026-10-23T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46196,
+          "status": "closed",
+          "open_time": "2026-10-23T00:00:00Z",
+          "scheduled_close_time": "2026-10-23T03:00:00Z",
+          "actual_close_time": "2026-10-23T03:00:00Z",
+          "published_at": "2026-10-23T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46423,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-23T00:00:00Z",
+              "scheduled_close_time": "2026-10-23T03:00:00Z",
+              "actual_close_time": "2026-10-23T03:00:00Z",
+              "cp_reveal_time": "2026-10-23T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46195,
+          "status": "closed",
+          "open_time": "2026-10-22T15:00:00Z",
+          "scheduled_close_time": "2026-10-22T18:00:00Z",
+          "actual_close_time": "2026-10-22T18:00:00Z",
+          "published_at": "2026-10-22T15:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46422,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-22T15:00:00Z",
+              "scheduled_close_time": "2026-10-22T18:00:00Z",
+              "actual_close_time": "2026-10-22T18:00:00Z",
+              "cp_reveal_time": "2026-10-22T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46194,
+          "status": "closed",
+          "open_time": "2026-10-22T12:00:00Z",
+          "scheduled_close_time": "2026-10-22T15:00:00Z",
+          "actual_close_time": "2026-10-22T15:00:00Z",
+          "published_at": "2026-10-22T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46421,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-22T12:00:00Z",
+              "scheduled_close_time": "2026-10-22T15:00:00Z",
+              "actual_close_time": "2026-10-22T15:00:00Z",
+              "cp_reveal_time": "2026-10-22T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46193,
+          "status": "closed",
+          "open_time": "2026-10-22T09:00:00Z",
+          "scheduled_close_time": "2026-10-22T12:00:00Z",
+          "actual_close_time": "2026-10-22T12:00:00Z",
+          "published_at": "2026-10-22T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46420,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-22T09:00:00Z",
+              "scheduled_close_time": "2026-10-22T12:00:00Z",
+              "actual_close_time": "2026-10-22T12:00:00Z",
+              "cp_reveal_time": "2026-10-22T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46192,
+          "status": "closed",
+          "open_time": "2026-10-22T00:00:00Z",
+          "scheduled_close_time": "2026-10-22T03:00:00Z",
+          "actual_close_time": "2026-10-22T03:00:00Z",
+          "published_at": "2026-10-22T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46419,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-22T00:00:00Z",
+              "scheduled_close_time": "2026-10-22T03:00:00Z",
+              "actual_close_time": "2026-10-22T03:00:00Z",
+              "cp_reveal_time": "2026-10-22T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46191,
+          "status": "closed",
+          "open_time": "2026-10-21T12:00:00Z",
+          "scheduled_close_time": "2026-10-21T15:00:00Z",
+          "actual_close_time": "2026-10-21T15:00:00Z",
+          "published_at": "2026-10-21T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46418,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-21T12:00:00Z",
+              "scheduled_close_time": "2026-10-21T15:00:00Z",
+              "actual_close_time": "2026-10-21T15:00:00Z",
+              "cp_reveal_time": "2026-10-21T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46070,
+          "status": "closed",
+          "open_time": "2026-10-21T00:00:00Z",
+          "scheduled_close_time": "2026-10-21T03:00:00Z",
+          "actual_close_time": "2026-10-21T03:00:00Z",
+          "published_at": "2026-10-21T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46308,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-21T00:00:00Z",
+              "scheduled_close_time": "2026-10-21T03:00:00Z",
+              "actual_close_time": "2026-10-21T03:00:00Z",
+              "cp_reveal_time": "2026-10-21T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46069,
+          "status": "resolved",
+          "open_time": "2026-10-20T12:00:00Z",
+          "scheduled_close_time": "2026-10-20T15:00:00Z",
+          "actual_close_time": "2026-10-20T15:00:00Z",
+          "published_at": "2026-10-20T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46307,
+              "status": "resolved",
+              "type": "binary",
+              "open_time": "2026-10-20T12:00:00Z",
+              "scheduled_close_time": "2026-10-20T15:00:00Z",
+              "actual_close_time": "2026-10-20T15:00:00Z",
+              "cp_reveal_time": "2026-10-20T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46068,
+          "status": "closed",
+          "open_time": "2026-10-20T00:00:00Z",
+          "scheduled_close_time": "2026-10-20T03:00:00Z",
+          "actual_close_time": "2026-10-20T03:00:00Z",
+          "published_at": "2026-10-20T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46306,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-20T00:00:00Z",
+              "scheduled_close_time": "2026-10-20T03:00:00Z",
+              "actual_close_time": "2026-10-20T03:00:00Z",
+              "cp_reveal_time": "2026-10-20T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46067,
+          "status": "closed",
+          "open_time": "2026-10-19T18:00:00Z",
+          "scheduled_close_time": "2026-10-19T21:00:00Z",
+          "actual_close_time": "2026-10-19T21:00:00Z",
+          "published_at": "2026-10-19T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46305,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-19T18:00:00Z",
+              "scheduled_close_time": "2026-10-19T21:00:00Z",
+              "actual_close_time": "2026-10-19T21:00:00Z",
+              "cp_reveal_time": "2026-10-19T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46066,
+          "status": "closed",
+          "open_time": "2026-10-19T12:00:00Z",
+          "scheduled_close_time": "2026-10-19T15:00:00Z",
+          "actual_close_time": "2026-10-19T15:00:00Z",
+          "published_at": "2026-10-19T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46304,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-19T12:00:00Z",
+              "scheduled_close_time": "2026-10-19T15:00:00Z",
+              "actual_close_time": "2026-10-19T15:00:00Z",
+              "cp_reveal_time": "2026-10-19T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46065,
+          "status": "closed",
+          "open_time": "2026-10-19T09:00:00Z",
+          "scheduled_close_time": "2026-10-19T12:00:00Z",
+          "actual_close_time": "2026-10-19T12:00:00Z",
+          "published_at": "2026-10-19T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46303,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-19T09:00:00Z",
+              "scheduled_close_time": "2026-10-19T12:00:00Z",
+              "actual_close_time": "2026-10-19T12:00:00Z",
+              "cp_reveal_time": "2026-10-19T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46064,
+          "status": "closed",
+          "open_time": "2026-10-19T06:00:00Z",
+          "scheduled_close_time": "2026-10-19T09:00:00Z",
+          "actual_close_time": "2026-10-19T09:00:00Z",
+          "published_at": "2026-10-19T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46302,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-19T06:00:00Z",
+              "scheduled_close_time": "2026-10-19T09:00:00Z",
+              "actual_close_time": "2026-10-19T09:00:00Z",
+              "cp_reveal_time": "2026-10-19T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46063,
+          "status": "closed",
+          "open_time": "2026-10-19T03:00:00Z",
+          "scheduled_close_time": "2026-10-19T06:00:00Z",
+          "actual_close_time": "2026-10-19T06:00:00Z",
+          "published_at": "2026-10-19T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46301,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-19T03:00:00Z",
+              "scheduled_close_time": "2026-10-19T06:00:00Z",
+              "actual_close_time": "2026-10-19T06:00:00Z",
+              "cp_reveal_time": "2026-10-19T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46062,
+          "status": "closed",
+          "open_time": "2026-10-18T21:00:00Z",
+          "scheduled_close_time": "2026-10-19T00:00:00Z",
+          "actual_close_time": "2026-10-19T00:00:00Z",
+          "published_at": "2026-10-18T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46300,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-18T21:00:00Z",
+              "scheduled_close_time": "2026-10-19T00:00:00Z",
+              "actual_close_time": "2026-10-19T00:00:00Z",
+              "cp_reveal_time": "2026-10-19T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46045,
+          "status": "closed",
+          "open_time": "2026-10-18T14:00:00Z",
+          "scheduled_close_time": "2026-10-18T17:00:00Z",
+          "actual_close_time": "2026-10-18T17:00:00Z",
+          "published_at": "2026-10-18T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46284,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-18T14:00:00Z",
+              "scheduled_close_time": "2026-10-18T17:00:00Z",
+              "actual_close_time": "2026-10-18T17:00:00Z",
+              "cp_reveal_time": "2026-10-18T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46061,
+          "status": "closed",
+          "open_time": "2026-10-18T00:00:00Z",
+          "scheduled_close_time": "2026-10-18T03:00:00Z",
+          "actual_close_time": "2026-10-18T03:00:00Z",
+          "published_at": "2026-10-18T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46299,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-18T00:00:00Z",
+              "scheduled_close_time": "2026-10-18T03:00:00Z",
+              "actual_close_time": "2026-10-18T03:00:00Z",
+              "cp_reveal_time": "2026-10-18T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46060,
+          "status": "closed",
+          "open_time": "2026-10-17T18:00:00Z",
+          "scheduled_close_time": "2026-10-17T21:00:00Z",
+          "actual_close_time": "2026-10-17T21:00:00Z",
+          "published_at": "2026-10-17T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46298,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-17T18:00:00Z",
+              "scheduled_close_time": "2026-10-17T21:00:00Z",
+              "actual_close_time": "2026-10-17T21:00:00Z",
+              "cp_reveal_time": "2026-10-17T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46044,
+          "status": "closed",
+          "open_time": "2026-10-17T14:00:00Z",
+          "scheduled_close_time": "2026-10-17T17:00:00Z",
+          "actual_close_time": "2026-10-17T17:00:00Z",
+          "published_at": "2026-10-17T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46283,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-17T14:00:00Z",
+              "scheduled_close_time": "2026-10-17T17:00:00Z",
+              "actual_close_time": "2026-10-17T17:00:00Z",
+              "cp_reveal_time": "2026-10-17T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46059,
+          "status": "closed",
+          "open_time": "2026-10-17T03:00:00Z",
+          "scheduled_close_time": "2026-10-17T06:00:00Z",
+          "actual_close_time": "2026-10-17T06:00:00Z",
+          "published_at": "2026-10-17T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46297,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-17T03:00:00Z",
+              "scheduled_close_time": "2026-10-17T06:00:00Z",
+              "actual_close_time": "2026-10-17T06:00:00Z",
+              "cp_reveal_time": "2026-10-17T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46058,
+          "status": "closed",
+          "open_time": "2026-10-16T18:00:00Z",
+          "scheduled_close_time": "2026-10-16T21:00:00Z",
+          "actual_close_time": "2026-10-16T21:00:00Z",
+          "published_at": "2026-10-16T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46296,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-16T18:00:00Z",
+              "scheduled_close_time": "2026-10-16T21:00:00Z",
+              "actual_close_time": "2026-10-16T21:00:00Z",
+              "cp_reveal_time": "2026-10-16T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46043,
+          "status": "closed",
+          "open_time": "2026-10-16T14:00:00Z",
+          "scheduled_close_time": "2026-10-16T17:00:00Z",
+          "actual_close_time": "2026-10-16T17:00:00Z",
+          "published_at": "2026-10-16T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46282,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-16T14:00:00Z",
+              "scheduled_close_time": "2026-10-16T17:00:00Z",
+              "actual_close_time": "2026-10-16T17:00:00Z",
+              "cp_reveal_time": "2026-10-16T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46057,
+          "status": "closed",
+          "open_time": "2026-10-16T09:00:00Z",
+          "scheduled_close_time": "2026-10-16T12:00:00Z",
+          "actual_close_time": "2026-10-16T12:00:00Z",
+          "published_at": "2026-10-16T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46295,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-16T09:00:00Z",
+              "scheduled_close_time": "2026-10-16T12:00:00Z",
+              "actual_close_time": "2026-10-16T12:00:00Z",
+              "cp_reveal_time": "2026-10-16T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46056,
+          "status": "closed",
+          "open_time": "2026-10-16T06:00:00Z",
+          "scheduled_close_time": "2026-10-16T09:00:00Z",
+          "actual_close_time": "2026-10-16T09:00:00Z",
+          "published_at": "2026-10-16T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46294,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-16T06:00:00Z",
+              "scheduled_close_time": "2026-10-16T09:00:00Z",
+              "actual_close_time": "2026-10-16T09:00:00Z",
+              "cp_reveal_time": "2026-10-16T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46042,
+          "status": "closed",
+          "open_time": "2026-10-15T14:00:00Z",
+          "scheduled_close_time": "2026-10-15T17:00:00Z",
+          "actual_close_time": "2026-10-15T17:00:00Z",
+          "published_at": "2026-10-15T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46281,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-15T14:00:00Z",
+              "scheduled_close_time": "2026-10-15T17:00:00Z",
+              "actual_close_time": "2026-10-15T17:00:00Z",
+              "cp_reveal_time": "2026-10-15T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46095,
+          "status": "closed",
+          "open_time": "2026-10-15T14:00:00Z",
+          "scheduled_close_time": "2026-10-15T17:00:00Z",
+          "actual_close_time": "2026-10-15T17:00:00Z",
+          "published_at": "2026-10-15T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46333,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-15T14:00:00Z",
+              "scheduled_close_time": "2026-10-15T17:00:00Z",
+              "actual_close_time": "2026-10-15T17:00:00Z",
+              "cp_reveal_time": "2026-10-15T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46055,
+          "status": "closed",
+          "open_time": "2026-10-15T03:00:00Z",
+          "scheduled_close_time": "2026-10-15T06:00:00Z",
+          "actual_close_time": "2026-10-15T06:00:00Z",
+          "published_at": "2026-10-15T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46293,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-15T03:00:00Z",
+              "scheduled_close_time": "2026-10-15T06:00:00Z",
+              "actual_close_time": "2026-10-15T06:00:00Z",
+              "cp_reveal_time": "2026-10-15T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46054,
+          "status": "closed",
+          "open_time": "2026-10-15T00:00:00Z",
+          "scheduled_close_time": "2026-10-15T03:00:00Z",
+          "actual_close_time": "2026-10-15T03:00:00Z",
+          "published_at": "2026-10-15T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46292,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-15T00:00:00Z",
+              "scheduled_close_time": "2026-10-15T03:00:00Z",
+              "actual_close_time": "2026-10-15T03:00:00Z",
+              "cp_reveal_time": "2026-10-15T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46053,
+          "status": "resolved",
+          "open_time": "2026-10-14T18:00:00Z",
+          "scheduled_close_time": "2026-10-14T21:00:00Z",
+          "actual_close_time": "2026-10-14T21:00:00Z",
+          "published_at": "2026-10-14T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46291,
+              "status": "resolved",
+              "type": "binary",
+              "open_time": "2026-10-14T18:00:00Z",
+              "scheduled_close_time": "2026-10-14T21:00:00Z",
+              "actual_close_time": "2026-10-14T21:00:00Z",
+              "cp_reveal_time": "2026-10-14T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46052,
+          "status": "resolved",
+          "open_time": "2026-10-14T12:00:00Z",
+          "scheduled_close_time": "2026-10-14T15:00:00Z",
+          "actual_close_time": "2026-10-14T15:00:00Z",
+          "published_at": "2026-10-14T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46290,
+              "status": "resolved",
+              "type": "discrete",
+              "open_time": "2026-10-14T12:00:00Z",
+              "scheduled_close_time": "2026-10-14T15:00:00Z",
+              "actual_close_time": "2026-10-14T15:00:00Z",
+              "cp_reveal_time": "2026-10-14T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45969,
+          "status": "closed",
+          "open_time": "2026-10-14T09:00:00Z",
+          "scheduled_close_time": "2026-10-14T12:00:00Z",
+          "actual_close_time": "2026-10-14T12:00:00Z",
+          "published_at": "2026-10-14T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46151,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-14T09:00:00Z",
+              "scheduled_close_time": "2026-10-14T12:00:00Z",
+              "actual_close_time": "2026-10-14T12:00:00Z",
+              "cp_reveal_time": "2026-10-14T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45968,
+          "status": "closed",
+          "open_time": "2026-10-14T06:00:00Z",
+          "scheduled_close_time": "2026-10-14T09:00:00Z",
+          "actual_close_time": "2026-10-14T09:00:00Z",
+          "published_at": "2026-10-14T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46150,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-14T06:00:00Z",
+              "scheduled_close_time": "2026-10-14T09:00:00Z",
+              "actual_close_time": "2026-10-14T09:00:00Z",
+              "cp_reveal_time": "2026-10-14T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45967,
+          "status": "closed",
+          "open_time": "2026-10-14T03:00:00Z",
+          "scheduled_close_time": "2026-10-14T06:00:00Z",
+          "actual_close_time": "2026-10-14T06:00:00Z",
+          "published_at": "2026-10-14T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46149,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-14T03:00:00Z",
+              "scheduled_close_time": "2026-10-14T06:00:00Z",
+              "actual_close_time": "2026-10-14T06:00:00Z",
+              "cp_reveal_time": "2026-10-14T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45966,
+          "status": "closed",
+          "open_time": "2026-10-14T00:00:00Z",
+          "scheduled_close_time": "2026-10-14T03:00:00Z",
+          "actual_close_time": "2026-10-14T03:00:00Z",
+          "published_at": "2026-10-14T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46148,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-14T00:00:00Z",
+              "scheduled_close_time": "2026-10-14T03:00:00Z",
+              "actual_close_time": "2026-10-14T03:00:00Z",
+              "cp_reveal_time": "2026-10-14T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45965,
+          "status": "closed",
+          "open_time": "2026-10-13T21:00:00Z",
+          "scheduled_close_time": "2026-10-14T00:00:00Z",
+          "actual_close_time": "2026-10-14T00:00:00Z",
+          "published_at": "2026-10-13T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46147,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-13T21:00:00Z",
+              "scheduled_close_time": "2026-10-14T00:00:00Z",
+              "actual_close_time": "2026-10-14T00:00:00Z",
+              "cp_reveal_time": "2026-10-14T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45964,
+          "status": "closed",
+          "open_time": "2026-10-13T18:00:00Z",
+          "scheduled_close_time": "2026-10-13T21:00:00Z",
+          "actual_close_time": "2026-10-13T21:00:00Z",
+          "published_at": "2026-10-13T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46146,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-13T18:00:00Z",
+              "scheduled_close_time": "2026-10-13T21:00:00Z",
+              "actual_close_time": "2026-10-13T21:00:00Z",
+              "cp_reveal_time": "2026-10-13T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45963,
+          "status": "closed",
+          "open_time": "2026-10-13T15:00:00Z",
+          "scheduled_close_time": "2026-10-13T18:00:00Z",
+          "actual_close_time": "2026-10-13T18:00:00Z",
+          "published_at": "2026-10-13T15:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46145,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-13T15:00:00Z",
+              "scheduled_close_time": "2026-10-13T18:00:00Z",
+              "actual_close_time": "2026-10-13T18:00:00Z",
+              "cp_reveal_time": "2026-10-13T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45962,
+          "status": "closed",
+          "open_time": "2026-10-13T06:00:00Z",
+          "scheduled_close_time": "2026-10-13T09:00:00Z",
+          "actual_close_time": "2026-10-13T09:00:00Z",
+          "published_at": "2026-10-13T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46144,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-13T06:00:00Z",
+              "scheduled_close_time": "2026-10-13T09:00:00Z",
+              "actual_close_time": "2026-10-13T09:00:00Z",
+              "cp_reveal_time": "2026-10-13T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45961,
+          "status": "closed",
+          "open_time": "2026-10-13T00:00:00Z",
+          "scheduled_close_time": "2026-10-13T03:00:00Z",
+          "actual_close_time": "2026-10-13T03:00:00Z",
+          "published_at": "2026-10-13T00:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46143,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-13T00:00:00Z",
+              "scheduled_close_time": "2026-10-13T03:00:00Z",
+              "actual_close_time": "2026-10-13T03:00:00Z",
+              "cp_reveal_time": "2026-10-13T03:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45960,
+          "status": "closed",
+          "open_time": "2026-10-12T21:00:00Z",
+          "scheduled_close_time": "2026-10-13T00:00:00Z",
+          "actual_close_time": "2026-10-13T00:00:00Z",
+          "published_at": "2026-10-12T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46142,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-12T21:00:00Z",
+              "scheduled_close_time": "2026-10-13T00:00:00Z",
+              "actual_close_time": "2026-10-13T00:00:00Z",
+              "cp_reveal_time": "2026-10-13T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46005,
+          "status": "closed",
+          "open_time": "2026-10-12T13:00:00Z",
+          "scheduled_close_time": "2026-10-12T16:00:00Z",
+          "actual_close_time": "2026-10-12T16:00:00Z",
+          "published_at": "2026-10-12T13:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46189,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-12T13:00:00Z",
+              "scheduled_close_time": "2026-10-12T16:00:00Z",
+              "actual_close_time": "2026-10-12T16:00:00Z",
+              "cp_reveal_time": "2026-10-12T16:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45959,
+          "status": "closed",
+          "open_time": "2026-10-12T09:00:00Z",
+          "scheduled_close_time": "2026-10-12T12:00:00Z",
+          "actual_close_time": "2026-10-12T12:00:00Z",
+          "published_at": "2026-10-12T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46141,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-12T09:00:00Z",
+              "scheduled_close_time": "2026-10-12T12:00:00Z",
+              "actual_close_time": "2026-10-12T12:00:00Z",
+              "cp_reveal_time": "2026-10-12T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45958,
+          "status": "closed",
+          "open_time": "2026-10-11T21:00:00Z",
+          "scheduled_close_time": "2026-10-12T00:00:00Z",
+          "actual_close_time": "2026-10-12T00:00:00Z",
+          "published_at": "2026-10-11T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46140,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-11T21:00:00Z",
+              "scheduled_close_time": "2026-10-12T00:00:00Z",
+              "actual_close_time": "2026-10-12T00:00:00Z",
+              "cp_reveal_time": "2026-10-12T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45957,
+          "status": "closed",
+          "open_time": "2026-10-11T06:00:00Z",
+          "scheduled_close_time": "2026-10-11T09:00:00Z",
+          "actual_close_time": "2026-10-11T09:00:00Z",
+          "published_at": "2026-10-11T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46139,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-11T06:00:00Z",
+              "scheduled_close_time": "2026-10-11T09:00:00Z",
+              "actual_close_time": "2026-10-11T09:00:00Z",
+              "cp_reveal_time": "2026-10-11T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45956,
+          "status": "closed",
+          "open_time": "2026-10-11T03:00:00Z",
+          "scheduled_close_time": "2026-10-11T06:00:00Z",
+          "actual_close_time": "2026-10-11T06:00:00Z",
+          "published_at": "2026-10-11T03:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46138,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-11T03:00:00Z",
+              "scheduled_close_time": "2026-10-11T06:00:00Z",
+              "actual_close_time": "2026-10-11T06:00:00Z",
+              "cp_reveal_time": "2026-10-11T06:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45884,
+          "status": "closed",
+          "open_time": "2026-10-10T16:51:00Z",
+          "scheduled_close_time": "2026-10-10T19:51:00Z",
+          "actual_close_time": "2026-10-10T19:51:00Z",
+          "published_at": "2026-10-10T16:51:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46066,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-10T16:51:00Z",
+              "scheduled_close_time": "2026-10-10T19:51:00Z",
+              "actual_close_time": "2026-10-10T19:51:00Z",
+              "cp_reveal_time": "2026-10-10T19:51:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46003,
+          "status": "closed",
+          "open_time": "2026-10-10T14:00:00Z",
+          "scheduled_close_time": "2026-10-10T17:00:00Z",
+          "actual_close_time": "2026-10-10T17:00:00Z",
+          "published_at": "2026-10-10T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46187,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-10T14:00:00Z",
+              "scheduled_close_time": "2026-10-10T17:00:00Z",
+              "actual_close_time": "2026-10-10T17:00:00Z",
+              "cp_reveal_time": "2026-10-10T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46004,
+          "status": "closed",
+          "open_time": "2026-10-10T14:00:00Z",
+          "scheduled_close_time": "2026-10-10T17:00:00Z",
+          "actual_close_time": "2026-10-10T17:00:00Z",
+          "published_at": "2026-10-10T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46188,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-10T14:00:00Z",
+              "scheduled_close_time": "2026-10-10T17:00:00Z",
+              "actual_close_time": "2026-10-10T17:00:00Z",
+              "cp_reveal_time": "2026-10-10T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45955,
+          "status": "closed",
+          "open_time": "2026-10-10T06:00:00Z",
+          "scheduled_close_time": "2026-10-10T09:00:00Z",
+          "actual_close_time": "2026-10-10T09:00:00Z",
+          "published_at": "2026-10-10T06:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46137,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-10-10T06:00:00Z",
+              "scheduled_close_time": "2026-10-10T09:00:00Z",
+              "actual_close_time": "2026-10-10T09:00:00Z",
+              "cp_reveal_time": "2026-10-10T09:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45954,
+          "status": "closed",
+          "open_time": "2026-10-09T12:00:00Z",
+          "scheduled_close_time": "2026-10-09T15:00:00Z",
+          "actual_close_time": "2026-10-09T15:00:00Z",
+          "published_at": "2026-10-09T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46136,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-09T12:00:00Z",
+              "scheduled_close_time": "2026-10-09T15:00:00Z",
+              "actual_close_time": "2026-10-09T15:00:00Z",
+              "cp_reveal_time": "2026-10-09T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46002,
+          "status": "closed",
+          "open_time": "2026-10-09T11:36:00Z",
+          "scheduled_close_time": "2026-10-09T14:36:00Z",
+          "actual_close_time": "2026-10-09T14:36:00Z",
+          "published_at": "2026-10-09T11:36:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46186,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-09T11:36:00Z",
+              "scheduled_close_time": "2026-10-09T14:36:00Z",
+              "actual_close_time": "2026-10-09T14:36:00Z",
+              "cp_reveal_time": "2026-10-09T14:36:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45883,
+          "status": "closed",
+          "open_time": "2026-10-09T09:00:00Z",
+          "scheduled_close_time": "2026-10-09T12:00:00Z",
+          "actual_close_time": "2026-10-09T12:00:00Z",
+          "published_at": "2026-10-09T09:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46065,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-09T09:00:00Z",
+              "scheduled_close_time": "2026-10-09T12:00:00Z",
+              "actual_close_time": "2026-10-09T12:00:00Z",
+              "cp_reveal_time": "2026-10-09T12:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45953,
+          "status": "resolved",
+          "open_time": "2026-10-08T15:00:00Z",
+          "scheduled_close_time": "2026-10-08T18:00:00Z",
+          "actual_close_time": "2026-10-08T18:00:00Z",
+          "published_at": "2026-10-08T15:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46135,
+              "status": "resolved",
+              "type": "binary",
+              "open_time": "2026-10-08T15:00:00Z",
+              "scheduled_close_time": "2026-10-08T18:00:00Z",
+              "actual_close_time": "2026-10-08T18:00:00Z",
+              "cp_reveal_time": "2026-10-08T18:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46001,
+          "status": "resolved",
+          "open_time": "2026-10-08T14:00:00Z",
+          "scheduled_close_time": "2026-10-08T17:00:00Z",
+          "actual_close_time": "2026-10-08T17:00:00Z",
+          "published_at": "2026-10-08T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46185,
+              "status": "resolved",
+              "type": "numeric",
+              "open_time": "2026-10-08T14:00:00Z",
+              "scheduled_close_time": "2026-10-08T17:00:00Z",
+              "actual_close_time": "2026-10-08T17:00:00Z",
+              "cp_reveal_time": "2026-10-08T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45952,
+          "status": "closed",
+          "open_time": "2026-10-08T12:00:00Z",
+          "scheduled_close_time": "2026-10-08T15:00:00Z",
+          "actual_close_time": "2026-10-08T15:00:00Z",
+          "published_at": "2026-10-08T12:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46134,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-08T12:00:00Z",
+              "scheduled_close_time": "2026-10-08T15:00:00Z",
+              "actual_close_time": "2026-10-08T15:00:00Z",
+              "cp_reveal_time": "2026-10-08T15:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45951,
+          "status": "resolved",
+          "open_time": "2026-10-07T18:00:00Z",
+          "scheduled_close_time": "2026-10-07T21:00:00Z",
+          "actual_close_time": "2026-10-07T21:00:00Z",
+          "published_at": "2026-10-07T18:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46133,
+              "status": "resolved",
+              "type": "binary",
+              "open_time": "2026-10-07T18:00:00Z",
+              "scheduled_close_time": "2026-10-07T21:00:00Z",
+              "actual_close_time": "2026-10-07T21:00:00Z",
+              "cp_reveal_time": "2026-10-07T21:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 46000,
+          "status": "resolved",
+          "open_time": "2026-10-06T22:00:00Z",
+          "scheduled_close_time": "2026-10-07T01:00:00Z",
+          "actual_close_time": "2026-10-07T01:00:00Z",
+          "published_at": "2026-10-06T22:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46184,
+              "status": "resolved",
+              "type": "multiple_choice",
+              "open_time": "2026-10-06T22:00:00Z",
+              "scheduled_close_time": "2026-10-07T01:00:00Z",
+              "actual_close_time": "2026-10-07T01:00:00Z",
+              "cp_reveal_time": "2026-10-07T01:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45875,
+          "status": "closed",
+          "open_time": "2026-10-05T17:20:00Z",
+          "scheduled_close_time": "2026-10-05T20:20:00Z",
+          "actual_close_time": "2026-10-05T20:20:00Z",
+          "published_at": "2026-10-05T17:20:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46056,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-10-05T17:20:00Z",
+              "scheduled_close_time": "2026-10-05T20:20:00Z",
+              "actual_close_time": "2026-10-05T20:20:00Z",
+              "cp_reveal_time": "2026-10-05T20:20:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45846,
+          "status": "closed",
+          "open_time": "2026-10-01T14:00:00Z",
+          "scheduled_close_time": "2026-10-01T17:00:00Z",
+          "actual_close_time": "2026-10-01T17:00:00Z",
+          "published_at": "2026-10-01T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46021,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-10-01T14:00:00Z",
+              "scheduled_close_time": "2026-10-01T17:00:00Z",
+              "actual_close_time": "2026-10-01T17:00:00Z",
+              "cp_reveal_time": "2026-10-01T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45849,
+          "status": "closed",
+          "open_time": "2026-10-01T04:00:00Z",
+          "scheduled_close_time": "2026-10-01T07:00:00Z",
+          "actual_close_time": "2026-10-01T07:00:00Z",
+          "published_at": "2026-10-01T04:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46024,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-10-01T04:00:00Z",
+              "scheduled_close_time": "2026-10-01T07:00:00Z",
+              "actual_close_time": "2026-10-01T07:00:00Z",
+              "cp_reveal_time": "2026-10-01T07:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45845,
+          "status": "closed",
+          "open_time": "2026-09-30T14:00:00Z",
+          "scheduled_close_time": "2026-09-30T17:00:00Z",
+          "actual_close_time": "2026-09-30T17:00:00Z",
+          "published_at": "2026-09-30T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46020,
+              "status": "closed",
+              "type": "multiple_choice",
+              "open_time": "2026-09-30T14:00:00Z",
+              "scheduled_close_time": "2026-09-30T17:00:00Z",
+              "actual_close_time": "2026-09-30T17:00:00Z",
+              "cp_reveal_time": "2026-09-30T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45868,
+          "status": "closed",
+          "open_time": "2026-09-30T14:00:00Z",
+          "scheduled_close_time": "2026-09-30T17:00:00Z",
+          "actual_close_time": "2026-09-30T17:00:00Z",
+          "published_at": "2026-09-30T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46043,
+              "status": "closed",
+              "type": "numeric",
+              "open_time": "2026-09-30T14:00:00Z",
+              "scheduled_close_time": "2026-09-30T17:00:00Z",
+              "actual_close_time": "2026-09-30T17:00:00Z",
+              "cp_reveal_time": "2026-09-30T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45848,
+          "status": "closed",
+          "open_time": "2026-09-29T21:00:00Z",
+          "scheduled_close_time": "2026-09-30T00:00:00Z",
+          "actual_close_time": "2026-09-30T00:00:00Z",
+          "published_at": "2026-09-29T21:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46023,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-09-29T21:00:00Z",
+              "scheduled_close_time": "2026-09-30T00:00:00Z",
+              "actual_close_time": "2026-09-30T00:00:00Z",
+              "cp_reveal_time": "2026-09-30T00:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45844,
+          "status": "closed",
+          "open_time": "2026-09-29T14:00:00Z",
+          "scheduled_close_time": "2026-09-29T17:00:00Z",
+          "actual_close_time": "2026-09-29T17:00:00Z",
+          "published_at": "2026-09-29T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46019,
+              "status": "closed",
+              "type": "binary",
+              "open_time": "2026-09-29T14:00:00Z",
+              "scheduled_close_time": "2026-09-29T17:00:00Z",
+              "actual_close_time": "2026-09-29T17:00:00Z",
+              "cp_reveal_time": "2026-09-29T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45847,
+          "status": "closed",
+          "open_time": "2026-09-28T14:00:00Z",
+          "scheduled_close_time": "2026-09-28T17:00:00Z",
+          "actual_close_time": "2026-09-28T17:00:00Z",
+          "published_at": "2026-09-28T14:00:00Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 46022,
+              "status": "closed",
+              "type": "discrete",
+              "open_time": "2026-09-28T14:00:00Z",
+              "scheduled_close_time": "2026-09-28T17:00:00Z",
+              "actual_close_time": "2026-09-28T17:00:00Z",
+              "cp_reveal_time": "2026-09-28T17:00:00Z"
+            }
+          ]
+        },
+        {
+          "id": 45615,
+          "status": "approved",
+          "open_time": "2026-09-08T13:36:53Z",
+          "scheduled_close_time": null,
+          "actual_close_time": null,
+          "published_at": "2026-09-08T13:36:53Z",
+          "is_notebook": true,
+          "questions": []
+        },
+        {
+          "id": 45516,
+          "status": "resolved",
+          "open_time": "2026-09-06T06:00:00Z",
+          "scheduled_close_time": "2026-09-28T05:59:00Z",
+          "actual_close_time": "2026-09-28T05:59:00Z",
+          "published_at": "2026-09-05T15:09:22Z",
+          "is_notebook": false,
+          "questions": [
+            {
+              "id": 45707,
+              "status": "resolved",
+              "type": "discrete",
+              "open_time": "2026-09-06T06:00:00Z",
+              "scheduled_close_time": "2026-09-28T05:59:00Z",
+              "actual_close_time": "2026-09-28T05:59:00Z",
+              "cp_reveal_time": "2026-09-08T15:09:22Z"
+            }
+          ]
+        }
+      ],
+      "raw_open_post_ids": [
+        45615
+      ],
+      "raw_open_complete": true,
+      "question_status_counts": {
+        "closed": 87,
+        "resolved": 8
+      }
+    }
+  },
+  "requested_posts": {
+    "45219": {
+      "id": 45219,
+      "status": "open",
+      "open_time": "2026-09-21T17:00:00Z",
+      "scheduled_close_time": "2026-11-30T23:00:00Z",
+      "actual_close_time": null,
+      "published_at": "2026-09-19T21:00:00Z",
+      "is_notebook": false,
+      "questions": [
+        {
+          "id": 45412,
+          "status": "open",
+          "type": "numeric",
+          "open_time": "2026-09-21T17:00:00Z",
+          "scheduled_close_time": "2026-11-30T23:00:00Z",
+          "actual_close_time": "2026-11-30T23:00:00Z",
+          "cp_reveal_time": "2026-09-25T17:00:00Z",
+          "bot_forecast_history_count": 0
+        }
+      ],
+      "projects": {
+        "leaderboard_tag": [
+          {
+            "id": 32925,
+            "slug": "2026_leaderboard",
+            "name": "2026 Leaderboard",
+            "type": "leaderboard_tag"
+          }
+        ],
+        "category": [
+          {
+            "id": 3698,
+            "slug": "economy-business",
+            "name": "Economy & Business",
+            "type": "category"
+          }
+        ],
+        "tournament": [
+          {
+            "id": 33108,
+            "slug": "metaculus-cup-fall-2026",
+            "name": "Metaculus Cup Fall 2026",
+            "type": "tournament"
+          }
+        ],
+        "default_project": {
+          "id": 33108,
+          "slug": "metaculus-cup-fall-2026",
+          "name": "Metaculus Cup Fall 2026",
+          "type": "tournament"
+        }
+      }
+    },
+    "45619": {
+      "id": 45619,
+      "status": "open",
+      "open_time": "2026-09-21T17:00:00Z",
+      "scheduled_close_time": "2026-12-15T01:00:00Z",
+      "actual_close_time": null,
+      "published_at": "2026-09-19T21:00:22Z",
+      "is_notebook": false,
+      "questions": [
+        {
+          "id": 45809,
+          "status": "open",
+          "type": "discrete",
+          "open_time": "2026-09-21T17:00:00Z",
+          "scheduled_close_time": "2026-12-15T01:00:00Z",
+          "actual_close_time": "2026-12-15T01:00:00Z",
+          "cp_reveal_time": "2026-09-26T17:00:00Z",
+          "bot_forecast_history_count": 0
+        }
+      ],
+      "projects": {
+        "leaderboard_tag": [
+          {
+            "id": 32925,
+            "slug": "2026_leaderboard",
+            "name": "2026 Leaderboard",
+            "type": "leaderboard_tag"
+          }
+        ],
+        "tournament": [
+          {
+            "id": 33108,
+            "slug": "metaculus-cup-fall-2026",
+            "name": "Metaculus Cup Fall 2026",
+            "type": "tournament"
+          }
+        ],
+        "default_project": {
+          "id": 33108,
+          "slug": "metaculus-cup-fall-2026",
+          "name": "Metaculus Cup Fall 2026",
+          "type": "tournament"
+        }
+      }
+    },
+    "45670": {
+      "id": 45670,
+      "status": "resolved",
+      "open_time": "2026-09-21T17:00:00Z",
+      "scheduled_close_time": "2026-10-27T06:00:00Z",
+      "actual_close_time": "2026-10-27T06:00:00Z",
+      "published_at": "2026-09-19T21:00:00Z",
+      "is_notebook": false,
+      "questions": [
+        {
+          "id": 45859,
+          "status": "resolved",
+          "type": "multiple_choice",
+          "open_time": "2026-09-21T17:00:00Z",
+          "scheduled_close_time": "2026-10-27T06:00:00Z",
+          "actual_close_time": "2026-10-27T06:00:00Z",
+          "cp_reveal_time": "2026-09-24T17:00:00Z",
+          "bot_forecast_history_count": 0
+        }
+      ],
+      "projects": {
+        "leaderboard_tag": [
+          {
+            "id": 32925,
+            "slug": "2026_leaderboard",
+            "name": "2026 Leaderboard",
+            "type": "leaderboard_tag"
+          }
+        ],
+        "tournament": [
+          {
+            "id": 33108,
+            "slug": "metaculus-cup-fall-2026",
+            "name": "Metaculus Cup Fall 2026",
+            "type": "tournament"
+          }
+        ],
+        "default_project": {
+          "id": 33108,
+          "slug": "metaculus-cup-fall-2026",
+          "name": "Metaculus Cup Fall 2026",
+          "type": "tournament"
+        },
+        "category": [
+          {
+            "id": 3685,
+            "slug": "elections",
+            "name": "Elections",
+            "type": "category"
+          }
+        ]
+      }
+    }
+  },
+  "fall_without_status_filter": {
+    "api_count": null,
+    "complete": true,
+    "posts": [
+      {
+        "id": 46286,
+        "status": "closed",
+        "open_time": "2026-10-30T12:00:00Z",
+        "scheduled_close_time": "2026-10-30T15:00:00Z",
+        "actual_close_time": "2026-10-30T15:00:00Z",
+        "published_at": "2026-10-30T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46516,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-30T12:00:00Z",
+            "scheduled_close_time": "2026-10-30T15:00:00Z",
+            "actual_close_time": "2026-10-30T15:00:00Z",
+            "cp_reveal_time": "2026-10-30T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46285,
+        "status": "closed",
+        "open_time": "2026-10-30T09:00:00Z",
+        "scheduled_close_time": "2026-10-30T12:00:00Z",
+        "actual_close_time": "2026-10-30T12:00:00Z",
+        "published_at": "2026-10-30T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46515,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-30T09:00:00Z",
+            "scheduled_close_time": "2026-10-30T12:00:00Z",
+            "actual_close_time": "2026-10-30T12:00:00Z",
+            "cp_reveal_time": "2026-10-30T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46284,
+        "status": "closed",
+        "open_time": "2026-10-30T00:00:00Z",
+        "scheduled_close_time": "2026-10-30T03:00:00Z",
+        "actual_close_time": "2026-10-30T03:00:00Z",
+        "published_at": "2026-10-30T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46514,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-30T00:00:00Z",
+            "scheduled_close_time": "2026-10-30T03:00:00Z",
+            "actual_close_time": "2026-10-30T03:00:00Z",
+            "cp_reveal_time": "2026-10-30T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46283,
+        "status": "closed",
+        "open_time": "2026-10-29T21:00:00Z",
+        "scheduled_close_time": "2026-10-30T00:00:00Z",
+        "actual_close_time": "2026-10-30T00:00:00Z",
+        "published_at": "2026-10-29T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46513,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-29T21:00:00Z",
+            "scheduled_close_time": "2026-10-30T00:00:00Z",
+            "actual_close_time": "2026-10-30T00:00:00Z",
+            "cp_reveal_time": "2026-10-30T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46282,
+        "status": "closed",
+        "open_time": "2026-10-29T15:00:00Z",
+        "scheduled_close_time": "2026-10-29T18:00:00Z",
+        "actual_close_time": "2026-10-29T18:00:00Z",
+        "published_at": "2026-10-29T15:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46512,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-29T15:00:00Z",
+            "scheduled_close_time": "2026-10-29T18:00:00Z",
+            "actual_close_time": "2026-10-29T18:00:00Z",
+            "cp_reveal_time": "2026-10-29T18:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46281,
+        "status": "closed",
+        "open_time": "2026-10-29T12:00:00Z",
+        "scheduled_close_time": "2026-10-29T15:00:00Z",
+        "actual_close_time": "2026-10-29T15:00:00Z",
+        "published_at": "2026-10-29T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46511,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-29T12:00:00Z",
+            "scheduled_close_time": "2026-10-29T15:00:00Z",
+            "actual_close_time": "2026-10-29T15:00:00Z",
+            "cp_reveal_time": "2026-10-29T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46280,
+        "status": "closed",
+        "open_time": "2026-10-29T06:00:00Z",
+        "scheduled_close_time": "2026-10-29T09:00:00Z",
+        "actual_close_time": "2026-10-29T09:00:00Z",
+        "published_at": "2026-10-29T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46510,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-29T06:00:00Z",
+            "scheduled_close_time": "2026-10-29T09:00:00Z",
+            "actual_close_time": "2026-10-29T09:00:00Z",
+            "cp_reveal_time": "2026-10-29T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46279,
+        "status": "closed",
+        "open_time": "2026-10-29T00:00:00Z",
+        "scheduled_close_time": "2026-10-29T03:00:00Z",
+        "actual_close_time": "2026-10-29T03:00:00Z",
+        "published_at": "2026-10-29T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46509,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-29T00:00:00Z",
+            "scheduled_close_time": "2026-10-29T03:00:00Z",
+            "actual_close_time": "2026-10-29T03:00:00Z",
+            "cp_reveal_time": "2026-10-29T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46278,
+        "status": "closed",
+        "open_time": "2026-10-28T21:00:00Z",
+        "scheduled_close_time": "2026-10-29T00:00:00Z",
+        "actual_close_time": "2026-10-29T00:00:00Z",
+        "published_at": "2026-10-28T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46508,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-28T21:00:00Z",
+            "scheduled_close_time": "2026-10-29T00:00:00Z",
+            "actual_close_time": "2026-10-29T00:00:00Z",
+            "cp_reveal_time": "2026-10-29T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46277,
+        "status": "closed",
+        "open_time": "2026-10-28T18:00:00Z",
+        "scheduled_close_time": "2026-10-28T21:00:00Z",
+        "actual_close_time": "2026-10-28T21:00:00Z",
+        "published_at": "2026-10-28T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46507,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-28T18:00:00Z",
+            "scheduled_close_time": "2026-10-28T21:00:00Z",
+            "actual_close_time": "2026-10-28T21:00:00Z",
+            "cp_reveal_time": "2026-10-28T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46209,
+        "status": "closed",
+        "open_time": "2026-10-28T09:00:00Z",
+        "scheduled_close_time": "2026-10-28T12:00:00Z",
+        "actual_close_time": "2026-10-28T12:00:00Z",
+        "published_at": "2026-10-28T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46436,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-28T09:00:00Z",
+            "scheduled_close_time": "2026-10-28T12:00:00Z",
+            "actual_close_time": "2026-10-28T12:00:00Z",
+            "cp_reveal_time": "2026-10-28T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46208,
+        "status": "closed",
+        "open_time": "2026-10-28T06:00:00Z",
+        "scheduled_close_time": "2026-10-28T09:00:00Z",
+        "actual_close_time": "2026-10-28T09:00:00Z",
+        "published_at": "2026-10-28T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46435,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-28T06:00:00Z",
+            "scheduled_close_time": "2026-10-28T09:00:00Z",
+            "actual_close_time": "2026-10-28T09:00:00Z",
+            "cp_reveal_time": "2026-10-28T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46207,
+        "status": "closed",
+        "open_time": "2026-10-27T15:00:00Z",
+        "scheduled_close_time": "2026-10-27T18:00:00Z",
+        "actual_close_time": "2026-10-27T18:00:00Z",
+        "published_at": "2026-10-27T15:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46434,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-27T15:00:00Z",
+            "scheduled_close_time": "2026-10-27T18:00:00Z",
+            "actual_close_time": "2026-10-27T18:00:00Z",
+            "cp_reveal_time": "2026-10-27T18:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46206,
+        "status": "closed",
+        "open_time": "2026-10-27T12:00:00Z",
+        "scheduled_close_time": "2026-10-27T15:00:00Z",
+        "actual_close_time": "2026-10-27T15:00:00Z",
+        "published_at": "2026-10-27T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46433,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-27T12:00:00Z",
+            "scheduled_close_time": "2026-10-27T15:00:00Z",
+            "actual_close_time": "2026-10-27T15:00:00Z",
+            "cp_reveal_time": "2026-10-27T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46205,
+        "status": "closed",
+        "open_time": "2026-10-27T09:00:00Z",
+        "scheduled_close_time": "2026-10-27T12:00:00Z",
+        "actual_close_time": "2026-10-27T12:00:00Z",
+        "published_at": "2026-10-27T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46432,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-27T09:00:00Z",
+            "scheduled_close_time": "2026-10-27T12:00:00Z",
+            "actual_close_time": "2026-10-27T12:00:00Z",
+            "cp_reveal_time": "2026-10-27T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46204,
+        "status": "closed",
+        "open_time": "2026-10-27T03:00:00Z",
+        "scheduled_close_time": "2026-10-27T06:00:00Z",
+        "actual_close_time": "2026-10-27T06:00:00Z",
+        "published_at": "2026-10-27T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46431,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-27T03:00:00Z",
+            "scheduled_close_time": "2026-10-27T06:00:00Z",
+            "actual_close_time": "2026-10-27T06:00:00Z",
+            "cp_reveal_time": "2026-10-27T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46203,
+        "status": "closed",
+        "open_time": "2026-10-26T21:00:00Z",
+        "scheduled_close_time": "2026-10-27T00:00:00Z",
+        "actual_close_time": "2026-10-27T00:00:00Z",
+        "published_at": "2026-10-26T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46430,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-26T21:00:00Z",
+            "scheduled_close_time": "2026-10-27T00:00:00Z",
+            "actual_close_time": "2026-10-27T00:00:00Z",
+            "cp_reveal_time": "2026-10-27T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46202,
+        "status": "closed",
+        "open_time": "2026-10-26T18:00:00Z",
+        "scheduled_close_time": "2026-10-26T21:00:00Z",
+        "actual_close_time": "2026-10-26T21:00:00Z",
+        "published_at": "2026-10-26T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46429,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-26T18:00:00Z",
+            "scheduled_close_time": "2026-10-26T21:00:00Z",
+            "actual_close_time": "2026-10-26T21:00:00Z",
+            "cp_reveal_time": "2026-10-26T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46201,
+        "status": "closed",
+        "open_time": "2026-10-26T00:00:00Z",
+        "scheduled_close_time": "2026-10-26T03:00:00Z",
+        "actual_close_time": "2026-10-26T03:00:00Z",
+        "published_at": "2026-10-26T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46428,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-26T00:00:00Z",
+            "scheduled_close_time": "2026-10-26T03:00:00Z",
+            "actual_close_time": "2026-10-26T03:00:00Z",
+            "cp_reveal_time": "2026-10-26T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46186,
+        "status": "closed",
+        "open_time": "2026-10-25T14:00:00Z",
+        "scheduled_close_time": "2026-10-25T17:00:00Z",
+        "actual_close_time": "2026-10-25T17:00:00Z",
+        "published_at": "2026-10-25T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46414,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-25T14:00:00Z",
+            "scheduled_close_time": "2026-10-25T17:00:00Z",
+            "actual_close_time": "2026-10-25T17:00:00Z",
+            "cp_reveal_time": "2026-10-25T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46222,
+        "status": "closed",
+        "open_time": "2026-10-25T14:00:00Z",
+        "scheduled_close_time": "2026-10-25T17:00:00Z",
+        "actual_close_time": "2026-10-25T17:00:00Z",
+        "published_at": "2026-10-25T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46449,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-25T14:00:00Z",
+            "scheduled_close_time": "2026-10-25T17:00:00Z",
+            "actual_close_time": "2026-10-25T17:00:00Z",
+            "cp_reveal_time": "2026-10-25T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46228,
+        "status": "closed",
+        "open_time": "2026-10-25T14:00:00Z",
+        "scheduled_close_time": "2026-10-25T17:00:00Z",
+        "actual_close_time": "2026-10-25T17:00:00Z",
+        "published_at": "2026-10-25T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46457,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-25T14:00:00Z",
+            "scheduled_close_time": "2026-10-25T17:00:00Z",
+            "actual_close_time": "2026-10-25T17:00:00Z",
+            "cp_reveal_time": "2026-10-25T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46229,
+        "status": "closed",
+        "open_time": "2026-10-25T14:00:00Z",
+        "scheduled_close_time": "2026-10-25T17:00:00Z",
+        "actual_close_time": "2026-10-25T17:00:00Z",
+        "published_at": "2026-10-25T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46458,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-25T14:00:00Z",
+            "scheduled_close_time": "2026-10-25T17:00:00Z",
+            "actual_close_time": "2026-10-25T17:00:00Z",
+            "cp_reveal_time": "2026-10-25T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46200,
+        "status": "closed",
+        "open_time": "2026-10-25T06:00:00Z",
+        "scheduled_close_time": "2026-10-25T09:00:00Z",
+        "actual_close_time": "2026-10-25T09:00:00Z",
+        "published_at": "2026-10-25T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46427,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-25T06:00:00Z",
+            "scheduled_close_time": "2026-10-25T09:00:00Z",
+            "actual_close_time": "2026-10-25T09:00:00Z",
+            "cp_reveal_time": "2026-10-25T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46199,
+        "status": "closed",
+        "open_time": "2026-10-25T00:00:00Z",
+        "scheduled_close_time": "2026-10-25T03:00:00Z",
+        "actual_close_time": "2026-10-25T03:00:00Z",
+        "published_at": "2026-10-25T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46426,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-25T00:00:00Z",
+            "scheduled_close_time": "2026-10-25T03:00:00Z",
+            "actual_close_time": "2026-10-25T03:00:00Z",
+            "cp_reveal_time": "2026-10-25T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46198,
+        "status": "closed",
+        "open_time": "2026-10-24T21:00:00Z",
+        "scheduled_close_time": "2026-10-25T00:00:00Z",
+        "actual_close_time": "2026-10-25T00:00:00Z",
+        "published_at": "2026-10-24T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46425,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-24T21:00:00Z",
+            "scheduled_close_time": "2026-10-25T00:00:00Z",
+            "actual_close_time": "2026-10-25T00:00:00Z",
+            "cp_reveal_time": "2026-10-25T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46185,
+        "status": "closed",
+        "open_time": "2026-10-24T14:00:00Z",
+        "scheduled_close_time": "2026-10-24T17:00:00Z",
+        "actual_close_time": "2026-10-24T17:00:00Z",
+        "published_at": "2026-10-24T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46413,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-24T14:00:00Z",
+            "scheduled_close_time": "2026-10-24T17:00:00Z",
+            "actual_close_time": "2026-10-24T17:00:00Z",
+            "cp_reveal_time": "2026-10-24T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46197,
+        "status": "closed",
+        "open_time": "2026-10-24T09:00:00Z",
+        "scheduled_close_time": "2026-10-24T12:00:00Z",
+        "actual_close_time": "2026-10-24T12:00:00Z",
+        "published_at": "2026-10-24T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46424,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-24T09:00:00Z",
+            "scheduled_close_time": "2026-10-24T12:00:00Z",
+            "actual_close_time": "2026-10-24T12:00:00Z",
+            "cp_reveal_time": "2026-10-24T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46184,
+        "status": "closed",
+        "open_time": "2026-10-23T14:00:00Z",
+        "scheduled_close_time": "2026-10-23T17:00:00Z",
+        "actual_close_time": "2026-10-23T17:00:00Z",
+        "published_at": "2026-10-23T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46412,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-23T14:00:00Z",
+            "scheduled_close_time": "2026-10-23T17:00:00Z",
+            "actual_close_time": "2026-10-23T17:00:00Z",
+            "cp_reveal_time": "2026-10-23T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46196,
+        "status": "closed",
+        "open_time": "2026-10-23T00:00:00Z",
+        "scheduled_close_time": "2026-10-23T03:00:00Z",
+        "actual_close_time": "2026-10-23T03:00:00Z",
+        "published_at": "2026-10-23T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46423,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-23T00:00:00Z",
+            "scheduled_close_time": "2026-10-23T03:00:00Z",
+            "actual_close_time": "2026-10-23T03:00:00Z",
+            "cp_reveal_time": "2026-10-23T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46195,
+        "status": "closed",
+        "open_time": "2026-10-22T15:00:00Z",
+        "scheduled_close_time": "2026-10-22T18:00:00Z",
+        "actual_close_time": "2026-10-22T18:00:00Z",
+        "published_at": "2026-10-22T15:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46422,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-22T15:00:00Z",
+            "scheduled_close_time": "2026-10-22T18:00:00Z",
+            "actual_close_time": "2026-10-22T18:00:00Z",
+            "cp_reveal_time": "2026-10-22T18:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46194,
+        "status": "closed",
+        "open_time": "2026-10-22T12:00:00Z",
+        "scheduled_close_time": "2026-10-22T15:00:00Z",
+        "actual_close_time": "2026-10-22T15:00:00Z",
+        "published_at": "2026-10-22T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46421,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-22T12:00:00Z",
+            "scheduled_close_time": "2026-10-22T15:00:00Z",
+            "actual_close_time": "2026-10-22T15:00:00Z",
+            "cp_reveal_time": "2026-10-22T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46193,
+        "status": "closed",
+        "open_time": "2026-10-22T09:00:00Z",
+        "scheduled_close_time": "2026-10-22T12:00:00Z",
+        "actual_close_time": "2026-10-22T12:00:00Z",
+        "published_at": "2026-10-22T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46420,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-22T09:00:00Z",
+            "scheduled_close_time": "2026-10-22T12:00:00Z",
+            "actual_close_time": "2026-10-22T12:00:00Z",
+            "cp_reveal_time": "2026-10-22T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46192,
+        "status": "closed",
+        "open_time": "2026-10-22T00:00:00Z",
+        "scheduled_close_time": "2026-10-22T03:00:00Z",
+        "actual_close_time": "2026-10-22T03:00:00Z",
+        "published_at": "2026-10-22T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46419,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-22T00:00:00Z",
+            "scheduled_close_time": "2026-10-22T03:00:00Z",
+            "actual_close_time": "2026-10-22T03:00:00Z",
+            "cp_reveal_time": "2026-10-22T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46191,
+        "status": "closed",
+        "open_time": "2026-10-21T12:00:00Z",
+        "scheduled_close_time": "2026-10-21T15:00:00Z",
+        "actual_close_time": "2026-10-21T15:00:00Z",
+        "published_at": "2026-10-21T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46418,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-21T12:00:00Z",
+            "scheduled_close_time": "2026-10-21T15:00:00Z",
+            "actual_close_time": "2026-10-21T15:00:00Z",
+            "cp_reveal_time": "2026-10-21T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46070,
+        "status": "closed",
+        "open_time": "2026-10-21T00:00:00Z",
+        "scheduled_close_time": "2026-10-21T03:00:00Z",
+        "actual_close_time": "2026-10-21T03:00:00Z",
+        "published_at": "2026-10-21T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46308,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-21T00:00:00Z",
+            "scheduled_close_time": "2026-10-21T03:00:00Z",
+            "actual_close_time": "2026-10-21T03:00:00Z",
+            "cp_reveal_time": "2026-10-21T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46069,
+        "status": "resolved",
+        "open_time": "2026-10-20T12:00:00Z",
+        "scheduled_close_time": "2026-10-20T15:00:00Z",
+        "actual_close_time": "2026-10-20T15:00:00Z",
+        "published_at": "2026-10-20T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46307,
+            "status": "resolved",
+            "type": "binary",
+            "open_time": "2026-10-20T12:00:00Z",
+            "scheduled_close_time": "2026-10-20T15:00:00Z",
+            "actual_close_time": "2026-10-20T15:00:00Z",
+            "cp_reveal_time": "2026-10-20T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46068,
+        "status": "closed",
+        "open_time": "2026-10-20T00:00:00Z",
+        "scheduled_close_time": "2026-10-20T03:00:00Z",
+        "actual_close_time": "2026-10-20T03:00:00Z",
+        "published_at": "2026-10-20T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46306,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-20T00:00:00Z",
+            "scheduled_close_time": "2026-10-20T03:00:00Z",
+            "actual_close_time": "2026-10-20T03:00:00Z",
+            "cp_reveal_time": "2026-10-20T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46067,
+        "status": "closed",
+        "open_time": "2026-10-19T18:00:00Z",
+        "scheduled_close_time": "2026-10-19T21:00:00Z",
+        "actual_close_time": "2026-10-19T21:00:00Z",
+        "published_at": "2026-10-19T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46305,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-19T18:00:00Z",
+            "scheduled_close_time": "2026-10-19T21:00:00Z",
+            "actual_close_time": "2026-10-19T21:00:00Z",
+            "cp_reveal_time": "2026-10-19T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46066,
+        "status": "closed",
+        "open_time": "2026-10-19T12:00:00Z",
+        "scheduled_close_time": "2026-10-19T15:00:00Z",
+        "actual_close_time": "2026-10-19T15:00:00Z",
+        "published_at": "2026-10-19T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46304,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-19T12:00:00Z",
+            "scheduled_close_time": "2026-10-19T15:00:00Z",
+            "actual_close_time": "2026-10-19T15:00:00Z",
+            "cp_reveal_time": "2026-10-19T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46065,
+        "status": "closed",
+        "open_time": "2026-10-19T09:00:00Z",
+        "scheduled_close_time": "2026-10-19T12:00:00Z",
+        "actual_close_time": "2026-10-19T12:00:00Z",
+        "published_at": "2026-10-19T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46303,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-19T09:00:00Z",
+            "scheduled_close_time": "2026-10-19T12:00:00Z",
+            "actual_close_time": "2026-10-19T12:00:00Z",
+            "cp_reveal_time": "2026-10-19T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46064,
+        "status": "closed",
+        "open_time": "2026-10-19T06:00:00Z",
+        "scheduled_close_time": "2026-10-19T09:00:00Z",
+        "actual_close_time": "2026-10-19T09:00:00Z",
+        "published_at": "2026-10-19T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46302,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-19T06:00:00Z",
+            "scheduled_close_time": "2026-10-19T09:00:00Z",
+            "actual_close_time": "2026-10-19T09:00:00Z",
+            "cp_reveal_time": "2026-10-19T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46063,
+        "status": "closed",
+        "open_time": "2026-10-19T03:00:00Z",
+        "scheduled_close_time": "2026-10-19T06:00:00Z",
+        "actual_close_time": "2026-10-19T06:00:00Z",
+        "published_at": "2026-10-19T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46301,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-19T03:00:00Z",
+            "scheduled_close_time": "2026-10-19T06:00:00Z",
+            "actual_close_time": "2026-10-19T06:00:00Z",
+            "cp_reveal_time": "2026-10-19T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46062,
+        "status": "closed",
+        "open_time": "2026-10-18T21:00:00Z",
+        "scheduled_close_time": "2026-10-19T00:00:00Z",
+        "actual_close_time": "2026-10-19T00:00:00Z",
+        "published_at": "2026-10-18T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46300,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-18T21:00:00Z",
+            "scheduled_close_time": "2026-10-19T00:00:00Z",
+            "actual_close_time": "2026-10-19T00:00:00Z",
+            "cp_reveal_time": "2026-10-19T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46045,
+        "status": "closed",
+        "open_time": "2026-10-18T14:00:00Z",
+        "scheduled_close_time": "2026-10-18T17:00:00Z",
+        "actual_close_time": "2026-10-18T17:00:00Z",
+        "published_at": "2026-10-18T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46284,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-18T14:00:00Z",
+            "scheduled_close_time": "2026-10-18T17:00:00Z",
+            "actual_close_time": "2026-10-18T17:00:00Z",
+            "cp_reveal_time": "2026-10-18T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46061,
+        "status": "closed",
+        "open_time": "2026-10-18T00:00:00Z",
+        "scheduled_close_time": "2026-10-18T03:00:00Z",
+        "actual_close_time": "2026-10-18T03:00:00Z",
+        "published_at": "2026-10-18T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46299,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-18T00:00:00Z",
+            "scheduled_close_time": "2026-10-18T03:00:00Z",
+            "actual_close_time": "2026-10-18T03:00:00Z",
+            "cp_reveal_time": "2026-10-18T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46060,
+        "status": "closed",
+        "open_time": "2026-10-17T18:00:00Z",
+        "scheduled_close_time": "2026-10-17T21:00:00Z",
+        "actual_close_time": "2026-10-17T21:00:00Z",
+        "published_at": "2026-10-17T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46298,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-17T18:00:00Z",
+            "scheduled_close_time": "2026-10-17T21:00:00Z",
+            "actual_close_time": "2026-10-17T21:00:00Z",
+            "cp_reveal_time": "2026-10-17T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46044,
+        "status": "closed",
+        "open_time": "2026-10-17T14:00:00Z",
+        "scheduled_close_time": "2026-10-17T17:00:00Z",
+        "actual_close_time": "2026-10-17T17:00:00Z",
+        "published_at": "2026-10-17T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46283,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-17T14:00:00Z",
+            "scheduled_close_time": "2026-10-17T17:00:00Z",
+            "actual_close_time": "2026-10-17T17:00:00Z",
+            "cp_reveal_time": "2026-10-17T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46059,
+        "status": "closed",
+        "open_time": "2026-10-17T03:00:00Z",
+        "scheduled_close_time": "2026-10-17T06:00:00Z",
+        "actual_close_time": "2026-10-17T06:00:00Z",
+        "published_at": "2026-10-17T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46297,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-17T03:00:00Z",
+            "scheduled_close_time": "2026-10-17T06:00:00Z",
+            "actual_close_time": "2026-10-17T06:00:00Z",
+            "cp_reveal_time": "2026-10-17T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46058,
+        "status": "closed",
+        "open_time": "2026-10-16T18:00:00Z",
+        "scheduled_close_time": "2026-10-16T21:00:00Z",
+        "actual_close_time": "2026-10-16T21:00:00Z",
+        "published_at": "2026-10-16T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46296,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-16T18:00:00Z",
+            "scheduled_close_time": "2026-10-16T21:00:00Z",
+            "actual_close_time": "2026-10-16T21:00:00Z",
+            "cp_reveal_time": "2026-10-16T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46043,
+        "status": "closed",
+        "open_time": "2026-10-16T14:00:00Z",
+        "scheduled_close_time": "2026-10-16T17:00:00Z",
+        "actual_close_time": "2026-10-16T17:00:00Z",
+        "published_at": "2026-10-16T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46282,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-16T14:00:00Z",
+            "scheduled_close_time": "2026-10-16T17:00:00Z",
+            "actual_close_time": "2026-10-16T17:00:00Z",
+            "cp_reveal_time": "2026-10-16T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46057,
+        "status": "closed",
+        "open_time": "2026-10-16T09:00:00Z",
+        "scheduled_close_time": "2026-10-16T12:00:00Z",
+        "actual_close_time": "2026-10-16T12:00:00Z",
+        "published_at": "2026-10-16T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46295,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-16T09:00:00Z",
+            "scheduled_close_time": "2026-10-16T12:00:00Z",
+            "actual_close_time": "2026-10-16T12:00:00Z",
+            "cp_reveal_time": "2026-10-16T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46056,
+        "status": "closed",
+        "open_time": "2026-10-16T06:00:00Z",
+        "scheduled_close_time": "2026-10-16T09:00:00Z",
+        "actual_close_time": "2026-10-16T09:00:00Z",
+        "published_at": "2026-10-16T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46294,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-16T06:00:00Z",
+            "scheduled_close_time": "2026-10-16T09:00:00Z",
+            "actual_close_time": "2026-10-16T09:00:00Z",
+            "cp_reveal_time": "2026-10-16T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46042,
+        "status": "closed",
+        "open_time": "2026-10-15T14:00:00Z",
+        "scheduled_close_time": "2026-10-15T17:00:00Z",
+        "actual_close_time": "2026-10-15T17:00:00Z",
+        "published_at": "2026-10-15T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46281,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-15T14:00:00Z",
+            "scheduled_close_time": "2026-10-15T17:00:00Z",
+            "actual_close_time": "2026-10-15T17:00:00Z",
+            "cp_reveal_time": "2026-10-15T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46095,
+        "status": "closed",
+        "open_time": "2026-10-15T14:00:00Z",
+        "scheduled_close_time": "2026-10-15T17:00:00Z",
+        "actual_close_time": "2026-10-15T17:00:00Z",
+        "published_at": "2026-10-15T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46333,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-15T14:00:00Z",
+            "scheduled_close_time": "2026-10-15T17:00:00Z",
+            "actual_close_time": "2026-10-15T17:00:00Z",
+            "cp_reveal_time": "2026-10-15T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46055,
+        "status": "closed",
+        "open_time": "2026-10-15T03:00:00Z",
+        "scheduled_close_time": "2026-10-15T06:00:00Z",
+        "actual_close_time": "2026-10-15T06:00:00Z",
+        "published_at": "2026-10-15T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46293,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-15T03:00:00Z",
+            "scheduled_close_time": "2026-10-15T06:00:00Z",
+            "actual_close_time": "2026-10-15T06:00:00Z",
+            "cp_reveal_time": "2026-10-15T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46054,
+        "status": "closed",
+        "open_time": "2026-10-15T00:00:00Z",
+        "scheduled_close_time": "2026-10-15T03:00:00Z",
+        "actual_close_time": "2026-10-15T03:00:00Z",
+        "published_at": "2026-10-15T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46292,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-15T00:00:00Z",
+            "scheduled_close_time": "2026-10-15T03:00:00Z",
+            "actual_close_time": "2026-10-15T03:00:00Z",
+            "cp_reveal_time": "2026-10-15T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46053,
+        "status": "resolved",
+        "open_time": "2026-10-14T18:00:00Z",
+        "scheduled_close_time": "2026-10-14T21:00:00Z",
+        "actual_close_time": "2026-10-14T21:00:00Z",
+        "published_at": "2026-10-14T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46291,
+            "status": "resolved",
+            "type": "binary",
+            "open_time": "2026-10-14T18:00:00Z",
+            "scheduled_close_time": "2026-10-14T21:00:00Z",
+            "actual_close_time": "2026-10-14T21:00:00Z",
+            "cp_reveal_time": "2026-10-14T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46052,
+        "status": "resolved",
+        "open_time": "2026-10-14T12:00:00Z",
+        "scheduled_close_time": "2026-10-14T15:00:00Z",
+        "actual_close_time": "2026-10-14T15:00:00Z",
+        "published_at": "2026-10-14T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46290,
+            "status": "resolved",
+            "type": "discrete",
+            "open_time": "2026-10-14T12:00:00Z",
+            "scheduled_close_time": "2026-10-14T15:00:00Z",
+            "actual_close_time": "2026-10-14T15:00:00Z",
+            "cp_reveal_time": "2026-10-14T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45969,
+        "status": "closed",
+        "open_time": "2026-10-14T09:00:00Z",
+        "scheduled_close_time": "2026-10-14T12:00:00Z",
+        "actual_close_time": "2026-10-14T12:00:00Z",
+        "published_at": "2026-10-14T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46151,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-14T09:00:00Z",
+            "scheduled_close_time": "2026-10-14T12:00:00Z",
+            "actual_close_time": "2026-10-14T12:00:00Z",
+            "cp_reveal_time": "2026-10-14T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45968,
+        "status": "closed",
+        "open_time": "2026-10-14T06:00:00Z",
+        "scheduled_close_time": "2026-10-14T09:00:00Z",
+        "actual_close_time": "2026-10-14T09:00:00Z",
+        "published_at": "2026-10-14T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46150,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-14T06:00:00Z",
+            "scheduled_close_time": "2026-10-14T09:00:00Z",
+            "actual_close_time": "2026-10-14T09:00:00Z",
+            "cp_reveal_time": "2026-10-14T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45967,
+        "status": "closed",
+        "open_time": "2026-10-14T03:00:00Z",
+        "scheduled_close_time": "2026-10-14T06:00:00Z",
+        "actual_close_time": "2026-10-14T06:00:00Z",
+        "published_at": "2026-10-14T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46149,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-14T03:00:00Z",
+            "scheduled_close_time": "2026-10-14T06:00:00Z",
+            "actual_close_time": "2026-10-14T06:00:00Z",
+            "cp_reveal_time": "2026-10-14T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45966,
+        "status": "closed",
+        "open_time": "2026-10-14T00:00:00Z",
+        "scheduled_close_time": "2026-10-14T03:00:00Z",
+        "actual_close_time": "2026-10-14T03:00:00Z",
+        "published_at": "2026-10-14T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46148,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-14T00:00:00Z",
+            "scheduled_close_time": "2026-10-14T03:00:00Z",
+            "actual_close_time": "2026-10-14T03:00:00Z",
+            "cp_reveal_time": "2026-10-14T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45965,
+        "status": "closed",
+        "open_time": "2026-10-13T21:00:00Z",
+        "scheduled_close_time": "2026-10-14T00:00:00Z",
+        "actual_close_time": "2026-10-14T00:00:00Z",
+        "published_at": "2026-10-13T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46147,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-13T21:00:00Z",
+            "scheduled_close_time": "2026-10-14T00:00:00Z",
+            "actual_close_time": "2026-10-14T00:00:00Z",
+            "cp_reveal_time": "2026-10-14T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45964,
+        "status": "closed",
+        "open_time": "2026-10-13T18:00:00Z",
+        "scheduled_close_time": "2026-10-13T21:00:00Z",
+        "actual_close_time": "2026-10-13T21:00:00Z",
+        "published_at": "2026-10-13T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46146,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-13T18:00:00Z",
+            "scheduled_close_time": "2026-10-13T21:00:00Z",
+            "actual_close_time": "2026-10-13T21:00:00Z",
+            "cp_reveal_time": "2026-10-13T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45963,
+        "status": "closed",
+        "open_time": "2026-10-13T15:00:00Z",
+        "scheduled_close_time": "2026-10-13T18:00:00Z",
+        "actual_close_time": "2026-10-13T18:00:00Z",
+        "published_at": "2026-10-13T15:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46145,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-13T15:00:00Z",
+            "scheduled_close_time": "2026-10-13T18:00:00Z",
+            "actual_close_time": "2026-10-13T18:00:00Z",
+            "cp_reveal_time": "2026-10-13T18:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45962,
+        "status": "closed",
+        "open_time": "2026-10-13T06:00:00Z",
+        "scheduled_close_time": "2026-10-13T09:00:00Z",
+        "actual_close_time": "2026-10-13T09:00:00Z",
+        "published_at": "2026-10-13T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46144,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-13T06:00:00Z",
+            "scheduled_close_time": "2026-10-13T09:00:00Z",
+            "actual_close_time": "2026-10-13T09:00:00Z",
+            "cp_reveal_time": "2026-10-13T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45961,
+        "status": "closed",
+        "open_time": "2026-10-13T00:00:00Z",
+        "scheduled_close_time": "2026-10-13T03:00:00Z",
+        "actual_close_time": "2026-10-13T03:00:00Z",
+        "published_at": "2026-10-13T00:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46143,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-13T00:00:00Z",
+            "scheduled_close_time": "2026-10-13T03:00:00Z",
+            "actual_close_time": "2026-10-13T03:00:00Z",
+            "cp_reveal_time": "2026-10-13T03:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45960,
+        "status": "closed",
+        "open_time": "2026-10-12T21:00:00Z",
+        "scheduled_close_time": "2026-10-13T00:00:00Z",
+        "actual_close_time": "2026-10-13T00:00:00Z",
+        "published_at": "2026-10-12T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46142,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-12T21:00:00Z",
+            "scheduled_close_time": "2026-10-13T00:00:00Z",
+            "actual_close_time": "2026-10-13T00:00:00Z",
+            "cp_reveal_time": "2026-10-13T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46005,
+        "status": "closed",
+        "open_time": "2026-10-12T13:00:00Z",
+        "scheduled_close_time": "2026-10-12T16:00:00Z",
+        "actual_close_time": "2026-10-12T16:00:00Z",
+        "published_at": "2026-10-12T13:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46189,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-12T13:00:00Z",
+            "scheduled_close_time": "2026-10-12T16:00:00Z",
+            "actual_close_time": "2026-10-12T16:00:00Z",
+            "cp_reveal_time": "2026-10-12T16:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45959,
+        "status": "closed",
+        "open_time": "2026-10-12T09:00:00Z",
+        "scheduled_close_time": "2026-10-12T12:00:00Z",
+        "actual_close_time": "2026-10-12T12:00:00Z",
+        "published_at": "2026-10-12T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46141,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-12T09:00:00Z",
+            "scheduled_close_time": "2026-10-12T12:00:00Z",
+            "actual_close_time": "2026-10-12T12:00:00Z",
+            "cp_reveal_time": "2026-10-12T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45958,
+        "status": "closed",
+        "open_time": "2026-10-11T21:00:00Z",
+        "scheduled_close_time": "2026-10-12T00:00:00Z",
+        "actual_close_time": "2026-10-12T00:00:00Z",
+        "published_at": "2026-10-11T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46140,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-11T21:00:00Z",
+            "scheduled_close_time": "2026-10-12T00:00:00Z",
+            "actual_close_time": "2026-10-12T00:00:00Z",
+            "cp_reveal_time": "2026-10-12T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45957,
+        "status": "closed",
+        "open_time": "2026-10-11T06:00:00Z",
+        "scheduled_close_time": "2026-10-11T09:00:00Z",
+        "actual_close_time": "2026-10-11T09:00:00Z",
+        "published_at": "2026-10-11T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46139,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-11T06:00:00Z",
+            "scheduled_close_time": "2026-10-11T09:00:00Z",
+            "actual_close_time": "2026-10-11T09:00:00Z",
+            "cp_reveal_time": "2026-10-11T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45956,
+        "status": "closed",
+        "open_time": "2026-10-11T03:00:00Z",
+        "scheduled_close_time": "2026-10-11T06:00:00Z",
+        "actual_close_time": "2026-10-11T06:00:00Z",
+        "published_at": "2026-10-11T03:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46138,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-11T03:00:00Z",
+            "scheduled_close_time": "2026-10-11T06:00:00Z",
+            "actual_close_time": "2026-10-11T06:00:00Z",
+            "cp_reveal_time": "2026-10-11T06:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45884,
+        "status": "closed",
+        "open_time": "2026-10-10T16:51:00Z",
+        "scheduled_close_time": "2026-10-10T19:51:00Z",
+        "actual_close_time": "2026-10-10T19:51:00Z",
+        "published_at": "2026-10-10T16:51:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46066,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-10T16:51:00Z",
+            "scheduled_close_time": "2026-10-10T19:51:00Z",
+            "actual_close_time": "2026-10-10T19:51:00Z",
+            "cp_reveal_time": "2026-10-10T19:51:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46003,
+        "status": "closed",
+        "open_time": "2026-10-10T14:00:00Z",
+        "scheduled_close_time": "2026-10-10T17:00:00Z",
+        "actual_close_time": "2026-10-10T17:00:00Z",
+        "published_at": "2026-10-10T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46187,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-10T14:00:00Z",
+            "scheduled_close_time": "2026-10-10T17:00:00Z",
+            "actual_close_time": "2026-10-10T17:00:00Z",
+            "cp_reveal_time": "2026-10-10T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46004,
+        "status": "closed",
+        "open_time": "2026-10-10T14:00:00Z",
+        "scheduled_close_time": "2026-10-10T17:00:00Z",
+        "actual_close_time": "2026-10-10T17:00:00Z",
+        "published_at": "2026-10-10T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46188,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-10T14:00:00Z",
+            "scheduled_close_time": "2026-10-10T17:00:00Z",
+            "actual_close_time": "2026-10-10T17:00:00Z",
+            "cp_reveal_time": "2026-10-10T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45955,
+        "status": "closed",
+        "open_time": "2026-10-10T06:00:00Z",
+        "scheduled_close_time": "2026-10-10T09:00:00Z",
+        "actual_close_time": "2026-10-10T09:00:00Z",
+        "published_at": "2026-10-10T06:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46137,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-10-10T06:00:00Z",
+            "scheduled_close_time": "2026-10-10T09:00:00Z",
+            "actual_close_time": "2026-10-10T09:00:00Z",
+            "cp_reveal_time": "2026-10-10T09:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45954,
+        "status": "closed",
+        "open_time": "2026-10-09T12:00:00Z",
+        "scheduled_close_time": "2026-10-09T15:00:00Z",
+        "actual_close_time": "2026-10-09T15:00:00Z",
+        "published_at": "2026-10-09T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46136,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-09T12:00:00Z",
+            "scheduled_close_time": "2026-10-09T15:00:00Z",
+            "actual_close_time": "2026-10-09T15:00:00Z",
+            "cp_reveal_time": "2026-10-09T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46002,
+        "status": "closed",
+        "open_time": "2026-10-09T11:36:00Z",
+        "scheduled_close_time": "2026-10-09T14:36:00Z",
+        "actual_close_time": "2026-10-09T14:36:00Z",
+        "published_at": "2026-10-09T11:36:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46186,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-09T11:36:00Z",
+            "scheduled_close_time": "2026-10-09T14:36:00Z",
+            "actual_close_time": "2026-10-09T14:36:00Z",
+            "cp_reveal_time": "2026-10-09T14:36:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45883,
+        "status": "closed",
+        "open_time": "2026-10-09T09:00:00Z",
+        "scheduled_close_time": "2026-10-09T12:00:00Z",
+        "actual_close_time": "2026-10-09T12:00:00Z",
+        "published_at": "2026-10-09T09:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46065,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-09T09:00:00Z",
+            "scheduled_close_time": "2026-10-09T12:00:00Z",
+            "actual_close_time": "2026-10-09T12:00:00Z",
+            "cp_reveal_time": "2026-10-09T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45953,
+        "status": "resolved",
+        "open_time": "2026-10-08T15:00:00Z",
+        "scheduled_close_time": "2026-10-08T18:00:00Z",
+        "actual_close_time": "2026-10-08T18:00:00Z",
+        "published_at": "2026-10-08T15:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46135,
+            "status": "resolved",
+            "type": "binary",
+            "open_time": "2026-10-08T15:00:00Z",
+            "scheduled_close_time": "2026-10-08T18:00:00Z",
+            "actual_close_time": "2026-10-08T18:00:00Z",
+            "cp_reveal_time": "2026-10-08T18:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46001,
+        "status": "resolved",
+        "open_time": "2026-10-08T14:00:00Z",
+        "scheduled_close_time": "2026-10-08T17:00:00Z",
+        "actual_close_time": "2026-10-08T17:00:00Z",
+        "published_at": "2026-10-08T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46185,
+            "status": "resolved",
+            "type": "numeric",
+            "open_time": "2026-10-08T14:00:00Z",
+            "scheduled_close_time": "2026-10-08T17:00:00Z",
+            "actual_close_time": "2026-10-08T17:00:00Z",
+            "cp_reveal_time": "2026-10-08T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45952,
+        "status": "closed",
+        "open_time": "2026-10-08T12:00:00Z",
+        "scheduled_close_time": "2026-10-08T15:00:00Z",
+        "actual_close_time": "2026-10-08T15:00:00Z",
+        "published_at": "2026-10-08T12:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46134,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-08T12:00:00Z",
+            "scheduled_close_time": "2026-10-08T15:00:00Z",
+            "actual_close_time": "2026-10-08T15:00:00Z",
+            "cp_reveal_time": "2026-10-08T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45951,
+        "status": "resolved",
+        "open_time": "2026-10-07T18:00:00Z",
+        "scheduled_close_time": "2026-10-07T21:00:00Z",
+        "actual_close_time": "2026-10-07T21:00:00Z",
+        "published_at": "2026-10-07T18:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46133,
+            "status": "resolved",
+            "type": "binary",
+            "open_time": "2026-10-07T18:00:00Z",
+            "scheduled_close_time": "2026-10-07T21:00:00Z",
+            "actual_close_time": "2026-10-07T21:00:00Z",
+            "cp_reveal_time": "2026-10-07T21:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 46000,
+        "status": "resolved",
+        "open_time": "2026-10-06T22:00:00Z",
+        "scheduled_close_time": "2026-10-07T01:00:00Z",
+        "actual_close_time": "2026-10-07T01:00:00Z",
+        "published_at": "2026-10-06T22:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46184,
+            "status": "resolved",
+            "type": "multiple_choice",
+            "open_time": "2026-10-06T22:00:00Z",
+            "scheduled_close_time": "2026-10-07T01:00:00Z",
+            "actual_close_time": "2026-10-07T01:00:00Z",
+            "cp_reveal_time": "2026-10-07T01:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45875,
+        "status": "closed",
+        "open_time": "2026-10-05T17:20:00Z",
+        "scheduled_close_time": "2026-10-05T20:20:00Z",
+        "actual_close_time": "2026-10-05T20:20:00Z",
+        "published_at": "2026-10-05T17:20:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46056,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-10-05T17:20:00Z",
+            "scheduled_close_time": "2026-10-05T20:20:00Z",
+            "actual_close_time": "2026-10-05T20:20:00Z",
+            "cp_reveal_time": "2026-10-05T20:20:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45846,
+        "status": "closed",
+        "open_time": "2026-10-01T14:00:00Z",
+        "scheduled_close_time": "2026-10-01T17:00:00Z",
+        "actual_close_time": "2026-10-01T17:00:00Z",
+        "published_at": "2026-10-01T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46021,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-10-01T14:00:00Z",
+            "scheduled_close_time": "2026-10-01T17:00:00Z",
+            "actual_close_time": "2026-10-01T17:00:00Z",
+            "cp_reveal_time": "2026-10-01T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45849,
+        "status": "closed",
+        "open_time": "2026-10-01T04:00:00Z",
+        "scheduled_close_time": "2026-10-01T07:00:00Z",
+        "actual_close_time": "2026-10-01T07:00:00Z",
+        "published_at": "2026-10-01T04:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46024,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-10-01T04:00:00Z",
+            "scheduled_close_time": "2026-10-01T07:00:00Z",
+            "actual_close_time": "2026-10-01T07:00:00Z",
+            "cp_reveal_time": "2026-10-01T07:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45845,
+        "status": "closed",
+        "open_time": "2026-09-30T14:00:00Z",
+        "scheduled_close_time": "2026-09-30T17:00:00Z",
+        "actual_close_time": "2026-09-30T17:00:00Z",
+        "published_at": "2026-09-30T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46020,
+            "status": "closed",
+            "type": "multiple_choice",
+            "open_time": "2026-09-30T14:00:00Z",
+            "scheduled_close_time": "2026-09-30T17:00:00Z",
+            "actual_close_time": "2026-09-30T17:00:00Z",
+            "cp_reveal_time": "2026-09-30T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45868,
+        "status": "closed",
+        "open_time": "2026-09-30T14:00:00Z",
+        "scheduled_close_time": "2026-09-30T17:00:00Z",
+        "actual_close_time": "2026-09-30T17:00:00Z",
+        "published_at": "2026-09-30T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46043,
+            "status": "closed",
+            "type": "numeric",
+            "open_time": "2026-09-30T14:00:00Z",
+            "scheduled_close_time": "2026-09-30T17:00:00Z",
+            "actual_close_time": "2026-09-30T17:00:00Z",
+            "cp_reveal_time": "2026-09-30T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45848,
+        "status": "closed",
+        "open_time": "2026-09-29T21:00:00Z",
+        "scheduled_close_time": "2026-09-30T00:00:00Z",
+        "actual_close_time": "2026-09-30T00:00:00Z",
+        "published_at": "2026-09-29T21:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46023,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-09-29T21:00:00Z",
+            "scheduled_close_time": "2026-09-30T00:00:00Z",
+            "actual_close_time": "2026-09-30T00:00:00Z",
+            "cp_reveal_time": "2026-09-30T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45844,
+        "status": "closed",
+        "open_time": "2026-09-29T14:00:00Z",
+        "scheduled_close_time": "2026-09-29T17:00:00Z",
+        "actual_close_time": "2026-09-29T17:00:00Z",
+        "published_at": "2026-09-29T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46019,
+            "status": "closed",
+            "type": "binary",
+            "open_time": "2026-09-29T14:00:00Z",
+            "scheduled_close_time": "2026-09-29T17:00:00Z",
+            "actual_close_time": "2026-09-29T17:00:00Z",
+            "cp_reveal_time": "2026-09-29T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45847,
+        "status": "closed",
+        "open_time": "2026-09-28T14:00:00Z",
+        "scheduled_close_time": "2026-09-28T17:00:00Z",
+        "actual_close_time": "2026-09-28T17:00:00Z",
+        "published_at": "2026-09-28T14:00:00Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 46022,
+            "status": "closed",
+            "type": "discrete",
+            "open_time": "2026-09-28T14:00:00Z",
+            "scheduled_close_time": "2026-09-28T17:00:00Z",
+            "actual_close_time": "2026-09-28T17:00:00Z",
+            "cp_reveal_time": "2026-09-28T17:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": 45615,
+        "status": "approved",
+        "open_time": "2026-09-08T13:36:53Z",
+        "scheduled_close_time": null,
+        "actual_close_time": null,
+        "published_at": "2026-09-08T13:36:53Z",
+        "is_notebook": true,
+        "questions": []
+      },
+      {
+        "id": 45516,
+        "status": "resolved",
+        "open_time": "2026-09-06T06:00:00Z",
+        "scheduled_close_time": "2026-09-28T05:59:00Z",
+        "actual_close_time": "2026-09-28T05:59:00Z",
+        "published_at": "2026-09-05T15:09:22Z",
+        "is_notebook": false,
+        "questions": [
+          {
+            "id": 45707,
+            "status": "resolved",
+            "type": "discrete",
+            "open_time": "2026-09-06T06:00:00Z",
+            "scheduled_close_time": "2026-09-28T05:59:00Z",
+            "actual_close_time": "2026-09-28T05:59:00Z",
+            "cp_reveal_time": "2026-09-08T15:09:22Z"
+          }
+        ]
+      }
+    ]
+  },
+  "finished_at_utc": "2026-10-30T23:33:35.203642+00:00"
+}

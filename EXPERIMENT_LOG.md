@@ -1,3 +1,12 @@
+## 2026-10-30 11:54 JST — 導入時TLS障害の同一run内回復を確認
+
+- 前回以降の本番run [40988749760](https://github.com/after6labo/metac-bot-template/actions/runs/40988749760)はPoetryメタデータ取得のTLS handshakeでUNEXPECTED_EOF_WHILE_READINGとなり、初回導入工程が10:57:27 JSTに失敗。既存の1回限定pip代替インストールが成功し、10:57:35にPoetry 2.5.1を確認。Python 93テストOK、scheduler 12テストpass/0failを経て、10:58:06.672に実取得、10:58:25に結果生成し保存した。失敗を緑表示だけで見逃さず、スタックトレース・既存workflow条件・後続結果を照合した。切断の外部要因までは不明だが、このrunの起動障害は回復証拠あり。新たなコード修正・手動再実行はしていない。
+- 次の本番run [40991684770](https://github.com/after6labo/metac-bot-template/actions/runs/40991684770)は11:27:02.337 JSTに実取得し、初回導入と後続の実行・保存工程がsuccess。両runともmode=tournament、no_new_questions、submitted=0、failed_or_unconfirmed=0、pending=[]、needs_attention/provider_paused=false。両大会監査complete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknownは空。latestと最新historyは一致。
+- Fallの唯一のopenはq46514/post46284で、両runの独立API一覧でもalready_forecasted=true。09:31の予測・説明成功証拠に対応する既投稿skipのみ。MiniBench60問全てclosed、Fall94posts中93questionsはopen 1・closed 85・resolved 7。この確認区間で新たに締切を過ぎた未回答はない。過去の取り逃しを解消扱いにしない。q46514の12:00締切後保持は次回確認対象。
+- 実取得10:26:58.134→10:58:06.672→11:27:02.337の間隔は31分08.538秒、28分55.665秒。最大31分08.538秒で60分未満。11:53:38時点の直近空白は26分35.663秒、q46514の締切まで6分22秒だが既投稿。次回は直近実測から11:57頃を見込むのみで保証ではない。
+- 追加LLM応答・失敗invocation・tokens・記録上の新規費用は両runとも0。成績latest/READMEは07:47取得から更新なし、completed/errors=[]、retry_not_before=null。q46514採点・賞金受領は未確認。無料枠残量や請求額の実測ではない。
+- 同日01:05の公式規則監査を再利用。実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ予測・プロンプトは変更なし。本人作業なし。
+
 ## 2026-10-30 10:47 JST — q46514投稿後の独立API確認完了
 
 - 本番run [40982788752](https://github.com/after6labo/metac-bot-template/actions/runs/40982788752)（09:57:12.598 JST実取得）と[40985850314](https://github.com/after6labo/metac-bot-template/actions/runs/40985850314)（10:26:58.134実取得）で、Fall q46514/post46284をopen / already_forecasted=trueと確認。09:31の予測・説明それぞれの成功証拠と整合し、投稿後のAPI確認待ちは解消。再投稿・追加モデル呼び出しなし。得点対象認定・個別採点は未確認。

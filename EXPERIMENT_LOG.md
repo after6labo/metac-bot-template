@@ -1,3 +1,13 @@
+## 2026-10-31 01:29 JST — q46516締切後保持、Fall公式暫定成績7問へ更新
+
+- 前回23:47実取得run41074587795以降の本番3run、[41079149503](https://github.com/after6labo/metac-bot-template/actions/runs/41079149503)（00:17:03.772 JST）、[41083769037](https://github.com/after6labo/metac-bot-template/actions/runs/41083769037)（00:47:11.929）、[41088350390](https://github.com/after6labo/metac-bot-template/actions/runs/41088350390)（01:17:25.683）を照合。全てmode=tournament、no_new_questions、submitted/selected/failed_or_unconfirmed=0、outcomes/skips/question_windows/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会retrieval_auditはcomplete/matched、missing IDs・forecast evidence mismatch/unknownは空。最新JSONとhistory一致、Actionsの実行・保存・テスト工程successを確認。今回の本番への新規投稿はなし。
+- Fall q46516/post46286は公式締切00:00後の3run全てでclosed/already_forecasted=true。既確認の10/30 21:17:59.411予測・21:18:03.590説明成功（run41054086874）と整合し、締切後保持を確認した。未回答が締切で消えたものではない。全件一覧の差分はq46516のclosed化とq46290のresolved化のみ、追加・消失なし。この確認区間の新たな取り逃しは検出せず、過去の取り逃しは保持。最新API取得時点のMiniBench60問は全てclosed、Fall96posts中95questionsはclosed 87・resolved 8、受付中0件。
+- 実取得間隔は29分56.059秒、30分08.157秒、30分13.755秒。最大30分13.755秒、01:29:02確認時点の直近空白11分36.317秒で60分調査閾値未満。次回は直近実測から01:47頃の見込みのみで保証しない。追加手動実行・再投稿は不要と判断し実施していない。
+- 公式成績収集run41083769037は00:47:26.757〜00:48:31.420 JST、completed/errors=[]、全対象完了。Fall33121のprimary leaderboard991（spot_peer_tournament）は00:42:52.513計算の暫定277/391位、score -286.04370257951194、coverage/contribution_count 7、excluded=false。前回276/390位・-275.36723238633675・6問から更新。新たに解決したq46290/post46052の公式寄与は-10.676470193175161（coverage 1、00:28解決）。成績上の負寄与と投稿障害を混同せず、少数の結果への過適合やライブ予測調整は行わない。
+- 10/05 MiniBench33129は確定174/306位・score -202.40684204840116・coverage 37・excluded=falseで変化なし。現行MiniBench33132はnot_listed/own entryなしで順位・自Bot得点未確認。Fallのprize=0は未確定配分、過去MiniBenchのprize=0も支払証明ではなく、賞金受領は未確認。q46516の得点対象認定・個別採点も未確認。performance/latest.jsonとREADMEを確認した。
+- 3runの追加観測LLM応答・失敗invocation・tokens・記録上新規費用は0。UTC日次累計は5応答・19,195 tokens・失敗0。成績取得は19 API GET・LLM呼び出し0。提供元無料枠の消費数・残量・請求額の実測ではない。無料専用経路を維持。
+- 同日00:14 JSTの広い公式規則監査を再利用。実験ログのみ変更し、コード・設定・回答対象・停止条件・ライブ予測・プロンプトの変更、本人作業なし。現在の監査整合は将来の無停止や必ず回答できることを保証しない。
+
 ## 2026-10-31 00:14 JST — 日次公式規則再確認、23:47本番取得を照合
 
 - 前回23:17実取得run41070398955以降の本番run [41074587795](https://github.com/after6labo/metac-bot-template/actions/runs/41074587795)は10/30 23:47:07.712 JSTに開始、23:47:25.617に終了。mode=tournament、両大会監査complete/matched、fetch_errors・missing IDs・forecast evidence mismatch/unknown・pending=[]、failed=0、needs_attention/provider_paused=false。全件一覧は前回と同一、latest/history一致。Actionsの実行・保存・テスト工程success。

@@ -1,3 +1,14 @@
+## 2026-11-01 05:41 JST — Fall公式順位272/393へ更新、受付中q46520保持
+
+- 前回04:27:08.331 JST実取得run41234217813以降の本番[41236526382](https://github.com/after6labo/metac-bot-template/actions/runs/41236526382)（04:57:14.848 JST）、[41238902475](https://github.com/after6labo/metac-bot-template/actions/runs/41238902475)（05:27:13.493 JST）を照合。両runはmode=tournament/no_new_questions、submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown=[]。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。今回の本番への新規投稿なし。
+- Fall q46520/post46290はopen/already_forecasted=true。既確認の予測03:29:24.967・説明03:29:29.405成功と整合。唯一のskipは投稿証拠付きalready_forecasted。公式締切06:00 JSTまで05:39:03確認時点で20分57秒、既回答なので再投稿しない。次回実取得は実測から05:57頃の見込みで保証しない。締切後保持・個別採点は未確認。
+- 全一覧比較では追加・消失なし。q46137/post45955のみclosed→resolvedに変化し、未回答を保持。公式受付は10/10 15:00–18:00 JSTの過去の取り逃しで、今回の新規取り逃しや解消ではない。最新Fall100posts/99questions（open1・closed88・resolved10）、MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧。
+- 実取得間隔30分6.517秒・29分58.645秒、最大30分6.517秒。05:39:03時点の直近空白11分49.507秒で60分未満。追加実行・再投稿なし。
+- 新しい[公式成績取得結果](run-results/performance/latest.json)は同runで05:27:33–05:28:52 JST取得、status=completed/errors=[]、API GET23回・LLM0回。Fall主順位表991、score_type=spot_peer_tournament、05:16:38.872 JST計算で278→272位/393、score=-308.42103627907215（前回との差は浮動小数点末尾のみ）、coverage/contribution_count=8、excluded=false/exclusion_status=0、finalized=false。自Botの得点や採点件数の改善とは解釈しない。q46137はresolved contributionのscore/coverage=nullで未回答のまま、0点としない。
+- MiniBench10/19は235/386、score=-225.32015603395516、coverage29、excluded=false/finalized=falseで変化なし。10/5は174/306、score=-202.40684204840116、coverage37/finalized=trueで変化なし。現行33135はown_entry=nullで順位不明。暫定prize=0の項目を賞金受領と混同せず、prize_payment_confirmed=nullを保持。
+- 追加観測LLM応答/tokens/失敗invocation/記録上新規費用0。UTC10/31累計6応答/23,239tokens/失敗0。提供側の無料枠消費・残量・請求額の実測ではない。
+- 最新AGENTS.md・README.md・実験ログを確認し、本日01:01公式規則監査を再利用。補助診断41145456702の429回復未確認は継続し、主要経路成功と区別。実験ログのみ更新。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 04:38 JST — q46520投稿後の独立API保持確認
 
 - 前回03:27実取得run41229417616以降の本番[41231802490](https://github.com/after6labo/metac-bot-template/actions/runs/41231802490)（03:57:12.079 JST）、[41234217813](https://github.com/after6labo/metac-bot-template/actions/runs/41234217813)（04:27:08.331 JST）でFall q46520/post46290はopen/already_forecasted=true。既確認の予測03:29:24.967・説明03:29:29.405の成功証拠と整合し、投稿後の別取得による予測保持確認待ちは解消。説明保持や得点対象をalready_forecasted単独で証明せず、締切後保持・個別採点・賞金受領は未確認。

@@ -1,3 +1,15 @@
+## 2026-11-01 01:01 JST — Fall q46519へ受付内投稿、別取得で予測保持を確認
+
+- 前回10/31 23:57:12.232 JST実取得run41212438553以降の本番[41214850725](https://github.com/after6labo/metac-bot-template/actions/runs/41214850725)は11/1 00:27:11.517 JSTに実取得。Fall q46519/post46289（公式受付11/1 00:00〜03:00 JST）へ予測00:28:14.358、説明00:28:18.550の成功ログをjob124577147747で個別確認。submitted=1、nonfatal_errors=0、failed_or_unconfirmed=0。練習・テストではなく本番投稿。
+- 次の本番[41217219669](https://github.com/after6labo/metac-bot-template/actions/runs/41217219669)は00:57:10.381 JST実取得、独立API一覧でq46519のopen/already_forecasted=trueを確認。投稿後の別取得による予測保持確認待ちは解消。説明は先行投稿成功ログを根拠とし、already_forecastedだけで説明保持は断定しない。締切後保持、得点対象認定・個別採点は未確認。追加実行・再投稿なし。
+- 両runはmode=tournament、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending=[]、needs_attention/provider_paused=false。後続runはno_new_questions/submitted=0、唯一のskipは投稿証拠付きq46519/already_forecasted。latest/history一致、稼働SHAとActions一致、実行・保存・テスト工程success。投稿runのPython96件実行ログも確認。
+- 全問題一覧差分はq46519の追加と回答済み反映のみ、既存IDの消失なし。この比較区間の新たな取り逃しは検出せず、過去の取り逃しを保持。Fall99posts/98questionsはopen1・closed88・resolved9。MiniBenchは公式metadata付き33135、11/2 09:00 JST開始前の空一覧で、本番への投稿なし。WebのView Questions(132)を受付中件数とはみなさない。
+- 実取得間隔29分59.284秒・29分58.865秒、最大29分59.284秒。01:01:19確認時点の直近空白4分08.619秒で60分未満。q46519締切まで1時間58分41秒だが既投稿。次回取得は直近実測から01:27頃の見込みのみで保証しない。
+- 追加観測LLM応答1・3,526tokens・失敗invocation0・記録上新規費用0。UTC 10/31日次累計4応答/13,604tokens/失敗0。これらは提供側無料枠消費・残量・請求額の実測ではない。既存無料ルーターのみ、課金切替なし。
+- performance/latestは11/1 00:28:23〜00:29:48 JST取得、completed/errors=[]、23 API GET・LLM0。Fallは278/393位、score=-308.4210362790722、coverage/contribution_count=8、excluded=false/finalized=false、計算時刻10/31 21:18:44.865 JSTで前回値から変更なし。10/19 MiniBench33132も235/386・-225.32015603395516・29問・finalized=false（10/31 20:43:11.337 JST計算）のまま。10/5 MiniBench33129は174/306・-202.40684204840116・37問・finalized=true。現在33135のown_entry=nullは順位0とせず不明。公式prize=0は暫定配分欄であり受領額ではない。賞金受領未確認。
+- 日付変更に伴い[公式規則](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)（10/12編集）、[参加案内](https://www.metaculus.com/futureeval/participate/)、[Fall](https://www.metaculus.com/tournament/fall-futureeval-2026/)、[公式リソース](https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/)（10/29編集）を再確認。自動予測＋説明、ライブ出力を見て調整・再実行しないこと、1問1予測、参加フォーム、審査・本人確認要件を確認。Fall ID33121/slug、9/28〜1/6も一致。寄付クレジット採択は必須でない。フォーム提出済み・クレジット不採択の本人報告を維持し、季末surveyは別途確認待ち。新規申請・同意・連絡なし。
+- 10/31 08:37補助診断41145456702の429回復は未確認のまま継続し、主要本番経路成功と区別。新たな技術障害は今回検出せず、実験ログのみ更新。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性は保証しない。
+
 ## 2026-10-31 22:10 JST — Fall追加採点と10/19 MiniBench公式成績を確認
 
 - 本番[41200353013](https://github.com/after6labo/metac-bot-template/actions/runs/41200353013)（21:17:09.825 JST）、[41202579096](https://github.com/after6labo/metac-bot-template/actions/runs/41202579096)（21:47:08.297）を前回20:46:58実取得と照合。両runはtournament/no_new_questions、submitted/selected/failed=0、pending/windows/outcomes/skips/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing/evidence mismatch/unknown=[]。latest/history一致、稼働SHAとActions一致、テスト・実行・保存工程success。

@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-10-31T05:57:17.070818+00:00",
+  "started_at_utc": "2026-10-31T06:27:24.212002+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -21,30 +21,15 @@
   "failed_or_unconfirmed": 0,
   "estimated_llm_cost_usd": 0.0,
   "outcomes": [],
-  "skips": [
-    {
-      "question_id": 46518,
-      "source": "seasonal",
-      "reason": "already_forecasted"
-    }
-  ],
-  "question_windows": [
-    {
-      "question_id": 46518,
-      "post_id": 46288,
-      "source": "fall-futureeval-2026",
-      "open_time_utc": "2026-10-31T03:00:00+00:00",
-      "close_time_utc": "2026-10-31T06:00:00+00:00",
-      "already_forecasted": true
-    }
-  ],
+  "skips": [],
+  "question_windows": [],
   "pending_questions": [],
   "needs_attention": false,
   "fetch_errors": [],
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-10-31T05:57:29.350580+00:00",
+      "checked_at_utc": "2026-10-31T06:27:33.226130+00:00",
       "complete": true,
       "post_count": 0,
       "questions": [],
@@ -61,7 +46,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-10-31T05:57:30.164887+00:00",
+      "checked_at_utc": "2026-10-31T06:27:34.924899+00:00",
       "complete": true,
       "post_count": 98,
       "questions": [
@@ -69,7 +54,7 @@
           "question_id": 46518,
           "post_id": 46288,
           "source": "fall-futureeval-2026",
-          "status": "open",
+          "status": "closed",
           "open_time_utc": "2026-10-31T03:00:00+00:00",
           "close_time_utc": "2026-10-31T06:00:00+00:00",
           "already_forecasted": true
@@ -948,10 +933,10 @@
   "status": "no_new_questions",
   "open_questions_returned": [
     0,
-    1
+    0
   ],
   "selected": 0,
-  "finished_at_utc": "2026-10-31T05:57:32.661690+00:00",
+  "finished_at_utc": "2026-10-31T06:27:37.221455+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -964,6 +949,6 @@
     "cooldown_until_epoch": 1792540800.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "2f06aa8bbba4e32493494edfd1c3a9c805af6fea",
-  "workflow_run_id": "41174542403"
+  "git_sha": "aced62ef0791e7a26eecc14edefe35afeb92cb7e",
+  "workflow_run_id": "41176604500"
 }

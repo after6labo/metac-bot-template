@@ -1,3 +1,11 @@
+## 2026-10-31 09:38 JST — Fall q46517へ受付内投稿、後続APIで保持確認
+
+- 前回08:38実取得run41145622747以降の本番[41148307691](https://github.com/after6labo/metac-bot-template/actions/runs/41148307691)は09:07:15.183 JSTに実取得。Fall q46517/post46287（公式受付10/31 09:00〜12:00 JST）へ予測09:07:46.098、説明09:07:50.215の成功ログをjob124378515071で個別確認。submitted=1、nonfatal_errors=0、failed_or_unconfirmed=0。後続[41151075809](https://github.com/after6labo/metac-bot-template/actions/runs/41151075809)（09:37:12.832実取得）の独立API一覧でopen/already_forecasted=trueを確認。投稿後保持確認済みだが、得点対象認定・個別採点・賞金受領は未確認。
+- 両runはmode=tournament、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending=[]、needs_attention/provider_paused=false。最新skipは投稿証拠と一致するq46517のalready_forecastedのみ。MiniBenchは将来開始11/2 09:00 JSTのproject33135、SDK/raw空と公式metadataを保存。Fallは97posts/96questionsでopen1・closed87・resolved8。全件差分はq46517追加と投稿済み反映のみ、既存ID消失・受付変更なし。この区間に新しい取り逃しは検出せず、過去の取り逃しは保持。
+- latestと41151075809履歴は一致。両Actionsのテスト・実行・結果保存工程success。投稿runのPython96件実行をログ確認。実取得間隔28分29.923秒・29分57.650秒、最大29分57.650秒。09:38:18時点の直近空白1分05.168秒で60分未満。q46517は締切まで2時間21分42秒あり既投稿、次回は実測から10:07頃の見込みのみ。追加手動実行・再投稿なし。
+- 追加観測LLM応答1・1,999tokens・失敗invocation0・記録上新規費用0。UTC日付変更後の累計も同値。提供元無料枠消費・残量・請求額の実測ではない。performance/latestとREADMEは00:47保存版から変更なし。既報の補助診断429の回復は未確認で保持し、追加診断は実施していない。本番の主要取得・投稿成功とは区別する。
+- 同日00:14 JSTの公式規則監査を再利用。実験ログのみ変更し、コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。今後の無停止・必ず回答できることは保証しない。
+
 ## 2026-10-31 08:40 JST — MiniBench別名の次回ラウンド移行を検出、開始前空一覧の監査を修正
 
 - 前回07:07実取得run41135837323以降、07:37:16.706のrun41139229489は両監査complete/matchedだったが、[41142396482](https://github.com/after6labo/metac-bot-template/actions/runs/41142396482)（08:07:14.378）と41145469738（08:37:13.495）はMiniBench監査がinventory_unexpected_emptyでfailed、needs_attention=true。Actionsはsuccessだったが正常扱いにせず調査した。bot_helpers.should_fail_runは監査だけの異常を失敗終了にしない既存仕様で、JSONには異常を保存していた。SDK取得・投稿・提供元停止はなく、全runの新規投稿0。取得処理のコードは直前成功から変更なし。

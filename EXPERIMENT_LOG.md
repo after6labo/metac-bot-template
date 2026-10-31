@@ -1,3 +1,12 @@
+## 2026-10-31 22:10 JST — Fall追加採点と10/19 MiniBench公式成績を確認
+
+- 本番[41200353013](https://github.com/after6labo/metac-bot-template/actions/runs/41200353013)（21:17:09.825 JST）、[41202579096](https://github.com/after6labo/metac-bot-template/actions/runs/41202579096)（21:47:08.297）を前回20:46:58実取得と照合。両runはtournament/no_new_questions、submitted/selected/failed=0、pending/windows/outcomes/skips/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing/evidence mismatch/unknown=[]。latest/history一致、稼働SHAとActions一致、テスト・実行・保存工程success。
+- 全一覧差分はFall q46292/post46054のclosed→resolvedのみ、回答済み保持、追加・消失なし。Fall98posts/97questions（closed88/resolved9/open0）、MiniBench33135は11/2 09:00 JST開始前の公式metadata付き空一覧。新たな取り逃しは検出せず、過去の取り逃しは保持。実取得間隔30分11.592秒・29分58.472秒。22:08:25確認時点の空白21分16.703秒、60分未満。次回は実測から22:17頃の見込みで保証なし。
+- performance/latestは21:47:22.742〜21:48:41.647 JST取得、completed/errors=[]、23 API GET・LLM0。Fall33121、spot_peer_tournament、21:18:44.865 JST計算：278/393位、score=-308.4210362790722、coverage/contribution_count=8、excluded=false、finalized=false。前回277/391・-286.04370257951194・7問から更新。新規q46292はresolution=no、寄与-22.377333699560293でスコア差と一致。投稿の有無だけでなく公式採点寄与を確認したが、最近のq46517/46518の個別採点を意味しない。
+- 10/19開始MiniBench33132（minibench-2026-10-19）のown_entryを今回確認：spot_peer_tournament、20:43:11.337 JST計算、235/386位、score=-225.32015603395516、coverage/contribution_count=29、excluded=false、finalized=false。前回own_entry=nullから数値を確認。resolved_contributionsのnullを0とみなさず、全掲載行数を採点対象数にしない。10/5開始33129は174/306・-202.40684204840116・coverage37・finalized=trueで変更なし。新ラウンド33135はown_entry=null、順位・スコア不明。
+- 公式prize=0は暫定配分欄であり賞金受領の証拠ではない。賞金受領未確認。追加の本番LLM応答/tokens/失敗invocation/記録上新規費用0、UTC日次累計3応答/10078tokens/失敗0（無料枠消費・請求額の実測ではない）。
+- 同日00:14公式規則監査再利用。補助診断429回復未確認は継続し、主要経路成功と区別。実験ログのみ更新、コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、追加実行・再投稿・本人作業なし。今回の少数追加採点だけで精度改善を断定せず、改善には解決済みデータと保持検証を要する。
+
 ## 2026-10-31 16:19 JST — q46518締切後の予測保持を確認
 
 - 前回14:57実取得run41174542403以降の本番[41176604500](https://github.com/after6labo/metac-bot-template/actions/runs/41176604500)（15:27:24.212 JST）、[41178576174](https://github.com/after6labo/metac-bot-template/actions/runs/41178576174)（15:57:11.600）、[41179936806](https://github.com/after6labo/metac-bot-template/actions/runs/41179936806)（16:16:55.327）を照合。q46518/post46288は公式締切15:00後の全3回でclosed/already_forecasted=trueを保持。既確認の12:28予測・説明成功と整合し、締切後保持の確認待ちは解消。未回答が締切で消えたものではない。already_forecastedは予測の保持であり説明保持や得点対象認定を単独で証明しない。

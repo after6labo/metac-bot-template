@@ -1,3 +1,12 @@
+## 2026-11-01 06:37 JST — q46520締切後の予測保持確認
+
+- 前回05:27:13.493 JST実取得run41238902475以降の本番[41241215628](https://github.com/after6labo/metac-bot-template/actions/runs/41241215628)（05:57:08.320 JST）、[41243586002](https://github.com/after6labo/metac-bot-template/actions/runs/41243586002)（06:26:57.998 JST）、[41243699361](https://github.com/after6labo/metac-bot-template/actions/runs/41243699361)（06:28:41.816 JST）を照合。全runはmode=tournament/no_new_questions、submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown=[]。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。
+- Fall q46520/post46290の公式受付11/1 03:00–06:00 JSTに対し、締切後の2回の独立API一覧でclosed/already_forecasted=trueを確認。既確認の予測03:29:24.967・説明03:29:29.405成功と整合し、締切後の予測保持確認待ちは解消。説明保持・大会側の得点対象認定・個別採点はこのフラグ単独では証明しない。
+- 全一覧差分はq46520のopen→closedのみ、追加・消失なし。この区間の新たな取り逃しは検出せず、過去の取り逃しは保持。最新Fall100posts/99questions（closed89・resolved10）、受付中0件。MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧。05:57の唯一のskipは投稿証拠付きq46520/already_forecasted、後続2runはskips=[]。今回の本番への新規投稿なし。
+- 実取得間隔29分54.827秒・29分49.678秒・1分43.818秒、最大29分54.827秒。06:36:57確認時点の直近空白8分15.184秒で60分未満。次回は通常の実測約30分間隔から06:57頃の見込みのみで保証しない。追加実行・再投稿なし。
+- 追加観測LLM応答/tokens/失敗invocation/記録上新規費用0。UTC10/31累計6応答/23,239tokens/失敗0。提供側無料枠消費・残量・請求額の実測ではない。performance/latestは05:27–05:28取得版から変更なし（Fall272/393・score約-308.42・coverage8）。個別採点・賞金受領は未確認。
+- 最新AGENTS.md・実験ログ・READMEを確認し、本日01:01の公式規則監査を再利用。補助診断41145456702の429回復未確認は継続し、主要経路成功と区別。実験ログのみ更新。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 05:41 JST — Fall公式順位272/393へ更新、受付中q46520保持
 
 - 前回04:27:08.331 JST実取得run41234217813以降の本番[41236526382](https://github.com/after6labo/metac-bot-template/actions/runs/41236526382)（04:57:14.848 JST）、[41238902475](https://github.com/after6labo/metac-bot-template/actions/runs/41238902475)（05:27:13.493 JST）を照合。両runはmode=tournament/no_new_questions、submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown=[]。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。今回の本番への新規投稿なし。

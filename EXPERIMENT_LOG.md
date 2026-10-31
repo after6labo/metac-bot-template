@@ -1,3 +1,13 @@
+## 2026-11-01 03:37 JST — Fall q46520受付内投稿、q46519締切後保持
+
+- 前回02:27:12.709 JST実取得run41224527682以降の本番3runを照合。[41226928235](https://github.com/after6labo/metac-bot-template/actions/runs/41226928235)は02:57:13.845、[41227025806](https://github.com/after6labo/metac-bot-template/actions/runs/41227025806)は02:58:15.075、[41229417616](https://github.com/after6labo/metac-bot-template/actions/runs/41229417616)は03:27:22.769 JST実取得。全runはmode=tournament、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending=[]、needs_attention/provider_paused=false、failed_or_unconfirmed=0。latest/history、稼働SHA/Actions一致、テスト・実行・保存工程success。
+- 最新runはFall q46520/post46290（公式受付11/1 03:00〜06:00 JST）へ予測03:29:24.967、説明03:29:29.405の成功ログをjob124620272519で個別確認。submitted=1/nonfatal_errors=0。Python96件実行ログも確認。投稿後の別取得による保持、得点対象認定・個別採点はまだ未確認。追加実行・再投稿なし。先行2runはno_new_questions、唯一のskipは既投稿証拠付きq46519/already_forecasted、追加LLM0。
+- q46519/post46289は03:00締切後の最新独立API一覧でclosed/already_forecasted=true。00:28の予測・説明投稿成功証拠と整合し、締切後予測保持の確認待ちは解消。未回答が締切で消えたものではない。全一覧差分はq46519のclosed化とq46520追加のみ、既存ID消失なし。この比較区間の新たな取り逃しは検出せず、過去の取り逃しは保持。already_forecasted単独で説明保持や得点対象を断定しない。
+- Fall100posts/99questions（open1・closed89・resolved9）。MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧、本番への投稿なし。実取得間隔30分01.136秒・1分01.229秒・29分07.694秒、最大30分01.136秒。03:37:27時点の直近空白10分04.231秒で60分未満。q46520締切まで2時間22分33秒だが既投稿。次回は実測から03:57頃の見込みのみで保証しない。
+- 追加観測LLM応答2・9,635tokens・失敗invocation0・記録上新規費用0。UTC10/31日次累計6応答/23,239tokens/失敗0。提供側の無料枠消費・残量・請求額の実測ではない。既存無料ルーターのみ、課金切替なし。
+- performance/latestは00:28〜00:29取得版（blob aeb117d69fdb7a6b34021c6a6b1a46fb12b7fb94）から変更なし。今回のq46520個別採点・賞金受領は未確認。本日01:01の公式規則監査を再利用。10/31 08:37補助診断429の回復未確認は継続し、主要経路成功と区別。
+- 実験ログのみ更新。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、追加実行、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 01:01 JST — Fall q46519へ受付内投稿、別取得で予測保持を確認
 
 - 前回10/31 23:57:12.232 JST実取得run41212438553以降の本番[41214850725](https://github.com/after6labo/metac-bot-template/actions/runs/41214850725)は11/1 00:27:11.517 JSTに実取得。Fall q46519/post46289（公式受付11/1 00:00〜03:00 JST）へ予測00:28:14.358、説明00:28:18.550の成功ログをjob124577147747で個別確認。submitted=1、nonfatal_errors=0、failed_or_unconfirmed=0。練習・テストではなく本番投稿。

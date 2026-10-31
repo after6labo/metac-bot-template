@@ -1,3 +1,12 @@
+## 2026-10-31 16:19 JST — q46518締切後の予測保持を確認
+
+- 前回14:57実取得run41174542403以降の本番[41176604500](https://github.com/after6labo/metac-bot-template/actions/runs/41176604500)（15:27:24.212 JST）、[41178576174](https://github.com/after6labo/metac-bot-template/actions/runs/41178576174)（15:57:11.600）、[41179936806](https://github.com/after6labo/metac-bot-template/actions/runs/41179936806)（16:16:55.327）を照合。q46518/post46288は公式締切15:00後の全3回でclosed/already_forecasted=trueを保持。既確認の12:28予測・説明成功と整合し、締切後保持の確認待ちは解消。未回答が締切で消えたものではない。already_forecastedは予測の保持であり説明保持や得点対象認定を単独で証明しない。
+- 全runがmode=tournament/no_new_questions、submitted/selected/failed_or_unconfirmed=0、outcomes/skips/question_windows/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknownは空。最新JSONとhistory一致、Actionsのテスト・実行・保存工程successを確認。今回の本番への新規投稿なし。
+- 全問題一覧の差分はq46518のclosed化のみ、追加・消失なし。この区間の新たな取り逃しは検出せず、過去の取り逃しは保持。Fall98posts/97questionsはclosed89・resolved8、受付中0件。MiniBenchは公式metadataで33135、11/2 09:00 JST開始の空一覧。
+- 実取得間隔30分07.142秒・29分47.387秒・19分43.728秒、最大30分07.142秒。16:18:57時点の直近空白2分01.673秒で60分未満。15:57runはGitHub schedule、他2runはworkflow_dispatch。次回取得は直近実測から16:47頃の見込みのみで保証しない。追加手動実行・再投稿なし。
+- 3runの追加観測LLM応答・tokens・失敗invocation・記録上新規費用は0。UTC日次累計3応答/10,078tokens/失敗0。提供元の無料枠消費・残量・請求額の実測ではない。performance/latestは00:47保存版から更新なし、現在の成績が不変とは断定しない。q46518の得点対象認定・個別採点・賞金受領は未確認。
+- 同日00:14の公式規則監査を再利用。08:37補助診断429の回復は未確認のまま、主要経路成功と区別し、追加診断なし。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の可用性は保証しない。
+
 ## 2026-10-31 14:12 JST — q46518投稿後の独立API保持確認完了
 
 - 前回12:27実取得run41164377166以降の本番3run、[41166467225](https://github.com/after6labo/metac-bot-template/actions/runs/41166467225)（12:57:11.144 JST）、[41168567965](https://github.com/after6labo/metac-bot-template/actions/runs/41168567965)（13:27:11.186）、[41170558448](https://github.com/after6labo/metac-bot-template/actions/runs/41170558448)（13:57:15.461）を照合。Fall q46518/post46288は3回ともopen/already_forecasted=true。既確認の予測12:28:01.709・説明12:28:06.187成功と整合し、投稿後の別取得による予測保持確認待ちは解消。大会側の得点対象認定・個別採点は未確認。説明については先行投稿成功ログを根拠とし、already_forecastedだけで説明保持まで断定しない。

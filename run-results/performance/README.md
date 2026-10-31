@@ -1,11 +1,11 @@
 # 公式成績
 
-取得開始（UTC）: 2026-10-31T15:28:23.049083+00:00
+取得開始（UTC）: 2026-10-31T20:27:33.170174+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 278 | -308.42 | 8 | 2026-10-31T12:18:44.865308Z |
+| Fall 2026 FutureEval Bot Tournament | 272 | -308.42 | 8 | 2026-10-31T20:16:38.871939Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-10-19 | 235 | -225.32 | 29 | 2026-10-31T11:43:11.337331Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
@@ -24,6 +24,7 @@
 | fall-futureeval-2026 | [q46184](https://www.metaculus.com/questions/46000/) | Luiz Inácio Lula da Silva | -33.71 |
 | fall-futureeval-2026 | [q46135](https://www.metaculus.com/questions/45953/) | yes | -50.62 |
 | fall-futureeval-2026 | [q46307](https://www.metaculus.com/questions/46069/) | yes | -128.77 |
+| fall-futureeval-2026 | [q46137](https://www.metaculus.com/questions/45955/) | above_upper_bound | 未確認 |
 | minibench-2026-10-19 | [q46368](https://www.metaculus.com/questions/46139/) | 741.0 | 40.55 |
 | minibench-2026-10-19 | [q46360](https://www.metaculus.com/questions/46131/) | no | 33.69 |
 | minibench-2026-10-19 | [q46358](https://www.metaculus.com/questions/46129/) | 12.0 | 22.78 |

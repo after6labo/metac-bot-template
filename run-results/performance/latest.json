@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-10-31T15:28:23.049083+00:00",
-  "run_id": "41214850725",
+  "started_at_utc": "2026-10-31T20:27:33.170174+00:00",
+  "run_id": "41238902475",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,21 +20,21 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 8,
+          "max_coverage": 9,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -308.4210362790722,
-            "rank": 278,
+            "score": -308.42103627907215,
+            "rank": 272,
             "coverage": 8,
             "contribution_count": 8,
-            "calculated_on": "2026-10-31T12:18:44.865308Z",
+            "calculated_on": "2026-10-31T20:16:38.871939Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -532.3038201907287,
-            "ci_upper": -157.5803537276511
+            "ci_lower": -554.0621908367538,
+            "ci_upper": -143.58075397230485
           },
           "listed_entry_count": 393,
           "ranked_entry_count": 393,
@@ -118,6 +118,16 @@
               "question_resolution": "yes",
               "score": -128.7682196099137,
               "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46137,
+              "post_id": 45955,
+              "question_title": "What will be the official water level of Panama's Gatun Lake on October 31, 2026?",
+              "question_type": "discrete",
+              "question_resolution": "above_upper_bound",
+              "score": null,
+              "coverage": null,
               "question_weight": 1
             }
           ],
@@ -14132,11 +14142,12 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-10-31T15:29:48.669179+00:00",
+  "finished_at_utc": "2026-10-31T20:28:52.297280+00:00",
   "resolution_signature": [
     45707,
     46133,
     46135,
+    46137,
     46184,
     46185,
     46290,

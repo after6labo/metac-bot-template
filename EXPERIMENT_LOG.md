@@ -1,3 +1,13 @@
+## 2026-11-01 22:02 JST — Fall追加1問・MiniBench追加9問の公式採点更新
+
+- 前回21:17:00.226 JST実取得run41305680398から[41308061612](https://github.com/after6labo/metac-bot-template/actions/runs/41308061612)の21:47:13.118まで30分12.891秒。22:01:34時点の直近空白14分20.882秒、60分未満。次回は通常実測から22:17頃の見込みのみで保証しない。
+- 最新はtournament/no_new_questions。両大会の独立API監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending・outcomes・skips・question_windows=[]、needs_attention/provider_paused=false、submitted/failed_or_unconfirmed=0。latest/history完全一致、稼働SHA b55dc39d601f6bcdfa3758019fb1bb50243b3712とActions一致。job124852465604の96件テストOK、実行・結果artifact・履歴コミット・成績保存成功を確認。
+- 全状態一覧差分はFall q46134/46136/46138のclosed→resolvedのみ、追加・消失なし。q46134は予測保持true、q46136/46138は前回から未回答falseで、公式締切はそれぞれ10/10 00:00 JST・10/11 15:00 JST。今回の新規取り逃しや未回答解消とせず、過去未回答を保持する。q46522も18:00締切後の予測保持継続。最新Fall102posts/101questions（closed88/resolved13/open0）。MiniBench33135は11/2 09:00 JST開始前の公式metadata付き空一覧。今回の本番新規投稿なし。
+- 公式成績は同runで21:47:29〜21:48:52 JST取得、completed/errors=[]、API GET23回・LLM0。performance/latestとhistory完全一致。Fall主順位表991、spot_peer_tournament、21:44:36.081 JST計算：272/393→275/395位、score -308.42103627907215→-381.0486164093444、coverage/contribution_count 8→9、excluded=false/exclusion_status=0、finalized=false。新規q46134（resolution=145198.0）の寄与-72.62758013027225が得点差と一致。q46136/46138のscore/coverage=nullは0点としない。
+- 10/19開始MiniBench33132、主順位表1006、spot_peer_tournament、20:23:50.637 JST計算：235/386→237/394位、score -225.32015603395516→-196.78281945331696（+28.537336580638197）、coverage/contribution_count 29→38、excluded=false/exclusion_status=0、finalized=false。新規採点9問は46400/46403/46388/46402/46406/46408/46392/46407/46401。得点増でも順位は低下しており、精度改善の証明にはしない。10/5開始33129は174/306・-202.40684204840116・coverage37・finalized=trueで変更なし。現行33135はown_entry=null、不明のまま。
+- 公式prize=0は配分欄であり受取額の証拠ではなく、prize_payment_confirmed=null。最近の46519〜46522の個別採点・賞金受領は未確認。追加LLM観測応答/tokens/失敗invocation/記録上新規費用0、UTC11/1累計4応答/12377tokens/失敗0は無料枠消費・請求額の実測ではない。
+- 最新AGENTS・README・実験ログを確認、同日01:01公式規則監査を再利用。既報90分空白・Actions時刻不整合は未解決、GAS実配備・実行履歴への接続不足と補助診断41145456702の429回復未確認も継続。後続実行を恒久復旧としない。実験ログのみ変更、コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、追加実行・再投稿・本人作業なし。
+
 ## 2026-11-01 19:15 JST — 90分の受付カバー不全、q46522締切後保持
 
 - 前回実取得17:17:09.881 JST（run41288153231）から最新[41294555773](https://github.com/after6labo/metac-bot-template/actions/runs/41294555773)の18:47:10.499 JSTまで90分00.618秒。ユーザー指定の90分以上に該当する受付カバー不全として新規記録。Actions作成時刻を基準に30分と誤判定しない。前後のJSON履歴とジョブログに実取得時刻の証拠がある。

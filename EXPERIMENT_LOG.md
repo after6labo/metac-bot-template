@@ -1,3 +1,13 @@
+## 2026-11-01 23:29 JST — Fall順位272/396へ更新、直近3実行の受付監査
+
+- 前回21:47:13.118 JST実取得run41308061612以降、41310446565（22:17:13.623）、41312863142（22:47:14.904）、[41315189969](https://github.com/after6labo/metac-bot-template/actions/runs/41315189969)（23:15:09.984）を照合。実取得間隔30分00.506秒・30分01.280秒・27分55.081秒、最大30分01.280秒。23:28:44時点の直近空白13分34.016秒、60分未満。次回は通常実測から23:45〜23:47頃の見込みで保証しない。
+- 全3runはtournament/no_new_questions、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending・outcomes・skips・question_windows=[]、needs_attention/provider_paused=false、submitted/failed_or_unconfirmed=0。latest/history一致、稼働SHA/Actions一致、全runのテスト・実行・保存工程success。最新job124873618547のテスト・結果artifact・履歴保存ログも照合。新規投稿なし。
+- 全状態一覧差分はq46139/post45957のclosed→resolvedのみ、追加・消失なし。公式受付10/11 15:00〜18:00 JST、already_forecasted=falseは前回から不変。過去未回答を保持し、今回の新規取り逃しや解消としない。q46522の18:00締切後予測保持も継続。最新Fall102posts/101questions（closed87/resolved14/open0）、MiniBench33135は11/2 09:00 JST開始前の公式metadata付き空一覧。
+- performance/latestはrun41310446565の22:17:29〜22:18:47 JST取得、completed/errors=[]、historyと一致。Fall主順位表991/spot_peer_tournament、21:59:43.454 JST計算：275/395→272/396位、score=-381.0486164093444、coverage/contribution_count=9、excluded=false/exclusion_status=0、finalized=false。得点・採点件数の増加ではなく順位変動。q46139のscore/coverage=nullを0としない。
+- MiniBench10/19は237/394・score=-196.78281945331696・coverage38・excluded=false/finalized=falseで変更なし。10/5は174/306・score=-202.40684204840116・coverage37・finalized=trueで変更なし。現行33135のown_entry=nullは不明のまま。prize_payment_confirmed=null、賞金受領未確認。
+- 追加本番LLM応答/tokens/失敗invocation/記録上新規費用0、UTC11/1累計4応答/12377tokens/失敗0（無料枠消費・請求額の実測ではない）。最新AGENTS・README・実験ログを照合、同日01:01公式規則監査を再利用。
+- 既報90分空白・Actions時刻不整合は未解決、GAS実配備・実行履歴への接続不足、補助診断41145456702の429回復未確認も継続。後続成功を恒久復旧としない。実験ログのみ更新、コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、追加実行・再投稿・本人作業なし。
+
 ## 2026-11-01 22:02 JST — Fall追加1問・MiniBench追加9問の公式採点更新
 
 - 前回21:17:00.226 JST実取得run41305680398から[41308061612](https://github.com/after6labo/metac-bot-template/actions/runs/41308061612)の21:47:13.118まで30分12.891秒。22:01:34時点の直近空白14分20.882秒、60分未満。次回は通常実測から22:17頃の見込みのみで保証しない。

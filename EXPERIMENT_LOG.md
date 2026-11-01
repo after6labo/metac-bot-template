@@ -1,3 +1,11 @@
+## 2026-11-02 04:58 JST — q46523の投稿後保持を独立APIで確認
+
+- 前回03:37:19.202 JST実取得run41337482409以降、41339710442（04:03:57.188）、41341726683（04:27:06.980）、[41344254298](https://github.com/after6labo/metac-bot-template/actions/runs/41344254298)（04:57:08.196）を照合。実取得間隔26分37.985秒・23分09.793秒・30分01.216秒、最大30分01.216秒。04:57:59時点の直近空白50.804秒。次回は直近実測から05:27頃の見込みのみで保証しない。
+- Fall q46523/post46293は全3回の独立API一覧でalready_forecasted=true。前回確認した03:38:25.675予測・03:38:30.488説明送信成功に、投稿後の予測保持証拠が加わった。公式受付は03:00〜06:00 JST、確認時点で締切まで1時間02分01秒だが投稿済み。説明の再取得・締切後保持・大会側の得点対象認定・個別採点は未確認であり、保持確認と区別する。追加実行・再投稿なし。
+- 全3runはtournament/no_new_questions、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending・outcomes=[]、needs_attention/provider_paused=false、submitted/failed_or_unconfirmed=0。skipは投稿証拠と一致するq46523のalready_forecastedのみ。全状態一覧差分は同IDの回答済みfalse→trueだけで、他の変更・追加・消失なし。Fall103posts/102questions（open1/closed87/resolved14）、MiniBench33135は公式metadata上11/2 09:00 JST開始前の空一覧。新規取り逃しを検出せず、既報取り逃しは維持。
+- 最新/history完全一致、全3runの稼働SHA/Actions一致。jobs124946929396/124952989994/124960577017の実行・保存工程success、ログで各96件テストOKと履歴保存を確認。最新jobの外部スケジューラofflineテスト12件pass。追加観測LLM応答/tokens/失敗invocation/記録上新規費用0、UTC11/1累計10応答/30391tokens/失敗invocation0。提供側無料枠消費・残量・請求額の実測ではない。performance/latestは00:07〜00:08取得版から不変、公式成績更新なし・賞金受領未確認。
+- 最新AGENTS・README・実験ログを照合し、同日00:30公式規則監査を再利用。数値形式検証失敗の再発防止、既報90分空白・Actions時刻不整合、GAS実配備への接続不足、補助診断41145456702の429回復未確認は未解決のまま。予測保持や後続成功だけで恒久復旧としない。実験ログのみ変更、回答対象・停止条件・コード・設定・ライブ予測・プロンプト変更・本人作業なし。
+
 ## 2026-11-02 03:40 JST — q46523の数値形式検証失敗と次回定期実行での受付内投稿
 
 - Fall q46523/post46293の公式受付は11/2 03:00〜06:00 JST。[run41334851797](https://github.com/after6labo/metac-bot-template/actions/runs/41334851797)は03:07:14.164実取得、03:08:34にNumericDistributionのValidationErrorで失敗。数値分布がSDKの範囲検証を満たさず、3回の形式変換と厳密ローカル変換後も検証失敗。ExceptionGroup/failed_or_unconfirmed=1、pending1、needs_attention=true。正常な見送りではなく技術障害として記録。job124932391211に予測・コメント投稿成功行はなく、後続03:37独立API取得でもalready_forecasted=falseを確認。

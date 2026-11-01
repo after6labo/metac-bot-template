@@ -1,3 +1,12 @@
+## 2026-11-01 14:26 JST — q46521投稿後の独立API保持確認
+
+- 前回12:27実取得run41269173867以降の本番[41271103125](https://github.com/after6labo/metac-bot-template/actions/runs/41271103125)（12:56:57.838 JST）、[41273099083](https://github.com/after6labo/metac-bot-template/actions/runs/41273099083)（13:26:54.659）、[41274976777](https://github.com/after6labo/metac-bot-template/actions/runs/41274976777)（13:57:13.524）を照合。全3runの独立API一覧でFall q46521/post46291はopen/already_forecasted=true。既確認の予測12:28:18.501・説明12:28:22.954成功証拠と整合し、投稿後の別取得による予測保持確認待ちは解消。説明保持・得点対象認定はこのフラグ単独では証明しない。15:00締切後保持・個別採点・賞金受領は未確認。
+- 全runはtournament/no_new_questions、submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown=[]。唯一のskipは投稿証拠付きq46521/already_forecasted。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。
+- 全問題一覧差分はq46521の回答済み反映のみ、追加・消失なし。この比較区間の新たな取り逃しは検出せず、過去の取り逃しを保持。Fall101posts/100questions（open1・closed89・resolved10）、MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧。本番への新規投稿なし。
+- 実取得間隔29分43.596秒・29分56.822秒・30分18.864秒、最大30分18.864秒。14:25:45時点の直近空白28分31.476秒で60分未満。q46521締切まで34分15秒だが既投稿。次回取得は実測から14:27頃の見込みのみで保証しない。追加実行・再投稿なし。
+- 追加観測LLM応答/tokens/失敗invocation/記録上新規費用0。UTC11/1累計2応答/5,600tokens/失敗0。提供側無料枠消費・残量・請求額の実測ではない。performance/latestは05:27〜05:28取得版から変更なし。
+- 最新AGENTS.md・実験ログ・READMEを確認し、本日01:01公式規則監査を再利用。補助診断41145456702の429回復未確認は継続し、主要経路成功と区別。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 12:52 JST — Fall q46521へ受付内投稿を確認
 
 - 前回11:57:10.887 JST実取得run41267167997以降の本番[41269173867](https://github.com/after6labo/metac-bot-template/actions/runs/41269173867)は12:27:14.241 JSTに実取得。Fall q46521/post46291（公式受付11/1 12:00〜15:00 JST）へ予測12:28:18.501、説明12:28:22.954の成功ログをjob124738199724で個別確認。submitted=1/nonfatal_errors=0、failed_or_unconfirmed=0。投稿後の別取得による予測保持・大会側の得点対象認定・個別採点は未確認。追加実行・再投稿なし。

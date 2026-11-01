@@ -1,6 +1,6 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-01T13:17:29.550371+00:00
+取得開始（UTC）: 2026-11-01T15:07:29.972482+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
@@ -28,6 +28,7 @@
 | fall-futureeval-2026 | [q46136](https://www.metaculus.com/questions/45954/) | >4 | 未確認 |
 | fall-futureeval-2026 | [q46137](https://www.metaculus.com/questions/45955/) | above_upper_bound | 未確認 |
 | fall-futureeval-2026 | [q46138](https://www.metaculus.com/questions/45956/) | Massachusetts | 未確認 |
+| fall-futureeval-2026 | [q46139](https://www.metaculus.com/questions/45957/) | yes | 未確認 |
 | minibench-2026-10-19 | [q46400](https://www.metaculus.com/questions/46171/) | no | 90.02 |
 | minibench-2026-10-19 | [q46368](https://www.metaculus.com/questions/46139/) | 741.0 | 40.55 |
 | minibench-2026-10-19 | [q46360](https://www.metaculus.com/questions/46131/) | no | 33.69 |

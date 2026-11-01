@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-01T13:17:29.550371+00:00",
-  "run_id": "41310446565",
+  "started_at_utc": "2026-11-01T15:07:29.972482+00:00",
+  "run_id": "41319498061",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -159,9 +159,19 @@
               "score": null,
               "coverage": null,
               "question_weight": 1
+            },
+            {
+              "question_id": 46139,
+              "post_id": 45957,
+              "question_title": "Will any North American country have a CDC travel advisory issued in October 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 88,
+          "unresolved_contribution_count": 87,
           "contributions_status": "completed"
         }
       ],
@@ -16330,7 +16340,7 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-01T13:18:47.081302+00:00",
+  "finished_at_utc": "2026-11-01T15:08:50.483291+00:00",
   "resolution_signature": [
     45707,
     46133,

@@ -1,3 +1,14 @@
+## 2026-11-01 19:15 JST — 90分の受付カバー不全、q46522締切後保持
+
+- 前回実取得17:17:09.881 JST（run41288153231）から最新[41294555773](https://github.com/after6labo/metac-bot-template/actions/runs/41294555773)の18:47:10.499 JSTまで90分00.618秒。ユーザー指定の90分以上に該当する受付カバー不全として新規記録。Actions作成時刻を基準に30分と誤判定しない。前後のJSON履歴とジョブログに実取得時刻の証拠がある。
+- Actions一覧・完全なGit tree（truncated=false）の履歴ファイルを確認し、両run間の追加結果・runを見つけられなかった。通常contents一覧は大量ファイルのため対象期間を含まず、全treeで補完した。最新runのジョブ124812556584はテスト・Bot・結果保存成功、96件テスト実行、artifactと履歴コミット成功ログ、latest/history完全一致・稼働SHAとActions一致を確認。18:47に取得再開したことは確認済みだが、恒久的な受付カバー復旧とはしない。
+- 前回のrun41288153231は個別APIでもcreated_at/run_started_at=09:16:19Z（18:16 JST）のままで、ジョブログ・JSONの17:17実取得と約1時間不整合を継続。operations/github_scheduler.gsはcompleted runのcreated_at最大値を採用し、now-latestProduction<20分ならrecent_runで抑止する。観測された未来時刻を条件式へ入力すると17:47・18:17時点で抑止、18:37では解除となることを再現。この実装は未来時刻の影響を受ける。今回の空白の有力な原因候補だが、GASの実際の分岐・実行履歴を未取得のため因果確定しない。
+- 本番workflowのcronは7,27,47、共有concurrency、25分timeoutを維持。最新runはworkflow_dispatchで再開。通常のGitHub接続にはdispatchやGAS実行・配置ツールがなく、GitHub Fetchのworkflow管理メタデータ取得はツール側400 unsupported。認証拒否や提供元制限として誤分類しない。GASの実配備版・履歴への接続が不足しており、実配備の変更・検証は未実施。推測でcron変更・トークン作成・別サービス追加・制限迂回はしない。ログだけの記録を障害修復としない。
+- 最新はtournament/no_new_questions、両大会complete/matched、missing/evidence mismatch/unknown・fetch_errors・pending・outcomes・skips=[]、needs_attention/provider_paused=false、submitted/failed=0。全状態一覧差分はq46522のopen→closedのみで予測保持true、ID追加・消失なし。公式18:00締切後の18:47に保持確認済み、既確認の15:28予測・説明成功と整合。未回答が消えただけではない。確認できた一覧では新たな取り逃しなしだが、90分の空白を正常扱いしない。Fall102posts/101questions（closed91・resolved10）、MiniBench33135は11/2 09:00開始前のmetadata付き空一覧。
+- 19:14:21時点の直近空白27分10.501秒。次回は直近の通常実測約30分なら19:17頃の見込みのみ、今回の空白があるため保証しない。現時点で受付中未回答は検出せず、追加実行・再投稿なし。
+- 追加LLM応答/tokens/失敗invocation/記録上新規費用0、UTC11/1累計4応答/12377tokens/失敗0。無料枠消費・残量・請求額の実測ではない。performance/latestは05:27〜05:28取得版から変更なし。個別採点・賞金受領、補助診断41145456702の429回復未確認は継続。
+- 最新AGENTS・README・実験ログを確認、同日01:01公式規則監査を再利用。実験ログのみ変更。回答対象・停止条件・コード・ライブ予測・プロンプト変更なし。受付カバー不全と時刻不整合は未解決として引き継ぐ。
+
 ## 2026-11-01 17:49 JST — 実取得・保持確認、Actions時刻メタデータ不整合を検出
 
 - 前回16:47:19.173 JST実取得run41286106383以降の本番[41288153231](https://github.com/after6labo/metac-bot-template/actions/runs/41288153231)を確認。latest/historyとjob124793604207ログはいずれも17:17:09.881 JST実取得、17:17:25結果生成を示す。稼働SHA59bd4a942bbc73bf7ff0d736abff5507f4bf4585も一致、96件テスト実行、結果artifact・履歴コミット保存のログを確認。

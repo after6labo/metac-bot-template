@@ -1,3 +1,13 @@
+## 2026-11-01 12:52 JST — Fall q46521へ受付内投稿を確認
+
+- 前回11:57:10.887 JST実取得run41267167997以降の本番[41269173867](https://github.com/after6labo/metac-bot-template/actions/runs/41269173867)は12:27:14.241 JSTに実取得。Fall q46521/post46291（公式受付11/1 12:00〜15:00 JST）へ予測12:28:18.501、説明12:28:22.954の成功ログをjob124738199724で個別確認。submitted=1/nonfatal_errors=0、failed_or_unconfirmed=0。投稿後の別取得による予測保持・大会側の得点対象認定・個別採点は未確認。追加実行・再投稿なし。
+- mode=tournament/completed、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending=[]、needs_attention/provider_paused=false。latest/history一致、稼働SHA/Actions一致、テスト・実行・結果保存工程success。Python96件の実行ログを確認。question_windowsは46521の1件、skips=[]。
+- 全問題一覧差分はq46521の追加のみ、既存ID消失・変更なし。Fall101posts/100questions（open1・closed89・resolved10）、q46519/46520の締切後予測保持も継続。この比較区間の新たな取り逃しは検出せず、過去の取り逃しは保持。MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧で、本番への投稿なし。
+- 実取得間隔30分03.354秒。12:51:47確認時点の直近空白24分32.759秒、60分未満。q46521締切まで2時間08分13秒だが既投稿。次回取得は直近実測から12:57頃の見込みのみで保証しない。
+- 追加観測LLM応答2・5,600tokens・失敗invocation0・記録上新規費用0。UTC11/1日次累計も同値。提供側無料枠消費・残量・請求額の実測ではない。既存無料ルーターのみ、課金切替なし。
+- performance/latestは05:27〜05:28取得版（blob349037a77469fe56ed76d66b632f0c3405d88963）から変更なし。Fall272/393・score約-308.42・coverage8の保存値であり、今回q46521の採点を意味しない。賞金受領は未確認。
+- 最新AGENTS.md・実験ログ・READMEを確認し、同日01:01公式規則監査を再利用。補助診断41145456702の429回復未確認は継続し、主要経路成功と区別。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 06:37 JST — q46520締切後の予測保持確認
 
 - 前回05:27:13.493 JST実取得run41238902475以降の本番[41241215628](https://github.com/after6labo/metac-bot-template/actions/runs/41241215628)（05:57:08.320 JST）、[41243586002](https://github.com/after6labo/metac-bot-template/actions/runs/41243586002)（06:26:57.998 JST）、[41243699361](https://github.com/after6labo/metac-bot-template/actions/runs/41243699361)（06:28:41.816 JST）を照合。全runはmode=tournament/no_new_questions、submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown=[]。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。

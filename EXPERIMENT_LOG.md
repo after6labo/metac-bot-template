@@ -1,3 +1,13 @@
+## 2026-11-02 00:30 JST — 日次公式規則再確認、直近受付監査・成績照合
+
+- 前回11/1 23:15:09.984 JST実取得run41315189969以降、41317023586（23:37:11.287）、[41319498061](https://github.com/after6labo/metac-bot-template/actions/runs/41319498061)（11/2 00:07:14.033）を照合。実取得間隔22分01.302秒・30分02.747秒、最大30分02.747秒。00:29:30時点の直近空白22分15.967秒、60分未満。次回は通常実測から00:37頃の見込みのみで保証しない。
+- 両runはtournament/no_new_questions、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending・outcomes・skips・question_windows=[]、needs_attention/provider_paused=false、submitted/failed_or_unconfirmed=0。最新とhistory完全一致、稼働SHAとActions一致。jobs124879118974/124886496978のテスト・実行・保存工程success、両ログで96件テストOKと履歴保存を確認。
+- 全状態一覧・受付日時・回答済み状態は前回と同一、ID追加・消失なし。Fall102posts/101questions（closed87/resolved14/open0）、MiniBench33135は公式metadata上11/2 09:00 JST開始前の空一覧。現在受付中未回答・今回の新規取り逃しは検出せず。本番新規投稿なし、過去未回答と既報取り逃しは保持。
+- performance/latestはrun41319498061の00:07:29.972〜00:08:50.483 JST取得、completed/errors=[]、GET23回/LLM0、history完全一致。Fall272/396・score=-381.0486164093444・coverage/contribution_count=9、MiniBench10/19は237/394・score=-196.78281945331696・coverage38、10/5は174/306・score=-202.40684204840116・coverage37で順位・得点・採点件数は不変。Fallと10/19はexcluded=false/finalized=false、10/5はfinalized=true。Fallのresolved_contributionsにq46139/post45957（resolution=yes、score/coverage=null）が追加、unresolved_contribution_count88→87。前回の一覧不在から掲載へ変化したが、未回答の解消・0点・新規採点として数えない。resolved_questions側には未掲載。現行MiniBenchのown_entry=null、prize_payment_confirmed=nullを維持。
+- 日付変更につき[公式規則](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)（編集10/12）、[参加案内](https://www.metaculus.com/futureeval/participate/)、[Fall大会](https://www.metaculus.com/tournament/fall-futureeval-2026/)、[公式リソース](https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/)（編集10/29）を再取得。自動予測と説明、1問1予測、ライブ出力を見た調整・不満による再実行禁止、参加フォーム・審査/本人確認条件、Fall ID33121/9月28日〜1月6日、クレジット任意を再確認。新しい参加除外・課金要件は今回確認範囲では認めず。フォーム提出・寄付クレジット不採択はユーザー報告、季末アンケートは別途確認のまま。
+- 追加観測LLM応答/tokens/失敗invocation/記録上新規費用0。UTC11/1累計4応答/12377tokens/失敗0は提供側無料枠消費・残量・請求額の実測ではない。既報90分空白・Actions時刻不整合は未解決、GAS実配備・実行履歴への接続不足、補助診断41145456702の429回復未確認も継続。後続実行成功で解消扱いしない。
+- 最新AGENTS・README・実験ログを照合。実験ログのみ変更。回答対象・停止条件・コード・設定・ライブ予測・プロンプト変更、追加実行・再投稿・本人作業なし。
+
 ## 2026-11-01 23:29 JST — Fall順位272/396へ更新、直近3実行の受付監査
 
 - 前回21:47:13.118 JST実取得run41308061612以降、41310446565（22:17:13.623）、41312863142（22:47:14.904）、[41315189969](https://github.com/after6labo/metac-bot-template/actions/runs/41315189969)（23:15:09.984）を照合。実取得間隔30分00.506秒・30分01.280秒・27分55.081秒、最大30分01.280秒。23:28:44時点の直近空白13分34.016秒、60分未満。次回は通常実測から23:45〜23:47頃の見込みで保証しない。

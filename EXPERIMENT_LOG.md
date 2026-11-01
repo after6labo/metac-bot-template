@@ -1,3 +1,14 @@
+## 2026-11-01 16:06 JST — Fall q46522受付内投稿・後続保持、q46521締切後保持
+
+- 前回14:27実取得run41276947894以降の本番[41278813211](https://github.com/after6labo/metac-bot-template/actions/runs/41278813211)（14:57:05.804 JST）、[41280830388](https://github.com/after6labo/metac-bot-template/actions/runs/41280830388)（15:27:04.696）、[41282607827](https://github.com/after6labo/metac-bot-template/actions/runs/41282607827)（15:54:13.049）を照合。
+- Fall q46522/post46292（公式受付11/1 15:00〜18:00 JST）へrun41280830388で予測15:28:25.073、説明15:28:29.693の成功ログをjob124772244694で個別確認。submitted=1/nonfatal_errors=0。後続15:54の独立API一覧でopen/already_forecasted=trueを確認し、投稿後の予測保持確認済み。説明保持・大会側の得点対象認定はこのフラグ単独では証明しない。18:00締切後保持・個別採点・賞金受領は未確認。
+- q46521/post46291は公式15:00締切後の15:27・15:54取得でclosed/already_forecasted=trueを確認。既確認の12:28予測・説明成功証拠と整合し、締切後予測保持確認待ちは解消。未回答が締切で消えたものではない。
+- 全runはmode=tournament、両大会監査complete/matched、missing IDs・forecast evidence mismatch/unknown・fetch_errors・pending=[]、needs_attention/provider_paused=false、failed_or_unconfirmed=0。投稿以外2runはno_new_questions/submitted=0、skipは投稿証拠付きalready_forecastedのみ。latest/history一致、稼働SHA/Actions一致、テスト・実行・保存工程success。投稿runのPython96件実行ログを確認。
+- 全問題一覧の差分はq46521のclosed化とq46522追加・回答済み反映のみ、既存ID消失なし。この比較区間の新たな取り逃しは検出せず、過去の取り逃しを保持。最新Fall102posts/101questions（open1・closed90・resolved10）、MiniBench33135は公式metadata付き11/2 09:00 JST開始前の空一覧で本番への投稿なし。
+- 実取得間隔29分53.382秒・29分58.893秒・27分08.353秒、最大29分58.893秒。16:06:20時点の直近空白12分06.951秒で60分未満。q46522締切まで1時間53分40秒だが既投稿。次回取得は実測約30分間隔から16:24〜16:27頃の見込みのみで保証しない。追加実行・再投稿なし。
+- 追加観測LLM応答2・6,777tokens・失敗invocation0・記録上新規費用0。UTC11/1累計4応答/12,377tokens/失敗0。提供側無料枠消費・残量・請求額の実測ではない。performance/latestは05:27〜05:28取得版（blob349037a77469fe56ed76d66b632f0c3405d88963）から変更なし。今回の個別採点・賞金受領は未確認。
+- 最新AGENTS.md・実験ログ・READMEを確認し、本日01:01公式規則監査を再利用。補助診断41145456702の429回復未確認は継続し、主要経路成功と区別。実験ログのみ変更。コード・設定・回答対象・停止条件・ライブ予測・プロンプト変更、本人作業なし。将来の夜間可用性を保証しない。
+
 ## 2026-11-01 14:26 JST — q46521投稿後の独立API保持確認
 
 - 前回12:27実取得run41269173867以降の本番[41271103125](https://github.com/after6labo/metac-bot-template/actions/runs/41271103125)（12:56:57.838 JST）、[41273099083](https://github.com/after6labo/metac-bot-template/actions/runs/41273099083)（13:26:54.659）、[41274976777](https://github.com/after6labo/metac-bot-template/actions/runs/41274976777)（13:57:13.524）を照合。全3runの独立API一覧でFall q46521/post46291はopen/already_forecasted=true。既確認の予測12:28:18.501・説明12:28:22.954成功証拠と整合し、投稿後の別取得による予測保持確認待ちは解消。説明保持・得点対象認定はこのフラグ単独では証明しない。15:00締切後保持・個別採点・賞金受領は未確認。

@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-11-02T14:47:16.812294+00:00",
+  "started_at_utc": "2026-11-02T15:17:09.390006+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -186,7 +186,7 @@
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-11-02T14:47:31.388976+00:00",
+      "checked_at_utc": "2026-11-02T15:17:23.877046+00:00",
       "complete": true,
       "post_count": 36,
       "questions": [
@@ -522,7 +522,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-11-02T14:47:33.023479+00:00",
+      "checked_at_utc": "2026-11-02T15:17:25.536679+00:00",
       "complete": true,
       "post_count": 103,
       "questions": [
@@ -1223,7 +1223,7 @@
           "question_id": 46141,
           "post_id": 45959,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-12T09:00:00+00:00",
           "close_time_utc": "2026-10-12T12:00:00+00:00",
           "already_forecasted": true
@@ -1232,7 +1232,7 @@
           "question_id": 46140,
           "post_id": 45958,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-11T21:00:00+00:00",
           "close_time_utc": "2026-10-12T00:00:00+00:00",
           "already_forecasted": false
@@ -1457,7 +1457,7 @@
     0
   ],
   "selected": 7,
-  "finished_at_utc": "2026-11-02T14:47:36.245174+00:00",
+  "finished_at_utc": "2026-11-02T15:17:28.890986+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -1470,6 +1470,6 @@
     "cooldown_until_epoch": 1793664000.0
   },
   "provider_paused_for_run": true,
-  "git_sha": "b7c9e734ba6ca0faa5909a173ba45084700c15ff",
-  "workflow_run_id": "41465117287"
+  "git_sha": "22150f283e65670d81c69f28555ae4e20f8a9bfe",
+  "workflow_run_id": "41469944755"
 }

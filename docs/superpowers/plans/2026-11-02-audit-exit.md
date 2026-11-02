@@ -31,11 +31,18 @@
 - [x] Run unittest: two expected AssertionError failures before implementation.
 - [x] Add needs_attention to bot_helpers.should_fail_run and update its docstring; no other production change.
 - [x] Run full available suite: 98 tests, 23 SDK-dependent skips because SDK is not installed locally; Node scheduler tests 12/12. Do not treat skipped tests as passed.
-- [ ] Independent read-only review, then atomic commit of helper, tests and this record to existing main.
-- [ ] Inspect triggered production Actions: all 98 Python and 12 Node tests, actual audit/pending/outcomes, prediction retention and persistence. Record results in EXPERIMENT_LOG.md.
+- [x] Independent read-only review, then atomic commit of helper, tests and this record to existing main.
+- [x] Inspect triggered production Actions: all 98 Python and 12 Node tests, actual audit/pending/outcomes, prediction retention and persistence. Record results in EXPERIMENT_LOG.md.
 
 ## Execution rulings
 
 - Use an isolated snapshot from the configured GitHub connector; no repository credentials are present or copied locally. Source blobs are checked again before atomic tree/ref update.
 - Owner explicitly requests continued execution without waiting for further design approval. This is a minimal restoration of the documented failure contract, not a new feature.
 - Local SDK skips require verification in the existing Actions environment, before claiming full validation.
+
+## Completion evidence
+
+- Independent reviewer found no Critical/Important issues. Minor existing-test coverage improvement is deferred: separately test original fallback predicates with needs_attention false; production fallback predicates were unchanged.
+- Production run 41371843521, commit f75f7d5839ec4258142ee4efd1299a4a033fc805: 98 Python tests without SDK skips, 12 Node tests; all workflow stages successful, latest/history equal.
+- Both audits complete/matched, pending empty. q46601 prediction retained without resubmission; q46602/q46603 new prediction and comment publication returned within their windows. Subsequent retention and scoring remain separate checks.
+- Reviewer-deferred remote evidence and SDK validation were verified by the operator against fetched blobs, Actions logs and persisted JSON. No failure was injected into production; failure behavior is established by offline RED/GREEN tests and replay of the two actual attention-only JSON results.

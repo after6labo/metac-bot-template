@@ -1,3 +1,18 @@
+## 2026-11-02 10:24 JST — MiniBench新ラウンド3問投稿、監査異常の成功終了を修正
+
+- MiniBench 11/2ラウンド（直前の公式alias metadataはproject33135）のq46601/post46368、公式受付09:45:11〜12:45:11 JSTを本番[41370679092](https://github.com/after6labo/metac-bot-template/actions/runs/41370679092)が10:07:18.346932 JSTに実取得。job125040289531で予測10:08:43.983・説明10:08:48.604 JSTの送信成功を個別確認。submitted=1、nonfatal_errors=0、pending/fetch_errors=[]、failed_or_unconfirmed=0、needs_attention/provider_paused=false。MiniBenchは1post/1open、Fallは103posts/102questions/open0、両独立監査complete/matched。新ラウンドの最初の投稿確認であり、全MiniBench初参加は既報10/19。大会側の採点対象・個別得点・賞金受領とは区別する。
+- 前回08:37:11.298359実取得以降、09:07:15.508975の[41365343893](https://github.com/after6labo/metac-bot-template/actions/runs/41365343893)、09:37:10.177823の[41368037238](https://github.com/after6labo/metac-bot-template/actions/runs/41368037238)はMiniBench監査inventory_unexpected_empty・failed、needs_attention=true、status=attention_required。それでもActionsはsuccessだった。公式ラウンド開始後の空一覧は当時の確認不能として保持し、正常な0件とは認定しない。10:07には非空のcomplete/matched一覧へ回復した。現在公開されたq46601の受付は09:45開始で、既知一覧上この2回の異常による同問の取り逃しはない。未知の一覧欠落までなかったと保証しない。Fall一覧は基準runから同一、既報取り逃しを維持。
+- 原因をbot_helpers.should_fail_runの監査だけのneeds_attentionを無視する分岐まで追跡。10/31にも記録した既存挙動だが、設定どおりを放置理由にせず修正。commit f75f7d5839ec4258142ee4efd1299a4a033fc805はneeds_attentionを最終失敗判定へ追加し、説明・テストを更新した。全問題の処理と結果保存後だけ非ゼロ終了するため、他大会への回答や永続化を抑止しない。回答対象・provider停止条件・再試行回数・モデル・ライブ確率・プロンプトは変更なし。変更はActions最終終了判定のみで、恒久停止ではない。
+- TDDで監査のみ/部分投稿後attentionの2件が修正前失敗、修正後成功。実障害2runのJSON判定はtrue、正常投稿runはfalseをローカル再現。ローカル全98tests中SDK未導入の23件はskip（成功扱いにしない）、scheduler12件成功。独立レビューCritical/Importantなし。軽微な既存テスト改善（pending分岐の単独検証とgetattr fallback除去）は今回未実施で後続候補、既存分岐コードは変更なし。
+- 実取得間隔08:37→09:07→09:37→10:07は30分04.210秒、29分54.669秒、30分08.169秒、最大30分08.169秒。run作成時刻ではなくJSON実取得時刻を使用。
+- 今回の投稿はLLM観測成功応答2、10,319tokens、失敗/未確認invocation0、新規費用$0。提供元無料枠消費・残量は未計測。performance/latestは本日00:07〜00:08取得版（blob ea8328345c0e28f2327e7b44c8ede083dc020ad9）から変更なし、q46601の採点・新ラウンド自己順位・入金は未確認。季末アンケートも別途確認が必要。
+- 最新AGENTS・README・実験ログを確認し、本日00:30の公式規則監査を再利用。数値形式失敗の再発防止、既報90分空白・Actions時刻不整合とGAS実配備観測不足、補助診断41145456702の429回復未確認は継続未解決。今回の監査終了判定修正でこれらまで解決扱いにしない。本人作業追加なし。
+
+- 修正反映後の[41371843521](https://github.com/after6labo/metac-bot-template/actions/runs/41371843521)は10:19:54.481131 JST実取得、job125043777630でPython98件（SDKを含みskipなし）・Node12件成功。最新版SHA f75f7d5839ec4258142ee4efd1299a4a033fc805と一致し、実行・artifact・履歴保存・成績工程すべてsuccess。latest/history完全一致。実際の監査障害を故意に起こしてはいないため、異常終了の検証はTDDと実障害JSON再生、正常本番経路の検証はこのrunと区別する。
+- 同runで新規MiniBench q46603/post46370（公式受付10:18:46〜13:18:46 JST）へ予測10:20:41.790・説明10:20:45.963 JST、q46602/post46369（受付10:09:06〜13:09:06 JST）へ予測10:23:19.083・説明10:23:23.657 JSTを送信。submitted=2、nonfatal_errors=0、pending/fetch_errors=[]、failed=0、needs_attention/provider_paused=false。両大会監査complete/matched、missing/mismatch/unknownなし。q46601はopen/already_forecasted=trueを独立APIで確認し、対応する投稿証拠と照合して再投稿なし。q46602/46603は投稿前監査のため、投稿後の保持は次回確認に残す。
+- この検証runは追加3観測応答・14,151tokens・失敗invocation0、新規費用$0。今回の確認区間合計およびUTC日記録は5成功応答・24,470tokens・失敗invocation0。追加の手動再投稿や無料提供元制限の迂回なし。現在確認できた受付中3問すべてに予測と説明の投稿証拠があるが、公式採点対象・順位・賞金への反映は未確認。
+- 10:07→10:19実取得間隔12分36.135秒。10:24時点の直近空白は約4分、最大は30分08.169秒のまま。締切までq46601約2時間21分、q46602約2時間45分、q46603約2時間54分。次回は直近通常間隔から10:49頃の見込み、native cron10:27/10:47も設定済みだが実取得を保証しない。新しい取り逃しは検出せず、過去の未回答・未解決インシデントは残す。
+
 ## 2026-11-02 06:49 JST — q46523の締切後予測保持を確認
 
 - 前回05:26:58.207 JST実取得run41346849598以降、41349387082（05:57:17.854）、[41352004440](https://github.com/after6labo/metac-bot-template/actions/runs/41352004440)（06:27:03.183）を照合。実取得間隔30分19.648秒・29分45.329秒、最大30分19.648秒。06:49:28時点の直近空白22分24.817秒。次回は直近実測から06:57頃の見込みのみで保証しない。

@@ -1,3 +1,12 @@
+## 2026-11-03 04:18 JST — 同回追跡: 46639・46640も取り逃し確定、停止後累計21問
+
+- 確認中に始まった[41508373335](https://github.com/after6labo/metac-bot-template/actions/runs/41508373335)を完了まで追跡。04:17:13.912908〜04:17:30.333923 JST、tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed0、pending4。上の04:17記録の確認待ちを更新する。
+- 46639/post46406（01:03:30〜04:03:30）と46640/post46407（01:15:56〜04:15:56）は独立APIでclosed/already_forecasted=false。前回pending・受付日時・後続送信結果なしと照合し追加2問を確定。この確認回全体で46637〜46640の4問を追加し、今回の提供元停止後累計21問。pending減少は復旧ではない。
+- 新規46644/post46411（04:05:06〜07:05:06 JST）も全件選択後provider_pausedで未投稿。受付中未回答4問は46641（04:23:47締切）、46642（06:09:47）、46643（06:25:09）、46644（07:05:06）。04:17:49基準の残りは5分58秒、1時間51分58秒、2時間07分20秒、2時間47分17秒。全問が保存済み停止期限09:00より先に締まる。次回通常取得04:47頃は46641締切後の見込みだが、追加実行を行っても停止を守る限りモデル投稿は回復しないため、制限迂回目的の再実行なし。
+- 両監査complete/matched、fetch_errors/missing/evidence mismatch/unknown=[]。MiniBench44posts/44questions（open4/closed40）、Fall103posts/102questions（open0/closed86/resolved16）。差分は46644追加と46639/46640closed化のみ、既知ID消失なし。最新/historyはblob0e81acae2b069667a63ce65260df2dd1d856575cでraw一致。
+- job125493445047のPython104件OK・Nodeテストstep成功、本番exit1、結果/成績artifact・履歴保存成功。稼働SHA8c83d1a599c038b9c969eb628f1a8a1bc57cccbbはActions一致。直前ログ更新より前のcheckoutであり、コードの旧版稼働ではない（この回はログのみ変更）。前実取得から30分04.657秒で、この回の最大間隔も同値。04:17:49時点の直近空白35.087秒、60分超なし。
+- 追加投稿/LLM成功応答/tokens/失敗invocation/記録上新規費用0、累計35応答/180010tokens/失敗18・cooldown1793664000は不変。投稿不能は未解決。停止条件・回答対象・コード・設定・確率・プロンプト変更なし、本人作業なし。上記公式規則監査再利用・成績未更新・既存未解決点を維持。追加記録の保存後、今回の4問取り逃しと新規3問未回答をまとめて通知。
+
 ## 2026-11-03 04:17 JST — 追加2問取り逃しで累計19問、新規46642・46643も未回答
 
 - 前回41494286153（02:47:06.523329 JST実取得）以降、41498972071（03:17:06.869058〜03:17:25.154396）と[41503701803](https://github.com/after6labo/metac-bot-template/actions/runs/41503701803)（03:47:09.255494〜03:47:27.613476）の全2実行・JSON履歴・Actions・jobログを照合。両方tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0。pending5→6→5で投稿復旧なし。

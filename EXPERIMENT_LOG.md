@@ -1,3 +1,14 @@
+## 2026-11-03 04:45 JST — 46641取り逃し確定、提供元停止後累計22問
+
+- 前回41508373335（04:17:13.912908 JST実取得）以降、新規はnative scheduleの[41512276182](https://github.com/after6labo/metac-bot-template/actions/runs/41512276182)のみ。実取得04:42:16.480111〜04:42:35.343683、tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending3。前回の04:47頃という見込みに対し、実際にはnative scheduleが04:42に取得した。
+- MiniBench46641/post46408（01:23:47〜04:23:47 JST）は独立APIでclosed/already_forecasted=false。前回pending・公式日時・後続outcomes=[]と照合し未投稿取り逃しを確定。今回の提供元停止後は累計22問。pending4→3は締切による減少で復旧ではない。
+- 受付中未回答は46642/post46409（03:09:47〜06:09:47）、46643/post46410（03:25:09〜06:25:09）、46644/post46411（04:05:06〜07:05:06 JST）の3問、全件選択後provider_paused。04:44:17時点の残りは1時間25分30秒、1時間40分52秒、2時間20分49秒。次の通常取得は直近実測間隔なら05:12頃、GASの従来位相なら04:47以降が候補で確定時刻ではない。いずれにせよ全3問の締切が停止期限09:00より先で、投稿再開見込みではない。
+- 両大会独立監査complete/matched、fetch_errors/missing/evidence mismatch/unknown=[]。MiniBench44posts/44questions（open3/closed41）、Fall103posts/102questions（open0/closed86/resolved16）。全状態差分は46641closed化だけで新規・消失IDなし。Fall取得0は独立監査と整合するが本番追加投稿なし。latest/history41512276182-1.jsonはblob bab227e0de73d11e370197dfcab98bd0c618d185でraw一致、稼働SHA bf204c9eda5fdecff4984ba173b5b8d202bdf30eとActions一致。
+- 最新AGENTS・ログ・main.py・request_budget.py・budgetを照合。コードblobは前回と同一（main.py ce7c0a60beb5af9f8ff430bb51e655ebc2ade6d7、request_budget.py 0b618784fb9401c557b304b998e33bcce5c08f46）。budget cc4406c5d361eb89d2e0c7024e4650697dd8c067、cooldown_until_epoch=1793664000（11/3 09:00 JST）は不変。保存済み提供元応答由来停止を継承し、独自日次上限ではない。元HTTPコードの別・ヘッダー原文未保存の限界も継続。制限を守った締切内復旧につながる実装不具合の新証拠なし。追加試行・停止短縮解除・有料切替をせず、投稿不能を未解決として維持。
+- 実取得間隔25分02.567秒、04:44:17時点の直近空白2分00.520秒、60分超なし。job125506865229でPython104件OK、Nodeテストstep成功、本番exit1、結果artifact/history保存push・成績artifact成功を確認。テストや保存成功を競技投稿の証拠にしない。
+- 新規投稿・追加LLM成功応答/tokens/失敗invocation・記録上新規費用0。累計35応答/180010tokens/失敗18で不変、提供側無料枠消費・残量・請求実測ではない。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627で不変、公式成績更新なし、賞金受領未確認。同日01:21公式規則監査を再利用。
+- 実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。追加1問の取り逃しを通知し定期監視を維持。既報の形式障害再発防止・例外記録不足・90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認も維持。
+
 ## 2026-11-03 04:18 JST — 同回追跡: 46639・46640も取り逃し確定、停止後累計21問
 
 - 確認中に始まった[41508373335](https://github.com/after6labo/metac-bot-template/actions/runs/41508373335)を完了まで追跡。04:17:13.912908〜04:17:30.333923 JST、tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed0、pending4。上の04:17記録の確認待ちを更新する。

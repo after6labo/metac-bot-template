@@ -1,3 +1,15 @@
+## 2026-11-03 04:17 JST — 追加2問取り逃しで累計19問、新規46642・46643も未回答
+
+- 前回41494286153（02:47:06.523329 JST実取得）以降、41498972071（03:17:06.869058〜03:17:25.154396）と[41503701803](https://github.com/after6labo/metac-bot-template/actions/runs/41503701803)（03:47:09.255494〜03:47:27.613476）の全2実行・JSON履歴・Actions・jobログを照合。両方tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0。pending5→6→5で投稿復旧なし。
+- MiniBench46637/post46404（00:31:04〜03:31:04）と46638/post46405（00:45:08〜03:45:08 JST）は03:47独立APIでclosed/already_forecasted=false。前回pending・全後続outcomes=[]・公式日時と照合し追加2問の取り逃しを確定。今回の提供元停止後累計19問、過去の取り逃しも保持。
+- 新規未回答46642/post46409の受付は03:09:47〜06:09:47、46643/post46410は03:25:09〜06:25:09 JST。いずれも選択済み/provider_paused。既存46639/46640/46641も未投稿のまま。独自batch_limitや題材除外なし。
+- 04:16:05基準で46639（04:03:30締切）と46640（04:15:56）は締切経過。ただし最新公式API取得03:47は締切前なのでclosed化確認待ちとし、確定19問にまだ加算しない。既知の締切前未回答は46641（04:23:47、残り7分42秒）、46642（06:09:47、1時間53分42秒）、46643（06:25:09、2時間09分04秒）の3問。次回通常実取得は04:17頃の見込みのみ、最短締切前だが保証なし。新規出題を含む現時点全件数は次回取得まで未確定。
+- 両実行の両大会独立監査complete/matched、missing/evidence mismatch/unknown・fetch_errors=[]。最新MiniBench43posts/43questions（取得時open5/closed38）、Fall103posts/102questions（open0/closed86/resolved16）。全状態一覧差分は46642/46643追加と46637/46638closed化のみ、既知ID消失・その他回答状態変化なし。Fallの取得0は独立監査と整合するが、本番投稿なし。
+- AGENTS/main.py/request_budget.pyは前回blobと一致（e6829347f5d734b567c60783cf568c7147421bbf / ce7c0a60beb5af9f8ff430bb51e655ebc2ade6d7 / 0b618784fb9401c557b304b998e33bcce5c08f46）。停止処理とbudgetを再確認し、cooldown_until_epoch=1793664000（11/3 09:00 JST）は不変。以前の402/429処理で保存された提供元応答由来停止を継承し、独自日次上限ではない。元HTTPコードの別・ヘッダー原文未保存という観測不足は継続。全既知未回答の締切が再開可能時刻より前。制限遵守内で締切内復旧できる実装不具合の新証拠なし。停止短縮解除・追加試行・別ルート回避・有料切替なし。投稿不能は未解決であり、09:00後の提供元復旧・投稿も保証しない。
+- JSON実取得間隔30分00.346秒・30分02.386秒、最大30分02.386秒。04:16:05時点の直近空白28分55.745秒、60分超なし。jobs125461227632/125477427145は各Python104件OK・Nodeテストstep成功、本番exit1、結果artifact/history保存push・成績artifact成功。稼働SHAとActions一致、最新/history41503701803-1.jsonはblob656b4562ddc87f2b8121fff23e04ef3d5953c667でraw一致。テスト・取得・保存成功は投稿障害解消ではない。
+- 追加投稿・LLM成功応答/tokens/失敗invocation・記録上新規費用0。UTC11/2累計35応答/180010tokens/失敗18、budget blob cc4406c5d361eb89d2e0c7024e4650697dd8c067で不変。提供側無料枠消費数・残量・請求実測ではない。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627で不変、公式成績更新なし、賞金受領未確認。同日01:21公式規則監査を再利用。
+- 実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。新たな取り逃し・未回答を通知し、定期受付監視を維持。既報の形式障害再発防止・例外記録不足・90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認は継続。
+
 ## 2026-11-03 02:53 JST — 46632〜46636の5問取り逃し確定、停止後累計17問
 
 - 前回41484723995（01:47:02.765933 JST実取得）以降の全2本番実行、[41489568988](https://github.com/after6labo/metac-bot-template/actions/runs/41489568988)（02:17:04.065099〜02:17:21.575879）と[41494286153](https://github.com/after6labo/metac-bot-template/actions/runs/41494286153)（02:47:06.523329〜02:47:25.993804）のJSON履歴・Actions・jobログを照合。両方mode=tournament/status=attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0。pending10→7→5は投稿復旧ではなく締切による減少。

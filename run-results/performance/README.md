@@ -1,13 +1,13 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-01T15:07:29.972482+00:00
+取得開始（UTC）: 2026-11-02T15:17:32.953243+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 272 | -381.05 | 9 | 2026-11-01T12:59:43.453667Z |
+| Fall 2026 FutureEval Bot Tournament | 267 | -337.13 | 10 | 2026-11-02T15:09:30.522454Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
-| MiniBench - 2026-10-19 | 237 | -196.78 | 38 | 2026-11-01T11:23:50.636847Z |
+| MiniBench - 2026-10-19 | 237 | -174.78 | 39 | 2026-11-02T11:15:26.433314Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-09-07 | 未確認 | 未確認 | 未確認 | 未確認 |
@@ -16,6 +16,7 @@
 
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
+| fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
 | fall-futureeval-2026 | [q46290](https://www.metaculus.com/questions/46052/) | 4.857142858 | -10.68 |
 | fall-futureeval-2026 | [q46291](https://www.metaculus.com/questions/46053/) | yes | -16.03 |
 | fall-futureeval-2026 | [q46292](https://www.metaculus.com/questions/46054/) | no | -22.38 |
@@ -29,12 +30,14 @@
 | fall-futureeval-2026 | [q46137](https://www.metaculus.com/questions/45955/) | above_upper_bound | 未確認 |
 | fall-futureeval-2026 | [q46138](https://www.metaculus.com/questions/45956/) | Massachusetts | 未確認 |
 | fall-futureeval-2026 | [q46139](https://www.metaculus.com/questions/45957/) | yes | 未確認 |
+| fall-futureeval-2026 | [q46140](https://www.metaculus.com/questions/45958/) | 39.0 | 未確認 |
 | minibench-2026-10-19 | [q46400](https://www.metaculus.com/questions/46171/) | no | 90.02 |
 | minibench-2026-10-19 | [q46368](https://www.metaculus.com/questions/46139/) | 741.0 | 40.55 |
 | minibench-2026-10-19 | [q46360](https://www.metaculus.com/questions/46131/) | no | 33.69 |
 | minibench-2026-10-19 | [q46358](https://www.metaculus.com/questions/46129/) | 12.0 | 22.78 |
 | minibench-2026-10-19 | [q46397](https://www.metaculus.com/questions/46168/) | yes | 22.43 |
 | minibench-2026-10-19 | [q46403](https://www.metaculus.com/questions/46174/) | 9.49 | 22.13 |
+| minibench-2026-10-19 | [q46409](https://www.metaculus.com/questions/46180/) | yes | 22.01 |
 | minibench-2026-10-19 | [q46359](https://www.metaculus.com/questions/46130/) | yes | 20.12 |
 | minibench-2026-10-19 | [q46390](https://www.metaculus.com/questions/46161/) | 11.0 | 17.29 |
 | minibench-2026-10-19 | [q46388](https://www.metaculus.com/questions/46159/) | no | 12.10 |

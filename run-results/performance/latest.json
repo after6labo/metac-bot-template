@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-01T15:07:29.972482+00:00",
-  "run_id": "41319498061",
+  "started_at_utc": "2026-11-02T15:17:32.953243+00:00",
+  "run_id": "41469944755",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,26 +20,36 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 13,
+          "max_coverage": 15,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -381.0486164093444,
-            "rank": 272,
-            "coverage": 9,
-            "contribution_count": 9,
-            "calculated_on": "2026-11-01T12:59:43.453667Z",
+            "score": -337.1280611857916,
+            "rank": 267,
+            "coverage": 10,
+            "contribution_count": 10,
+            "calculated_on": "2026-11-02T15:09:30.522454Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -652.6784622409681,
-            "ci_upper": -162.8330919497648
+            "ci_lower": -641.6842073462975,
+            "ci_upper": -79.36657375506985
           },
           "listed_entry_count": 396,
           "ranked_entry_count": 396,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
+            {
+              "question_id": 46141,
+              "post_id": 45959,
+              "question_title": "How many Falcon 9 or Falcon Heavy orbital launches will SpaceX have in the second half of October 2026?",
+              "question_type": "multiple_choice",
+              "question_resolution": "Five or Six",
+              "score": 43.92055522355283,
+              "coverage": 1,
+              "question_weight": 1
+            },
             {
               "question_id": 46290,
               "post_id": 46052,
@@ -169,13 +179,74 @@
               "score": null,
               "coverage": null,
               "question_weight": 1
+            },
+            {
+              "question_id": 46140,
+              "post_id": 45958,
+              "question_title": "How many mass shootings will the U.S. experience in October 2026?",
+              "question_type": "discrete",
+              "question_resolution": "39.0",
+              "score": null,
+              "coverage": null,
+              "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 87,
+          "unresolved_contribution_count": 86,
           "contributions_status": "completed"
         }
       ],
       "resolved_questions": [
+        {
+          "id": 46141,
+          "type": "multiple_choice",
+          "resolution": "Five or Six",
+          "actual_resolve_time": "2026-11-02T14:58:00Z",
+          "open_time": "2026-10-12T09:00:00Z",
+          "actual_close_time": "2026-10-12T12:00:00Z",
+          "spot_scoring_time": "2026-10-12T12:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": [
+            "Two or fewer",
+            "Three or Four",
+            "Five or Six",
+            "Seven or more"
+          ],
+          "score_data": {
+            "baseline_score": 1.0456847327825203,
+            "peer_score": 1.0852316731801301,
+            "coverage": 0.024662465740133213,
+            "relative_legacy_score": 0.008786828357760719,
+            "weighted_coverage": 0.024662465740133213,
+            "spot_peer_score": 43.92055522355283,
+            "spot_baseline_score": 42.39984532774751
+          },
+          "last_forecast": {
+            "start_time": 1791806133.64537,
+            "end_time": null,
+            "forecast_values": [
+              0.05,
+              0.2,
+              0.45,
+              0.3
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 45959
+        },
         {
           "id": 46290,
           "type": "discrete",
@@ -1696,7 +1767,7 @@
           "ranked_entry_count": 0,
           "prize_payment_confirmed": null,
           "resolved_contributions": [],
-          "unresolved_contribution_count": 0,
+          "unresolved_contribution_count": 36,
           "contributions_status": "completed"
         }
       ],
@@ -1723,24 +1794,24 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 56,
+          "max_coverage": 57,
           "prize_pool": 1000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -196.78281945331696,
+            "score": -174.77583478482273,
             "rank": 237,
-            "coverage": 38,
-            "contribution_count": 38,
-            "calculated_on": "2026-11-01T11:23:50.636847Z",
+            "coverage": 39,
+            "contribution_count": 39,
+            "calculated_on": "2026-11-02T11:15:26.433314Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -502.3161835621851,
-            "ci_upper": 121.08570981086329
+            "ci_lower": -476.4185377213735,
+            "ci_upper": 157.99287079970873
           },
-          "listed_entry_count": 394,
-          "ranked_entry_count": 394,
+          "listed_entry_count": 399,
+          "ranked_entry_count": 399,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
             {
@@ -1800,6 +1871,16 @@
               "question_type": "numeric",
               "question_resolution": "9.49",
               "score": 22.12964091878142,
+              "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46409,
+              "post_id": 46180,
+              "question_title": "Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": 22.006984668494223,
               "coverage": 1,
               "question_weight": 1
             },
@@ -2304,7 +2385,7 @@
               "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 3,
+          "unresolved_contribution_count": 2,
           "contributions_status": "completed"
         }
       ],
@@ -3407,6 +3488,50 @@
           },
           "forecast_count": 1,
           "post_id": 46174
+        },
+        {
+          "id": 46409,
+          "type": "binary",
+          "resolution": "yes",
+          "actual_resolve_time": "2026-10-30T12:00:00Z",
+          "open_time": "2026-10-22T05:40:32Z",
+          "actual_close_time": "2026-10-22T08:40:32Z",
+          "spot_scoring_time": "2026-10-22T08:40:32Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": 45.678196186945826,
+            "peer_score": 18.0656976229878,
+            "coverage": 0.8366454683409792,
+            "relative_legacy_score": 0.32550796045016234,
+            "weighted_coverage": 0.8366454683409792,
+            "spot_peer_score": 22.006984668494223,
+            "spot_baseline_score": 54.59683691052925
+          },
+          "last_forecast": {
+            "start_time": 1792649396.228942,
+            "end_time": null,
+            "forecast_values": [
+              0.27,
+              0.73
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46180
         },
         {
           "id": 46359,
@@ -16310,6 +16435,13 @@
   },
   "minibench_rounds": [
     {
+      "id": 33135,
+      "slug": "minibench",
+      "name": "MiniBench",
+      "start_date": "2026-11-02T00:00:00Z",
+      "close_date": "2026-11-20T00:00:00Z"
+    },
+    {
       "id": 33132,
       "slug": "minibench-2026-10-19",
       "name": "MiniBench - 2026-10-19",
@@ -16340,7 +16472,7 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-01T15:08:50.483291+00:00",
+  "finished_at_utc": "2026-11-02T15:18:58.869070+00:00",
   "resolution_signature": [
     45707,
     46133,
@@ -16350,6 +16482,8 @@
     46137,
     46138,
     46139,
+    46140,
+    46141,
     46184,
     46185,
     46290,

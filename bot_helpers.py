@@ -27,14 +27,10 @@ _PLACEHOLDER_ENV_VALUES = {
 
 
 def should_fail_run(result: Mapping[str, Any]) -> bool:
-    """Return true only when the run needs an immediate failure notification.
-
-    Audit-only attention remains in the persisted result for monitoring, while
-    unanswered questions, SDK fetch failures, publication failures, and a
-    provider pause still fail the Action.
-    """
+    """Fail after persistence for any unresolved runtime or audit attention."""
     return bool(
-        result.get("pending_questions")
+        result.get("needs_attention")
+        or result.get("pending_questions")
         or result.get("fetch_errors")
         or result.get("failed_or_unconfirmed")
         or result.get("status")
@@ -175,3 +171,4 @@ def print_run_summary_banner(
 
     print(banner)
     print()
+

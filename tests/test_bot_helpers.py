@@ -9,7 +9,7 @@ from bot_helpers import print_run_summary_banner
 
 
 class RunSummaryBannerTests(unittest.TestCase):
-    def test_audit_only_attention_is_persisted_without_failing_the_action(self):
+    def test_audit_only_attention_fails_the_action(self):
         result = {
             "needs_attention": True,
             "status": "attention_required",
@@ -17,8 +17,22 @@ class RunSummaryBannerTests(unittest.TestCase):
             "fetch_errors": [],
             "failed_or_unconfirmed": 0,
         }
-        should_fail = getattr(bot_helpers, "should_fail_run", lambda _: True)
-        self.assertFalse(should_fail(result))
+        self.assertTrue(bot_helpers.should_fail_run(result))
+
+    def test_attention_after_partial_publication_fails_the_action(self):
+        self.assertTrue(bot_helpers.should_fail_run({
+            "needs_attention": True, "status": "completed", "submitted": 1,
+            "pending_questions": [], "fetch_errors": [], "failed_or_unconfirmed": 0,
+        }))
+
+    def test_healthy_runs_do_not_fail_the_action(self):
+        for status in ("completed", "no_new_questions"):
+            with self.subTest(status=status):
+                self.assertFalse(bot_helpers.should_fail_run({
+                    "needs_attention": False, "status": status,
+                    "pending_questions": [], "fetch_errors": [],
+                    "failed_or_unconfirmed": 0,
+                }))
 
     def test_unanswered_question_still_fails_the_action(self):
         result = {
@@ -58,3 +72,4 @@ class RunSummaryBannerTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

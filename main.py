@@ -574,7 +574,20 @@ class SummerTemplateBot2026(ForecastBot):
         question: NumericQuestion,
         prompt: str,
     ) -> ReasonedPrediction[NumericDistribution]:
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
+        for attempt in range(3):
+            try:
+                reasoning = await self.get_llm("default", "llm").invoke(prompt)
+                break
+            except ProviderPaused:
+                raise
+            except Exception as exc:
+                if attempt == 2:
+                    raise
+                logger.warning(
+                    "Numeric generation failed; retrying (%s/3, %s)",
+                    attempt + 2,
+                    type(exc).__name__,
+                )
         logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
         parsing_instructions = clean_indents(
             f"""

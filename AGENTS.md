@@ -39,7 +39,7 @@ The goal is measured official tournament performance and prize receipts, not a d
 - Explicit Fall 2026 slug: fall-futureeval-2026 (33121); MiniBench alias: minibench.
   Review after the season; do not blindly trust the locked SDK seasonal constant.
 - OpenRouter free router only; no live search; no tournament question-count cap; one reasoning
-  sample. Multiple-choice generation allows up to three bounded invocations on
+  sample. Multiple-choice and numeric generation allow up to three bounded invocations on
   generation exceptions (at most six provider attempts with the SDK's two-attempt
   policy); ProviderPaused immediately propagates. Successful generation is not
   repeated for parsing failures. Multiple-choice forecasts first use strict local exact option-percentage lines
@@ -180,7 +180,9 @@ Run36593994796 separately logged prediction publication at Sep30 00:58:59.446 JS
 - Remaining technical settings are disclosed: one reasoning sample per forecast;
   a strict local exact-line parser followed by up to three structure-conversion attempts
   for multiple-choice forecasts, three for
-  numeric forecasts; binary forecasts allow three bounded generations with one
+  numeric forecasts; numeric generation retries exceptions up to three invocations
+  without regenerating successful reasoning for conversion failures, and propagates
+  ProviderPaused immediately. Binary forecasts allow three bounded generations with one
   conversion each, while date forecasts retain one conversion. Numeric answers also have a
   local fallback only for all six exact requested percentile lines with plain numeric
   values; it does not infer missing values or convert unit suffixes. An 8,192-token model output

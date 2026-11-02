@@ -1,3 +1,13 @@
+## 2026-11-03 08:42 JST — 46645締切経過、締切後API照合待ち
+
+- 前回41537262976以降の全2本番実行、41541399999（07:57:12.628086〜07:57:29.391513 JST）と[41545432051](https://github.com/after6labo/metac-bot-template/actions/runs/41545432051)（08:27:14.494131〜08:27:31.495644）の履歴・Actions・jobログを確認。両方tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending46645のみ、選択後provider_paused。独自上限・題材除外なし。
+- MiniBench46645/post46412（05:41:04〜08:41:04 JST）は08:27の最新独立APIでopen/already_forecasted=false。08:42:07現在、締切から1分03秒経過したが、締切後のAPI取得はまだない。closed/未投稿の照合待ちとして、確認済み取り逃し25問とは分けて保持する。既知問題で締切前の未回答はなくなったが、新規出題を含む現在の受付件数は未確認であり、障害復旧や受付0件を断定しない。
+- 全2実行の両大会監査complete/matched、fetch_errors/missing/evidence mismatch/unknown=[]。全状態一覧は前回と同一。MiniBench45posts/45questions（取得時open1/closed44）、Fall103posts/102questions（open0/closed86/resolved16）。latest/history41545432051-1.jsonはblobaad0239a4aba340dc74711646c88dbfff5d55d64でraw一致。稼働git_shaはActions headと一致。
+- 実取得間隔は29分56.379720秒・30分01.866045秒。08:42:07時点の直近空白14分52.505869秒、最大30分01.866045秒で60分超なし。jobs125606192316/125619745987の完全ログで各Python104件OK・Node12件成功、本番exit1、結果/成績artifactとhistory push成功（816148c/8a7a590）を確認。保存・テスト成功を競技投稿や復旧の証拠にしない。
+- 最新AGENTS・実験ログ・main.py・request_budget.py・budgetを再照合しコードと停止状態は不変。budget cc4406c5d361eb89d2e0c7024e4650697dd8c067、cooldown_until_epoch1793664000（09:00 JST）。提供元応答由来の停止を継承、独自日次上限ではない。元HTTPコードの別/原文ヘッダー未記録の限界は継続。停止を守った締切内復旧につながる新しい技術原因の証拠なし。停止短縮解除・追加モデル試行・別ルート回避・有料切替なし。
+- 次回通常実取得は08:57頃、停止期限後は直近約30分間隔なら09:27頃が見込みであり保証なし。09:00にcan_requestの時刻条件を満たしても、実際の提供元応答・競技投稿成功とは区別する。今後の受付中未回答と送信証拠を確認し、過去の取り逃しは消さない。
+- 追加投稿・LLM応答/tokens/失敗invocation・記録上新規費用0。UTC11/2累計35応答/180010tokens/失敗18は不変、提供元無料枠消費・残量の実測ではない。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627で不変、成績更新なし・賞金受領未確認。本日01:21公式規則監査を再利用。実験ログのみ更新、回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。既存定期運用と既報未解決障害を維持し、同一停止の通知は重ねない。
+
 ## 2026-11-03 07:41 JST — 46642〜46644の取り逃し確定、提供元停止後累計25問
 
 - 前回06:34確認以降の新規本番3実行、41529864313（06:37:11.301032〜06:37:30.155585 JST）、41532859975（06:57:10.605532〜06:57:30.032742）、[41537262976](https://github.com/after6labo/metac-bot-template/actions/runs/41537262976)（07:27:16.248366〜07:27:34.553311）の全履歴・Actions・jobログを照合。全てtournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending2→2→1。選択後のprovider_pausedのみ、独自batch_limit・題材除外なし。pending減少は復旧ではない。

@@ -1,3 +1,13 @@
+## 2026-11-02 23:40 JST — 新規46632〜46634も提供元停止で未回答、pending5問
+
+- 前回41455863736（22:47:03.093796 JST実取得）以降、[41460346005](https://github.com/after6labo/metac-bot-template/actions/runs/41460346005)は23:17:04.779997〜23:17:20.778647に実取得・終了。tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0。pending2→5で、投稿不能は未解決。
+- 新規MiniBench q46632/post46399（11/2 22:49:10〜11/3 01:49:10）、q46633/post46400（22:55:28〜01:55:28）、q46634/post46401（22:58:57〜01:58:57 JST）を全件選択したがprovider_pausedで未投稿。既存46630（00:21:04締切）・46631（00:31:12）も未回答。23:39:34時点の残りは46630から順に41分30秒、51分38秒、2時間09分36秒、2時間15分54秒、2時間19分23秒。5問全て停止期限11/3 09:00より先に締まる。次回通常実取得は23:47頃の見込みのみで保証せず、停止中の取得継続はモデル投稿再開ではない。
+- 両大会の独立API監査complete/matched、missing/evidence mismatch/unknown・fetch_errors=[]。MiniBench34posts/34questions（open5/closed29）、Fall103posts/102questions（open0/closed88/resolved14）。前回全状態一覧との差分は上記3問の追加だけ、既知ID消失・回答状態変化なし。追加取り逃しの確定なし、今回停止後の既報10問は保持し解消扱いしない。独自batch_limit・題材除外なし。
+- 最新AGENTS/main.py/request_budget.pyは前回blobと一致（e6829347f5d734b567c60783cf568c7147421bbf / ce7c0a60beb5af9f8ff430bb51e655ebc2ade6d7 / 0b618784fb9401c557b304b998e33bcce5c08f46）。budgetとrunのcooldown_until_epoch=1793664000は不変。前回402/429処理経路で保存された停止を継承し、元HTTPコードの別・ヘッダー原文が未保存という観測不足も継続。独自日次上限の証拠なし。制限内で締切内復旧できるコード不具合の新証拠はなく、追加試行・停止短縮解除・別ルート回避・有料切替はしない。未投稿を正常とは判定しない。
+- 実取得間隔30分01.686秒、23:39:34時点の直近空白22分29.220秒、60分超なし。job125327472840のPython104件/Node12件成功、本番exit1、結果artifact・history・budget・成績artifact保存成功をログで確認。稼働SHA f6aa7f208d3ec5336f8232a777f213a203f7b964とActions一致、latest/history41460346005-1.jsonはblob19af608d34436d4110b26eaf0517ce2e1dc62d55でraw一致。取得・テスト・保存成功は投稿障害の解消ではない。
+- 追加投稿・LLM成功応答/tokens/失敗invocation・記録上新規費用0。UTC11/2累計35応答/180010tokens/失敗18は不変、提供側無料枠消費・残量・請求実測ではない。performance/latestは同日00:07〜00:08版ea8328345c0e28f2327e7b44c8ede083dc020ad9から不変、採点・賞金受領に新しい証拠なし。同日00:30公式規則監査を再利用。
+- 実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。新しい未回答3問を通知し、既存の定期受付監視を維持。既報の形式障害再発防止・例外記録不足・90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認も維持。
+
 ## 2026-11-02 23:04 JST — 46629の取り逃し確定、停止後累計10問、未回答2問継続
 
 - 前回41447410116（21:47:14.136779 JST実取得）以降、[41451534797](https://github.com/after6labo/metac-bot-template/actions/runs/41451534797)（22:17:18.813937〜22:17:36.169353）、[41455863736](https://github.com/after6labo/metac-bot-template/actions/runs/41455863736)（22:47:03.093796〜22:47:21.978080）の全2履歴・Actions・jobログを照合。両方tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending2。投稿不能は未解決。

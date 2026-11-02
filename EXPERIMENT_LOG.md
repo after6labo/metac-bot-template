@@ -1,3 +1,14 @@
+## 2026-11-03 06:09 JST — 新規46645も未回答、提供元停止継続
+
+- 前回41512276182（04:42:16.480111 JST実取得）以降、41516111069（05:07:15.795389〜05:07:32.632869）、41520740456（05:37:11.180429〜05:37:27.016304）、[41525263992](https://github.com/after6labo/metac-bot-template/actions/runs/41525263992)（06:07:01.425619〜06:07:19.629061）の3本番履歴を照合。全てtournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending3→3→4。全候補選択後provider_paused、独自上限・題材除外なし。
+- 新規MiniBench46645/post46412は公式受付05:41:04〜08:41:04 JST、already_forecasted=falseで未投稿。既存46642/post46409（06:09:47締切）、46643/post46410（06:25:09）、46644/post46411（07:05:06）も未回答。06:09:11現在の残りはID順に36秒、15分58秒、55分55秒、2時間31分53秒。全4問が停止期限09:00より先に締まる。次回実取得は直近実測から06:37頃の見込み（保証なし）で、46642・46643の締切後。取得予定は投稿再開予定ではない。
+- 全3実行の両大会監査complete/matched、fetch_errors/missing/evidence mismatch/unknown=[]。MiniBench最新45posts/45questions（open4/closed41）、Fall103posts/102questions（open0/closed86/resolved16）。前回全状態一覧との差分は46645追加だけ、既知ID消失・回答状態変化なし。確定取り逃しは今回提供元停止後22問を維持。46642は最新API取得時にはopenであり、締切後のclosed/未投稿照合は次回確認する。締切経過を復旧扱いしない。
+- latest/history41525263992-1.jsonはblob95651cd07d738c5d0325eace9e450f33b79c8066でraw一致。各実行のgit_shaとActions headは一致。実取得間隔24分59.315278秒、29分55.385040秒、29分50.245190秒、最大29分55.385040秒。06:09:11時点の直近空白2分09.574381秒で60分超なし。
+- jobs125519980114/125535792208のログでPython104件OK・Node12件成功、本番exit1、結果/成績artifactとhistory push成功を確認。最新job125551242782は06:09:11確認時点で本番処理・結果artifact・結果保存step完了、Python/Nodeテストstep成功、成績artifact保存中でjob全体はin_progress。完成前のjobログ取得はBlobNotFoundのため最新jobの完全ログ・最終終了状態は未確認として残す。最新本番JSON/historyの永続化は直接確認済み。テスト・取得・保存成功を競技投稿成功としない。
+- AGENTS/main.py/request_budget.pyは前回blobと一致。停止処理とbudgetを再照合し、budget cc4406c5d361eb89d2e0c7024e4650697dd8c067、cooldown_until_epoch=1793664000（09:00 JST）不変。402/429処理経路で保存した提供元応答由来停止の継承であり、独自日次上限ではない。元HTTPコードの別・ヘッダー原文未保存の証拠不足は継続。締切内復旧につながる実装不具合の新証拠なし。停止短縮解除・追加モデル試行・別ルート回避・有料切替なし。09:00以後の復旧・投稿成功も未検証で、投稿不能は未解決。
+- 新規投稿・追加LLM成功応答/tokens/失敗invocation・記録上新規費用0。UTC11/2累計35応答/180010tokens/失敗18は不変、提供元無料枠消費数・残量・請求実測ではない。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627で不変、公式成績更新なし・賞金受領未確認。本日01:21公式規則監査を再利用。
+- 実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。新たな46645未回答を通知し、定期運用は維持。既報の形式障害再発防止・例外記録不足・90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認も維持。
+
 ## 2026-11-03 04:45 JST — 46641取り逃し確定、提供元停止後累計22問
 
 - 前回41508373335（04:17:13.912908 JST実取得）以降、新規はnative scheduleの[41512276182](https://github.com/after6labo/metac-bot-template/actions/runs/41512276182)のみ。実取得04:42:16.480111〜04:42:35.343683、tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending3。前回の04:47頃という見込みに対し、実際にはnative scheduleが04:42に取得した。

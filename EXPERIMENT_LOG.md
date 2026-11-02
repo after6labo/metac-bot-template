@@ -1,3 +1,12 @@
+## 2026-11-02 17:52 JST — 新規46625も提供元停止で未回答、pending6件
+
+- 前回17:17:10.555367 JST実取得41411827594以降、[41415487664](https://github.com/after6labo/metac-bot-template/actions/runs/41415487664)は17:47:21.288377に実取得、17:47:38.072588終了。mode=tournament/status=attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending6。未投稿があるため正常扱いしない。実取得間隔30分10.733秒、17:51:23時点の直近空白4分01.712秒、60分未満。
+- 新規MiniBench q46625/post46392は公式受付17:46:50〜20:46:50 JST、already_forecasted=false、provider_pausedで未投稿。既存46619/46620/46621/46623/46624も全て未回答のまま。17:51:23時点の締切までの残りは46619=1時間00分34秒、46620=1時間02分07秒、46621=1時間03分32秒、46623=2時間15分38秒、46624=2時間16分45秒、46625=2時間55分27秒。今回の新規影響を追加記録し、同じ停止の通知済みを理由に新問の未回答を閉じない。全6問ともまだ締切前で、取り逃し確定ではない。
+- 停止期限1793664000（11/3 09:00 JST）とbudgetの累計35成功応答/180010tokens/失敗invocation18は不変。main.py・request_budget.py・AGENTSは前回確認済みblobと一致。前回402/429経路で設定されたヘッダー由来cooldownを継承し、今回はLLM成功応答/tokens/失敗invocationすべて追加0。元のHTTPコードの別・応答原文が未記録という限界も不変。新しい拒否応答を得るための再試行はしない。モデル再開可能時刻は6問全ての締切後で、制限遵守内で締切内投稿を回復できるコード不具合の証拠は得られず。未解決の投稿不能として維持する。次回通常取得は18:17頃の見込みのみ、実取得と解除後の提供元復旧は保証しない。
+- 両大会独立API監査complete/matched、missing/evidence mismatch/unknown・fetch_errors=[]。MiniBench25posts/25questions（open10/closed15）、Fall103posts/102questions（open0/closed88/resolved14）。Fall全状態一覧は前回同一、MiniBench既知ID消失なし。差分は46625追加と46614/46615のclosed化のみで、両問already_forecasted=true。46614は15:23:19.360予測・15:23:23.319説明、46615は14:51:10.353予測・14:51:14.646説明という既報受付内送信と照合し、締切後保持を確認。投稿済み46616/46617/46618/46622のskipにも既存送信証拠あり。既存pendingの消失なし、過去の取り逃しも維持。
+- job125178180240でPython104件・Node12件成功、本番exit1、結果・成績artifactと履歴保存成功を確認。稼働SHA c90426e9b717463f56eac9473ebf7ad16039bfc1とActions一致。latest/history/41415487664-1.jsonはblob f92088f0919bef462c16f612511644df6f2faa8bでraw内容一致。テスト・監査・保存成功と未投稿障害を区別。
+- 新規投稿・追加LLM利用・記録上新規費用0。無料枠消費数・残量・請求実測ではない。performance/latestは本日00:07〜00:08版（ea8328345c0e28f2327e7b44c8ede083dc020ad9）から不変、採点対象認定・新問得点・賞金受領は未確認。同日00:30公式規則監査を再利用。実験ログのみ更新し、回答対象・停止条件・コード・設定・確率・プロンプト変更、手動再実行・有料切替・本人作業なし。受付監視を継続し、既報の形式障害再発防止・例外記録不足・90分空白/時刻不整合/GAS観測不足・補助診断429未確認も維持。
+
 ## 2026-11-02 17:37 JST — 提供元停止継続、受付中未回答が3問から5問へ増加
 
 - 前回41405214042の16:17:12.667796 JST実取得以降、[41408447397](https://github.com/after6labo/metac-bot-template/actions/runs/41408447397)（16:47:04.793183）と[41411827594](https://github.com/after6labo/metac-bot-template/actions/runs/41411827594)（17:17:10.555367）を確認。両方mode=tournament、status=attention_required/needs_attention=true/provider_paused=true、Actions failure。submitted0/outcomes=[]/failed_or_unconfirmed0だがpendingは3→5であり、正常・投稿成功とは判定しない。

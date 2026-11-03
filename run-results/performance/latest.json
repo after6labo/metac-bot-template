@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-02T15:17:32.953243+00:00",
-  "run_id": "41469944755",
+  "started_at_utc": "2026-11-03T14:58:34.248585+00:00",
+  "run_id": "41658650224",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,24 +20,24 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 15,
+          "max_coverage": 16,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -337.1280611857916,
-            "rank": 267,
-            "coverage": 10,
-            "contribution_count": 10,
-            "calculated_on": "2026-11-02T15:09:30.522454Z",
+            "score": -340.31474978576705,
+            "rank": 270,
+            "coverage": 11,
+            "contribution_count": 11,
+            "calculated_on": "2026-11-03T14:46:16.476066Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -641.6842073462975,
-            "ci_upper": -79.36657375506985
+            "ci_lower": -661.557571424553,
+            "ci_upper": -73.60789789799081
           },
-          "listed_entry_count": 396,
-          "ranked_entry_count": 396,
+          "listed_entry_count": 400,
+          "ranked_entry_count": 400,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
             {
@@ -47,6 +47,16 @@
               "question_type": "multiple_choice",
               "question_resolution": "Five or Six",
               "score": 43.92055522355283,
+              "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46294,
+              "post_id": 46056,
+              "question_title": "Will there be a Florida gubernatorial debate before election day 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": -3.1866885999753904,
               "coverage": 1,
               "question_weight": 1
             },
@@ -191,7 +201,7 @@
               "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 86,
+          "unresolved_contribution_count": 87,
           "contributions_status": "completed"
         }
       ],
@@ -246,6 +256,50 @@
           },
           "forecast_count": 1,
           "post_id": 45959
+        },
+        {
+          "id": 46294,
+          "type": "binary",
+          "resolution": "no",
+          "actual_resolve_time": "2026-11-03T14:40:00Z",
+          "open_time": "2026-10-16T06:00:00Z",
+          "actual_close_time": "2026-10-16T09:00:00Z",
+          "spot_scoring_time": "2026-10-16T09:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": 73.26741139208352,
+            "peer_score": -3.081512657105898,
+            "coverage": 0.8983523632420434,
+            "relative_legacy_score": -0.07556900406573541,
+            "weighted_coverage": 0.8983523632420434,
+            "spot_peer_score": -3.1866885999753904,
+            "spot_baseline_score": 81.55754288625727
+          },
+          "last_forecast": {
+            "start_time": 1792131497.794477,
+            "end_time": null,
+            "forecast_values": [
+              0.88,
+              0.12
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46056
         },
         {
           "id": 46290,
@@ -1767,7 +1821,7 @@
           "ranked_entry_count": 0,
           "prize_payment_confirmed": null,
           "resolved_contributions": [],
-          "unresolved_contribution_count": 36,
+          "unresolved_contribution_count": 58,
           "contributions_status": "completed"
         }
       ],
@@ -16472,7 +16526,7 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-02T15:18:58.869070+00:00",
+  "finished_at_utc": "2026-11-03T14:59:56.603000+00:00",
   "resolution_signature": [
     45707,
     46133,
@@ -16489,6 +16543,7 @@
     46290,
     46291,
     46292,
+    46294,
     46307
   ]
 }

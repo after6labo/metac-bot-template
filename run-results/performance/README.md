@@ -1,11 +1,11 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-02T15:17:32.953243+00:00
+取得開始（UTC）: 2026-11-03T14:58:34.248585+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 267 | -337.13 | 10 | 2026-11-02T15:09:30.522454Z |
+| Fall 2026 FutureEval Bot Tournament | 270 | -340.31 | 11 | 2026-11-03T14:46:16.476066Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-10-19 | 237 | -174.78 | 39 | 2026-11-02T11:15:26.433314Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
@@ -17,6 +17,7 @@
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
 | fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
+| fall-futureeval-2026 | [q46294](https://www.metaculus.com/questions/46056/) | no | -3.19 |
 | fall-futureeval-2026 | [q46290](https://www.metaculus.com/questions/46052/) | 4.857142858 | -10.68 |
 | fall-futureeval-2026 | [q46291](https://www.metaculus.com/questions/46053/) | yes | -16.03 |
 | fall-futureeval-2026 | [q46292](https://www.metaculus.com/questions/46054/) | no | -22.38 |

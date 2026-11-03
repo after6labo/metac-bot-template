@@ -1,3 +1,13 @@
+## 2026-11-03 12:06 JST — MiniBench46647・46648を受付内に自律投稿
+
+- 前回41562324905以降の全2本番実行、[41565063226](https://github.com/after6labo/metac-bot-template/actions/runs/41565063226)（11:17:23.075126〜11:18:59.754921 JST）と[41568150191](https://github.com/after6labo/metac-bot-template/actions/runs/41568150191)（11:47:15.309533〜11:47:51.035302）を履歴・Actions・jobログで照合。両方tournament/completed、submitted1ずつ、failed_or_unconfirmed0、各outcome=submitted/nonfatal_errors0、pending/fetch_errors=[]、needs_attention/provider_paused=false。
+- MiniBench46647/post46414は公式受付11:02:51〜14:02:51 JST、予測11:18:55.506・説明11:18:59.753に送信成功。46648/post46415は11:43:41〜14:43:41受付、予測11:47:47.140・説明11:47:51.034に送信成功。いずれも本番受付内の完全レポートで、練習・テストではない。46647は11:47の独立APIでalready_forecasted=trueも確認。46648の一覧は投稿前のためfalse、後続APIの回答済み認識は次回確認し再投稿しない。送信成功を当該問の採点・賞金と同一視しない。
+- 両実行・両大会の監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown/fetch_errors=[]。MiniBench47→48posts/questions、取得時受付中2→3（残りclosed45）。Fall103posts/102questions、open0/closed86/resolved16で不変、本番追加投稿なし。全状態差分は46647/46648追加と46647回答済み化だけで既知ID消失なし。既存46646（09:27送信証拠）と46647のalready_forecasted skipを照合。新規独自skipなし。46646は11:47:30締切を経過したが投稿済みであり取り逃しではない。最新APIは直前取得のためまだopenで、現在の受付件数とは区別。今回提供元停止の既報26問の取り逃しは保持、追加なし。
+- latest/history41568150191-1.jsonはblob9e0dc773202c70eb44f31d105e92bb72b8ab96c6でraw一致。稼働git_shaとActions head一致。実取得間隔26分04.955320秒・29分52.234407秒、最大29分52.234407秒。12:05:54時点の直近空白18分38.690467秒、60分超なし。最新観測の受付中未回答0件、次回通常取得は約12:17の見込みで保証なし。以後の新規出題は未確認。
+- jobs125684496114/125694532675で各Python104件OK・Node12件pass/0fail、本番step/job成功、結果/成績artifact保存、履歴push成功（862eca4/de0052d）を確認。AGENTS/main.py/request_budget.pyは前回blob不変。新しい取得・型変換・送信・保存障害の証拠なし。
+- 今回追加LLM成功応答2件、tokens13438、失敗invocation0。UTC11/3累計4応答/20788tokens/失敗0、期限切れcooldown1793664000を保持（budget e9ed65068a7376d0a2c6246ee919092089764d3c）。提供元無料枠消費量/残量・請求実測ではない。無料ルーターのみ、記録上新規費用0。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627不変、公式成績更新なし・賞金受領未確認。同日01:21公式規則監査を再利用。
+- 実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行、制限迂回、有料切替、本人作業なし。既存定期運用を維持。既報の過去取り逃し・形式障害再発防止・提供元原応答/例外記録不足・過去90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認は保持。新規本番2問の予測・説明送信を通知する。
+
 ## 2026-11-03 10:55 JST — 46646の回答済み認識を後続APIで確認、追加未回答なし
 
 - 前回41552851059以降の全3本番履歴、41556358889（09:57:11.282578〜09:57:26.536660 JST）、41559739331（10:27:15.209146〜10:27:31.606297）、[41562324905](https://github.com/after6labo/metac-bot-template/actions/runs/41562324905)（10:51:18.119806〜10:51:34.818417）とActions/jobsを照合。全てtournament/no_new_questions、submitted0/failed_or_unconfirmed0/outcomes=[]、pending/fetch_errors=[]、needs_attention/provider_paused=false。緑表示やテストを追加競技投稿に数えない。

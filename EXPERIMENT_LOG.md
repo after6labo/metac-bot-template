@@ -1,3 +1,12 @@
+## 2026-11-04 05:12 JST — 04:47本番の独立監査・結果保存を確認、追加投稿なし
+
+- 前回41701701509以降の新規本番は[41706357611](https://github.com/after6labo/metac-bot-template/actions/runs/41706357611)のみ。実取得04:47:25.613734〜04:47:40.630235 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- SDK0件を両大会の独立API全状態一覧と照合。両方complete/matched、missing/forecast_evidence_mismatches/unknown=[]。MiniBench59posts/questions全closed、Fall109posts/108questions（closed89/resolved19）、前回の全問題メタデータと完全一致。新規/消失ID・状態変化なし。取得時受付中未回答0件であり、過去の取り逃しがないという意味ではない。既報26問等は保持。
+- 実取得開始間隔30分06.612421秒。05:10:59現在の直近空白23分33.386266秒、今回最大30分06.612421秒、60分超なし。次回実取得は約05:17見込みで保証なし。04:47以後の新規出題は未観測。
+- 最新AGENTS・実験ログ・latest/history・Actions/jobs/logs・budget・performanceを再取得。latest/history41706357611-1.jsonはblobf196cbfedd9771f6772bc4ab2d4ad1001a41eefbでraw一致、git_sha19015eb0916a1d31bc59a6125e83dff6556b2516とActions head一致。job126162607792でPython104件OK・Node12件pass/0fail、本番/保存step成功、結果artifactと履歴push266417d、成績artifact保存成功。テスト成功・緑表示・空実行を競技参加としない。
+- 追加LLM応答/tokens/失敗invocation/記録上新規費用0。budget9c54862aec9fe7b187256b36414766209042ddb4不変、UTC11/3累計32成功/128024tokens/失敗2、期限切れcooldown保持。提供側無料枠消費/残量・請求実測ではない。performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169不変で新しい公式取得なし。Fall順位表13問/内訳11問の不整合は未解決、賞金受領未確認。成績artifact再保存を内訳回復証拠にしない。
+- 同日00:52公式規則監査と既報投稿証拠を再利用。実験ログのみ更新、回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、制限迂回、有料切替、本人作業なし。既存運用継続。成績内訳不整合・過去取り逃し・その他既報未解決事項を保持し、同じ警告を重ねない。
+
 ## 2026-11-04 04:19 JST — 全4本番実行を照合、既報6問の締切後も投稿証拠と整合
 
 - 前回41683667487以降、確認中に終了した実行も含め4本番を照合。41687444865は02:47:12.162279〜02:47:34.953567、41692191098は03:17:18.104023〜03:17:35.301388、41696973129は03:47:08.795671〜03:47:28.043622、[41701701509](https://github.com/after6labo/metac-bot-template/actions/runs/41701701509)は04:17:19.001313〜04:17:32.546210 JST。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes=[]、pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

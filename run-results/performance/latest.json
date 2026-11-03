@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-03T15:32:18.341227+00:00",
-  "run_id": "41663887137",
+  "started_at_utc": "2026-11-03T15:58:31.494517+00:00",
+  "run_id": "41669011243",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,24 +20,24 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 16,
+          "max_coverage": 18,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -340.31474978576705,
-            "rank": 270,
-            "coverage": 11,
-            "contribution_count": 11,
-            "calculated_on": "2026-11-03T14:46:16.476066Z",
+            "score": -503.1088880948937,
+            "rank": 286,
+            "coverage": 13,
+            "contribution_count": 13,
+            "calculated_on": "2026-11-03T15:37:13.528426Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -661.557571424553,
-            "ci_upper": -73.60789789799081
+            "ci_lower": -954.9406907557016,
+            "ci_upper": -149.53176031752645
           },
-          "listed_entry_count": 400,
-          "ranked_entry_count": 400,
+          "listed_entry_count": 415,
+          "ranked_entry_count": 415,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
             {
@@ -16526,7 +16526,7 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-03T15:33:37.933258+00:00",
+  "finished_at_utc": "2026-11-03T15:59:56.559176+00:00",
   "resolution_signature": [
     45707,
     46133,
@@ -16544,6 +16544,8 @@
     46291,
     46292,
     46294,
-    46307
+    46295,
+    46307,
+    46418
   ]
 }

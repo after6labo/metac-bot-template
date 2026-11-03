@@ -1,3 +1,14 @@
+## 2026-11-03 09:51 JST — 無料提供元の応答・競技投稿再開を実測、46645取り逃し確定
+
+- 前回41545432051以降の全2本番実行、41549170256（08:57:12.443058〜08:57:31.182829 JST）と[41552851059](https://github.com/after6labo/metac-bot-template/actions/runs/41552851059)（09:26:55.648409〜09:27:43.449009）の履歴・Actions・jobログを確認。08:57はtournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]、新規46646が選択後provider_paused。09:26はtournament/completed、submitted1/failed_or_unconfirmed0、outcome46646=submitted/nonfatal_errors0、pending/skips/fetch_errors=[]、needs_attention/provider_paused=false。
+- MiniBench46646/post46413の公式受付は08:47:30〜11:47:30 JST。job125644467450の成功ログで予測09:27:39.558、説明コメント09:27:43.448 JSTの送信完了を個別確認。08:57に未回答だった同一IDを受付内に自律投稿した証拠で、単なるcooldown時刻経過やテスト成功ではない。期限09:00後の既存定期実行で無料モデル応答2件/7350tokensを観測し、今回の提供元停止からモデル応答・完全レポート投稿の再開を実測。大会側の当該問受理・得点対象・公式採点とは区別する。09:27の独立一覧は投稿前のためalready_forecasted=falseであり、後続APIの回答済み認識は未確認。再投稿は行わない。
+- 前回締切後照合待ちだったMiniBench46645/post46412（05:41:04〜08:41:04 JST）は08:57・09:27の独立APIでclosed/already_forecasted=false。前回pending・後続outcomesに46645なし・公式日時を照合し未投稿取り逃しを確定。今回の提供元停止に伴う確認済み取り逃しは25→26問。投稿再開によって過去の取り逃しを解消扱いせず保持する。
+- 全2実行の両大会監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown/fetch_errors=[]。MiniBench46posts/46questions（取得時open1/closed45）、Fall103posts/102questions（open0/closed86/resolved16）。前回との差分は46646追加と46645closed化だけ、既知ID消失なし。latestとhistory/41552851059-1.jsonはblob14590c5cf0a4c4039f8deee5cd6766f826fad2c6でraw一致。各稼働git_shaはActions headと一致。
+- 実取得間隔は29分57.948927秒・29分43.205351秒、今回期間最大29分57.948927秒。09:50:52時点の直近空白23分56.351591秒、60分超なし。最新観測で受付中未回答は0件、受付中46646は上記送信完了。次回通常実取得は約09:57の見込みで保証なし。最新API以後の新規出題有無はまだ未確認。既存定期運用を維持し、夜間の常時投稿可用性は保証しない。
+- jobs125632101475/125644467450で各Python104件OK・Node12件pass/0fail、結果/成績artifactとhistory push成功（9cf2b99/0ece565）を確認。08:57の本番exit1は未回答を示す失敗として保持し、09:27の本番step/job successと区別。AGENTS/main.py/request_budget.pyのblobは前回と同一。budgetはUTC11/3に観測累計2応答/7350tokens/失敗invocation0へ日付更新、cooldown_until_epoch1793664000は期限切れ値を保持。期限の短縮・削除・提供元制限迂回はない。前日35応答/180010tokens/失敗18は履歴に保持され、これらは提供元無料枠消費量・残量の実測ではない。
+- 記録上新規費用0、無料ルーターのみ、有料切替なし。performance/latestはblob66acd4f7c4a6ce235eae50a70d7c3975654bc627で不変、公式成績更新なし、賞金受領未確認。本日01:21の公式規則監査を再利用。今回の変更は実験ログのみ。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行・本人作業なし。
+- 今回の提供元停止による現在の投稿不能は上記1問の完全投稿で回復を観測したが、過去26問の取り逃し、元402/429コード別/ヘッダー原文未記録、形式障害再発防止・例外記録不足・過去90分空白/時刻不整合/GAS観測不足・補助診断429回復未確認は残る。新規投稿再開と追加1問の取り逃しを通知する。
+
 ## 2026-11-03 08:42 JST — 46645締切経過、締切後API照合待ち
 
 - 前回41537262976以降の全2本番実行、41541399999（07:57:12.628086〜07:57:29.391513 JST）と[41545432051](https://github.com/after6labo/metac-bot-template/actions/runs/41545432051)（08:27:14.494131〜08:27:31.495644）の履歴・Actions・jobログを確認。両方tournament/attention_required/needs_attention=true/provider_paused=true、submitted0/outcomes=[]/failed_or_unconfirmed0、pending46645のみ、選択後provider_paused。独自上限・題材除外なし。

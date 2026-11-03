@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-03T14:58:34.248585+00:00",
-  "run_id": "41658650224",
+  "started_at_utc": "2026-11-03T15:32:18.341227+00:00",
+  "run_id": "41663887137",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -201,7 +201,7 @@
               "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 87,
+          "unresolved_contribution_count": 91,
           "contributions_status": "completed"
         }
       ],
@@ -16526,7 +16526,7 @@
   ],
   "api_get_calls": 23,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-03T14:59:56.603000+00:00",
+  "finished_at_utc": "2026-11-03T15:33:37.933258+00:00",
   "resolution_signature": [
     45707,
     46133,

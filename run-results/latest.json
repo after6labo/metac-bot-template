@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-11-03T15:27:23.141404+00:00",
+  "started_at_utc": "2026-11-03T15:57:21.809326+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -11,33 +11,18 @@
   "credit_approval": "unverified",
   "credit_balance": null,
   "api_call_count": null,
-  "api_token_usage": 21540,
+  "api_token_usage": 6967,
   "official_score": null,
   "official_rank": null,
   "prize_usd": null,
   "cost_measurement": "Free-only route; estimated costs cover returned reports, not provider billing",
   "new_spending_usd": 0,
-  "submitted": 4,
+  "submitted": 1,
   "failed_or_unconfirmed": 0,
   "estimated_llm_cost_usd": 0.0,
   "outcomes": [
     {
-      "question_id": 46551,
-      "status": "submitted",
-      "nonfatal_errors": 0
-    },
-    {
-      "question_id": 46550,
-      "status": "submitted",
-      "nonfatal_errors": 0
-    },
-    {
-      "question_id": 46548,
-      "status": "submitted",
-      "nonfatal_errors": 0
-    },
-    {
-      "question_id": 46503,
+      "question_id": 46659,
       "status": "submitted",
       "nonfatal_errors": 0
     }
@@ -59,12 +44,35 @@
       "reason": "already_forecasted"
     },
     {
-      "question_id": 46655,
-      "source": "minibench",
+      "question_id": 46551,
+      "source": "seasonal",
+      "reason": "already_forecasted"
+    },
+    {
+      "question_id": 46550,
+      "source": "seasonal",
+      "reason": "already_forecasted"
+    },
+    {
+      "question_id": 46548,
+      "source": "seasonal",
+      "reason": "already_forecasted"
+    },
+    {
+      "question_id": 46503,
+      "source": "seasonal",
       "reason": "already_forecasted"
     }
   ],
   "question_windows": [
+    {
+      "question_id": 46659,
+      "post_id": 46426,
+      "source": "minibench",
+      "open_time_utc": "2026-11-03T15:49:54+00:00",
+      "close_time_utc": "2026-11-03T18:49:54+00:00",
+      "already_forecasted": false
+    },
     {
       "question_id": 46658,
       "post_id": 46425,
@@ -90,20 +98,12 @@
       "already_forecasted": true
     },
     {
-      "question_id": 46655,
-      "post_id": 46422,
-      "source": "minibench",
-      "open_time_utc": "2026-11-03T12:45:55+00:00",
-      "close_time_utc": "2026-11-03T15:45:55+00:00",
-      "already_forecasted": true
-    },
-    {
       "question_id": 46551,
       "post_id": 46323,
       "source": "fall-futureeval-2026",
       "open_time_utc": "2026-11-03T15:00:00+00:00",
       "close_time_utc": "2026-11-03T18:00:00+00:00",
-      "already_forecasted": false
+      "already_forecasted": true
     },
     {
       "question_id": 46550,
@@ -111,7 +111,7 @@
       "source": "fall-futureeval-2026",
       "open_time_utc": "2026-11-03T15:00:00+00:00",
       "close_time_utc": "2026-11-03T18:00:00+00:00",
-      "already_forecasted": false
+      "already_forecasted": true
     },
     {
       "question_id": 46548,
@@ -119,7 +119,7 @@
       "source": "fall-futureeval-2026",
       "open_time_utc": "2026-11-03T15:00:00+00:00",
       "close_time_utc": "2026-11-03T18:00:00+00:00",
-      "already_forecasted": false
+      "already_forecasted": true
     },
     {
       "question_id": 46503,
@@ -127,7 +127,7 @@
       "source": "fall-futureeval-2026",
       "open_time_utc": "2026-11-03T15:00:00+00:00",
       "close_time_utc": "2026-11-03T18:00:00+00:00",
-      "already_forecasted": false
+      "already_forecasted": true
     }
   ],
   "pending_questions": [],
@@ -136,10 +136,19 @@
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-11-03T15:27:39.836478+00:00",
+      "checked_at_utc": "2026-11-03T15:57:39.326262+00:00",
       "complete": true,
-      "post_count": 58,
+      "post_count": 59,
       "questions": [
+        {
+          "question_id": 46659,
+          "post_id": 46426,
+          "source": "minibench",
+          "status": "open",
+          "open_time_utc": "2026-11-03T15:49:54+00:00",
+          "close_time_utc": "2026-11-03T18:49:54+00:00",
+          "already_forecasted": false
+        },
         {
           "question_id": 46658,
           "post_id": 46425,
@@ -171,7 +180,7 @@
           "question_id": 46655,
           "post_id": 46422,
           "source": "minibench",
-          "status": "open",
+          "status": "closed",
           "open_time_utc": "2026-11-03T12:45:55+00:00",
           "close_time_utc": "2026-11-03T15:45:55+00:00",
           "already_forecasted": true
@@ -670,7 +679,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-11-03T15:27:41.317720+00:00",
+      "checked_at_utc": "2026-11-03T15:57:41.395967+00:00",
       "complete": true,
       "post_count": 109,
       "questions": [
@@ -681,7 +690,7 @@
           "status": "open",
           "open_time_utc": "2026-11-03T15:00:00+00:00",
           "close_time_utc": "2026-11-03T18:00:00+00:00",
-          "already_forecasted": false
+          "already_forecasted": true
         },
         {
           "question_id": 46548,
@@ -690,7 +699,7 @@
           "status": "open",
           "open_time_utc": "2026-11-03T15:00:00+00:00",
           "close_time_utc": "2026-11-03T18:00:00+00:00",
-          "already_forecasted": false
+          "already_forecasted": true
         },
         {
           "question_id": 46550,
@@ -699,7 +708,7 @@
           "status": "open",
           "open_time_utc": "2026-11-03T15:00:00+00:00",
           "close_time_utc": "2026-11-03T18:00:00+00:00",
-          "already_forecasted": false
+          "already_forecasted": true
         },
         {
           "question_id": 46551,
@@ -708,7 +717,7 @@
           "status": "open",
           "open_time_utc": "2026-11-03T15:00:00+00:00",
           "close_time_utc": "2026-11-03T18:00:00+00:00",
-          "already_forecasted": false
+          "already_forecasted": true
         },
         {
           "question_id": 46525,
@@ -1101,7 +1110,7 @@
           "question_id": 46418,
           "post_id": 46191,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-21T12:00:00+00:00",
           "close_time_utc": "2026-10-21T15:00:00+00:00",
           "already_forecasted": true
@@ -1254,7 +1263,7 @@
           "question_id": 46295,
           "post_id": 46057,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-16T09:00:00+00:00",
           "close_time_utc": "2026-10-16T12:00:00+00:00",
           "already_forecasted": true
@@ -1658,20 +1667,20 @@
     4,
     4
   ],
-  "selected": 4,
-  "finished_at_utc": "2026-11-03T15:32:13.651989+00:00",
-  "api_successful_response_count": 6,
-  "llm_failed_or_unconfirmed_invocations": 1,
+  "selected": 1,
+  "finished_at_utc": "2026-11-03T15:58:26.227492+00:00",
+  "api_successful_response_count": 1,
+  "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
   "free_request_tracking": {
     "schema_version": 2,
     "date_utc": "2026-11-03",
-    "successful_responses": 31,
+    "successful_responses": 32,
     "failed_invocations": 2,
-    "observed_tokens": 121057,
+    "observed_tokens": 128024,
     "cooldown_until_epoch": 1793664000.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "dc64beec85fb5513078f0a36c2d410d0521547f9",
-  "workflow_run_id": "41663887137"
+  "git_sha": "cb2feeca7a366a7890ac1122979c756aad4d0f71",
+  "workflow_run_id": "41669011243"
 }

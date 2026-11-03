@@ -1,3 +1,13 @@
+## 2026-11-04 08:49 JST — MiniBench46660へ受付内に完全投稿、後続API認識も確認
+
+- 前回41730893108以降の全2本番履歴・Actions/jobs/logsを照合。[41735047739](https://github.com/after6labo/metac-bot-template/actions/runs/41735047739)は07:57:23.303379〜07:57:55.513991 JST、[41739141691](https://github.com/after6labo/metac-bot-template/actions/runs/41739141691)は08:27:14.749354〜08:27:30.671398。両方tournament、前者completed/selected1/submitted1、後者no_new_questions/selected0/submitted0。failed_or_unconfirmed0、pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。
+- MiniBench question46660/post46427の公式受付は11/4 07:41:51〜10:41:51 JST。job126261961858で予測07:57:51.658・説明07:57:55.512に送信成功、outcome=submitted/nonfatal_errors0。練習/テストでない受付時間内の競技1問の完全投稿証拠。後続08:27の独立APIでalready_forecasted=trueを確認し、skipはこの1問のみ。重複再投稿なし。当該投稿の採点・賞金受領は別途未確認。
+- 全実行・両大会の独立監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions（open1/closed59）、Fall109posts/108questions（closed89/resolved19）不変。全状態差分は46660追加と回答済み化のみ、新たなclosed化/既知ID消失なし。最新取得時の受付中未回答0件。46660の10:41:51締切は既に完全投稿済み、過去26問等の取り逃しは保持。08:27以後の新規出題は未確認。
+- JSON実取得開始間隔29分45.961625秒・29分51.445975秒、最大29分51.445975秒。08:49:04現在の直近空白21分49.250646秒、60分超なし。通常の次回実取得は約08:57見込み、保証なし。
+- 最新AGENTS/実験ログ/latest/history/budget/performanceとActionsを再取得。latest/history41739141691-1.jsonはblob8efc7c3976efeb535326b44d3be21715eb61e47eでraw一致、先行履歴76b3f122e29495a20e4d1383d2819f2018ba92ef。両JSON git_shaとActions head一致。jobs126261961858/126275941117で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13278740869/13280656692と履歴push6f1042e/107fdaa成功。テスト成功だけで投稿判定しない。
+- 追加LLM成功応答1件/4055tokens、失敗invocation0。無料liquid/lfm-2.5-2.6b:free、finish_reason=stop/has_content=true。budget8aaee5af9e70f810b4dd9f5a56a99c33fd6381a8、UTC11/3累計33成功/132079tokens/失敗2、期限切れcooldown保持。提供側の無料枠消費/残量・請求実測ではない。記録上の新規費用0、既存無料ルーターのみ。
+- performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169不変、両jobの成績取得はnot dueでartifact再保存のみ。既報Fall順位表13問/内訳11問不整合は未解決、最新認証付き再取得・賞金受領の証拠なし。同日00:52公式規則監査を再利用。実験ログのみ更新し、回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用と過去未解決事項を保持。新規MiniBench投稿を通知。
+
 ## 2026-11-04 07:31 JST — 全3本番を照合、07:27取得時も受付中未回答なし
 
 - 前回41720264480以降の全3本番履歴・Actions/jobs/logsを照合。41724789476は06:47:15.916445〜06:47:30.335137 JST、41729319332は07:17:27.070855〜07:17:40.416407、[41730893108](https://github.com/after6labo/metac-bot-template/actions/runs/41730893108)は07:27:37.341754〜07:27:50.454817。前2件workflow_dispatch、最新はschedule。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

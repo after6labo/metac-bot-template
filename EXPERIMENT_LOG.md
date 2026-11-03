@@ -1,3 +1,13 @@
+## 2026-11-03 21:48 JST — Fall46525へ受付内に予測・説明を投稿
+
+- 前回41631538968以降の新規本番は[41635702088](https://github.com/after6labo/metac-bot-template/actions/runs/41635702088)のみ。実取得21:27:07.131374〜21:28:10.889756 JST、tournament/completed、selected/submitted1、failed_or_unconfirmed0、outcome46525=submitted/nonfatal_errors0、pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。
+- Fall2026（33121）question46525/post46295の公式受付は11/3 21:00〜11/4 00:00 JST。job125916218939で予測21:28:06.737・説明21:28:10.888の送信成功を確認し、両方受付内。テスト・練習ではなく競技1問の完全投稿証拠。独立一覧は投稿前のためalready_forecasted=falseで、後続APIの回答済み認識は未確認。再投稿せず次回照合する。送信成功と大会側の採点対象・賞金受領は区別。
+- 両大会の独立API監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench54posts/54questions（open1/closed53）不変、Fall105posts/104questions（open1/closed87/resolved16）。前回の全状態一覧との差分は46525追加と46524closed/回答済み化のみ、既知ID消失なし。46524の18:18:52.514予測/18:18:56.827説明証拠と整合し、取り逃しではない。唯一のskip46654=already_forecastedも19:28:14.065予測/19:28:18.424説明に対応。提供元停止による既報26問の取り逃しを保持、追加なし。
+- 最新取得に対応する受付中未回答0件。46654の22:14:55締切と46525の翌00:00締切はいずれも完全投稿済み。取得以後の新規出題は未確認。次回通常実取得は約21:57見込みで保証なし。JSON実取得開始間隔30分07.921031秒、21:47:04現在の直近空白19分56.868626秒、今回期間最大30分07.921031秒で60分超なし。
+- latest/history41635702088-1.jsonはblob8798bcea77d1c40bd05f356d80ac063ba0c86050でraw一致、git_shad9a66a9f5eb58f2f518a5c031869bc7fd877b0e2とActions head一致。job125916218939でPython104件OK・Node12件pass/0fail、本番step/job成功、結果/成績artifact保存・履歴push成功（ab02fa6）を確認。テスト成功自体は競技投稿としない。
+- 追加LLM成功応答1件/3588tokens/失敗invocation0。budget blobd04b82491acadbbbb9962993943d391fb1fc820e、UTC11/3累計18成功応答/69843tokens/失敗1、期限切れcooldown1793664000を保持。成功応答tokensは既報空応答9689tokensを含まず、提供元総利用・無料枠消費/残量・請求実測ではない。無料ルーターのみ、記録上新規費用0。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627不変、公式成績更新なし・今回投稿の採点/賞金受領未確認。同日01:21公式規則監査を再利用。
+- AGENTS/main.py/request_budget.py/READMEは前回blob不変。検証スキルに沿って履歴・監査・投稿・保存を照合し、実験ログのみ更新。新規技術障害の証拠なし。回答対象・停止条件・コード・設定・ライブ確率/プロンプト変更、手動再実行、制限迂回、有料切替、本人作業なし。既存定期運用、過去取り逃し、空応答/形式障害の再発可能性・例外/原応答記録不足、過去90分空白/時刻不整合/GAS観測不足、補助診断429回復未確認を維持。新規Fall投稿を通知する。
+
 ## 2026-11-03 21:06 JST — 本番追加投稿なし、独立監査と既存投稿証拠の整合を確認
 
 - 前回41627515503以降の新規本番は[41631538968](https://github.com/after6labo/metac-bot-template/actions/runs/41631538968)のみ。実取得20:56:59.210343〜20:57:19.959924 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed=0、outcomes=[]、pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。テスト・空実行成功は競技投稿に数えない。

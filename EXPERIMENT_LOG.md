@@ -1,3 +1,13 @@
+## 2026-11-03 20:31 JST — MiniBench46654を受付内に完全投稿、後続API認識を確認
+
+- 前回41615065785以降の全3本番履歴・Actions/jobsを照合。41619259915は19:27:09.607031〜19:28:18.425746 JST、41623388230は19:57:12.678643〜19:57:40.015110、41627515503は20:27:03.626403〜20:27:24.972141。全てtournament。最初はcompleted/submitted1/selected1、後2本はno_new_questions/submitted0/selected0。全てfailed_or_unconfirmed0、pending/fetch_errors=[]、needs_attention/provider_paused=false。
+- MiniBench46654/post46421の公式受付は本日19:14:55〜22:14:55 JST。予測19:28:14.065・説明19:28:18.424に送信成功（[41619259915](https://github.com/after6labo/metac-bot-template/actions/runs/41619259915)、job125860476566、outcome=submitted/nonfatal_errors0）。後続19:57・20:27取得の独立APIでもalready_forecasted=trueを確認。競技1問の完全投稿証拠であり、テスト・練習投稿ではない。再投稿なし。大会側の採点・賞金受領は別途未確認。
+- 全3実行・両大会監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown/fetch_errors=[]。MiniBench54posts/54questions、受付中2→1→1・closed52→53→53。Fall104posts/103questions、受付中1・closed86・resolved16。全状態差分は46654追加/回答済み化と46653closed化のみ、既知ID消失なし。46653は19:38:37締切後closed/回答済みで、既報16:48:00.260予測/16:48:04.603説明と整合、取り逃しではない。46524のskipも18:18:52.514予測/18:18:56.827説明に対応。提供元停止による既報26問の取り逃しは保持、追加なし。
+- 最新20:27取得時点の未回答0件。受付中46524（21:00締切）・46654（22:14:55締切）は両方完全投稿済み。以後の新規出題は未確認。次回通常取得は約20:57の見込みで保証なし。JSON実取得開始間隔30分10.834秒・30分03.071秒・29分50.948秒、最大30分10.834秒。20:30:41現在の直近空白3分37.374秒で60分超なし。手動再実行・追加LLM呼び出しなし。
+- latest/history41627515503-1.jsonはblob4c073aa6347d87f699e9d2452149a47eead05243でraw一致、先行履歴blob30cdc61a165d965314c0f6c5e11a23dbac9f2d4a/a5512971159c38a6bf137a9b9a71e7b707f14802。全JSON git_shaとActions head一致。jobs125860476566/125874519743/125888507631で各Python104件OK・Node12件pass/0fail、本番step/job成功、結果/成績artifact保存・履歴push成功（78c565e/fb64665/80f24af）を確認。テスト・空実行成功を競技投稿に数えない。
+- 追加LLM成功応答2件/6613tokens/失敗invocation0。UTC11/3累計17応答/66255tokens/失敗1（budget blob73b8c0142a41f156de31552d36cba680ff735b74）、期限切れcooldown1793664000保持。成功応答tokensは既報空応答9689tokensを含まず、提供元総利用・無料枠消費/残量・請求実測ではない。無料ルーターのみ、記録上新規費用0。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627不変、公式成績更新なし・当該投稿の採点/賞金受領未確認。同日01:21公式規則監査を再利用。
+- AGENTS/main.py/request_budget.pyは前回blob不変。検証スキルに沿って照合し、実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率/プロンプト変更、制限迂回、有料切替、本人作業なし。新規技術障害の証拠なし。既存定期運用、過去取り逃し、空応答/形式障害の再発可能性・例外/原応答記録不足、過去90分空白/時刻不整合/GAS観測不足、補助診断429回復未確認を維持。新規MiniBench投稿を通知する。
+
 ## 2026-11-03 19:04 JST — Fall46524を受付内に完全投稿、後続API認識も確認
 
 - 前回41605757865以降の全3本番履歴・Actions/jobsを照合。41609674115は18:17:13.088120〜18:18:56.829037 JST、41611164902は18:28:11.710356〜18:28:33.141736、41615065785は18:56:58.773430〜18:57:19.233398。全てtournament。最初はcompleted/submitted1/selected1、後2本はno_new_questions/submitted0/selected0。全てfailed_or_unconfirmed0、pending/fetch_errors=[]、needs_attention/provider_paused=false。

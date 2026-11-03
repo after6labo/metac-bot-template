@@ -1,3 +1,13 @@
+## 2026-11-03 19:04 JST — Fall46524を受付内に完全投稿、後続API認識も確認
+
+- 前回41605757865以降の全3本番履歴・Actions/jobsを照合。41609674115は18:17:13.088120〜18:18:56.829037 JST、41611164902は18:28:11.710356〜18:28:33.141736、41615065785は18:56:58.773430〜18:57:19.233398。全てtournament。最初はcompleted/submitted1/selected1、後2本はno_new_questions/submitted0/selected0。全てfailed_or_unconfirmed0、pending/fetch_errors=[]、needs_attention/provider_paused=false。
+- Fall2026（33121）46524/post46294の公式受付は本日18:00〜21:00 JST。予測18:18:52.514、説明18:18:56.827に送信成功（[41609674115](https://github.com/after6labo/metac-bot-template/actions/runs/41609674115)、job125828118457、outcome=submitted/nonfatal_errors0）。後続18:28・18:56取得の独立APIでもalready_forecasted=trueを確認。練習・テストではなく競技1問の完全投稿証拠。再投稿なし。大会側の採点・賞金受領とは区別。
+- 全3実行・両大会の監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown/fetch_errors=[]。MiniBench53posts/53questions、受付中2→2→1・closed51→51→52。Fall104posts/103questions、受付中1・closed86・resolved16。全状態差分は46524追加/回答済み化、46652closed化のみ、既知ID消失なし。46652は18:49:05公式締切後closed/回答済みとなり、16:17:49.509予測/16:17:54.122説明の証拠に対応、取り逃しではない。skipはこの証拠と46653の16:48:00.260予測/16:48:04.603説明、46524の上記投稿証拠に対応するalready_forecastedのみ。過去の提供元停止による26問の取り逃しは保持、追加なし。
+- 最新取得時点の受付中46653（19:38:37締切）・46524（21:00締切）は両方完全投稿済みで未回答0件。取得以後の新規出題は未確認。次回通常実取得は約19:27見込みで保証なし。JSON実取得開始間隔30分13.987秒・10分58.622秒・28分47.063秒、最大30分13.987秒。19:04:15現在の直近空白7分16.227秒、60分超なし。手動再実行・追加LLM呼び出しなし。
+- latest/history41615065785-1.jsonはbloba9883060490581a04e6e67f8307ad081c6f97b69でraw一致、先行履歴blobe42588340b24aa8e366c662b25116a4f3ad136fc/f8dd239daf13b811870373a64b25635f6e11555f。全JSON git_shaとActions head一致。jobs125828118457/125833107260/125846355669で各Python104件OK・Node12件pass/0fail、本番step/job成功、結果/成績artifact保存、履歴push成功（300ab1c/f92d979/c4880b3）を確認。テストや空実行を競技投稿に数えない。
+- 追加LLM成功応答1件/2875tokens/失敗invocation0。UTC11/3累計15応答/59642tokens/失敗1（budget blobb862b290977c9bc23ab8712d5965fa84dbd8d6af）、期限切れcooldown1793664000保持。成功応答tokensは既報空応答9689tokensを含まず、提供元総利用・無料枠消費/残量・請求実測ではない。無料ルーターのみ、記録上新規費用0。performance/latestは66acd4f7c4a6ce235eae50a70d7c3975654bc627不変、公式成績更新なし・今回投稿の採点/賞金受領未確認。同日01:21の公式規則監査を再利用。
+- AGENTS/main.py/request_budget.pyは前回blob不変。検証スキルに沿って照合し、実験ログのみ更新。回答対象・停止条件・コード・設定・ライブ確率/プロンプト変更、制限迂回、有料切替、本人作業なし。新規技術障害の証拠なし。既存定期運用、過去取り逃し、空応答/形式障害の再発可能性・例外/原応答記録不足、過去90分空白/時刻不整合/GAS観測不足、補助診断429回復未確認は維持。新規Fall投稿を通知する。
+
 ## 2026-11-03 18:11 JST — 46653の後続API回答済み認識を確認、新規未回答なし
 
 - 前回41598523881以降の全2本番履歴・Actions/jobsを照合。41602041437は17:16:58.423094〜17:17:16.434398 JST、[41605757865](https://github.com/after6labo/metac-bot-template/actions/runs/41605757865)は17:46:59.101251〜17:47:16.453035。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed=0、outcomes/pending/fetch_errors=[]、needs_attention/provider_paused=false。追加競技投稿なし。

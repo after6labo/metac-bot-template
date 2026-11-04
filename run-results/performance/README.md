@@ -1,11 +1,11 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-04T11:47:21.608794+00:00
+取得開始（UTC）: 2026-11-04T12:47:29.111000+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 288 | -558.19 | 14 | 2026-11-04T11:37:01.005651Z |
+| Fall 2026 FutureEval Bot Tournament | 323 | -647.80 | 18 | 2026-11-04T12:33:46.193240Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-10-19 | 238 | -218.40 | 40 | 2026-11-04T11:16:34.353235Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
@@ -17,6 +17,7 @@
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
 | fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
+| fall-futureeval-2026 | [q46420](https://www.metaculus.com/questions/46193/) | no | 27.19 |
 | fall-futureeval-2026 | [q46295](https://www.metaculus.com/questions/46057/) | no | 2.96 |
 | fall-futureeval-2026 | [q46294](https://www.metaculus.com/questions/46056/) | no | -3.19 |
 | fall-futureeval-2026 | [q46290](https://www.metaculus.com/questions/46052/) | 4.857142858 | -10.68 |
@@ -24,7 +25,10 @@
 | fall-futureeval-2026 | [q46292](https://www.metaculus.com/questions/46054/) | no | -22.38 |
 | fall-futureeval-2026 | [q46185](https://www.metaculus.com/questions/46001/) | 3.57 | -23.01 |
 | fall-futureeval-2026 | [q46133](https://www.metaculus.com/questions/45951/) | no | -23.23 |
+| fall-futureeval-2026 | [q46457](https://www.metaculus.com/questions/46228/) | 56.5 | -33.41 |
 | fall-futureeval-2026 | [q46184](https://www.metaculus.com/questions/46000/) | Luiz Inácio Lula da Silva | -33.71 |
+| fall-futureeval-2026 | [q46419](https://www.metaculus.com/questions/46192/) | 77.0 | -36.96 |
+| fall-futureeval-2026 | [q46458](https://www.metaculus.com/questions/46229/) | 8.8 | -46.45 |
 | fall-futureeval-2026 | [q46135](https://www.metaculus.com/questions/45953/) | yes | -50.62 |
 | fall-futureeval-2026 | [q46142](https://www.metaculus.com/questions/45960/) | 4.149 | -55.08 |
 | fall-futureeval-2026 | [q46134](https://www.metaculus.com/questions/45952/) | 145198.0 | -72.63 |

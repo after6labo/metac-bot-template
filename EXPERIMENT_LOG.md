@@ -1,3 +1,14 @@
+## 2026-11-05 03:38 JST — Fall新規1問の受付内投稿、先行2問の締切後状態を確認
+
+- 前回41882153772以降の新規本番は[41887154726](https://github.com/after6labo/metac-bot-template/actions/runs/41887154726)のみ。JSON実取得03:27:14.287316〜03:28:49.905439 JST、mode=tournament/status=completed、selected/submitted1、failed_or_unconfirmed0。outcomesはq46570 submitted/nonfatal_errors0、skips/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。
+- Fall q46570/post46337の公式API受付は11/5 03:00〜06:00 JST。jobログで予測03:28:45.778、説明コメント03:28:49.904 JSTのPosted prediction/Posted commentを確認し、両方受付内。今回の独立監査は投稿前のためalready_forecasted=falseで正常に候補化し、その後の完全レポート成功と照合。次回APIで回答済みとなることはまだ未確認、重複防止は維持し手動再投稿しない。得点対象・採点・賞金受領とは区別する。
+- 両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、前回から全状態配列不変。Fall112posts/111questions（open1/closed86/resolved24）。新規IDは46570のみ、消失なし。q46552/post46324・q46504/post46274はopen→closedかつalready_forecasted=true、公式締切03:00を確認。両問は41855984230で予測/説明とも00:18/00:19に投稿済みであり、締切による未回答消失ではない。他のメタデータ不変。取得時未回答の新規1問は今回全件投稿、完了時pending0。既報の26問等の取り逃しは保持する。
+- JSON実取得開始間隔28分49.388656秒。03:36:54.013時点の直近空白9分39.725684秒、60分超なし。q46570締切まで約2時間23分で投稿済み、次回通常実取得は約03:57見込みだが保証なし。03:27取得以後の新規出題は未確認。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceおよびActions/jobs/logsを再取得。latest/history41887154726-1.jsonはblob149710a61ae45c5ded97f60b6cdfef8ebcc5b515でraw一致、JSON git_shaとActions headは405d6e3aa99ecf493f6f342407912c1ef6b7d353で一致。境界履歴41882153772のblobaa3ec24e25c22c8212c63b74b5dc7746b367f4c4も再読。job126774577424でPython104件OK、Node12件pass/0fail、本番・結果保存step成功。結果artifact13352860543、履歴push1cce06d成功。テスト成功は競技投稿証拠には数えない。
+- 今回LLM観測成功応答2・7665tokens・失敗invocation0・記録上新規費用0。budget blobffe49e4a8abdebc9291d7f44b9addcef54c02404、UTC11/4累計6応答/18653tokens/失敗0、期限切れcooldown保持。無料ルーターのみ、actual_routed_models=nullは未確認。提供側無料枠消費・残量・請求実測ではない。
+- performance blob8da0ee89a8e74494fff5ef69f74f1d2d9547fd5f不変。jobはnot due、artifact13352182119は既存成績の再保存で新規取得ではない。00:21取得のFall323/451・−647.8012545603865・18問、10/19 MiniBench238/410・−218.39755735266786・40問（双方未確定/除外なし）を保持。10/5 MiniBench順位表37問/内訳38問不整合は未解決。今回および先行2問の採点・賞金受領未確認。
+- 本日00:13公式規則監査を再読・再利用。変更は実験ログのみ。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動本番再実行、有料切替、制限迂回、本人作業なし。既存定期運用・過去取り逃し・成績不整合・その他既報未解決事項を保持。新規1投稿を通知する。
+
 ## 2026-11-05 03:24 JST — 02:58まで全4本番を照合、追加投稿・未回答なし
 
 - 前回41865548041以降の全4本番：41870802717（01:47:13.556460〜01:47:33.605658 JST）、41875948349（02:17:14.068062〜02:17:33.114365）、41880356011（02:47:07.859574〜02:47:26.716564）、[41882153772](https://github.com/after6labo/metac-bot-template/actions/runs/41882153772)（02:58:24.898660〜02:58:43.229175）。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。skipsはFall q46552・q46504のalready_forecastedのみ。本番への追加投稿なし。

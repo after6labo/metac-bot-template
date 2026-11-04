@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-11-04T12:17:15.331244+00:00",
+  "started_at_utc": "2026-11-04T12:47:11.728683+00:00",
   "mode": "tournament",
   "targets": [
     "minibench",
@@ -29,7 +29,7 @@
   "retrieval_audit": [
     {
       "source": "minibench",
-      "checked_at_utc": "2026-11-04T12:17:23.711119+00:00",
+      "checked_at_utc": "2026-11-04T12:47:20.957681+00:00",
       "complete": true,
       "post_count": 60,
       "questions": [
@@ -581,7 +581,7 @@
     },
     {
       "source": "fall-futureeval-2026",
-      "checked_at_utc": "2026-11-04T12:17:25.435046+00:00",
+      "checked_at_utc": "2026-11-04T12:47:22.303922+00:00",
       "complete": true,
       "post_count": 109,
       "questions": [
@@ -895,7 +895,7 @@
           "question_id": 46457,
           "post_id": 46228,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-25T14:00:00+00:00",
           "close_time_utc": "2026-10-25T17:00:00+00:00",
           "already_forecasted": true
@@ -904,7 +904,7 @@
           "question_id": 46458,
           "post_id": 46229,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-25T14:00:00+00:00",
           "close_time_utc": "2026-10-25T17:00:00+00:00",
           "already_forecasted": true
@@ -994,7 +994,7 @@
           "question_id": 46420,
           "post_id": 46193,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-22T09:00:00+00:00",
           "close_time_utc": "2026-10-22T12:00:00+00:00",
           "already_forecasted": true
@@ -1003,7 +1003,7 @@
           "question_id": 46419,
           "post_id": 46192,
           "source": "fall-futureeval-2026",
-          "status": "closed",
+          "status": "resolved",
           "open_time_utc": "2026-10-22T00:00:00+00:00",
           "close_time_utc": "2026-10-22T03:00:00+00:00",
           "already_forecasted": true
@@ -1570,7 +1570,7 @@
     0
   ],
   "selected": 0,
-  "finished_at_utc": "2026-11-04T12:17:27.965168+00:00",
+  "finished_at_utc": "2026-11-04T12:47:24.923037+00:00",
   "api_successful_response_count": 0,
   "llm_failed_or_unconfirmed_invocations": 0,
   "api_call_measurement": "Observed responses and invocation failures; not provider quota consumption",
@@ -1583,6 +1583,6 @@
     "cooldown_until_epoch": 1793664000.0
   },
   "provider_paused_for_run": false,
-  "git_sha": "3fe743af413d31e5649132525ccdbc4c76bbb48f",
-  "workflow_run_id": "41827826657"
+  "git_sha": "6e2d69df6198518024984da426e656ccf32831bf",
+  "workflow_run_id": "41832152618"
 }

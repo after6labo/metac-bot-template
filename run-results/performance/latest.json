@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-04T15:19:50.841735+00:00",
-  "run_id": "41855984230",
+  "started_at_utc": "2026-11-04T23:57:39.614681+00:00",
+  "run_id": "41937565739",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,24 +20,24 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 23,
+          "max_coverage": 24,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -647.8012545603865,
-            "rank": 323,
-            "coverage": 18,
-            "contribution_count": 18,
-            "calculated_on": "2026-11-04T12:33:46.193240Z",
+            "score": -660.2776744348412,
+            "rank": 324,
+            "coverage": 19,
+            "contribution_count": 19,
+            "calculated_on": "2026-11-04T23:41:23.942086Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -1116.9226230030704,
-            "ci_upper": -251.58933140914743
+            "ci_lower": -1122.0716683874996,
+            "ci_upper": -261.5182930918192
           },
-          "listed_entry_count": 451,
-          "ranked_entry_count": 451,
+          "listed_entry_count": 454,
+          "ranked_entry_count": 454,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
             {
@@ -87,6 +87,16 @@
               "question_type": "discrete",
               "question_resolution": "4.857142858",
               "score": -10.676470193175161,
+              "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46296,
+              "post_id": 46058,
+              "question_title": "Will the United States resume its air campaign against Iran before November 10, 2026?",
+              "question_type": "binary",
+              "question_resolution": "yes",
+              "score": -12.47641987445463,
               "coverage": 1,
               "question_weight": 1
             },
@@ -777,6 +787,50 @@
           },
           "forecast_count": 1,
           "post_id": 46052
+        },
+        {
+          "id": 46296,
+          "type": "binary",
+          "resolution": "yes",
+          "actual_resolve_time": "2026-11-04T23:34:00Z",
+          "open_time": "2026-10-16T18:00:00Z",
+          "actual_close_time": "2026-10-16T21:00:00Z",
+          "spot_scoring_time": "2026-10-16T21:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": -89.5168239540524,
+            "peer_score": -11.246987794832755,
+            "coverage": 0.895168239540524,
+            "relative_legacy_score": -0.17391560024163544,
+            "weighted_coverage": 0.895168239540524,
+            "spot_peer_score": -12.47641987445463,
+            "spot_baseline_score": -100
+          },
+          "last_forecast": {
+            "start_time": 1792174732.183013,
+            "end_time": null,
+            "forecast_values": [
+              0.75,
+              0.25
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46058
         },
         {
           "id": 46291,
@@ -18100,9 +18154,9 @@
       "close_date": "2026-09-25T00:00:00Z"
     }
   ],
-  "api_get_calls": 23,
+  "api_get_calls": 24,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-04T15:21:13.983931+00:00",
+  "finished_at_utc": "2026-11-04T23:59:05.715895+00:00",
   "resolution_signature": [
     45707,
     46133,
@@ -18122,6 +18176,7 @@
     46292,
     46294,
     46295,
+    46296,
     46307,
     46418,
     46419,

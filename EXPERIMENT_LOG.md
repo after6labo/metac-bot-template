@@ -1,3 +1,12 @@
+## 2026-11-04 13:24 JST — 全2本番を照合、13:07取得時も受付中未回答なし
+
+- 前回41764990964以降の全2本番履歴・Actions/jobs/logsを照合。41768155869は12:37:10.619246〜12:37:23.558836 JST、[41771152539](https://github.com/after6labo/metac-bot-template/actions/runs/41771152539)は13:07:18.790583〜13:07:31.296427。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会の独立API監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall109posts/108questions（closed89/resolved19）。全状態問題メタデータは前回12:07と完全一致、新規/消失ID・締切/状態変化なし。SDK0件だけでなく独立全一覧と照合し13:07取得時の受付中未回答0件を確認。過去26問等の取り逃しは保持。取得以後の新規出題は未確認。
+- 実取得開始間隔29分57.742404秒・30分08.171337秒、最大30分08.171337秒。13:23:24現在の直近空白16分05.209417秒で60分超なし。次回通常実取得は約13:37見込みで保証なし。
+- 最新AGENTS/実験ログ/README/latest/history/budget/performanceとActionsを再取得。latest/history41771152539-1.jsonはblobf3c56e52dbc2481a54df96eec751c3c0b40fa668でraw一致、先行履歴2b5761a2e49cbe9812b2d71a5c5f7b478f4c35d2。両JSON git_shaとActions head一致。jobs126371323411/126380888853で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13293491448/13294139945、履歴push9d0146a/d2bc993成功。テスト成功・空実行を競技投稿証拠に数えない。
+- 追加LLM成功応答/tokens/失敗invocation/記録上新規費用0。budget99b0f4dda67f7c7af5121a92880341114fcc5fb9不変、UTC11/4観測値0/0/0、期限切れcooldown保持。提供側無料枠消費/残量・請求実測ではない。performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169不変、両jobとも新規取得not due or cooling down、artifact再保存のみ。既報Fall順位表13問/内訳11問不整合は未解決、最新認証付き再取得・賞金受領の新証拠なし。
+- 同日00:52公式規則監査を再利用。実験ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用と過去取り逃し・成績不整合・その他既報未解決事項を保持。同一警告の再通知なし。
+
 ## 2026-11-04 12:23 JST — 全4本番を照合、46660の締切後も投稿証拠と整合
 
 - 前回41754054809以降の全4本番履歴・Actions/jobs/logsを照合。41757412688は10:57:11.157509〜10:57:24.027196 JST、41760744793は11:27:14.127548〜11:27:27.730106、41762082492は11:39:31.896858〜11:39:44.143533、[41764990964](https://github.com/after6labo/metac-bot-template/actions/runs/41764990964)は12:07:12.876842〜12:07:27.310404。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0。outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

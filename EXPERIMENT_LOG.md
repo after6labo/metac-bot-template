@@ -1,3 +1,12 @@
+## 2026-11-04 17:49 JST — 全2本番を照合、17:37取得時も受付中未回答なし
+
+- 前回41793434092以降の全2本番履歴・Actions/jobs/logsを照合。41796948180は17:06:56.191415〜17:07:11.009156 JST、[41800792522](https://github.com/after6labo/metac-bot-template/actions/runs/41800792522)は17:37:13.915808〜17:37:27.182456。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会の独立API監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall109posts/108questions（closed89/resolved19）。全状態問題メタデータは前回16:37と完全一致、新規/消失ID・締切/状態変化なし。SDK0件と独立全一覧を照合し17:37取得時の受付中未回答0件を確認。過去26問等の取り逃しは保持し、未回答の締切経過を解消扱いにしない。取得以後の新規出題は未確認。
+- JSON実取得開始間隔29分44.749706秒、30分17.724393秒、最大30分17.724393秒。17:48:28現在の直近空白11分14.084192秒、60分超なし。次回通常実取得は約18:07見込みで保証なし。
+- 最新AGENTS/実験ログ/latest/history/budget/performanceとActionsを再取得。latest/history41800792522-1.jsonはblob6c4b920e74ee7efe85a81dacecdde53b5f7925c7でraw一致、先行履歴17721a89b230d85b8473acab3e56a00b3c2915b6。両JSON git_shaとActions head一致。jobs126463176891/126475754371で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13305862143/13307906344、履歴pushf54fdd2/47749a5成功。テスト成功・緑表示・空実行は競技投稿証拠ではない。
+- 追加LLM成功応答/tokens/失敗invocation/記録上新規費用0。budget99b0f4dda67f7c7af5121a92880341114fcc5fb9不変、UTC11/4観測値0/0/0、期限切れcooldown保持。提供側無料枠消費/残量・請求実測ではない。performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169不変、両jobとも新規成績取得not due or cooling down、artifact再保存のみ。既報Fall順位表13問/内訳11問不整合は未解決、最新認証付き再取得・賞金受領の新証拠なし。
+- 同日00:52公式規則監査を再利用。実験ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用と過去取り逃し・成績不整合・その他既報未解決事項を保持。同一警告の再通知なし。
+
 ## 2026-11-04 16:49 JST — 16:37本番を照合、受付中未回答・追加投稿なし
 
 - 前回41789946769以降の新規本番は[41793434092](https://github.com/after6labo/metac-bot-template/actions/runs/41793434092)のみ。JSON実取得16:37:11.441709〜16:37:23.372394 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

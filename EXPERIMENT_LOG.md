@@ -1,3 +1,12 @@
+## 2026-11-05 07:21 JST — 06:57まで全2本番照合、q46570の締切後回答済みを確認
+
+- 前回41911324120以降の全2本番：[41916089771](https://github.com/after6labo/metac-bot-template/actions/runs/41916089771)は06:27:16.333773〜06:27:28.334822 JST、[41920700918](https://github.com/after6labo/metac-bot-template/actions/runs/41920700918)は06:57:16.763385〜06:57:31.255861。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall112posts/111questions（closed87/resolved24）。06:27にq46570/post46337がopen→closed、already_forecasted=trueを維持し、公式締切06:00後の状態を確認。41887154726の03:28:45.778予測/03:28:49.904説明成功ログおよび03:57以降の回答済み証拠と整合。締切で未回答が消えたものではない。その他の全状態メタデータ不変、新規/消失ID・受付日時変更なし。06:57は全配列不変。SDK0件を独立全一覧と照合し、両取得時の受付中未回答0件。過去pendingも空、既報取り逃しを保持する。
+- JSON実取得開始間隔30分05.812761秒・30分00.429612秒、最大30分05.812761秒。07:20:16.588時点の直近空白22分59.824615秒、60分超なし。次回通常実取得は約07:27見込み、保証なし。06:57取得以後の新規出題は未確認。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceとActions/jobs/logsを再取得。AGENTS/READMEは同一blob。両JSON git_shaとActions head一致。latest/history41920700918-1.jsonはblob1bdd617e34b16c8b8928d53313cea45b89e9606eでraw一致、先行履歴85f2c947abcb7ea54eaad85c95f651932e3a5dc6、境界41911324120も再読。jobs126876028218/126892128836で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13363714679/13367745757、履歴pushbd0816d/9ced9f3成功。緑表示・テスト成功・空実行を競技投稿とは数えない。
+- 追加LLM観測成功応答/tokens/失敗invocation/記録上新規費用0。budget ffe49e4a8abdebc9291d7f44b9addcef54c02404不変、UTC11/4累計6応答/18653tokens/失敗0、期限切れcooldown保持。提供側無料枠消費・残量・請求実測ではない。performance8da0ee89a8e74494fff5ef69f74f1d2d9547fd5f不変、両job not dueで新規成績取得なし。00:21取得の公式成績を保持、10/5 MiniBench順位表37問/内訳38問不整合は未解決。直近投稿の採点・賞金受領未確認。
+- 同日00:13公式規則監査を再利用。変更は実験ログのみ。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動本番再実行、有料切替、制限迂回、本人作業なし。既存定期運用・過去取り逃し・成績不整合・その他既報未解決事項を保持。新規投稿/障害/成績更新なし。
+
 ## 2026-11-05 06:11 JST — 05:57まで全3本番照合、追加投稿・未回答なし
 
 - 前回41896930849以降の全3本番：41901754590は04:57:08.217164〜04:57:25.739856 JST、41906601413は05:27:13.747451〜05:27:33.621233、[41911324120](https://github.com/after6labo/metac-bot-template/actions/runs/41911324120)は05:57:10.521012〜05:57:29.108967。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。skipsはq46570のalready_forecastedのみ。本番への追加投稿なし。

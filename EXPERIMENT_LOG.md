@@ -1,3 +1,12 @@
+## 2026-11-04 16:10 JST — 全2本番を照合、16:07取得時も受付中未回答なし
+
+- 前回41783331535以降の全2本番履歴・Actions/jobs/logsを照合。41786632220は15:36:58.110451〜15:37:11.433977 JST、[41789946769](https://github.com/after6labo/metac-bot-template/actions/runs/41789946769)は16:07:12.295263〜16:07:27.037116。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0。outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会の独立API監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall109posts/108questions（closed89/resolved19）。全状態問題メタデータは前回15:07と完全一致、新規/消失ID・締切/状態変化なし。SDK0件と独立全一覧を照合し16:07取得時の受付中未回答0件を確認。過去26問等の取り逃しは保持し、未回答の締切経過を解消扱いにしない。取得以後の新規出題は未確認。
+- JSON実取得開始間隔29分23.833397秒、30分14.184812秒、最大30分14.184812秒。16:09:33現在の直近空白2分20.704737秒、60分超なし。次回通常実取得は約16:37見込みで保証なし。確認中の16:07実行は完了・結果永続化まで待って検証し、重複手動実行はしていない。
+- 最新AGENTS/実験ログ/latest/history/budget/performanceとActionsを再取得。latest/history41789946769-1.jsonはblob1080976512162c8a9f0d73fc2534d9e39151458bでraw一致、先行履歴88b1e6b56be75cb86ffbf88fad06b554f6d40ea9。両JSON git_shaとActions head一致。jobs126430158023/126440731502で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13301084075/13302459492、履歴push992a475/87b80ff成功。テスト成功・緑表示・空実行は競技投稿証拠ではない。
+- 追加LLM成功応答/tokens/失敗invocation/記録上新規費用0。budget99b0f4dda67f7c7af5121a92880341114fcc5fb9不変、UTC11/4観測値0/0/0、期限切れcooldown保持。提供側無料枠消費/残量・請求実測ではない。新規成績取得は両jobともnot due or cooling downでartifact再保存のみ。既報performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169のFall順位表13問/内訳11問不整合は未解決、最新認証付き再取得・賞金受領の新証拠なし。
+- 同日00:52公式規則監査を再利用。実験ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用と過去取り逃し・成績不整合・その他既報未解決事項を保持。同一警告の再通知なし。
+
 ## 2026-11-04 15:26 JST — 全3本番を照合、15:07取得時も受付中未回答なし
 
 - 前回41774215643以降の全3本番履歴・Actions/jobs/logsを照合。41777184104は14:07:10.981703〜14:07:24.659895 JST、41780272194は14:37:13.246275〜14:37:24.845592、[41783331535](https://github.com/after6labo/metac-bot-template/actions/runs/41783331535)は15:07:34.277054〜15:07:48.292890。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0。outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

@@ -1,13 +1,13 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-03T15:58:31.494517+00:00
+取得開始（UTC）: 2026-11-04T11:47:21.608794+00:00
 取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 286 | -503.11 | 13 | 2026-11-03T15:37:13.528426Z |
+| Fall 2026 FutureEval Bot Tournament | 288 | -558.19 | 14 | 2026-11-04T11:37:01.005651Z |
 | MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
-| MiniBench - 2026-10-19 | 237 | -174.78 | 39 | 2026-11-02T11:15:26.433314Z |
+| MiniBench - 2026-10-19 | 238 | -218.40 | 40 | 2026-11-04T11:16:34.353235Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-09-07 | 未確認 | 未確認 | 未確認 | 未確認 |
@@ -17,6 +17,7 @@
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
 | fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
+| fall-futureeval-2026 | [q46295](https://www.metaculus.com/questions/46057/) | no | 2.96 |
 | fall-futureeval-2026 | [q46294](https://www.metaculus.com/questions/46056/) | no | -3.19 |
 | fall-futureeval-2026 | [q46290](https://www.metaculus.com/questions/46052/) | 4.857142858 | -10.68 |
 | fall-futureeval-2026 | [q46291](https://www.metaculus.com/questions/46053/) | yes | -16.03 |
@@ -25,8 +26,10 @@
 | fall-futureeval-2026 | [q46133](https://www.metaculus.com/questions/45951/) | no | -23.23 |
 | fall-futureeval-2026 | [q46184](https://www.metaculus.com/questions/46000/) | Luiz Inácio Lula da Silva | -33.71 |
 | fall-futureeval-2026 | [q46135](https://www.metaculus.com/questions/45953/) | yes | -50.62 |
+| fall-futureeval-2026 | [q46142](https://www.metaculus.com/questions/45960/) | 4.149 | -55.08 |
 | fall-futureeval-2026 | [q46134](https://www.metaculus.com/questions/45952/) | 145198.0 | -72.63 |
 | fall-futureeval-2026 | [q46307](https://www.metaculus.com/questions/46069/) | yes | -128.77 |
+| fall-futureeval-2026 | [q46418](https://www.metaculus.com/questions/46191/) | Elon Musk | -165.75 |
 | fall-futureeval-2026 | [q46136](https://www.metaculus.com/questions/45954/) | >4 | 未確認 |
 | fall-futureeval-2026 | [q46137](https://www.metaculus.com/questions/45955/) | above_upper_bound | 未確認 |
 | fall-futureeval-2026 | [q46138](https://www.metaculus.com/questions/45956/) | Massachusetts | 未確認 |
@@ -71,6 +74,7 @@
 | minibench-2026-10-19 | [q46401](https://www.metaculus.com/questions/46172/) | yes | -34.66 |
 | minibench-2026-10-19 | [q46365](https://www.metaculus.com/questions/46136/) | 3.0 | -36.54 |
 | minibench-2026-10-19 | [q46356](https://www.metaculus.com/questions/46127/) | 60.74 | -41.65 |
+| minibench-2026-10-19 | [q46410](https://www.metaculus.com/questions/46181/) | below_lower_bound | -43.62 |
 | minibench-2026-10-19 | [q46366](https://www.metaculus.com/questions/46137/) | no | 未確認 |
 | minibench-2026-10-19 | [q46369](https://www.metaculus.com/questions/46140/) | 60.0 | 未確認 |
 | minibench-2026-10-19 | [q46370](https://www.metaculus.com/questions/46141/) | 849800.0 | 未確認 |

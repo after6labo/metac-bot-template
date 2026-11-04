@@ -1,3 +1,13 @@
+## 2026-11-04 10:18 JST — 全3本番を照合、09:57取得時も受付中未回答なし
+
+- 前回41739141691以降の全3本番履歴・Actions/jobs/logsを照合。41743021282は08:57:09.111797〜08:57:29.391403 JST、41746816438は09:27:04.235350〜09:27:21.381540、[41750506387](https://github.com/after6labo/metac-bot-template/actions/runs/41750506387)は09:57:19.124231〜09:57:37.316893。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 全実行・両大会の独立監査complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions（open1/closed59）、Fall109posts/108questions（closed89/resolved19）。全状態の問題メタデータは前回08:27と完全一致、新規/消失ID・締切/状態変化なし。skipはMiniBench46660/post46427のalready_forecastedのみ。公式受付07:41:51〜10:41:51 JSTに対し、既報41735047739の予測07:57:51.658・説明07:57:55.512成功と後続API回答済み認識が対応。受付中未回答0件は09:57取得時点の確認であり、それ以後の新規出題は未確認。過去26問等の取り逃しは保持。
+- JSON実取得開始間隔29分54.362443秒・29分55.123553秒・30分14.888881秒、最大30分14.888881秒。10:16:11現在の直近空白18分51.875769秒、60分超なし。次回通常実取得は約10:27見込みで保証なし。受付中46660の10:41:51締切には既に完全投稿済み。
+- 最新AGENTS/実験ログ/latest/history/budget/performanceとActionsを再取得。latest/history41750506387-1.jsonはblob81e9f2c4c22f813d49b82174bc3782ae2d0b8fcdでraw一致、先行履歴ec2bf3664f574394aafa4003f780c28417911040/42684c05de237a74fbb16776181c72112e8ac689。全JSON git_shaとActions head一致。jobs126288994208/126301797147/126314140108で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13282551342/13283702647/13285573458、履歴pushae7a8f7/bf0654d/af22d70成功。テスト成功や空実行は競技投稿証拠に数えない。
+- 追加LLM成功応答/tokens/失敗invocation/記録上新規費用0。budget99b0f4dda67f7c7af5121a92880341114fcc5fb9はUTC11/4へ日付更新、同日観測値0/0/0、期限切れcooldown1793664000保持。UTC11/3の33成功/132079tokens/失敗2は履歴に残る。日付更新を提供側無料枠の復活・残量確認とはみなさず、これらは提供側消費/請求実測ではない。
+- performance31f052cb1e91a5adbabc2d2e0963826c5ca8b169不変、3jobとも成績取得not due or cooling down、artifact再保存のみ。既報Fall順位表13問/内訳11問不整合は未解決、最新認証付き再取得・賞金受領の新証拠なし。同日00:52公式規則監査を再利用。
+- 実験ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用と過去取り逃し・成績内訳不整合・その他既報未解決事項を保持。新規投稿/障害/成績更新がないため同じ警告を再通知しない。
+
 ## 2026-11-04 08:49 JST — MiniBench46660へ受付内に完全投稿、後続API認識も確認
 
 - 前回41730893108以降の全2本番履歴・Actions/jobs/logsを照合。[41735047739](https://github.com/after6labo/metac-bot-template/actions/runs/41735047739)は07:57:23.303379〜07:57:55.513991 JST、[41739141691](https://github.com/after6labo/metac-bot-template/actions/runs/41739141691)は08:27:14.749354〜08:27:30.671398。両方tournament、前者completed/selected1/submitted1、後者no_new_questions/selected0/submitted0。failed_or_unconfirmed0、pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。

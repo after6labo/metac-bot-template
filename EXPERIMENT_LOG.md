@@ -1,3 +1,12 @@
+## 2026-11-05 04:47 JST — 04:27まで全2本番照合、q46570のAPI回答済み確認
+
+- 前回41887154726以降の全2本番：[41892030884](https://github.com/after6labo/metac-bot-template/actions/runs/41892030884)は03:57:12.837848〜03:57:30.015972 JST、[41896930849](https://github.com/after6labo/metac-bot-template/actions/runs/41896930849)は04:27:13.287246〜04:27:47.103805。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。skipsはq46570のalready_forecastedのみ。本番への追加投稿なし。
+- 両実行・両大会のretrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall112posts/111questions（open1/closed86/resolved24）。03:57の独立APIでq46570/post46337がalready_forecasted=trueとなり、04:27も維持。前回の03:28:45.778予測/03:28:49.904説明成功ログと照合し、重複投稿なしを確認。公式受付03:00〜06:00 JST、現在締切まで約1時間14分だが投稿済み。その他全状態問題メタデータ不変、新規/消失ID・受付日時変更なし。各取得時受付中未回答0件。締切によるpending消失なし、過去の取り逃しは保持。
+- JSON実取得開始間隔29分58.550532秒・30分00.449398秒、最大30分00.449398秒。04:46:12.854時点の直近空白18分59.566754秒で60分超なし。次回通常実取得は約04:57見込み、保証なし。04:27取得以後の新規出題は未確認。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performance、Actions/jobs/logsを再取得。AGENTS/READMEは前回と同一blob。latest/history41896930849-1.jsonはblob8343fc8e3c149066bd8892d796a17f35b43411a6でraw一致、先行履歴777a8dfb831e635e5d62e7e5a3d33ff388153d5b。境界41887154726も再読。両JSON git_shaとActions head一致。jobs126791660249/126808846358で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13355011267/13356971066、履歴push21935fd/8adbc75成功。テスト成功や空実行は競技投稿に数えない。
+- 追加LLM観測成功応答/tokens/失敗invocation/記録上新規費用0。budget ffe49e4a8abdebc9291d7f44b9addcef54c02404不変、UTC11/4累計6応答/18653tokens/失敗0・期限切れcooldown保持。提供側無料枠消費・残量・請求実測ではない。performance8da0ee89a8e74494fff5ef69f74f1d2d9547fd5f不変、両job not dueで新規成績取得なし。00:21取得の公式成績を保持、10/5 MiniBench順位表37問/内訳38問不整合は未解決。直近投稿の採点・賞金受領未確認。
+- 同日00:13公式規則監査を再利用。変更は実験ログのみ。回答対象・停止条件・コード・設定・ライブ確率・プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。既存定期運用・過去取り逃し・成績不整合・その他既報未解決事項を保持。新規投稿/障害/成績更新なし。
+
 ## 2026-11-05 03:38 JST — Fall新規1問の受付内投稿、先行2問の締切後状態を確認
 
 - 前回41882153772以降の新規本番は[41887154726](https://github.com/after6labo/metac-bot-template/actions/runs/41887154726)のみ。JSON実取得03:27:14.287316〜03:28:49.905439 JST、mode=tournament/status=completed、selected/submitted1、failed_or_unconfirmed0。outcomesはq46570 submitted/nonfatal_errors0、skips/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。

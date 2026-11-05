@@ -1,3 +1,12 @@
+## 2026-11-06 06:38 JST — q46574投稿後の独立API回答済み確認、追加投稿なし
+
+- 前回42109551074 attempt2以降の新規本番[42114153066](https://github.com/after6labo/metac-bot-template/actions/runs/42114153066)が確認中に起動したため、完了・保存まで追跡。実取得06:37:09.122887〜06:37:27.754204 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall117posts/116questions（open1/closed90/resolved25）。前回の全状態一覧との差分はq46574/post46341のalready_forecasted=false→trueのみ。独立APIとSDKで一致し、skipは同IDのalready_forecastedのみ。既確認06:19:20.838予測・06:19:25.610説明の06:00〜09:00受付内投稿記録と整合、重複投稿なし。新規/消失ID・状態・受付日時変更なし。取得時受付中未回答0件、締切による未回答消失なし。初回形式変換失敗の記録と過去取り逃しを保持。今回の投稿後確認は完了したが、形式不備再発の恒久対策や大会側採点の確認ではない。
+- JSON実取得開始間隔19分07.033785秒、06:37:57時点の直近空白47.877113秒、新たな60分超なし。q46574は締切まで2時間22分03秒だが投稿済み。次回通常約07:07は実測に基づく目安で保証なし。06:37取得後の新規出題は未確認。既報60分08秒の起動空白原因は未解決として保持。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceとActions/jobs/logsを再取得。AGENTS/README不変。境界attempt2履歴6808ae9da105f844b82df3bb61d62d37c24d16b2を再読。latest/history42114153066-1.jsonは0ff38c12125e2cbbe010864aae2e24829381fb66でraw一致、JSON git_shaとActions headはb7a50420a37770c91308ca5f192c26961760fa40で一致。job127549203848でPython104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13454693660・履歴pushfc1df78を確認。テスト/緑表示/空実行は競技投稿に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget742294b14df237a46aa1e5ceb0b7d33f0f096acbはUTC11/5累計12応答・38902tokens・失敗invocation0、期限切れcooldown保持。提供側無料枠消費/残量/請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、job not due、成績artifact13455546797は既存snapshot再保存。公式成績更新なし。既報10/5Mini成績不整合、今回投稿の採点対象・賞金受領未確認は継続。
+- 同日00:20頃の公式規則監査を再利用。変更は実験ログのみ。追加再実行、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、有料切替、制限迂回、本人作業なし。新規障害なし、既報復旧の後続確認として記録する。
+
 ## 2026-11-06 06:20 JST — Fall q46574形式変換失敗を調査、1回の再実行で受付内投稿
 
 - 前回42095479605以降の本番：[42100220767](https://github.com/after6labo/metac-bot-template/actions/runs/42100220767)実取得05:07:13.666931〜05:07:30.911360 JST、[42104932021](https://github.com/after6labo/metac-bot-template/actions/runs/42104932021)05:37:13.441476〜05:37:32.631313、[42109551074 attempt1](https://github.com/after6labo/metac-bot-template/actions/runs/42109551074/attempts/1)06:07:15.173929〜06:08:46.160712。全てtournament。前2回no_new_questions、投稿/失敗0、pending/fetch_errors空。3回目failed/submitted0/failed_or_unconfirmed1、q46574 pending、needs_attention=true。成功扱いせず即調査。

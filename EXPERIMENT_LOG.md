@@ -1,3 +1,12 @@
+## 2026-11-06 02:49 JST — 02:37まで全2本番照合、約30分間隔に戻るも前回起動空白の原因は未解決
+
+- 前回42066157470以降の全2本番：[42071296771](https://github.com/after6labo/metac-bot-template/actions/runs/42071296771)実取得02:07:30.436924〜02:07:47.974274 JST、[42076257472](https://github.com/after6labo/metac-bot-template/actions/runs/42076257472)02:37:16.197253〜02:37:35.758087。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall115posts/114questions（open1/closed88/resolved25）。境界01:37から全状態問題配列が完全一致、新規/消失ID・状態・受付日時・回答済み証拠変更なし。q46567/post46334は独立APIとSDKともalready_forecasted=true、同IDのalready_forecasted以外のskipなし。既確認00:08:29.854予測・00:08:33.579説明の受付内投稿証拠と整合。取得時受付中未回答0件。前回pending空、締切による未回答消失なし。過去取り逃しは保持。
+- JSON実取得開始間隔30分16.459710秒・29分45.760329秒、今回区間最大30分16.459710秒。02:48:40時点の直近空白11分23.802747秒。約30分間隔で2回継続したことは確認したが、前回00:37→01:37の60分08.616024秒の起動空白は原因未解決、恒久復旧と扱わない。実稼働GASログ/Script Properties未取得の制約は変わらず。q46567締切03:00まで11分20秒だが投稿済み。次回約03:07は最近の実測に基づく目安で保証なし、02:37取得後の新規出題は未確認。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceとActions/jobs/logsを確認。AGENTS/README同一blob。latest/history42076257472-1.jsonはe645ac1f5e0d3d7725dca6669e333e26ec354f06でraw一致、先行履歴c195e5975a731485343f06109cf02c2212211b53、境界履歴dcc7202ce4947d5a3d06d1bdb98c6bcffa7acf76を再読。両JSON git_shaとActions head一致。jobs127399624734/127417132103で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13435852199/13439475926・履歴push9b843ab/5a236ee成功。緑表示・テスト・空実行は競技投稿に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget ebf35c4113ab8df824918e820a9fe63409f3894b不変（UTC11/5累計4応答・9541tokens・失敗0、期限切れcooldown）。提供側無料枠消費・残量・請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、両job not due、成績artifact13435907224/13437463928は既存snapshot再保存。00:10取得の公式成績を保持し、10/5Mini順位表37問/内訳38問の既報不整合は未解決。直近投稿の採点対象確定・賞金受領未確認。
+- 同日00:20頃の公式規則監査を再利用。変更は実験ログのみ。コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、手動再実行、有料切替、制限迂回、本人作業なし。新規投稿・未回答・障害・成績更新なし。既報の起動空白と成績不整合は未解決として保持し、同一警告の再通知を抑止する。
+
 ## 2026-11-06 01:44 JST — 実取得再開、60分08秒の起動空白は原因未解決
 
 - 前回42056668387以降の全1本番：[42066157470](https://github.com/after6labo/metac-bot-template/actions/runs/42066157470)。JSON実取得01:37:13.977214〜01:37:31.142157 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

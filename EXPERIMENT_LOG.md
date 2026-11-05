@@ -1,3 +1,12 @@
+## 2026-11-06 07:43 JST — 07:37まで全2本番照合、受付中未回答・新規障害なし
+
+- 前回42114153066以降の全2本番：[42118584748](https://github.com/after6labo/metac-bot-template/actions/runs/42118584748)実取得07:07:10.489038〜07:07:28.178594 JST、[42122898283](https://github.com/after6labo/metac-bot-template/actions/runs/42122898283)07:37:01.235177〜07:37:18.407892。両方tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両実行・両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall117posts/116questions（open1/closed90/resolved25）。境界06:37から全状態問題配列は完全一致、新規/消失ID・状態・受付日時・回答済み証拠変更なし。q46574/post46341は独立APIとSDKともalready_forecasted=trueを維持、同IDの回答済みskipのみ。既確認06:19:20.838予測・06:19:25.610説明の06:00〜09:00受付内投稿記録と整合。重複投稿なし、取得時受付中未回答0件。前回pending空、未回答の締切消失なし。初回形式変換失敗と過去取り逃しは保持。
+- 実取得開始間隔30分01.366151秒・29分50.746139秒、今回最大30分01.366151秒。07:42:09時点の直近空白5分07.764823秒、新たな60分超なし。q46574締切まで1時間17分51秒だが投稿済み。次回約08:07は最近の実測からの目安で保証なし。07:37取得後の新規出題は未確認。既報60分08秒起動空白の原因未解決、形式不備再発の恒久対策未確認は保持する。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceとActions/jobs/logsを再取得。AGENTS/README不変。境界履歴0ff38c12125e2cbbe010864aae2e24829381fb66再読、先行履歴4943482362f5a2f0036d7565ff6a25a94b45dd5f、latest/history42122898283-1.jsonは2c77adb9378966d02393a6cd18c2c6170aaece79でraw一致。全JSON git_shaとActions head一致。jobs127564657031/127579561463で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13457921762/13459961518、履歴push69315bc/52c14bc成功。テスト・緑表示・空実行は競技投稿に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget742294b14df237a46aa1e5ceb0b7d33f0f096acb不変（UTC11/5累計12応答・38902tokens・失敗invocation0、期限切れcooldown）。提供側無料枠消費/残量/請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、両job not due、成績artifact13456868586/13459726805は既存snapshot再保存。公式成績更新なし。既報10/5Mini成績不整合、今回投稿の採点対象・賞金受領未確認は継続。
+- 同日00:20頃の公式規則監査を再利用。変更は実験ログのみ。追加再実行、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、有料切替、制限迂回、本人作業なし。新規投稿・障害・成績更新なし、同一の未解決警告は繰り返さない。
+
 ## 2026-11-06 06:38 JST — q46574投稿後の独立API回答済み確認、追加投稿なし
 
 - 前回42109551074 attempt2以降の新規本番[42114153066](https://github.com/after6labo/metac-bot-template/actions/runs/42114153066)が確認中に起動したため、完了・保存まで追跡。実取得06:37:09.122887〜06:37:27.754204 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

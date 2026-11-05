@@ -1,3 +1,13 @@
+## 2026-11-06 01:44 JST — 実取得再開、60分08秒の起動空白は原因未解決
+
+- 前回42056668387以降の全1本番：[42066157470](https://github.com/after6labo/metac-bot-template/actions/runs/42066157470)。JSON実取得01:37:13.977214〜01:37:31.142157 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall115posts/114questions（open1/closed88/resolved25）。00:37履歴と全状態問題配列が完全一致、新規/消失ID・状態・受付日時・回答済み証拠変更なし。q46567/post46334は独立APIとSDKともalready_forecasted=true、同IDの回答済みskip以外なし。00:08:29.854予測・00:08:33.579説明の受付内投稿記録と整合。取得時受付中未回答0件、前回pending空、締切による未回答消失なし。過去取り逃しを保持。
+- 実取得開始間隔は60分08.616024秒で60分調査基準超、90分未満。01:43:24.324時点の直近空白6分10.346786秒。取得再開は確認したが約30分の通常間隔に対する01:07実行欠落の原因は未解決。次回約02:07は従来間隔からの目安で保証なし。q46567は03:00締切まで約1時間17分だが投稿済み。01:37取得以後の新規出題は未確認。
+- その場でActions全体一覧（10件・100件）・最新jobs/logs・補助起動コードoperations/github_scheduler.gsを照合。直近100件に実行中/待機中なし。00:36:21作成の前runは00:37:33終了、次は01:36:21作成/即開始のworkflow_dispatch（01:37:39終了）。run生成間隔60分、Runner開始待ちや長時間Bot実行による空白ではない。間の失敗run/結果保存失敗も観測なし。GASの20分dispatch抑制・10分trigger・active-run確認の仕様は確認したが、実稼働GASログ/Script Properties未取得で、GASトリガー遅延・通信/認証失敗・抑制のどれかは断定不能。直近dispatch成功は恒久的な認証停止を示さない。前回のworkflow API許可対象外は接続ツール側の制約で、Bot認証障害ではない。証拠のある修正対象を特定できず、設定を推測変更せず。復旧済みと閉じず、起動空白を継続調査事項として保持する。
+- 最新AGENTS/実験ログ/latest/history/budget/performanceを再取得。AGENTS同一blob。latest/history42066157470-1.jsonはdcc7202ce4947d5a3d06d1bdb98c6bcffa7acf76でraw一致、境界42056668387再読。JSON git_shaとActions headはe8398ec23ad477dfb458b0e03c12d69eb7a4f298で一致。job127380686585でPython104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13435001108・履歴push152c513成功。テスト/緑表示/空実行は競技投稿に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget ebf35c4113ab8df824918e820a9fe63409f3894b不変（UTC11/5累計4応答・9541tokens・失敗0、期限切れcooldown）。提供側無料枠消費/残量/請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、job not due、成績artifact13433797512は再保存。00:10取得Fall324/454・−660.2776744348412・19問、未確定/除外なしを保持。既報10/5Mini順位表37問/内訳38問の不整合は未解決、直近投稿の採点/賞金受領未確認。
+- 同日00:20頃の公式規則監査を再利用。変更は実験ログのみ。コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、手動本番再実行、有料切替、制限迂回、本人作業なし。60分超の新規空白と取得再開を通知し、原因不明・恒久復旧未確認を明記する。
+
 ## 2026-11-06 01:31 JST — 00:37本番でq46567回答済み確認、直近空白約54分
 
 - 前回42051561346以降の新規本番は[42056668387](https://github.com/after6labo/metac-bot-template/actions/runs/42056668387)。JSON実取得00:37:05.361190〜00:37:23.652673 JST、tournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

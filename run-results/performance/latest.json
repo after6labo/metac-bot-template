@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "started_at_utc": "2026-11-06T15:07:35.268532+00:00",
-  "run_id": "42239915096",
+  "started_at_utc": "2026-11-06T16:07:30.546063+00:00",
+  "run_id": "42249227029",
   "status": "completed",
   "errors": [],
   "projects": [
@@ -20,24 +20,24 @@
           "finalized": false,
           "start_time": null,
           "end_time": null,
-          "max_coverage": 28,
+          "max_coverage": 29,
           "prize_pool": 50000,
           "bot_exclusion_status": 0,
           "entry_status": "found",
           "own_entry": {
-            "score": -627.3226699568789,
+            "score": -605.0363876196983,
             "rank": 320,
-            "coverage": 22,
-            "contribution_count": 22,
-            "calculated_on": "2026-11-06T15:01:39.906108Z",
+            "coverage": 23,
+            "contribution_count": 23,
+            "calculated_on": "2026-11-06T15:49:26.694123Z",
             "excluded": false,
             "exclusion_status": 0,
             "prize": 0,
-            "ci_lower": -1161.5858586807044,
-            "ci_upper": -92.25249129885866
+            "ci_lower": -1155.5254659923853,
+            "ci_upper": -68.94065677705643
           },
-          "listed_entry_count": 454,
-          "ranked_entry_count": 454,
+          "listed_entry_count": 455,
+          "ranked_entry_count": 455,
           "prize_payment_confirmed": null,
           "resolved_contributions": [
             {
@@ -67,6 +67,16 @@
               "question_type": "binary",
               "question_resolution": "no",
               "score": 27.194545181853787,
+              "coverage": 1,
+              "question_weight": 1
+            },
+            {
+              "question_id": 46333,
+              "post_id": 46095,
+              "question_title": "Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling or early voting site in 2026?",
+              "question_type": "binary",
+              "question_resolution": "no",
+              "score": 22.286282337180804,
               "coverage": 1,
               "question_weight": 1
             },
@@ -321,7 +331,7 @@
               "question_weight": 1
             }
           ],
-          "unresolved_contribution_count": 90,
+          "unresolved_contribution_count": 89,
           "contributions_status": "completed"
         }
       ],
@@ -871,6 +881,50 @@
           },
           "forecast_count": 1,
           "post_id": 46193
+        },
+        {
+          "id": 46333,
+          "type": "binary",
+          "resolution": "no",
+          "actual_resolve_time": "2026-11-06T15:48:00Z",
+          "open_time": "2026-10-15T14:00:00Z",
+          "actual_close_time": "2026-10-15T17:00:00Z",
+          "spot_scoring_time": "2026-10-15T17:00:00Z",
+          "default_score_type": "spot_peer",
+          "scaling": {
+            "range_min": null,
+            "range_max": null,
+            "nominal_min": null,
+            "nominal_max": null,
+            "zero_point": null,
+            "open_upper_bound": false,
+            "open_lower_bound": false,
+            "inbound_outcome_count": null,
+            "continuous_range": null
+          },
+          "options": null,
+          "score_data": {
+            "baseline_score": 81.91958118628044,
+            "peer_score": 19.162965003944826,
+            "coverage": 0.843789183055913,
+            "relative_legacy_score": 0.20922894891990634,
+            "weighted_coverage": 0.843789183055913,
+            "spot_peer_score": 22.286282337180804,
+            "spot_baseline_score": 97.08536543404836
+          },
+          "last_forecast": {
+            "start_time": 1792074487.076823,
+            "end_time": null,
+            "forecast_values": [
+              0.98,
+              0.02
+            ],
+            "interval_lower_bounds": null,
+            "centers": null,
+            "interval_upper_bounds": null
+          },
+          "forecast_count": 1,
+          "post_id": 46095
         },
         {
           "id": 46189,
@@ -19142,7 +19196,7 @@
   ],
   "api_get_calls": 24,
   "retry_not_before_utc": null,
-  "finished_at_utc": "2026-11-06T15:09:03.089654+00:00",
+  "finished_at_utc": "2026-11-06T16:09:00.435101+00:00",
   "resolution_signature": [
     45707,
     46066,
@@ -19167,6 +19221,7 @@
     46295,
     46296,
     46307,
+    46333,
     46418,
     46419,
     46420,

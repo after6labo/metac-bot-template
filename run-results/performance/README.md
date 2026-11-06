@@ -1,12 +1,12 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-06T14:37:23.370999+00:00
-取得状態: partial_or_failed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
+取得開始（UTC）: 2026-11-06T15:07:35.268532+00:00
+取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 321 | -538.98 | 20 | 2026-11-06T14:34:56.665711Z |
-| minibench（partial_or_failed） | 未確認 | 未確認 | 未確認 | 未確認 |
+| Fall 2026 FutureEval Bot Tournament | 320 | -627.32 | 22 | 2026-11-06T15:01:39.906108Z |
+| MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-10-19 | 238 | -218.40 | 40 | 2026-11-06T03:00:06.356661Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
@@ -19,6 +19,7 @@
 | fall-futureeval-2026 | [q46143](https://www.metaculus.com/questions/45961/) | 109900000.0 | 121.30 |
 | fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
 | fall-futureeval-2026 | [q46420](https://www.metaculus.com/questions/46193/) | no | 27.19 |
+| fall-futureeval-2026 | [q46189](https://www.metaculus.com/questions/46005/) | above_upper_bound | 7.73 |
 | fall-futureeval-2026 | [q46295](https://www.metaculus.com/questions/46057/) | no | 2.96 |
 | fall-futureeval-2026 | [q46294](https://www.metaculus.com/questions/46056/) | no | -3.19 |
 | fall-futureeval-2026 | [q46290](https://www.metaculus.com/questions/46052/) | 4.857142858 | -10.68 |
@@ -34,6 +35,7 @@
 | fall-futureeval-2026 | [q46135](https://www.metaculus.com/questions/45953/) | yes | -50.62 |
 | fall-futureeval-2026 | [q46142](https://www.metaculus.com/questions/45960/) | 4.149 | -55.08 |
 | fall-futureeval-2026 | [q46134](https://www.metaculus.com/questions/45952/) | 145198.0 | -72.63 |
+| fall-futureeval-2026 | [q46421](https://www.metaculus.com/questions/46194/) | no | -96.07 |
 | fall-futureeval-2026 | [q46307](https://www.metaculus.com/questions/46069/) | yes | -128.77 |
 | fall-futureeval-2026 | [q46418](https://www.metaculus.com/questions/46191/) | Elon Musk | -165.75 |
 | fall-futureeval-2026 | [q46136](https://www.metaculus.com/questions/45954/) | >4 | 未確認 |

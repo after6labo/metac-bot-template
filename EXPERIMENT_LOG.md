@@ -1,3 +1,12 @@
+## 2026-11-06 19:36 JST — 19:07本番を照合、受付中未回答・追加投稿なし
+
+- 前回42196323762以降の本番1実行：[42200073705](https://github.com/after6labo/metac-bot-template/actions/runs/42200073705)、実取得19:07:10.333284〜19:07:25.649086 JST。tournament/no_new_questions、取得[0,0]、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall119posts/118questions（closed93/resolved25）。境界18:37と全状態問題配列完全一致、新規/消失ID・受付日時・回答済み証拠変更なし。q46576/post46343はclosed/already_forecasted=true維持、既確認15:08:50.867予測・15:08:55.334説明の公式15:00〜18:00受付内投稿証拠に整合。受付中未回答・締切による未回答消失なし。過去取り逃し保持。
+- 実取得開始間隔29分58.390066秒。19:35:53時点の直近空白28分42.666716秒、今回60分超なし。受付中未回答がないため締切残り評価対象なし。次回通常約19:37は実測目安で保証なし。19:07取得後の新規出題は未確認。既報起動空白原因・形式不備再発の恒久対策未確認は保持。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performance、Actions/jobs/logsを再取得。AGENTS/README不変。境界履歴ba023507cda8a95fa31c4210203e3825757d2572、最新履歴/latestは6db7be9199b95b7a6b33d26d71aeb35f42692787でraw一致、JSON git_shaとActions headは1a9301ef96b6dd6486da51c2a892db82d29f687bで一致。job127832886611でPython104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13493597648・履歴pusha54f033成功。テスト・緑表示・空実行は競技参加に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget e8a69de9012d43c60b17644c27287c430b1e625b不変（UTC11/6累計4応答・7501tokens・失敗0、期限切れcooldown）。提供側無料枠消費/残量/請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、新規収集なし、成績artifact13493788307は既存snapshot再保存。公式成績更新なし。既報10/5Mini成績不整合、直近投稿の採点・賞金受領未確認は継続。
+- 同日00:20頃の公式規則監査（00:22節）を再利用。変更は実験ログのみ。手動再実行、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、有料切替、制限迂回、本人作業なし。新規投稿・障害・成績更新なし、同一未解決警告は繰り返さない。
+
 ## 2026-11-06 18:46 JST — 18:37まで全3本番照合、q46576締切後も回答済み
 
 - 前回42185300358以降の全3本番：[42188877992](https://github.com/after6labo/metac-bot-template/actions/runs/42188877992)実取得17:37:15.188164〜17:37:33.058477 JST、[42192495375](https://github.com/after6labo/metac-bot-template/actions/runs/42192495375)18:07:13.012187〜18:07:25.443810、[42196323762](https://github.com/after6labo/metac-bot-template/actions/runs/42196323762)18:37:11.943218〜18:37:23.526560。全てtournament/no_new_questions、selected/submitted/failed_or_unconfirmed0、outcomes/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

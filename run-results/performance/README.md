@@ -1,13 +1,13 @@
 # 公式成績
 
-取得開始（UTC）: 2026-11-05T15:08:37.588222+00:00
-取得状態: completed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
+取得開始（UTC）: 2026-11-06T14:37:23.370999+00:00
+取得状態: partial_or_failed。順位・スコアは公式APIの値。暫定賞金は入金実績ではありません。
 
 | 大会 | 順位 | スコア | 採点寄与数 | 公式計算日時（UTC） |
 |---|---:|---:|---:|---|
-| Fall 2026 FutureEval Bot Tournament | 324 | -660.28 | 19 | 2026-11-04T23:41:23.942086Z |
-| MiniBench | 未確認 | 未確認 | 未確認 | 未確認 |
-| MiniBench - 2026-10-19 | 238 | -218.40 | 40 | 2026-11-04T11:16:34.353235Z |
+| Fall 2026 FutureEval Bot Tournament | 321 | -538.98 | 20 | 2026-11-06T14:34:56.665711Z |
+| minibench（partial_or_failed） | 未確認 | 未確認 | 未確認 | 未確認 |
+| MiniBench - 2026-10-19 | 238 | -218.40 | 40 | 2026-11-06T03:00:06.356661Z |
 | MiniBench - 2026-10-05 | 174 | -202.41 | 37 | 2026-10-23T03:00:05.795119Z |
 | MiniBench - 2026-09-21 | 未確認 | 未確認 | 未確認 | 未確認 |
 | MiniBench - 2026-09-07 | 未確認 | 未確認 | 未確認 | 未確認 |
@@ -16,6 +16,7 @@
 
 | 大会 | 問題 | 結果 | 公式得点 |
 |---|---|---|---:|
+| fall-futureeval-2026 | [q46143](https://www.metaculus.com/questions/45961/) | 109900000.0 | 121.30 |
 | fall-futureeval-2026 | [q46141](https://www.metaculus.com/questions/45959/) | Five or Six | 43.92 |
 | fall-futureeval-2026 | [q46420](https://www.metaculus.com/questions/46193/) | no | 27.19 |
 | fall-futureeval-2026 | [q46295](https://www.metaculus.com/questions/46057/) | no | 2.96 |
@@ -37,6 +38,7 @@
 | fall-futureeval-2026 | [q46418](https://www.metaculus.com/questions/46191/) | Elon Musk | -165.75 |
 | fall-futureeval-2026 | [q46136](https://www.metaculus.com/questions/45954/) | >4 | 未確認 |
 | fall-futureeval-2026 | [q46137](https://www.metaculus.com/questions/45955/) | above_upper_bound | 未確認 |
+| fall-futureeval-2026 | [q46066](https://www.metaculus.com/questions/45884/) | 38.3 | 未確認 |
 | fall-futureeval-2026 | [q46138](https://www.metaculus.com/questions/45956/) | Massachusetts | 未確認 |
 | fall-futureeval-2026 | [q46139](https://www.metaculus.com/questions/45957/) | yes | 未確認 |
 | fall-futureeval-2026 | [q46140](https://www.metaculus.com/questions/45958/) | 39.0 | 未確認 |

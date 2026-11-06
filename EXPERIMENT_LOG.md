@@ -1,3 +1,12 @@
+## 2026-11-06 20:36 JST — 20:07まで全2本番照合、追加投稿・受付中未回答なし
+
+- 前回42200073705以降の全2本番：[42203948091](https://github.com/after6labo/metac-bot-template/actions/runs/42203948091)実取得19:37:22.113471〜19:37:37.135129 JST、[42207714274](https://github.com/after6labo/metac-bot-template/actions/runs/42207714274)20:07:12.870010〜20:07:34.897252。両方tournament/no_new_questions、取得[0,0]、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。追加本番投稿なし。
+- 両実行・両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall119posts/118questions（closed93/resolved25）。境界19:07から全状態問題配列完全一致、新規/消失ID・状態・受付日時・回答済み証拠変更なし。q46576は締切後回答済み維持、既確認15:08の予測・説明の受付内投稿と整合。受付中未回答・締切による未回答消失なし。過去取り逃し保持。
+- JSON実取得開始間隔30分11.780187秒・29分50.756539秒、最大30分11.780187秒。20:35:48時点の直近空白28分35.129990秒、今回60分超なし。受付中未回答がなく締切残り評価対象なし。次回通常約20:37は実測目安で保証なし。20:07取得後の新規出題は未確認。既報起動空白原因・形式不備再発の恒久対策未確認は保持。
+- 最新AGENTS/README/実験ログ/latest/history/budget/performanceとActions/jobs/logsを再取得。AGENTS/README不変。境界履歴6db7be9199b95b7a6b33d26d71aeb35f42692787、先行履歴bcf17debc242747f39bbf2cd2e4c71ab2b7dcbb9、latest/最終履歴2f60013d091a1660ce42cf93c379588d2f5219c6はraw一致。全JSON git_shaとActions head一致。jobs127845802367/127858412856で各Python104件OK・Node12件pass/0fail、本番/保存step成功。結果artifact13495114842/13497755826、履歴push80aa993/28307ce成功。テスト・緑表示・空実行を競技参加に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget e8a69de9012d43c60b17644c27287c430b1e625b不変（UTC11/6累計4応答・7501tokens・失敗0、期限切れcooldown）。提供側無料枠消費/残量/請求実測ではない。performance2ddddded8cc2b9836f5960acb162e7f3284421da不変、新規収集なし、成績artifact13495297712/13497466313は既存snapshot再保存。公式成績更新なし。既報10/5Mini成績不整合、直近投稿の採点・賞金受領未確認は継続。
+- 同日00:20頃の公式規則監査（00:22節）を再利用。変更は実験ログのみ。手動再実行、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、有料切替、制限迂回、本人作業なし。新規投稿・障害・成績更新なし、同一未解決警告は繰り返さない。
+
 ## 2026-11-06 19:36 JST — 19:07本番を照合、受付中未回答・追加投稿なし
 
 - 前回42196323762以降の本番1実行：[42200073705](https://github.com/after6labo/metac-bot-template/actions/runs/42200073705)、実取得19:07:10.333284〜19:07:25.649086 JST。tournament/no_new_questions、取得[0,0]、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。

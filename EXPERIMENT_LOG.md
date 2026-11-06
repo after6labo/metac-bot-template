@@ -1,3 +1,12 @@
+## 2026-11-07 07:55 JST — 復旧後07:37本番も両監査一致、追加投稿なし
+
+- 前回42300762547 attempt2以降の全1本番：[42305988742](https://github.com/after6labo/metac-bot-template/actions/runs/42305988742) attempt1、実取得07:37:00.553553〜07:37:13.558724 JST。tournament/no_new_questions、SDK取得[0,0]、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、needs_attention/provider_paused_for_run=false。本番への追加投稿なし。
+- 両大会retrieval_audit complete/matched、missing_question_ids/forecast_evidence_mismatches/forecast_evidence_unknown=[]。MiniBench60posts/questions全closed、Fall120posts/119questions（closed89/resolved30）。07:25再取得との全状態問題配列完全一致、新規/消失ID・受付日時・回答済み証拠変更なし。受付中未回答・未回答の締切消失なし。過去取り逃しを保持。前回Fall ReadTimeoutは今回再発なし、根本原因特定や恒久復旧の保証ではない。
+- 実取得開始間隔11分58.586599秒（今回最大も同値）。07:54:42 UTC+9時点の直近空白17分41.446447秒、今回60分超なし。受付中未回答なし、締切残り評価対象なし。通常約30分間隔なら次回08:07前後が実測目安だが、起動時刻は保証しない。07:37後の新規出題は未確認。
+- 最新AGENTS/実験ログ/latest/前回境界以降history/budget/performanceとActions/jobs/logsを照合。AGENTS不変、latest/履歴e03d1165b1fd7a4b97916668197c7c4378eec221 raw一致、git_sha4f40ab77655c2993cd350dbea99170eb8e22464fはActions head一致。job128195299039でPython104件OK、Node12pass/0fail、本番・結果保存成功（artifact13546326751/pusha806dab）。テスト・空実行・緑表示は競技参加に数えない。
+- 追加LLM観測応答/tokens/失敗invocation/記録上新規費用0。budget103514581bc4a676ae773d6355b946e55971cbd4不変（UTC11/6累計6応答16858tokens失敗0、期限切れcooldown）。提供側無料枠消費/残量/請求実測ではない。performance d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変、not dueで新規収集なし、成績artifact13546256813は既存snapshot保存。公式成績更新なし、賞金受領未確認。既報10/5Mini成績不整合・起動空白原因・形式再発リスクを保持。
+- 同日00:24〜00:26公式規則監査を再利用。今回変更は実験ログのみ。手動再実行、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更、有料切替、制限迂回、本人作業なし。新規投稿・障害・成績更新なし、同一未解決警告は繰り返さない。
+
 ## 2026-11-07 07:28 JST — Fall監査ReadTimeoutを1回再実行し07:25復旧確認
 
 - 前回42292866658以降：[42296719584](https://github.com/after6labo/metac-bot-template/actions/runs/42296719584)実取得06:27:05.806183〜06:27:19.588160 JST、[42300762547](https://github.com/after6labo/metac-bot-template/actions/runs/42300762547) attempt1は06:57:14.034779〜06:57:42.180392。両方tournament、SDK取得[0,0]、selected/submitted/failed_or_unconfirmed0、outcomes/skips/question_windows/pending_questions/fetch_errors=[]、provider_paused_for_run=false。ただしattempt1のFall retrieval_auditはfailed/ReadTimeout、needs_attention=true/status=attention_requiredで本番step exit1。Fallは確認不能であり0件正常とは扱わない。MiniBench監査はcomplete/matched。

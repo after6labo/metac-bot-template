@@ -1,3 +1,11 @@
+## 2026-11-07 13:47 JST — 取得空白279分、再実行job未生成のまま継続
+
+- 13:46:35.513 JST時点、最終実取得09:07:13.689827から279分21.823173秒（今回までの最大空白）。再実行要求10:20:49から205分46.513秒。前回12:44と同じ受付カバー不全が継続。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。Actions直近100件に新規runなし。新しい取得・競技投稿・復旧証拠なし。
+- AGENTS/EXPERIMENT_LOG/latest/境界history/budget/performanceを再取得。AGENTS e6829347f5d734b567c60783cf568c7147421bbf不変。latestとhistory42316147438-1は6ff9862c3c5e12be4375bb023ef3d8bfb54150ebでraw一致。09:07のtournament/no_new_questionsは両audit complete/matched（Mini60closed、Fall89closed30resolved）、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows=[]、attention/providerpaused=false、failed0。この過去結果を現在の受付0件と扱わない。現在の受付中未回答・締切残り・取り逃し・次回取得は確認不能。
+- 追加の読み取り診断としてworkflow一覧による有効/無効状態確認を試みたが、接続の許可URL範囲外としてHTTP400 INVALID_ARGUMENT。これはGitHub側のworkflow無効化やBot認証拒否の証拠ではなく、診断接続の制約。別URL等で制限を迂回しない。利用可能ツールにcancel/dispatch操作もなし。前回の本番workflow/GASソース照合・12:43公式GitHub status確認を参照し、job開始前待機の根本原因・初期起動空白原因は未特定のまま。
+- 既存再実行要求を重ねず追加起動0、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更なし。監視を恒久停止せず、復旧後に空白期間の全公開受付日時と投稿証拠を照合する。未回答が期限で消えても解消とはしない。
+- budget605e4bc659af736748283a41c68222a12de42fe5、performance d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変。新しいLLM利用/投稿/費用結果なし、無料枠残量・賞金受領未確認、成績更新なし。同日00:24〜00:26公式規則監査を再利用。今回変更はログのみ、本人作業なし。過去取り逃し・他の未解決事項を保持。同一障害の重複通知はしない。
+
 ## 2026-11-07 12:44 JST — 取得空白216分、同一キュー待機継続
 
 - 12:43:37.811 JST時点、最終実取得09:07:13.689827から216分24.121173秒（今回までの最大空白）。前回11:33の継続インシデント。再実行要求10:20:49から142分48.811秒経過。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null/updated_at不変。直近100runs中の非completedはこの1件のみ、新規runなし。最新jobs=[]、全attempt jobsは元の成功job128229114452のみ。再実行job生成/開始・新しい問題取得・投稿・復旧の証拠なし。

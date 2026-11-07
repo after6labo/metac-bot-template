@@ -1,3 +1,10 @@
+## 2026-11-07 15:20 JST — 取得空白372分、既報のキュー待機が継続
+
+- 15:19:13.611 JST時点、実取得最終開始09:07:13.689827から371分59.921173秒（今回までの最大空白）。10:20:49の再実行要求から298分24.611秒。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。Actions直近100件の非completedはこの1件のみ、新規runなし。前回13:47から同一インシデント継続で、新しい取得・投稿・復旧証拠なし。
+- AGENTS/実験ログ/latest/境界history/budget/performanceを再取得。AGENTS e6829347f5d734b567c60783cf568c7147421bbf不変、latestとhistory42316147438-1は6ff9862c3c5e12be4375bb023ef3d8bfb54150ebでraw一致。旧09:07 tournamentの両audit complete/matched（Mini60closed/Fall89closed30resolved）、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows=[]、attention/providerpaused=false、failed0を確認。ただし現在の受付0件・正常とは扱わない。現在の未回答ID・締切残り・空白中の取り逃し・次回取得時刻は確認不能。新しいpendingがないのではなく、新しい観測自体がない。
+- 利用可能な復旧操作はjob/失敗job再実行のみでcancel/dispatchなし。既存要求は未開始のため重ねず、追加再実行0。前回までの起動経路調査・診断接続制約を保持。初期起動空白と長時間キュー待機の根本原因は未特定、復旧後の公式全公開受付日時と投稿履歴照合が必要。恒久停止・独自除外・上限追加なし。
+- budget605e4bc659af736748283a41c68222a12de42fe5、performance d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変。新規LLM利用/投稿/費用の結果なし、無料枠残量・賞金受領未確認、成績更新なし。同日00:24〜00:26公式規則監査を再利用。変更はログのみ、コード/設定/回答対象/停止条件/ライブ確率/プロンプト不変。本人作業なし。既報取り逃し・未解決事項を保持し、同一障害の重複通知はしない。
+
 ## 2026-11-07 13:47 JST — 取得空白279分、再実行job未生成のまま継続
 
 - 13:46:35.513 JST時点、最終実取得09:07:13.689827から279分21.823173秒（今回までの最大空白）。再実行要求10:20:49から205分46.513秒。前回12:44と同じ受付カバー不全が継続。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。Actions直近100件に新規runなし。新しい取得・競技投稿・復旧証拠なし。

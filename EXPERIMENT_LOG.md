@@ -1,3 +1,15 @@
+## 2026-11-08 01:24 JST — 日次報告：受付カバー不全が翌日まで継続
+
+- 01:23:13 JST確認。最終実取得11/7 09:07:13.689827から975分59.310173秒（今回までの最大空白）。11/7 10:20:49の単発再実行要求から902分24秒、[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。直近100runに新規runなし、唯一の非completed。取得再開・新規投稿・復旧証拠なし。
+- AGENTS/実験ログ/latest/budget/performance再取得。前回23:44以降の結果変更なし。Git tree全2132項目/truncated=false、新規historyなし。最新history42316147438-1.jsonとlatestは同blob6ff9862c3c5e12be4375bb023ef3d8bfb54150eb。旧09:07 tournament/no_new_questionsは両audit complete/matched、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows空、attention/providerpaused=false、failed0。古い結果を現在の正常・受付0件と扱わない。現在の未回答ID・締切・空白中取り逃し・次回実取得は確認不能。
+- 利用可能な接続のcancel/dispatch不在を再確認。追加再実行0、未開始要求の重複や根拠のないコード変更なし。初期起動空白・キュー内部原因・GAS実行履歴取得制約は未解決。GitHub公式statusを01:23に再確認しAll Systems Operational/Actions Operational、UTC11/7事故報告なし。ただし個別run復旧の証拠ではない。https://www.githubstatus.com/
+- 11/8の公式規則確認を実施：rules（編集Oct12）、resources（編集Oct29）、participate、Fall大会。自律予測と説明・ライブ出力を見た人の調整禁止、原則3時間受付/1問題1予測、Fall33121/minibench、Fall9/28–1/6を再確認。参加フォーム提出は既存ユーザー報告、寄付クレジットは選考制で不採択の既知事実を一般的な無料案内で上書きしない。季末アンケートは別途確認事項として保持。大会Webの139は全体表示であり受付中数でも現在API一覧でもない。
+  - https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/
+  - https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/
+  - https://www.metaculus.com/futureeval/participate/
+  - https://www.metaculus.com/tournament/fall-futureeval-2026/
+- 翌日まで当該障害中の新規本番投稿を確認できず、11/8の日次未解決報告を行う。最終確認済み競技投稿は11/6 q46577のまま。新しいLLM利用/費用/成績更新/賞金受領の証拠なし、無料枠残量未確認。変更はログのみ、回答対象/停止条件/プロンプト不変、本人作業なし。復旧後は空白期間の公式全公開受付日時と投稿証拠を照合し、期限消失を解消扱いしない。既報取り逃し・他の未解決点を保持。
+
 ## 2026-11-07 23:44 JST — 同一待機継続、取得空白876分超
 
 - 23:43:19 JST確認。最終実取得09:07:13.689827から876分05.310173秒（今回までの最大空白）、10:20:49再実行要求から802分30秒。Actions直近100件は新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。取得再開・新規投稿・復旧の証拠なし。受付カバー不全は未解決。

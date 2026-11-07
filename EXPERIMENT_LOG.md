@@ -1,3 +1,12 @@
+## 2026-11-07 11:22 JST — 取得空白134分、90分以上の受付カバー不全・再実行未開始
+
+- 前回10:25のインシデント継続。11:21:22.681 JST時点、実取得の最終開始09:07:13.689827から134分08.991173秒（今回までの最大空白）。90分閾値を超えた受付カバー不全として通知。現在の受付中件数・未回答ID・締切までの残り・空白中の取り逃しは確認不能。旧結果のpending=[]や監査matchedを現在の0件/正常と誤認しない。
+- 最新AGENTS/EXPERIMENT_LOG/latest/budget/performance、Actions全直近100件、run詳細、最新jobsおよび全attempt jobsを再取得。新規run・新しい結果履歴なし。42316147438は依然queued/run_attempt表示1、run_started_at/updated_atは10:20:49 JST（再実行受付時刻であって実取得時刻ではない）。最新jobs=[]、filter=allの全jobsは元job128229114452（09:06:23〜09:07:35 JST、success）の1件のみ。したがってモデル45/180秒やActions実行25分タイムアウトで止まった証拠はなく、再実行job生成/開始前の待機。再実行要求から60分33.681秒経過、受付成功を復旧・投稿成功には数えない。
+- 本番workflow b7b1fbadeb7a808e58d8e40a78945f24896f791f、GASソース558a4d93ab34bbfc85bbad753c384b65f80b356f、AGENTS e6829347f5d734b567c60783cf568c7147421bbf不変。GASコードは関連runが非completedならactive_runとして追加dispatchしない。このqueued状態はその抑止条件に該当するが、GASが実際に動作しているか、09:07〜10:20に途切れた理由は実行履歴/Script Properties未取得のため不明。GitHub待機の内部理由も不明。公式status https://www.githubstatus.com/ を11:21頃再確認、Actions Operational・当日障害掲載なし。個別待機を否定する証拠ではない。
+- 利用可能なGitHub操作を再確認したがqueued runのcancel/force-cancelや新規workflow_dispatchの操作は接続にない。現在のrunと競合する別job再実行、pushのためだけのコード変更、共有concurrency解除、認証情報の転用・新規キー作成、未確認の課金切替は行わない。前回の1回の再実行要求を維持し、この回の追加起動0。Botが未起動であるため、通常コード修正による改善を検証できる段階には至っていない。再実行待機が解消するまで未解決、復旧後は全公開受付日時と投稿履歴を照合する。
+- latestと境界historyは同じ6ff9862c3c5e12be4375bb023ef3d8bfb54150eb。最終tournamentはno_new_questions、両audit complete/matched（Mini60closed/Fall89closed30resolved）、submitted/failed0、outcomes/skips/windows/pending/fetch_errors=[]、attention/providerpaused=falseだが全て09:07時点。budget605e4bc659af736748283a41c68222a12de42fe5はUTC11/7観測応答/失敗/tokens0、cooldown期限切れ。成績d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変、成績更新・賞金受領未確認。新規LLM利用・投稿・費用の実行結果は得られていない。
+- 同日00:24〜00:26公式規則監査を再利用。変更は実験ログのみ、コード/設定/回答対象/停止条件/ライブ予測/プロンプト不変。既報取り逃し・起動原因・形式再発リスク・10/5Mini成績不整合を保持。本人に確率判断や新規費用を求めない。キューの一時的待機の可能性が残るため監視は継続し、恒久停止はしない。
+
 ## 2026-11-07 10:25 JST — 取得空白77分超、1回再実行要求も待機中・未解決
 
 - 前回09:07:13.689827 JSTの本番42316147438 attempt1以降、新しい本番結果なし。10:20:27時点で空白73分13.608173秒となり60分超のため調査。Actions直近100件と異なる件数の再取得でも、新規run・失敗run・当初の待機/実行中runなし。直前attempt1の本番処理/保存は成功、履歴/latest SHA6ff9862c3c5e12be4375bb023ef3d8bfb54150eb raw一致。旧結果の両監査matched/pending空を現在の受付0件とは扱わない。09:07以降は確認不能。

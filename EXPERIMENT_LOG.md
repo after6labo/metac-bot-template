@@ -1,3 +1,10 @@
+## 2026-11-07 19:37 JST — 同一待機継続、取得空白629分超
+
+- 19:36:34 JST確認。最終実取得09:07:13.689827から629分20.310173秒（今回までの最大空白）、10:20:49再実行要求から555分45秒。Actions直近100件に新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。取得再開・投稿・復旧の証拠なし。既報の受付カバー不全は未解決。
+- AGENTS/実験ログ/latest/境界history/budget/performanceを再取得。AGENTS e6829347f5d734b567c60783cf568c7147421bbf、latest/history6ff9862c3c5e12be4375bb023ef3d8bfb54150eb（raw一致）、budget605e4bc659af736748283a41c68222a12de42fe5、performance d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変。Git tree全2132項目/truncated=falseで新規履歴なし。旧09:07 tournament/no_new_questionsは両audit complete/matched、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows空、attention/providerpaused=false、failed0。過去の空結果を現在の受付0件と解釈しない。
+- 現在の未回答ID・締切残り・空白中取り逃し・次回取得は確認不能。接続にcancel/dispatch操作なしを再確認。既存未開始要求への追加再実行0、コード/設定/回答対象/停止条件/ライブ確率/プロンプト変更なし。初期起動空白とキュー内部原因、GAS実行履歴を取得できない制約は残る。復旧後に空白中の公式受付日時と投稿履歴を照合する。期限消失は解消ではない。
+- 同日公式規則監査を再利用、新しいLLM利用/費用/成績更新/賞金受領の証拠なし、無料枠残量未確認。変更はログのみ、本人作業なし。既報取り逃し・他の未解決点を保持し、同一状態の重複通知を抑制。監視は継続する。
+
 ## 2026-11-07 18:43 JST — 同一待機継続、取得空白575分超
 
 - 18:43:11 JST時点、最終実取得09:07:13.689827から575分57.310173秒（今回までの最大空白）、再実行要求10:20:49から502分22秒。Actions直近100件に新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。新しい取得・投稿・復旧証拠なし。既報の受付カバー不全を未解決として保持。

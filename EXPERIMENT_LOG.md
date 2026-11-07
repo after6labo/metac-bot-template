@@ -1,3 +1,10 @@
+## 2026-11-07 17:56 JST — 取得空白528分超、既報キュー待機継続
+
+- 17:56:07 JST時点、最終実取得09:07:13.689827から528分53.310173秒（今回までの最大空白）、再実行要求10:20:49から455分18秒。Actions直近100件に新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/updated_at不変。最新jobs=[]、全attempt jobsは元の成功job128229114452のみ。再実行job生成・新しい取得・投稿・復旧証拠なし。同一の受付カバー不全を未解決として保持。
+- 最新AGENTS/実験ログ/latest/境界history/budget/performanceを再取得。AGENTS e6829347f5d734b567c60783cf568c7147421bbf、latest/history 6ff9862c3c5e12be4375bb023ef3d8bfb54150eb（raw一致）、budget605e4bc659af736748283a41c68222a12de42fe5、performance d2247d090dca84f6cb5596ce06b4a85cf6b97f82不変。historyのContents一覧は1000件で打ち切られるため完全性の根拠にせず、Git tree recursive全2132項目/truncated=falseで新規履歴なしを確認。09:07 tournament/no_new_questionsの両audit complete/matched、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows空、attention/providerpaused=false、submitted/failed0を照合。過去観測を現在の受付0件とは扱わない。
+- 現在の受付中未回答ID・締切残り・空白中取り逃し・次回実取得は確認不能。復旧後に全公開受付日時と投稿証拠の再照合が必要。公式 https://www.githubstatus.com/ を17:55頃再確認、Actions Operational/Nov7障害掲載なしだが個別runの原因否定ではない。初期起動空白・未開始キュー内部原因は未特定。利用可能な接続にはcancel/dispatchなし、GAS実行履歴未取得という既報制約は継続。再実行要求を重ねず追加起動0、共有concurrency解除・推測コード変更・認証転用なし。
+- 同日00:24〜00:26の公式Metaculus規則監査を再利用。新しいLLM利用/費用/成績更新/賞金受領の証拠なし、無料枠残量未確認。変更は実験ログのみ、回答対象/停止条件/ライブ確率/プロンプト不変、本人作業なし。既報取り逃しと他の未解決事項を保持。監視を恒久停止せず、同一未解決状態の重複通知を抑制する。
+
 ## 2026-11-07 16:33 JST — 直前確認後も変化なし
 
 - 16:32:20.981 JST再取得。実取得最終09:07:13.689827から445分07.291173秒（最大空白）、再実行要求10:20:49から371分31.981秒。Actions直近100件は新規runなし、唯一の非completedは42316147438 queued/attempt表示1、updated_at不変、最新jobs=[]。AGENTS/latest/境界history/budget/performanceは16:26記録と同SHA。latest/history raw一致、過去09:07 tournamentの両audit complete/matched、pending/fetch_errors/skips/outcomes空、attention/providerpaused=false、failed0を再照合。現在の受付中件数・未回答・締切残り・取り逃し・次回取得は依然確認不能。新しい観測・投稿・復旧証拠なし。

@@ -1,3 +1,10 @@
+## 2026-11-07 23:44 JST — 同一待機継続、取得空白876分超
+
+- 23:43:19 JST確認。最終実取得09:07:13.689827から876分05.310173秒（今回までの最大空白）、10:20:49再実行要求から802分30秒。Actions直近100件は新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/conclusion=null/updated_at不変、最新jobs=[]。取得再開・新規投稿・復旧の証拠なし。受付カバー不全は未解決。
+- AGENTS/実験ログ/latest/budget/performanceを再取得。実験ログ以外は前回と同SHA。全Git tree2132項目/truncated=falseで新規historyなし、最新history42316147438-1.jsonはlatestと同blob6ff9862c3c5e12be4375bb023ef3d8bfb54150eb。旧09:07 tournament/no_new_questionsは両audit complete/matched、missing/mismatch/unknown/fetch_errors/pending/outcomes/skips/windows空、attention/providerpaused=false、failed0を再確認。現在の受付件数・未回答ID・締切残り・空白中取り逃し・次回実取得は確認不能であり0件・正常とはしない。
+- 利用可能なGitHub接続にcancel/dispatchなしを再確認。既存未開始要求を重ねず追加再実行0。初期起動空白とキュー内部原因、GAS実行履歴取得の制約は継続。復旧後に空白中の公式全公開受付日時と投稿証拠を照合し、期限消失を解消扱いしない。
+- 同日公式規則監査を再利用。新しいLLM利用/費用/公式成績更新/賞金受領の証拠なし、無料枠残量未確認。変更は実験ログのみ。コード/設定/回答対象/停止条件/ライブ確率/プロンプト不変、本人作業なし。既報取り逃しと他の未解決点を保持。同一状態の重複通知を抑制する。
+
 ## 2026-11-07 22:56 JST — 同一待機継続、取得空白827分超
 
 - 22:54:29 JST確認。最終実取得09:07:13.689827から827分15.310173秒（今回までの最大空白）、10:20:49再実行要求から753分40秒。Actions直近100件に新規runなし、唯一の非completedは[42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438) queued/attempt表示1/conclusion=null/updated_at不変。22:55の最新jobs=[]、取得再開・新規投稿・復旧証拠なし。受付カバー不全は未解決。

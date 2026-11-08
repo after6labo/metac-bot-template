@@ -1,3 +1,13 @@
+## 2026-11-09 01:21 JST — 日次報告：取得空白40時間超、待機障害未解決
+
+- 01:19:56 JST基準、最終実取得11/7 09:07:13.689827から2412分42.310173秒（40時間12分、今回までの最大空白）。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null、updated_atは11/7 10:20:49のまま、最新jobs=[]。直近100runに新規runなし、唯一の非completed。11/7に1回行った再実行要求は開始証拠なし。受付カバー不全は未解決。
+- AGENTS/実験ログ/latestを再取得。前回23:48以降の新規historyなし（全Git tree2132項目/truncated=false、最新42316147438-1.jsonとlatest同blob）。budget/performance/本番workflow/GASコードも既知blobと一致。旧tournament/no_new_questionsは両audit complete/matched、Mini60問closed、Fall119問closed89/resolved30。fetch_errors/pending/windows/outcomes/skips/missing/mismatch/unknown空、failed0、attention/providerpaused=false。現在の受付0件・正常とは判定しない。受付中未回答ID・締切残り・空白中取り逃し・次回取得見込みは確認不能。
+- cancel/dispatch操作不在を再確認。追加再実行0、未開始要求を重ねず、根拠のないコード変更やconcurrency解除なし。初期起動空白・キュー内部原因・GAS実行履歴取得制約は未解決。診断workflowの新規起動も現在の接続操作では不可。復旧後は空白期間の公式全公開受付日時と投稿証拠を照合し、期限消失を解消扱いしない。
+- 11/9公式規則監査： [公式規則](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)（編集10/12）、[参加案内](https://www.metaculus.com/futureeval/participate/)、[Resources](https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/)（編集10/29）を再確認。自律予測と説明、ライブ出力を見た人間の調整禁止、原則1主Bot、3時間受付・1問1予測、privateコメント、参加フォーム、対象33121/minibenchを確認。寄付クレジットは選考制で必須ではない。ユーザー報告の不採択を覆さず無料ルーターのみ継続、季末アンケートは別途確認。広い規則監査は本日この記録を再利用する。
+- [Fall大会ページ](https://www.metaculus.com/tournament/fall-futureeval-2026/)は9/28–1/6、賞金総額$50k。今回WebのView Questions表示161（前日監査139）を観測。リンク先も大会ページで個別受付日時の一覧は得られず。この総件数表示は受付中件数でも自Bot未回答数でもなく、旧API120postとの差をそのまま取り逃し件数にしない。現在の独立API監査は更新不能。
+- [GitHub Status](https://www.githubstatus.com/)はActions Operational。UTC11/8 10:36–12:32の主に未認証利用者のAPIタイムアウト障害は解決表示。本run待機開始より後であり、本件の原因・復旧証拠とはしない。
+- ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト不変、本人作業なし、今回LLM呼出し・新規費用なし。新しい投稿・公式成績更新・賞金受領証拠なし、無料枠残量未確認。過去の競技投稿実績は保持するが、現在の投稿再開は未確認。既報取り逃し・未解決点を保持。日付変更後も投稿再開なしのため本日の未解決状況を通知する。
+
 ## 2026-11-08 23:48 JST — 同一待機継続、受付カバー不全は未解決
 
 - 23:47:56 JST基準、最終実取得11/7 09:07:13.689827から2320分42.310173秒（38時間40分、今回までの最大空白）。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null、updated_atは11/7 10:20:49のまま、最新jobs=[]。直近100runに新規runなし、唯一の非completed。取得再開・新規投稿・復旧の証拠なし。

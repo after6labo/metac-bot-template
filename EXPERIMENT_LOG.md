@@ -1,3 +1,13 @@
+## 2026-11-10 00:26 JST — 日次報告：63時間超の取得空白、待機障害未解決
+
+- 00:26:40 JST基準、最終実取得11/7 09:07:13.689827から3799分26.310173秒（63時間19分、今回までの最大空白）。[run42316147438](https://github.com/after6labo/metac-bot-template/actions/runs/42316147438)はqueued/attempt表示1/conclusion=null、updated_at=11/7 10:20:49、最新jobs=[]。直近100runに前回22:41以降の新規runなし、唯一の非completed。11/7の1回の再実行要求は開始証拠なし。受付カバー不全は未解決。
+- 最新AGENTS/ログ/latestと全Git tree2132項目（truncated=false）を照合。新規historyなし、latestと最新42316147438-1.json同blob。budget/performance/workflow/GASも不変。旧tournament/no_new_questionsは両audit complete/matched、Mini60問closed、Fall119問closed89/resolved30。fetch_errors/pending/windows/outcomes/skips/missing/mismatch/unknown空、failed0、attention/providerpaused=false。ただし現在の受付・未回答ID・締切残り・空白中取り逃し・次回実取得は確認不能。古い0件は現在の正常や参加の証拠ではない。
+- cancel/dispatch操作不在を再確認。診断workflow新規起動も利用可能操作では不可。未開始要求の追加再実行なし。初期起動空白・キュー内部原因・GAS実行履歴取得制約は未解決。復旧後の公式全公開受付日時と投稿証拠の照合課題を保持し、期限消失を解消扱いしない。
+- 11/10公式監査：[公式規則](https://www.metaculus.com/notebooks/28751/futureeval-competition-rules/)（編集10/12）、[参加案内](https://www.metaculus.com/futureeval/participate/)、[Resources](https://www.metaculus.com/notebooks/38928/bot-tournament-resources-page/)（編集10/29）を再確認。自律予測と説明、ライブ出力を見た人間の調整禁止、原則1主Bot、3時間受付・1問1予測、privateコメント、参加フォーム、33121/minibenchを確認。寄付クレジットは選考制・不採択でも参加可能。ユーザー報告の不採択を覆さず既存無料ルーターのみ、季末アンケートは別途確認。本日以後はこの規則監査を再利用する。
+- [Fall大会](https://www.metaculus.com/tournament/fall-futureeval-2026/)は9/28–1/6、賞金総額$50k、View Questions表示161。受付中数・未回答数ではなく、個別受付の独立API監査の代用にはしない。
+- [GitHub Status](https://www.githubstatus.com/)で新たに11/9 UTC10:00–11:50（JST19:00–20:50）のWebhooks/Actions障害記録を確認。開始遅延が報告され、現在は解決・Actions Operational。本件待機開始11/7より後のため初期原因とはしない。公式全体の解決表示も自Bot復旧の証拠ではない。11/9 UTC07:43–09:09の匿名アクセス504も認証済みリクエストは影響なしと記載。
+- ログのみ更新。回答対象/停止条件/コード/設定/ライブ確率/プロンプト不変。今回BotのLLM呼出し・新規費用・本人作業なし。新規投稿・公式成績更新・賞金受領証拠なし、無料枠残量未確認。既報の競技投稿・取り逃しを保持。日付変更後も投稿再開なしのため日次報告する。
+
 ## 2026-11-09 22:41 JST — 直前確認後の差分なし
 
 - 22:41:21 JSTに最新AGENTS/ログ/latest、Actions直近100run、全Git tree2132項目（truncated=false）、最新jobsを再取得。22:34以降の新規run/historyなし。run42316147438はqueued/attempt表示1/conclusion=null、updated_at=11/7 10:20:49、jobs=[]。最終実取得11/7 09:07:13.689827から3694分7.310173秒（61時間34分、今回までの最大空白）。受付カバー不全は未解決。
